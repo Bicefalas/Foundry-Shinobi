@@ -1,0 +1,78 @@
+{
+  "id": "shinobi",
+  "title": "Shinobi - Tierras Ocultas ",
+  "description": "Un juego de ninjas situado en un continente lejano, basado en el sistema de juego RENd10.",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11",
+    "maximum": "12"
+  },
+  "authors": [
+    {
+      "name": "Bicefalas",
+      "email": "alainsith@gmail.com",
+      "discord": "Bicefalas"
+    }
+  ],
+  "esmodules": [
+    "shinobi.mjs"
+  ],
+  "styles": [
+    "styles/shinobi.css"
+  ],
+  "packs": [
+    {
+      "name": "yokais",
+      "label": "Yokais",
+      "system": "shinobi",
+      "path": "packs/yokais",
+      "type": "Actor"
+    },
+    {
+      "name": "weapons",
+      "label": "Armas",
+      "system": "shinobi",
+      "path": "packs/weapons",
+      "type": "Item"
+    },
+    {
+      "name": "armors",
+      "label": "Armaduras",
+      "system": "shinobi",
+      "path": "packs/armors",
+      "type": "Item"
+    },
+    {
+      "name": "objects",
+      "label": "Objetos",
+      "system": "shinobi",
+      "path": "packs/objects",
+      "type": "Item"
+    },
+    {
+      "name": "technics",
+      "label": "Técnicas",
+      "system": "shinobi",
+      "path": "packs/technics",
+      "type": "Item"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "path": "lang/es.json"
+    }
+  ],
+  "socket": false,
+  "initiative": "1d10 + @initiativeTotal",
+  "gridDistance": 2,
+  "gridUnits": "",
+  "primaryTokenAttribute": "resources.health",
+  "secondaryTokenAttribute": "resources.power",
+  "url": "https://github.com/Bicefalas/Foundry-Shinobi",
+  "background": "systems/shinobi/assets/background.jpg",
+  "manifest": "https://github.com/Bicefalas/Foundry-Shinobi/blob/main/system.json",
+  "download": null
+}
