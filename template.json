@@ -49,59 +49,6 @@
             "armor",
             "object",
             "technic"
-        ],
-        "templates": {
-            "itemDescription": {
-                "description": ""
-            },
-            "itemCommonAttributes": {
-                "rarity": "Common",
-                "quality": 0,
-                "price": 20
-            }
-        },
-        "weapon": {
-            "templates":[
-                "itemDescription",
-                "itemCommonAttributes"
-            ],
-            "damage": 0,
-            "initiativeWeapon": 0,
-            "requiredStrengh": 0,
-            "size": "Medium",
-            "reload": 0,
-            "range": 0,
-            "special": ""
-        },
-        "armor": {
-            "templates":[
-                "itemDescription",
-                "itemCommonAttributes"
-            ],
-            "penalizerArmor": 0,
-            "requiredCarryArmor": 0,
-            "type": "Material armor",
-            "size": "Medium",
-            "phisicalArmor": 0,
-            "heatArmor": 0,
-            "coldArmor": 0,
-            "electricArmor": 0,
-            "sobrenaturalArmor": 0
-        },
-        "object": {
-            "templates":[
-                "itemDescription",
-                "itemCommonAttributes"
-            ],
-            "size": "Medium",
-            "weight": 0,
-            "effect": ""
-        },
-        "technic": {
-            "templates":[
-                "itemDescription"
-            ],
-            "cost": ""
-        }
+        ]
     }
 }
