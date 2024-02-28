@@ -1,29 +1,58 @@
 {
-  "shinobi": {
-    "itemDescription": "Descripción",
-    "itemWeaponTypes": "Tipo de arma",
-    "weapon": {
-      "damage": "Daño de arma",
-      "damageAbbr": "Daño",
-      "initiative": "Iniciativa de Arma",
-      "initiativeAbbr": "Iniciativa",
-      "requiredStrengh": "Fuerza requerida",
-      "requiredStrenghAbbr": "FUE requerida",
-      "size": "Tamaño",
-      "sizeAbbr": "TAM",
-      "reload": "Tiempo de recarga",
-      "reloadAbbr": "Recarga",
-      "range": "Rango",
-      "rangeAbbr": "Rango",
-      "special": "Propiedades",
-      "specialAbbr": "Prop"
+  "SHINOBI": {
+    "Ability": {
+      "Str": {
+        "long": "Strength",
+        "abbr": "str"
+      },
+      "Con": {
+        "long": "Constitution",
+        "abbr": "con"
+      },
+      "Dex": {
+        "long": "Dexterity",
+        "abbr": "dex"
+      },
+      "Int": {
+        "long": "Intelligence",
+        "abbr": "int"
+      },
+      "Wis": {
+        "long": "Wisdom",
+        "abbr": "wis"
+      },
+      "Cha": {
+        "long": "Charisma",
+        "abbr": "cha"
+      }
     },
-    "weaponTypes": {
-      "simpleM": "Cuerpo a cuerpo",
-      "simpleR": "A distancia",
-      "martialM": "Arte Marcial",
-      "martialR": "Arte Marcial a Distancia",
-      "shield": "Escudo"
+    "SheetLabels": {
+      "Actor": "Shinobi Actor Sheet",
+      "Item": "Shinobi Item Sheet"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature",
+      "spell": "Spell"
     }
   }
 }

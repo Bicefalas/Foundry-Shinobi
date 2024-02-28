@@ -1,0 +1,29 @@
+{
+  "shinobi": {
+    "itemDescription": "Descripción",
+    "itemWeaponTypes": "Tipo de arma",
+    "weapon": {
+      "damage": "Daño de arma",
+      "damageAbbr": "Daño",
+      "initiative": "Iniciativa de Arma",
+      "initiativeAbbr": "Iniciativa",
+      "requiredStrengh": "Fuerza requerida",
+      "requiredStrenghAbbr": "FUE requerida",
+      "size": "Tamaño",
+      "sizeAbbr": "TAM",
+      "reload": "Tiempo de recarga",
+      "reloadAbbr": "Recarga",
+      "range": "Rango",
+      "rangeAbbr": "Rango",
+      "special": "Propiedades",
+      "specialAbbr": "Prop"
+    },
+    "weaponTypes": {
+      "simpleM": "Cuerpo a cuerpo",
+      "simpleR": "A distancia",
+      "martialM": "Arte Marcial",
+      "martialR": "Arte Marcial a Distancia",
+      "shield": "Escudo"
+    }
+  }
+}

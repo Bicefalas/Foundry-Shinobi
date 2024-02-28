@@ -16,7 +16,7 @@
     }
   ],
   "esmodules": [
-    "shinobi.mjs"
+    "module/shinobi.mjs"
   ],
   "styles": [
     "styles/shinobi.css"
@@ -67,10 +67,10 @@
   ],
   "socket": false,
   "initiative": "1d10 + @initiativeTotal",
-  "gridDistance": 2,
-  "gridUnits": "",
-  "primaryTokenAttribute": "resources.health",
-  "secondaryTokenAttribute": "resources.power",
+  "gridDistance": 1,
+  "gridUnits": "mts",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
   "url": "https://github.com/Bicefalas/Foundry-Shinobi",
   "background": "systems/shinobi/assets/background.jpg",
   "manifest": "https://github.com/Bicefalas/Foundry-Shinobi/blob/main/system.json",

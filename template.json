@@ -1,54 +1,110 @@
 {
-    "Actor": {
-        "types": [
-            "shinobi",
-            "enemy"
-        ],
-        "templates": {
-            "background": {
-                "biography": "",
-                "hairColor": "blue"
-            },
-            "resources": {
-                "health": {
-                    "min": -100,
-                    "value": 100,
-                    "max": 1000
-                },
-                "power": {
-                    "min": 0,
-                    "value": 1,
-                    "max": 3
-                }
-            }
+  "Actor": {
+    "types": [
+      "shinobi",
+      "enemy"
+    ],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
         },
-        "shinobi": {
-            "templates": [
-                "background",
-                "resources"
-            ],
-            "goodness": {
-                "value": 5,
-                "max": 10
-            }
+        "power": {
+          "value": 5,
+          "min": 0,
+          "max": 5
         },
-        "enemy": {
-            "templates": [
-                "background",
-                "resources"
-            ],
-            "wickedness": {
-                "value": 5,
-                "max": 100
-            }
-        }
+        "biography": ""
+      }
     },
-    "Item": {
-        "types": [
-            "weapon",
-            "armor",
-            "object",
-            "technic"
-        ]
+    "shinobi": {
+      "templates": [
+        "base"
+      ],
+      "attributes": {
+        "level": {
+          "value": 1
+        }
+      },
+      "abilities": {
+        "str": {
+          "value": 10
+        },
+        "dex": {
+          "value": 10
+        },
+        "con": {
+          "value": 10
+        },
+        "int": {
+          "value": 10
+        },
+        "wis": {
+          "value": 10
+        },
+        "cha": {
+          "value": 10
+        }
+      }
+    },
+    "enemy": {
+      "templates": [
+        "base"
+      ],
+      "cr": 0
     }
+  },
+  "Item": {
+    "types": [
+      "object",
+      "weapon",
+      "armor",
+      "technic"
+    ],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "object": {
+      "templates": [
+        "base"
+      ],
+      "quantity": 1,
+      "weight": 0
+    },
+    "weapon": {
+      "templates": [
+        "base"
+      ],
+      "damage": 0,
+      "initiative": 0,
+      "requiredStrengh": 0,
+      "size": "",
+      "reload": 0,
+      "range": 0,
+      "special": "",
+      "formula": "d10 + @dex.mod"
+    },
+    "armor": {
+      "templates": [
+        "base"
+      ],
+      "initiative": 0,
+      "requiredCarryArmor": 0,
+      "phisicalArmorValue": 0,
+      "heatArmorValue": 0,
+      "coldArmorValue": 0,
+      "electricalArmorValue": 0,
+      "sobrenaturalArmorValue": 0
+    },
+    "technic": {
+      "templates": [
+        "base"
+      ],
+      "technicLevel": 1
+    }
+  }
 }
