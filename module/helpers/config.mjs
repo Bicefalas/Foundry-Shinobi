@@ -9,8 +9,9 @@ SHINOBI.abilities = {
   dex: 'SHINOBI.Ability.Dex.long',
   con: 'SHINOBI.Ability.Con.long',
   int: 'SHINOBI.Ability.Int.long',
-  wis: 'SHINOBI.Ability.Wis.long',
-  cha: 'SHINOBI.Ability.Cha.long',
+  per: 'SHINOBI.Ability.Per.long',
+  wil: 'SHINOBI.Ability.Wil.long',
+  pow: 'SHINOBI.Ability.Pow.long'
 };
 
 SHINOBI.abilityAbbreviations = {
@@ -18,6 +19,7 @@ SHINOBI.abilityAbbreviations = {
   dex: 'SHINOBI.Ability.Dex.abbr',
   con: 'SHINOBI.Ability.Con.abbr',
   int: 'SHINOBI.Ability.Int.abbr',
-  wis: 'SHINOBI.Ability.Wis.abbr',
-  cha: 'SHINOBI.Ability.Cha.abbr',
+  per: 'SHINOBI.Ability.Per.abbr',
+  wil: 'SHINOBI.Ability.Wil.abbr',
+  pow: 'SHINOBI.Ability.Pow.abbr'
 };

@@ -3,27 +3,31 @@
     "Ability": {
       "Str": {
         "long": "Strength",
-        "abbr": "str"
+        "abbr": "STR"
       },
       "Con": {
         "long": "Constitution",
-        "abbr": "con"
+        "abbr": "CON"
       },
       "Dex": {
         "long": "Dexterity",
-        "abbr": "dex"
+        "abbr": "DEX"
       },
       "Int": {
         "long": "Intelligence",
-        "abbr": "int"
+        "abbr": "INT"
       },
-      "Wis": {
-        "long": "Wisdom",
-        "abbr": "wis"
+      "Per": {
+        "long": "Perception",
+        "abbr": "PER"
       },
-      "Cha": {
-        "long": "Charisma",
-        "abbr": "cha"
+      "Wil": {
+        "long": "Will",
+        "abbr": "WIL"
+      },
+      "Pow": {
+        "long": "Power",
+        "abbr": "POW"
       }
     },
     "SheetLabels": {

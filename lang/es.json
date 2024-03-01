@@ -1,29 +1,66 @@
 {
+  "Name": "Nombre",
+  "Features": "Características",
+  "Description": "Descripción",
+  "Items": "Objetos",
+  "Spells": "Hechizos",
+  "Effects": "Efectos",
+  "Health": "Vida",
+  "Power": "Poder",
+  "Level": "Nivel",
+  "Class": "Clase",
+  "Warrior": "Guerrero",
+  "Rogue": "Pícaro",
+  "Ninja": "Ninja",
+  "Shaolin": "Shaolin",
+  "Omnyoji": "Omnyoji",
+  "Samurai": "Samurái",
+  "Henge": "Henge",
+  "Kannushi": "Kannushi",
+  "Warrior Omnyoji": "Omnyoji Guerrero",
+  "Rōnin": "Rōnin",
+  "Ryōshi": "Ryōshi",
+  "Energy Shaolin": "Shaolin de Energía",
+  "Max Health": "Vida Máxima",
+  "Max Power": "Poder Máximo",
+  "Erase": "Borrar",
+  "Ethnicity": "Etnia",
+  "Ainu": "Ainu",
+  "Yamato": "Yamato",
+  "Mongolian": "Mongol",
+  "Buyei": "Buyei",
+  "Cuman": "Cumano",
+  "Scythian": "Escita",
+  "Initiative": "Iniciativa",
   "SHINOBI": {
     "Ability": {
       "Str": {
-        "long": "Strength",
-        "abbr": "str"
+        "long": "Fuerza",
+        "abbr": "FUE"
       },
       "Con": {
-        "long": "Constitution",
-        "abbr": "con"
+        "long": "Constitución",
+        "abbr": "CON"
       },
       "Dex": {
-        "long": "Dexterity",
-        "abbr": "dex"
+        "long": "Destreza",
+        "abbr": "DES"
       },
       "Int": {
-        "long": "Intelligence",
-        "abbr": "int"
+        "long": "Inteligencia",
+        "abbr": "INT"
       },
-      "Wis": {
-        "long": "Wisdom",
-        "abbr": "wis"
+      "Per": {
+        "long": "Percepción",
+        "abbr": "PER"
       },
-      "Cha": {
-        "long": "Charisma",
-        "abbr": "cha"
+      "Wil": {
+        "long": "Voluntad",
+        "abbr": "VOL"
+      },
+      "Pow": {
+        "long": "Poder",
+        "abbr": "POD"
       }
     },
     "SheetLabels": {
@@ -46,13 +83,14 @@
   },
   "TYPES": {
     "Actor": {
-      "character": "Character",
-      "npc": "NPC"
+      "character": "Personaje Jugador",
+      "npc": "PNJ"
     },
     "Item": {
-      "item": "Item",
-      "feature": "Feature",
-      "spell": "Spell"
+      "object": "Objeto",
+      "weapon": "Arma",
+      "armor": "Armadura",
+      "technic": "Técnica"
     }
   }
 }

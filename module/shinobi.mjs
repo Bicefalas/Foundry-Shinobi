@@ -30,7 +30,7 @@ Hooks.once('init', function () {
    */
   CONFIG.Combat.initiative = {
     formula: '1d10 + @abilities.dex.mod',
-    decimals: 2,
+    decimals: 0,
   };
 
   // Define custom Document classes

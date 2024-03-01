@@ -42,17 +42,42 @@ export class ShinobiActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+    if (actorData.type !== 'shinobi' && actorData.type !== 'npc') return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 5) / 3);
-    }
-  }
+      // Calculate the modifier.
+      switch (ability.value) {
+        case 1:
+          // if this case is allowed
+          ability.mod = -8;
+          break;
+
+        case 2:
+          // if this case is allowed
+          ability.mod = -4;
+          break;
+
+        case 3:
+          // if this case is allowed
+          ability.mod = -2;
+          break;
+
+        case 4:
+          // if this case is allowed
+          ability.mod = -1;
+          break;
+
+        default:
+          //if none of the cases doesn't fit
+          ability.mod = Math.floor((ability.value - 5) / 3);
+      };
+    };
+  };
+
 
   /**
    * Prepare NPC type specific data.

@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
 }
 
-.rollable:hover, .rollable:focus {
+.rollable:hover,
+.rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
@@ -207,6 +209,7 @@
 .shinobi .item-form {
   font-family: "Roboto", sans-serif;
 }
+
 .shinobi .sheet-header {
   flex: 0 auto;
   overflow: hidden;
@@ -216,42 +219,52 @@
   justify-content: flex-start;
   margin-bottom: 10px;
 }
+
 .shinobi .sheet-header .profile-img {
   flex: 0 0 100px;
   height: 100px;
   margin-right: 10px;
 }
+
 .shinobi .sheet-header .header-fields {
   flex: 1;
 }
+
 .shinobi .sheet-header h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
+
 .shinobi .sheet-header h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
+
 .shinobi .sheet-tabs {
   flex: 0;
 }
+
 .shinobi .sheet-body,
 .shinobi .sheet-body .tab,
 .shinobi .sheet-body .tab .editor {
   height: 100%;
 }
+
 .shinobi .tox .tox-editor-container {
   background: #fff;
 }
+
 .shinobi .tox .tox-edit-area {
   padding: 0 8px;
 }
+
 .shinobi .resource-label {
   font-weight: bold;
 }
+
 .shinobi .items-header {
   height: 28px;
   margin: 2px 0;
@@ -261,16 +274,19 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.shinobi .items-header > * {
+
+.shinobi .items-header>* {
   font-size: 14px;
   text-align: center;
 }
+
 .shinobi .items-header .item-name {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
   display: flex;
 }
+
 .shinobi .items-list {
   list-style: none;
   margin: 0;
@@ -279,11 +295,13 @@
   scrollbar-width: thin;
   color: #444;
 }
+
 .shinobi .items-list .item-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .shinobi .items-list .item-name {
   flex: 2;
   margin: 0;
@@ -293,32 +311,40 @@
   align-items: center;
   display: flex;
 }
-.shinobi .items-list .item-name h3, .shinobi .items-list .item-name h4 {
+
+.shinobi .items-list .item-name h3,
+.shinobi .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
 }
+
 .shinobi .items-list .item-controls {
   display: flex;
   flex: 0 0 100px;
   justify-content: flex-end;
 }
+
 .shinobi .items-list .item-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
+
 .shinobi .items-list .item {
   align-items: center;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
 }
+
 .shinobi .items-list .item:last-child {
   border-bottom: none;
 }
+
 .shinobi .items-list .item .item-name {
   color: #191813;
 }
+
 .shinobi .items-list .item .item-name .item-image {
   flex: 0 0 30px;
   height: 30px;
@@ -326,12 +352,14 @@
   border: none;
   margin-right: 5px;
 }
+
 .shinobi .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
+
 .shinobi .items-list .items-header {
   height: 28px;
   margin: 2px 0;
@@ -341,18 +369,22 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.shinobi .items-list .items-header > * {
+
+.shinobi .items-list .items-header>* {
   font-size: 12px;
   text-align: center;
 }
+
 .shinobi .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
 }
+
 .shinobi .item-formula {
   flex: 0 0 200px;
   padding: 0 8px;
 }
+
 .shinobi .effects .item .effect-source,
 .shinobi .effects .item .effect-duration,
 .shinobi .effects .item .effect-controls {
@@ -361,6 +393,7 @@
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
+
 .shinobi .effects .item .effect-controls {
   border: none;
 }
