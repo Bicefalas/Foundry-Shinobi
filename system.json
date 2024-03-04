@@ -19,7 +19,7 @@
     "module/shinobi.mjs"
   ],
   "styles": [
-    "styles/shinobi.css"
+    "css/shinobi.css"
   ],
   "packs": [
     {

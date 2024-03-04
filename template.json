@@ -30,25 +30,39 @@
       },
       "abilities": {
         "str": {
-          "value": 5
+          "value": 5,
+          "long": "Strength",
+          "abbr": "STR"
         },
         "dex": {
-          "value": 5
+          "value": 5,
+          "long": "Dexterity",
+          "abbr": "DEX"
         },
         "con": {
-          "value": 5
+          "value": 5,
+          "long": "Constitution",
+          "abbr": "CON"
         },
         "int": {
-          "value": 5
+          "value": 5,
+          "long": "Intelligence",
+          "abbr": "INT"
         },
         "per": {
-          "value": 5
+          "value": 5,
+          "long": "Perception",
+          "abbr": "PER"
         },
         "wil": {
-          "value": 5
+          "value": 5,
+          "long": "Will",
+          "abbr": "WIL"
         },
         "pow": {
-          "value": 5
+          "value": 5,
+          "long": "Power",
+          "abbr": "POW"
         }
       }
     },
@@ -89,7 +103,7 @@
       "reload": 0,
       "range": 0,
       "special": "",
-      "formula": "d10 + @dex.mod"
+      "formula": "d10 + @abilities.dex.mod"
     },
     "armor": {
       "templates": [

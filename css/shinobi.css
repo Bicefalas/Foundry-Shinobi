@@ -5,6 +5,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+.rollable {
+  cursor: pointer;
+}
+
 .rollable:hover,
 .rollable:focus {
   color: #000;
@@ -263,6 +267,10 @@
 
 .shinobi .resource-label {
   font-weight: bold;
+}
+
+.shinobi .resource-field input {
+  max-width: 20px;
 }
 
 .shinobi .items-header {

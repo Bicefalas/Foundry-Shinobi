@@ -4,87 +4,93 @@
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
-      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-      use both the "grid" and "grid-Ncol" class where "N" can be any number
-      from 1 to 12 and will create that number of columns. --}}
-      <div class="resources grid grid-3col">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize Name}}" /></h1>
+    </div>
+  </header>
+  {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+  use both the "grid" and "grid-Ncol" class where "N" can be any number
+  from 1 to 12 and will create that number of columns. --}}
+  <div class="resources grid grid-3col">
 
-        {{!-- "flex-group-center" is also defined in the _grid.scss file
-        and it will add a small amount of padding, a border, and will
-        center all of its child elements content and text. --}}
-        <div class="resource flexrow flex-center flex-between">
-          <label for="system.class.value" class="resource-label">{{localize "Class"}}</label>
-          <span> </span>
-          <label for="system.ethnicity.value" class="resource-label">{{localize "Ethnicity"}}</label>
-        </div>
-        <div class="resource-content flexrow flex-center flex-between">
-          <select id="class-choice">
-            <option value="warrior">{{localize "Warrior" }}</option>
-            <option value="rogue">{{localize "Rogue" }}</option>
-            <option value="ninja">{{localize "Ninja" }}</option>
-            <option value="shaolin">{{localize "Shaolin" }}</option>
-            <option value="omnyoji">{{localize "Omnyoji" }}</option>
-            <option value="samurai">{{localize "Samurai" }}</option>
-            <option value="henge">{{localize "Henge" }}</option>
-            <option value="kannushi">{{localize "Kannushi" }}</option>
-            <option value="warrior-omnyoji">{{localize "Warrior Omnyoji" }}</option>
-            <option value="ronin">{{localize "Rōnin" }}</option>
-            <option value="ryoshi">{{localize "Ryōshi" }}</option>
-            <option value="energy-shaolin">{{localize "Energy Shaolin" }}</option>
-          </select>
-          <span> </span>
-          <select id="ethnicity-choice">
-            <option value="ainu">{{localize "Ainu" }}</option>
-            <option value="yamato">{{localize "Yamato" }}</option>
-            <option value="mongolian">{{localize "Mongolian" }}</option>
-            <option value="buyei">{{localize "Buyei" }}</option>
-            <option value="cuman">{{localize "Cuman" }}</option>
-            <option value="scythian">{{localize "Scythian" }}</option>
-          </select>
-        </div>
+    {{!-- "flex-group-center" is also defined in the _grid.scss file
+    and it will add a small amount of padding, a border, and will
+    center all of its child elements content and text. --}}
 
+    <div class="resource-content flexrow flex-center flex-between">
+      <div class="resource-field">
+        <label for="system.class.value" class="resource-label">{{localize "Class"}}</label>
+        <select id="class-choice">
+          <option value="warrior">{{localize "Warrior" }}</option>
+          <option value="rogue">{{localize "Rogue" }}</option>
+          <option value="ninja">{{localize "Ninja" }}</option>
+          <option value="shaolin">{{localize "Shaolin" }}</option>
+          <option value="omnyoji">{{localize "Omnyoji" }}</option>
+          <option value="samurai">{{localize "Samurai" }}</option>
+          <option value="henge">{{localize "Henge" }}</option>
+          <option value="kannushi">{{localize "Kannushi" }}</option>
+          <option value="warrior-omnyoji">{{localize "Warrior Omnyoji" }}</option>
+          <option value="ronin">{{localize "Rōnin" }}</option>
+          <option value="ryoshi">{{localize "Ryōshi" }}</option>
+          <option value="energy-shaolin">{{localize "Energy Shaolin" }}</option>
+        </select>
+      </div>
+      <div class="resource-field">
+        <label for="system.ethnicity.value" class="resource-label">{{localize "Ethnicity"}}</label>
+        <select id="ethnicity-choice">
+          <option value="ainu">{{localize "Ainu" }}</option>
+          <option value="yamato">{{localize "Yamato" }}</option>
+          <option value="mongolian">{{localize "Mongolian" }}</option>
+          <option value="buyei">{{localize "Buyei" }}</option>
+          <option value="cuman">{{localize "Cuman" }}</option>
+          <option value="scythian">{{localize "Scythian" }}</option>
+        </select>
+      </div>
+    </div>
 
-        <div class="resource flexrow flex-center flex-between">
-          <label for="system.health.value" class="resource-label">{{localize "Health"}}</label>
-          <span> </span>
-          <label for="system.health.max" class="resource-label">{{localize "Max Health"}}</label>
-        </div>
-        <div class="resource-content flexrow flex-center flex-between">
-          <input type="number" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
-          <span> </span>
-          <input type="number" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
-        </div>
+    <div class="resource-content flexrow flex-center flex-between">
+      <div class="resource-field">
+        <label for="system.health.value" class="resource-label">{{localize "Health"}}</label>
+        <input type="number" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
+      </div>
+      <div class="resource-field">
+        <label for="system.health.max" class="resource-label">{{localize "Max Health"}}</label>
+        <input type="number" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
+      </div>
+    </div>
 
-        <div class="resource flexrow flex-center flex-between">
-          <label for="system.power.value" class="resource-label">{{localize "Power"}}</label>
-          <span> </span>
-          <label for="system.power.max" class="resource-label">{{localize "Max Power"}}</label>
-        </div>
-        <div class="resource-content flexrow flex-center flex-between">
-          <input type="number" name="system.power.value" value="{{system.power.value}}" data-dtype="Number" />
-          <span> </span>
-          <input type="number" name="system.power.max" value="{{system.power.max}}" data-dtype="Number" />
-        </div>
+    <div class="resource-content flexrow flex-center flex-between">
+      <div class="resource-field">
+        <label for="system.power.value" class="resource-label">{{localize "Power"}}</label>
+        <input type="number" name="system.power.value" value="{{system.power.value}}" data-dtype="Number" />
+      </div>
+      <div class="resource-field">
+        <label for="system.power.max" class="resource-label">{{localize "Max Power"}}</label>
+        <input type="number" name="system.power.max" value="{{system.power.max}}" data-dtype="Number" />
+      </div>
+    </div>
 
-        <div class="resource flex-group-center">
+    <div class="resource flex-group-center">
+      <div class="resource-content flexrow flex-center flex-between">
+        <div class="resource-field">
           <label for="system.attributes.level.value" class="resource-label">{{localize "Level"}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
-              data-dtype="Number" />
-          </div>
-        </div>
-
-        <div class="resource flex-group-center">
-          <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="number" name="system.initiative.value" value="{{system.initiative.value}}"
-              data-dtype="Number" />
-          </div>
-
+          <input type="number" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
+            data-dtype="Number" />
         </div>
       </div>
-  </header>
+    </div>
+
+    <div class="resource flex-group-center">
+
+      <div class="resource-content flexrow flex-center flex-between">
+        <div class="resource-field">
+          <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
+          <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
@@ -108,14 +114,29 @@
           use both the "grid" and "grid-Ncol" class where "N" can be any number
           from 1 to 12 and will create that number of columns. --}}
           <div class="abilities flexcol">
+            <div class="abilities-header flexrow flex-group-center">
+              <h3>{{localize "Feature"}}</h3>
+              <h3>{{localize "Value"}}</h3>
+              <h3>{{localize "Modifier"}}</h3>
+            </div>
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                data-roll="d10+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{ability.label}}</label>
-              <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}"
-                data-dtype="Number" />
-              <span class="ability-mod rollable" data-roll="d10+@abilities.{{key}}.mod"
-                data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+              <div class="ability-label">
+                <i class="fa-solid fa-dice-d10 rollable" data-roll="d10+@abilities.{{key}}.value"
+                  data-label="{{ability.label}}"></i>
+                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                  data-roll="d10+@abilities.{{key}}.value" data-label="{{ability.label}}">{{ability.label}}</label>
+              </div>
+              <div class="ability-input">
+                <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}"
+                  data-dtype="Number" />
+              </div>
+              <div class="ability-mod">
+                <i class="fa-solid fa-dice-d10 rollable" data-roll="d10+@abilities.{{key}}.mod"
+                  data-label="{{ability.label}} Mod"></i>
+                <span class="ability-mod rollable" data-roll="d10+@abilities.{{key}}.mod"
+                  data-label="{{ability.label}} Mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+              </div>
             </div>
             {{/each}}
           </div>

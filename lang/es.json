@@ -1,6 +1,8 @@
 {
   "Name": "Nombre",
+  "Feature": "Característica",
   "Features": "Características",
+  "Check of": "Prueba de",
   "Description": "Descripción",
   "Items": "Objetos",
   "Spells": "Hechizos",
@@ -32,6 +34,8 @@
   "Cuman": "Cumano",
   "Scythian": "Escita",
   "Initiative": "Iniciativa",
+  "Value": "Valor",
+  "Modifier": "Modificador",
   "SHINOBI": {
     "Ability": {
       "Str": {
