@@ -12,7 +12,7 @@ export class ShinobiActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['shinobi', 'sheet', 'actor'],
-      width: 600,
+      width: 1000,
       height: 600,
       tabs: [
         {
@@ -78,11 +78,105 @@ export class ShinobiActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
+
+    context.system.class
+
     // Handle ability scores.
     for (let [k, v] of Object.entries(context.system.abilities)) {
       v.label = game.i18n.localize(CONFIG.SHINOBI.abilities[k]) ?? k;
     }
+
+
+    for (let [k, v] of Object.entries(context.system.secondaries)) {
+      v.label = game.i18n.localize(CONFIG.SHINOBI.secondaries[k]) ?? k;
+    }
+
+    context.system.secondaries.athletics.mod = context.system.abilities.str.mod
+    context.system.secondaries.swim.mod = context.system.abilities.str.mod
+    context.system.secondaries.acrobatics.mod = context.system.abilities.dex.mod
+    context.system.secondaries.sleightOfHand.mod = context.system.abilities.dex.mod
+    context.system.secondaries.stealth.mod = context.system.abilities.dex.mod
+    context.system.secondaries.traps.mod = context.system.abilities.dex.mod
+    context.system.secondaries.openLocks.mod = context.system.abilities.dex.mod
+    context.system.secondaries.search.mod = context.system.abilities.per.mod
+    context.system.secondaries.track.mod = context.system.abilities.per.mod
+    context.system.secondaries.notice.mod = context.system.abilities.per.mod
+    context.system.secondaries.examine.mod = context.system.abilities.per.mod
+    context.system.secondaries.insight.mod = context.system.abilities.per.mod
+    context.system.secondaries.shinobiKnowledge.mod = context.system.abilities.int.mod
+    context.system.secondaries.ethnicKnowledge.mod = context.system.abilities.int.mod
+    context.system.secondaries.underworldKnowledge.mod = context.system.abilities.int.mod
+    context.system.secondaries.science.mod = context.system.abilities.int.mod
+    context.system.secondaries.history.mod = context.system.abilities.int.mod
+    context.system.secondaries.medicine.mod = context.system.abilities.int.mod
+    context.system.secondaries.nature.mod = context.system.abilities.int.mod
+    context.system.secondaries.religion.mod = context.system.abilities.int.mod
+    context.system.secondaries.animalHandling.mod = context.system.abilities.int.mod
+    context.system.secondaries.persuasion.mod = context.system.abilities.wil.mod
+    context.system.secondaries.interpret.mod = context.system.abilities.wil.mod
+    context.system.secondaries.lie.mod = context.system.abilities.wil.mod
+    context.system.secondaries.coldness.mod = context.system.abilities.wil.mod
+    context.system.secondaries.intimidate.mod = context.system.abilities.wil.mod
+
+    let ignorancePenalizer = 0
+
+    if (context.system.abilities.int.value <= 3) {
+      ignorancePenalizer = -6
+    }
+
+    if (context.system.abilities.int.value == 4) {
+      ignorancePenalizer = -4
+    }
+
+    if (context.system.abilities.int.value >= 5 && context.system.abilities.int.value <= 6) {
+      ignorancePenalizer = -3
+    }
+
+    if (context.system.abilities.int.value >= 7 && context.system.abilities.int.value <= 9) {
+      ignorancePenalizer = -2
+    }
+
+    if (context.system.abilities.int.value >= 10) {
+      ignorancePenalizer = -1
+    }
+
+    if (context.system.secondaries.athletics.ip + context.system.secondaries.athletics.class + context.system.secondaries.athletics.nd + context.system.secondaries.athletics.others == 0) {
+      context.system.secondaries.athletics.final = ignorancePenalizer
+    }
+
+    else {
+      context.system.secondaries.athletics.final = context.system.secondaries.athletics.ip + context.system.secondaries.athletics.class + context.system.secondaries.athletics.nd + context.system.secondaries.athletics.others + context.system.secondaries.athletics.mod
+    }
+
+
+    context.system.secondaries.swim.final = context.system.abilities.str.mod
+    context.system.secondaries.acrobatics.final = context.system.abilities.dex.mod
+    context.system.secondaries.sleightOfHand.final = context.system.abilities.dex.mod
+    context.system.secondaries.stealth.final = context.system.abilities.dex.mod
+    context.system.secondaries.traps.final = context.system.abilities.dex.mod
+    context.system.secondaries.openLocks.final = context.system.abilities.dex.mod
+    context.system.secondaries.search.final = context.system.abilities.per.mod
+    context.system.secondaries.track.final = context.system.abilities.per.mod
+    context.system.secondaries.notice.final = context.system.abilities.per.mod
+    context.system.secondaries.examine.final = context.system.abilities.per.mod
+    context.system.secondaries.insight.final = context.system.abilities.per.mod
+    context.system.secondaries.shinobiKnowledge.final = context.system.abilities.int.mod
+    context.system.secondaries.ethnicKnowledge.final = context.system.abilities.int.mod
+    context.system.secondaries.underworldKnowledge.final = context.system.abilities.int.mod
+    context.system.secondaries.science.final = context.system.abilities.int.mod
+    context.system.secondaries.history.final = context.system.abilities.int.mod
+    context.system.secondaries.medicine.final = context.system.abilities.int.mod
+    context.system.secondaries.nature.final = context.system.abilities.int.mod
+    context.system.secondaries.religion.final = context.system.abilities.int.mod
+    context.system.secondaries.animalHandling.final = context.system.abilities.int.mod
+    context.system.secondaries.persuasion.final = context.system.abilities.wil.mod
+    context.system.secondaries.interpret.final = context.system.abilities.wil.mod
+    context.system.secondaries.lie.final = context.system.abilities.wil.mod
+    context.system.secondaries.coldness.final = context.system.abilities.wil.mod
+    context.system.secondaries.intimidate.final = context.system.abilities.wil.mod
+
   }
+
 
   /**
    * Organize and classify Items for Character sheets.

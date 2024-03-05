@@ -122,30 +122,80 @@
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <div class="ability-label">
-                <i class="fa-solid fa-dice-d10 rollable" data-roll="d10+@abilities.{{key}}.value"
-                  data-label="{{ability.label}}"></i>
                 <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                  data-roll="d10+@abilities.{{key}}.value" data-label="{{ability.label}}">{{ability.label}}</label>
+                  data-roll="d10+@abilities.{{key}}.value" data-label="{{ability.label}}"><i
+                    class="fa-solid fa-dice-d10" data-label="{{ability.label}}"></i> {{ability.label}}</label>
               </div>
               <div class="ability-input">
                 <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}"
                   data-dtype="Number" />
               </div>
               <div class="ability-mod">
-                <i class="fa-solid fa-dice-d10 rollable" data-roll="d10+@abilities.{{key}}.mod"
-                  data-label="{{ability.label}} Mod"></i>
                 <span class="ability-mod rollable" data-roll="d10+@abilities.{{key}}.mod"
-                  data-label="{{ability.label}} Mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+                  data-label="{{ability.label}} Mod"><i class="fa-solid fa-dice-d10"
+                    data-label="{{ability.label}} Mod"></i> {{numberFormat ability.mod decimals=0 sign=true}}</span>
               </div>
             </div>
             {{/each}}
           </div>
+
         </aside>
 
         {{!-- For the main features list, span the right two columns --}}
         <section class="main grid-span-2">
           {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in
           module/helpers/templates.mjs --}}
+          <aside class="sidebar">
+
+            {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+            use both the "grid" and "grid-Ncol" class where "N" can be any number
+            from 1 to 12 and will create that number of columns. --}}
+            <div class="secondaries flexcol">
+              <div class="secondaries-header flexrow flex-group-center">
+                <h3>{{localize "Name"}}</h3>
+                <h3>{{localize "IP"}}</h3>
+                <h3>{{localize "Mod."}}</h3>
+                <h3>{{localize "Class"}}</h3>
+                <h3>{{localize "ND"}}</h3>
+                <h3>{{localize "Others"}}</h3>
+                <h3>{{localize "Final"}}</h3>
+              </div>
+              {{#each system.secondaries as |secondary key|}}
+              <div class="secondary flexrow flex-group-center">
+                <div class="secondary-label">
+                  <label for="system.secondaries.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                    data-roll="d10+@secondaries.{{key}}.value" data-label="{{secondary.label}}"><i
+                      class="fa-solid fa-dice-d10" data-label="{{secondary.label}}"></i> {{secondary.label}}</label>
+                </div>
+                <div class="secondary-ip">
+                  <input type="number" name="system.secondaries.{{key}}.ip" value="{{secondary.ip}}"
+                    data-dtype="Number"/>
+                </div>
+                <div class="secondary-mod">
+                  <label type="number" name="system.secondaries.{{key}}.mod" value="{{secondary.mod}}"
+                    data-dtype="Number">{{secondary.mod}}</label>
+                </div>
+                <div class="secondary-class">
+                  <input type="number" name="system.secondaries.{{key}}.class" value="{{secondary.class}}"
+                    data-dtype="Number"></input>
+                </div>
+                <div class="secondary-nd">
+                  <input type="number" name="system.secondaries.{{key}}.nd" value="{{secondary.nd}}"
+                    data-dtype="Number"></input>
+                </div>
+                <div class="secondary-others">
+                  <input type="number" name="system.secondaries.{{key}}.others" value="{{secondary.others}}"
+                    data-dtype="Number"></input>
+                </div>
+                <div class="secondary-final">
+                  <label type="number" name="system.secondaries.{{key}}.final" value="{{secondary.final}}"
+                    data-dtype="Number">{{numberFormat secondary.final decimals=0 sign=false}}</label>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </aside>
+
 
         </section>
 

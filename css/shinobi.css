@@ -405,3 +405,56 @@
 .shinobi .effects .item .effect-controls {
   border: none;
 }
+
+.shinobi .abilities-header {
+  min-width: 250px;
+}
+
+.shinobi .ability-label {
+  text-align: left;
+  min-width: 100px;
+}
+
+.shinobi .ability-input {
+  max-width: 30px;
+  text-align: center;
+}
+
+.shinobi .ability-mod {
+  text-align: center;
+}
+
+.shinobi .secondary-label {
+  text-align: left;
+  min-width: 25%;
+}
+
+.shinobi .secondary-ip {
+  max-width: 10%;
+  text-align: center;
+}
+
+.shinobi .secondary-mod {
+  max-width: 10%;
+  text-align: center;
+}
+
+.shinobi .secondary-class {
+  max-width: 10%;
+  text-align: center;
+}
+
+.shinobi .secondary-nd {
+  max-width: 10%;
+  text-align: center;
+}
+
+.shinobi .secondary-others {
+  max-width: 10%;
+  text-align: center;
+}
+
+.shinobi .secondary-final {
+  max-width: 10%;
+  text-align: center;
+}

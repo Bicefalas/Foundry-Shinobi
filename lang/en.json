@@ -50,7 +50,7 @@
   },
   "TYPES": {
     "Actor": {
-      "character": "Character",
+      "shinobi": "Shinobi",
       "npc": "NPC"
     },
     "Item": {

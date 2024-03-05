@@ -79,6 +79,7 @@ export class ShinobiActor extends Actor {
   };
 
 
+
   /**
    * Prepare NPC type specific data.
    */
@@ -108,7 +109,7 @@ export class ShinobiActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.type !== 'character') return;
+    if (this.type !== 'shinobi') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.

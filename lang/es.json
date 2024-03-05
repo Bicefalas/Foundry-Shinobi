@@ -36,6 +36,10 @@
   "Initiative": "Iniciativa",
   "Value": "Valor",
   "Modifier": "Modificador",
+  "Describe yourself here...": "Descríbete aquí...",
+  "IP": "PI",
+  "ND": "DN",
+  "Others": "Otros",
   "SHINOBI": {
     "Ability": {
       "Str": {
@@ -67,6 +71,86 @@
         "abbr": "POD"
       }
     },
+    "Secondary": {
+      "Athletics": {
+        "long": "Atletismo"
+      },
+      "Swim": {
+        "long": "Nadar"
+      },
+      "Acrobatics": {
+        "long": "Acrobacias"
+      },
+      "SleightOfHand": {
+        "long": "Truco de Manos"
+      },
+      "Stealth": {
+        "long": "Sigilo"
+      },
+      "Traps": {
+        "long": "Trampas"
+      },
+      "OpenLocks": {
+        "long": "Abrir Cerraduras"
+      },
+      "Search": {
+        "long": "Buscar"
+      },
+      "Track": {
+        "long": "Rastrear"
+      },
+      "Notice": {
+        "long": "Advertir"
+      },
+      "Examine": {
+        "long": "Examinar"
+      },
+      "Insight": {
+        "long": "Perspicacia"
+      },
+      "ShinobiKnowledge": {
+        "long": "Conocimiento Shinobi"
+      },
+      "EthnicKnowledge": {
+        "long": "Conocimiento Étnico"
+      },
+      "UnderworldKnowledge": {
+        "long": "Bajos Fondos"
+      },
+      "Science": {
+        "long": "Ciencia"
+      },
+      "History": {
+        "long": "Historia"
+      },
+      "Medicine": {
+        "long": "Medicina"
+      },
+      "Nature": {
+        "long": "Naturaleza"
+      },
+      "Religion": {
+        "long": "Religión"
+      },
+      "AnimalHandling": {
+        "long": "Trato con Animales"
+      },
+      "Persuasion": {
+        "long": "Persuasión"
+      },
+      "Interpret": {
+        "long": "Interpretar"
+      },
+      "Lie": {
+        "long": "Engañar"
+      },
+      "Coldness": {
+        "long": "Frialdad"
+      },
+      "Intimidate": {
+        "long": "Intimidar"
+      }
+    },
     "SheetLabels": {
       "Actor": "Shinobi Actor Sheet",
       "Item": "Shinobi Item Sheet"
@@ -87,7 +171,7 @@
   },
   "TYPES": {
     "Actor": {
-      "character": "Personaje Jugador",
+      "shinobi": "Personaje Jugador",
       "npc": "PNJ"
     },
     "Item": {

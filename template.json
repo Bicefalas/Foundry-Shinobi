@@ -28,6 +28,9 @@
           "value": 1
         }
       },
+      "class":{
+        "value": "warrior"
+      },
       "abilities": {
         "str": {
           "value": 5,
@@ -63,6 +66,242 @@
           "value": 5,
           "long": "Power",
           "abbr": "POW"
+        }
+      },
+      "secondaries": {
+        "athletics": {
+          "ip": 0,
+          "long": "Athletics",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "swim": {
+          "ip": 0,
+          "long": "Swim",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "acrobatics": {
+          "ip": 0,
+          "long": "Acrobatics",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "sleightOfHand": {
+          "ip": 0,
+          "long": "Sleight Of Hand",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "stealth": {
+          "ip": 0,
+          "long": "Stealth",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "traps": {
+          "ip": 0,
+          "long": "Traps",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "openLocks": {
+          "ip": 0,
+          "long": "Open Locks",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "search": {
+          "ip": 0,
+          "long": "Search",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "track": {
+          "ip": 0,
+          "long": "Track",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "notice": {
+          "ip": 0,
+          "long": "Notice",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "examine": {
+          "ip": 0,
+          "long": "Examine",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "insight": {
+          "ip": 0,
+          "long": "Insight",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "shinobiKnowledge": {
+          "ip": 0,
+          "long": "Shinobi Knowledge",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "ethnicKnowledge": {
+          "ip": 0,
+          "long": "Ethnic Knowledge",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "underworldKnowledge": {
+          "ip": 0,
+          "long": "Underworld Knowledge",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "science": {
+          "ip": 0,
+          "long": "Science",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "history": {
+          "ip": 0,
+          "long": "History",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "medicine": {
+          "ip": 0,
+          "long": "Medicine",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "nature": {
+          "ip": 0,
+          "long": "Nature",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "religion": {
+          "ip": 0,
+          "long": "Religion",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "animalHandling": {
+          "ip": 0,
+          "long": "Animal Handling",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "persuasion": {
+          "ip": 0,
+          "long": "Persuasion",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "interpret": {
+          "ip": 0,
+          "long": "Interpret",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "lie": {
+          "ip": 0,
+          "long": "Lie",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "coldness": {
+          "ip": 0,
+          "long": "Coldness",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
+        },
+        "intimidate": {
+          "ip": 0,
+          "long": "Intimidate",
+          "mod": 0,
+          "class": 0,
+          "nd": 0,
+          "others": 0,
+          "final": 0
         }
       }
     },
