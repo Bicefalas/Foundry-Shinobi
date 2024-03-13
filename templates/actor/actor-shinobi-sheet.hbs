@@ -10,7 +10,7 @@
   {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
   use both the "grid" and "grid-Ncol" class where "N" can be any number
   from 1 to 12 and will create that number of columns. --}}
-  <div class="resources grid grid-3col">
+  <div class="resources grid grid-1col">
 
     {{!-- "flex-group-center" is also defined in the _grid.scss file
     and it will add a small amount of padding, a border, and will
@@ -19,30 +19,22 @@
     <div class="resource-content flexrow flex-center flex-between">
       <div class="resource-field">
         <label for="system.class.value" class="resource-label">{{localize "Class"}}</label>
-        <select id="class-choice">
-          <option value="warrior">{{localize "Warrior" }}</option>
-          <option value="rogue">{{localize "Rogue" }}</option>
-          <option value="ninja">{{localize "Ninja" }}</option>
-          <option value="shaolin">{{localize "Shaolin" }}</option>
-          <option value="omnyoji">{{localize "Omnyoji" }}</option>
-          <option value="samurai">{{localize "Samurai" }}</option>
-          <option value="henge">{{localize "Henge" }}</option>
-          <option value="kannushi">{{localize "Kannushi" }}</option>
-          <option value="warrior-omnyoji">{{localize "Warrior Omnyoji" }}</option>
-          <option value="ronin">{{localize "Rōnin" }}</option>
-          <option value="ryoshi">{{localize "Ryōshi" }}</option>
-          <option value="energy-shaolin">{{localize "Energy Shaolin" }}</option>
+        <select value="{{system.class.value}}" class="select-field" name="system.class.value">
+          {{#select system.class.value}}
+          {{#each system.classes as |class name|}}
+          <option value="{{name}}">{{class.label}}</option>
+          {{/each}}
+          {{/select}}
         </select>
       </div>
       <div class="resource-field">
         <label for="system.ethnicity.value" class="resource-label">{{localize "Ethnicity"}}</label>
-        <select id="ethnicity-choice">
-          <option value="ainu">{{localize "Ainu" }}</option>
-          <option value="yamato">{{localize "Yamato" }}</option>
-          <option value="mongolian">{{localize "Mongolian" }}</option>
-          <option value="buyei">{{localize "Buyei" }}</option>
-          <option value="cuman">{{localize "Cuman" }}</option>
-          <option value="scythian">{{localize "Scythian" }}</option>
+        <select name="system.ethnicity.value" class="select-field">
+          {{#select system.ethnicity.value}}
+          {{#each system.ethnicities as |ethnicity name|}}
+          <option value="{{name}}">{{ethnicity.label}}</option>
+          {{/each}}
+          {{/select}}
         </select>
       </div>
     </div>
@@ -69,19 +61,15 @@
       </div>
     </div>
 
-    <div class="resource flex-group-center">
-      <div class="resource-content flexrow flex-center flex-between">
+    <div class="resource flexrow flex-center flex-between">
+      <div class="resource-content">
         <div class="resource-field">
           <label for="system.attributes.level.value" class="resource-label">{{localize "Level"}}</label>
           <input type="number" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
             data-dtype="Number" />
         </div>
       </div>
-    </div>
-
-    <div class="resource flex-group-center">
-
-      <div class="resource-content flexrow flex-center flex-between">
+      <div class="resource-content">
         <div class="resource-field">
           <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
           <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
@@ -152,13 +140,13 @@
             from 1 to 12 and will create that number of columns. --}}
             <div class="secondaries flexcol">
               <div class="secondaries-header flexrow flex-group-center">
-                <h3>{{localize "Name"}}</h3>
-                <h3>{{localize "IP"}}</h3>
-                <h3>{{localize "Mod."}}</h3>
-                <h3>{{localize "Class"}}</h3>
-                <h3>{{localize "ND"}}</h3>
-                <h3>{{localize "Others"}}</h3>
-                <h3>{{localize "Final"}}</h3>
+                <h3 class="secondaries-name">{{localize "Name"}}</h3>
+                <h3 class="secondaries-ip">{{localize "IP"}}</h3>
+                <h3 class="secondaries-mod">{{localize "Mod."}}</h3>
+                <h3 class="secondaries-class">{{localize "Class"}}</h3>
+                <h3 class="secondaries-nd">{{localize "ND"}}</h3>
+                <h3 class="secondaries-others">{{localize "Others"}}</h3>
+                <h3 class="secondaries-final">{{localize "Final"}}</h3>
               </div>
               {{#each system.secondaries as |secondary key|}}
               <div class="secondary flexrow flex-group-center">
@@ -169,7 +157,7 @@
                 </div>
                 <div class="secondary-ip">
                   <input type="number" name="system.secondaries.{{key}}.ip" value="{{secondary.ip}}"
-                    data-dtype="Number"/>
+                    data-dtype="Number" />
                 </div>
                 <div class="secondary-mod">
                   <label type="number" name="system.secondaries.{{key}}.mod" value="{{secondary.mod}}"

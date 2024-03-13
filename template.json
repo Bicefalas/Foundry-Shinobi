@@ -28,8 +28,27 @@
           "value": 1
         }
       },
-      "class":{
-        "value": "warrior"
+      "classes": {
+        "warrior": {},
+        "rogue": {},
+        "ninja": {},
+        "shaolin": {},
+        "omnyoji": {},
+        "samurai": {},
+        "henge": {},
+        "kannushi": {},
+        "warriorOmnyoji": {},
+        "ronin": {},
+        "ryoshi": {},
+        "energyShaolin": {}
+      },
+      "ethnicities": {
+        "ainu": {},
+        "yamato": {},
+        "mongolian": {},
+        "buyei": {},
+        "cuman": {},
+        "scythian": {}
       },
       "abilities": {
         "str": {

@@ -41,6 +41,64 @@
   "ND": "DN",
   "Others": "Otros",
   "SHINOBI": {
+    "Class": {
+      "Warrior": {
+        "long": "Guerrero"
+      },
+      "Rogue": {
+        "long": "Pícaro"
+      },
+      "Ninja": {
+        "long": "Ninja"
+      },
+      "Shaolin": {
+        "long": "Shaolin"
+      },
+      "Omnyoji": {
+        "long": "Omnyoji"
+      },
+      "Samurai": {
+        "long": "Samurái"
+      },
+      "Henge": {
+        "long": "Henge"
+      },
+      "Kannushi": {
+        "long": "Kannushi"
+      },
+      "WarriorOmnyoji": {
+        "long": "Omnyoji Guerrero"
+      },
+      "Ronin": {
+        "long": "Rōnin"
+      },
+      "Ryoshi": {
+        "long": "Ryōshi"
+      },
+      "EnergyShaolin": {
+        "long": "Shaolin de Energía"
+      }
+    },
+    "Ethnicity": {
+      "Ainu": {
+        "long": "Ainu"
+      },
+      "Yamato": {
+        "long": "Yamato"
+      },
+      "Mongolian": {
+        "long": "Mongol"
+      },
+      "Buyei": {
+        "long": "Buyei"
+      },
+      "Cuman": {
+        "long": "Cumano"
+      },
+      "Scythian": {
+        "long": "Escita"
+      }
+    },
     "Ability": {
       "Str": {
         "long": "Fuerza",

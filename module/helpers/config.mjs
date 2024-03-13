@@ -4,6 +4,30 @@ export const SHINOBI = {};
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
+SHINOBI.classes = {
+  warrior: 'SHINOBI.Class.Warrior.long',
+  rogue: 'SHINOBI.Class.Rogue.long',
+  ninja: 'SHINOBI.Class.Ninja.long',
+  shaolin: 'SHINOBI.Class.Shaolin.long',
+  omnyoji: 'SHINOBI.Class.Omnyoji.long',
+  samurai: 'SHINOBI.Class.Samurai.long',
+  henge: 'SHINOBI.Class.Henge.long',
+  kannushi: 'SHINOBI.Class.Kannushi.long',
+  warriorOmnyoji: 'SHINOBI.Class.WarriorOmnyoji.long',
+  ronin: 'SHINOBI.Class.Ronin.long',
+  ryoshi: 'SHINOBI.Class.Ryoshi.long',
+  energyShaolin: 'SHINOBI.Class.EnergyShaolin.long'
+}
+
+SHINOBI.ethnicities = {
+  ainu: 'SHINOBI.Ethnicity.Ainu.long',
+  yamato: 'SHINOBI.Ethnicity.Yamato.long',
+  mongolian: 'SHINOBI.Ethnicity.Mongolian.long',
+  buyei: 'SHINOBI.Ethnicity.Buyei.long',
+  cuman: 'SHINOBI.Ethnicity.Cuman.long',
+  scythian: 'SHINOBI.Ethnicity.Scythian.long'
+}
+
 SHINOBI.abilities = {
   str: 'SHINOBI.Ability.Str.long',
   dex: 'SHINOBI.Ability.Dex.long',

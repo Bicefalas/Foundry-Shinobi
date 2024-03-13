@@ -79,17 +79,26 @@ export class ShinobiActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
 
-    context.system.class
-
     // Handle ability scores.
+
+
     for (let [k, v] of Object.entries(context.system.abilities)) {
       v.label = game.i18n.localize(CONFIG.SHINOBI.abilities[k]) ?? k;
     }
 
-
     for (let [k, v] of Object.entries(context.system.secondaries)) {
       v.label = game.i18n.localize(CONFIG.SHINOBI.secondaries[k]) ?? k;
     }
+
+    for (let [k, v] of Object.entries(context.system.classes)) {
+      v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
+    }
+
+    for (let [k, v] of Object.entries(context.system.ethnicities)) {
+      v.label = game.i18n.localize(CONFIG.SHINOBI.ethnicities[k]) ?? k;
+    }
+
+    context.system.selectedClass = context.system.class.value
 
     context.system.secondaries.athletics.mod = context.system.abilities.str.mod
     context.system.secondaries.swim.mod = context.system.abilities.str.mod
@@ -120,25 +129,27 @@ export class ShinobiActorSheet extends ActorSheet {
 
     let ignorancePenalizer = 0
 
-    if (context.system.abilities.int.value <= 3) {
-      ignorancePenalizer = -6
+
+    let inteligenceValue = context.system.abilities.int.value;
+
+    switch (true) {
+      case (inteligenceValue <= 3):
+        ignorancePenalizer = -6
+        break;
+      case (inteligenceValue == 4):
+        ignorancePenalizer = -4
+        break;
+      case (inteligenceValue >= 5 && inteligenceValue <= 6):
+        ignorancePenalizer = -3
+        break;
+      case (inteligenceValue >= 7 && inteligenceValue <= 9):
+        ignorancePenalizer = -2
+        break;
+      case (inteligenceValue >= 10):
+        ignorancePenalizer = -1
+        break;
     }
 
-    if (context.system.abilities.int.value == 4) {
-      ignorancePenalizer = -4
-    }
-
-    if (context.system.abilities.int.value >= 5 && context.system.abilities.int.value <= 6) {
-      ignorancePenalizer = -3
-    }
-
-    if (context.system.abilities.int.value >= 7 && context.system.abilities.int.value <= 9) {
-      ignorancePenalizer = -2
-    }
-
-    if (context.system.abilities.int.value >= 10) {
-      ignorancePenalizer = -1
-    }
 
     if (context.system.secondaries.athletics.ip + context.system.secondaries.athletics.class + context.system.secondaries.athletics.nd + context.system.secondaries.athletics.others == 0) {
       context.system.secondaries.athletics.final = ignorancePenalizer
@@ -276,6 +287,7 @@ export class ShinobiActorSheet extends ActorSheet {
         li.setAttribute('draggable', true);
         li.addEventListener('dragstart', handler, false);
       });
+      html.on('change', '.select-field', this._updateClass.bind(this));
     }
   }
 
@@ -336,5 +348,10 @@ export class ShinobiActorSheet extends ActorSheet {
       });
       return roll;
     }
+  }
+
+  _updateClass(event) {
+    event.preventDefault();
+    return this.actor.update({ "system.class.value": this.actor.system.class.value });
   }
 }

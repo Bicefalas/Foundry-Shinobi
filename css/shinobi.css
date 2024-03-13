@@ -270,7 +270,7 @@
 }
 
 .shinobi .resource-field input {
-  max-width: 20px;
+  max-width: 50px;
 }
 
 .shinobi .items-header {
@@ -424,6 +424,41 @@
   text-align: center;
 }
 
+.shinobi .secondaries-name {
+  min-width: 25%;
+  text-align: left;
+}
+
+.shinobi .secondaries-ip {
+  text-align: center;
+  max-width: 10%;
+}
+
+.shinobi .secondaries-mod {
+  text-align: center;
+  max-width: 10%;
+}
+
+.shinobi .secondaries-class {
+  text-align: center;
+  max-width: 10%;
+}
+
+.shinobi .secondaries-nd {
+  text-align: center;
+  max-width: 10%;
+}
+
+.shinobi .secondaries-others {
+  text-align: center;
+  max-width: 10%;
+}
+
+.shinobi .secondaries-final {
+  text-align: center;
+  max-width: 10%;
+}
+
 .shinobi .secondary-label {
   text-align: left;
   min-width: 25%;
@@ -457,4 +492,8 @@
 .shinobi .secondary-final {
   max-width: 10%;
   text-align: center;
+}
+
+.select-field {
+  width: 90px;
 }
