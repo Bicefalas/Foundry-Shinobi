@@ -98,37 +98,47 @@ export class ShinobiActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.SHINOBI.ethnicities[k]) ?? k;
     }
 
-    context.system.selectedClass = context.system.class.value
 
-    context.system.secondaries.athletics.mod = context.system.abilities.str.mod
-    context.system.secondaries.swim.mod = context.system.abilities.str.mod
-    context.system.secondaries.acrobatics.mod = context.system.abilities.dex.mod
-    context.system.secondaries.sleightOfHand.mod = context.system.abilities.dex.mod
-    context.system.secondaries.stealth.mod = context.system.abilities.dex.mod
-    context.system.secondaries.traps.mod = context.system.abilities.dex.mod
-    context.system.secondaries.openLocks.mod = context.system.abilities.dex.mod
-    context.system.secondaries.search.mod = context.system.abilities.per.mod
-    context.system.secondaries.track.mod = context.system.abilities.per.mod
-    context.system.secondaries.notice.mod = context.system.abilities.per.mod
-    context.system.secondaries.examine.mod = context.system.abilities.per.mod
-    context.system.secondaries.insight.mod = context.system.abilities.per.mod
-    context.system.secondaries.shinobiKnowledge.mod = context.system.abilities.int.mod
-    context.system.secondaries.ethnicKnowledge.mod = context.system.abilities.int.mod
-    context.system.secondaries.underworldKnowledge.mod = context.system.abilities.int.mod
-    context.system.secondaries.science.mod = context.system.abilities.int.mod
-    context.system.secondaries.history.mod = context.system.abilities.int.mod
-    context.system.secondaries.medicine.mod = context.system.abilities.int.mod
-    context.system.secondaries.nature.mod = context.system.abilities.int.mod
-    context.system.secondaries.religion.mod = context.system.abilities.int.mod
-    context.system.secondaries.animalHandling.mod = context.system.abilities.int.mod
-    context.system.secondaries.persuasion.mod = context.system.abilities.wil.mod
-    context.system.secondaries.interpret.mod = context.system.abilities.wil.mod
-    context.system.secondaries.lie.mod = context.system.abilities.wil.mod
-    context.system.secondaries.coldness.mod = context.system.abilities.wil.mod
-    context.system.secondaries.intimidate.mod = context.system.abilities.wil.mod
+    let secondaries = context.system.secondaries
+    let abilities = context.system.abilities
+
+    secondaries.athletics.mod =
+      secondaries.swim.mod =
+      abilities.str.mod
+
+    secondaries.acrobatics.mod =
+      secondaries.sleightOfHand.mod =
+      secondaries.stealth.mod =
+      secondaries.traps.mod =
+      secondaries.openLocks.mod =
+      abilities.dex.mod
+
+    secondaries.search.mod =
+      secondaries.track.mod =
+      secondaries.notice.mod =
+      secondaries.examine.mod =
+      secondaries.insight.mod =
+      abilities.per.mod
+
+    secondaries.shinobiKnowledge.mod =
+      secondaries.ethnicKnowledge.mod =
+      secondaries.underworldKnowledge.mod =
+      secondaries.science.mod =
+      secondaries.history.mod =
+      secondaries.medicine.mod =
+      secondaries.nature.mod =
+      secondaries.religion.mod =
+      secondaries.animalHandling.mod =
+      abilities.int.mod
+
+    secondaries.persuasion.mod =
+      secondaries.interpret.mod =
+      secondaries.lie.mod =
+      secondaries.coldness.mod =
+      secondaries.intimidate.mod =
+      abilities.wil.mod
 
     let ignorancePenalizer = 0
-
 
     let inteligenceValue = context.system.abilities.int.value;
 
@@ -149,43 +159,16 @@ export class ShinobiActorSheet extends ActorSheet {
         ignorancePenalizer = -1
         break;
     }
+    Object.values(secondaries).forEach(secondary => {
+      if (secondary.ip + secondary.class + secondary.nd + secondary.others == 0) {
+        secondary.final = ignorancePenalizer
+      }
 
-
-    if (context.system.secondaries.athletics.ip + context.system.secondaries.athletics.class + context.system.secondaries.athletics.nd + context.system.secondaries.athletics.others == 0) {
-      context.system.secondaries.athletics.final = ignorancePenalizer
+      else {
+        secondary.final = secondary.ip + secondary.class + secondary.nd + secondary.others + secondary.mod
+      }
     }
-
-    else {
-      context.system.secondaries.athletics.final = context.system.secondaries.athletics.ip + context.system.secondaries.athletics.class + context.system.secondaries.athletics.nd + context.system.secondaries.athletics.others + context.system.secondaries.athletics.mod
-    }
-
-
-    context.system.secondaries.swim.final = context.system.abilities.str.mod
-    context.system.secondaries.acrobatics.final = context.system.abilities.dex.mod
-    context.system.secondaries.sleightOfHand.final = context.system.abilities.dex.mod
-    context.system.secondaries.stealth.final = context.system.abilities.dex.mod
-    context.system.secondaries.traps.final = context.system.abilities.dex.mod
-    context.system.secondaries.openLocks.final = context.system.abilities.dex.mod
-    context.system.secondaries.search.final = context.system.abilities.per.mod
-    context.system.secondaries.track.final = context.system.abilities.per.mod
-    context.system.secondaries.notice.final = context.system.abilities.per.mod
-    context.system.secondaries.examine.final = context.system.abilities.per.mod
-    context.system.secondaries.insight.final = context.system.abilities.per.mod
-    context.system.secondaries.shinobiKnowledge.final = context.system.abilities.int.mod
-    context.system.secondaries.ethnicKnowledge.final = context.system.abilities.int.mod
-    context.system.secondaries.underworldKnowledge.final = context.system.abilities.int.mod
-    context.system.secondaries.science.final = context.system.abilities.int.mod
-    context.system.secondaries.history.final = context.system.abilities.int.mod
-    context.system.secondaries.medicine.final = context.system.abilities.int.mod
-    context.system.secondaries.nature.final = context.system.abilities.int.mod
-    context.system.secondaries.religion.final = context.system.abilities.int.mod
-    context.system.secondaries.animalHandling.final = context.system.abilities.int.mod
-    context.system.secondaries.persuasion.final = context.system.abilities.wil.mod
-    context.system.secondaries.interpret.final = context.system.abilities.wil.mod
-    context.system.secondaries.lie.final = context.system.abilities.wil.mod
-    context.system.secondaries.coldness.final = context.system.abilities.wil.mod
-    context.system.secondaries.intimidate.final = context.system.abilities.wil.mod
-
+    );
   }
 
 
