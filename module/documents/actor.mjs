@@ -76,6 +76,96 @@ export class ShinobiActor extends Actor {
           ability.mod = Math.floor((ability.value - 5) / 3);
       };
     };
+    let secondaries = systemData.secondaries
+    let abilities = systemData.abilities
+    let resistances = systemData.resistances
+    let level = systemData.attributes.level.value
+
+    secondaries.athletics.mod =
+      secondaries.swim.mod =
+      resistances.phy.mod =
+      abilities.str.mod
+
+    secondaries.acrobatics.mod =
+      secondaries.sleightOfHand.mod =
+      secondaries.stealth.mod =
+      secondaries.traps.mod =
+      secondaries.openLocks.mod =
+      resistances.ref.mod =
+      abilities.dex.mod
+
+    secondaries.search.mod =
+      secondaries.track.mod =
+      secondaries.notice.mod =
+      secondaries.examine.mod =
+      secondaries.insight.mod =
+      abilities.per.mod
+
+    secondaries.shinobiKnowledge.mod =
+      secondaries.ethnicKnowledge.mod =
+      secondaries.underworldKnowledge.mod =
+      secondaries.science.mod =
+      secondaries.history.mod =
+      secondaries.medicine.mod =
+      secondaries.nature.mod =
+      secondaries.religion.mod =
+      secondaries.animalHandling.mod =
+      abilities.int.mod
+
+    resistances.moo.mod =
+      abilities.pow.mod
+
+    secondaries.persuasion.mod =
+      secondaries.interpret.mod =
+      secondaries.lie.mod =
+      secondaries.coldness.mod =
+      secondaries.intimidate.mod =
+      resistances.wil.mod =
+      abilities.wil.mod
+
+    resistances.phy.level =
+      resistances.ref.level =
+      resistances.moo.level =
+      resistances.wil.level =
+      level
+
+    let ignorancePenalizer = 0
+
+    let inteligenceValue = systemData.abilities.int.value;
+
+    switch (true) {
+      case (inteligenceValue <= 3):
+        ignorancePenalizer = -6
+        break;
+      case (inteligenceValue == 4):
+        ignorancePenalizer = -4
+        break;
+      case (inteligenceValue >= 5 && inteligenceValue <= 6):
+        ignorancePenalizer = -3
+        break;
+      case (inteligenceValue >= 7 && inteligenceValue <= 9):
+        ignorancePenalizer = -2
+        break;
+      case (inteligenceValue >= 10):
+        ignorancePenalizer = -1
+        break;
+    }
+    Object.values(secondaries).forEach(secondary => {
+      if (secondary.ip + secondary.class + secondary.nd + secondary.others == 0) {
+        secondary.final = ignorancePenalizer
+      }
+
+      else {
+        secondary.final = secondary.ip + secondary.class + secondary.nd + secondary.others + secondary.mod
+      }
+    }
+    );
+
+    Object.values(resistances).forEach(resistance => {
+      resistance.final = resistance.level + resistance.mod + resistance.others
+    }
+    );
+
   };
 
 
@@ -115,6 +205,18 @@ export class ShinobiActor extends Actor {
     // formulas like `@str.mod + 4`.
     if (data.abilities) {
       for (let [k, v] of Object.entries(data.abilities)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
+
+    if (data.secondaries) {
+      for (let [k, v] of Object.entries(data.secondaries)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
+
+    if (data.resistances) {
+      for (let [k, v] of Object.entries(data.resistances)) {
         data[k] = foundry.utils.deepClone(v);
       }
     }

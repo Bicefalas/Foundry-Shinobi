@@ -38,6 +38,13 @@ SHINOBI.abilities = {
   pow: 'SHINOBI.Ability.Pow.long'
 };
 
+SHINOBI.resistances = {
+  phy: 'SHINOBI.Resistance.Phy.long',
+  ref: 'SHINOBI.Resistance.Ref.long',
+  moo: 'SHINOBI.Resistance.Moo.long',
+  wil: 'SHINOBI.Resistance.Wil.long'
+};
+
 SHINOBI.abilityAbbreviations = {
   str: 'SHINOBI.Ability.Str.abbr',
   dex: 'SHINOBI.Ability.Dex.abbr',

@@ -40,6 +40,9 @@
   "IP": "PI",
   "ND": "DN",
   "Others": "Otros",
+  "Resistance": "Resistencia",
+  "Canalization": "Canalización",
+  "Invocation": "Invocación",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -97,6 +100,20 @@
       },
       "Scythian": {
         "long": "Escita"
+      }
+    },
+    "Resistance": {
+      "Phy": {
+        "long": "Física"
+      },
+      "Ref": {
+        "long": "Reflejos"
+      },
+      "Moo": {
+        "long": "Anímica"
+      },
+      "Wil": {
+        "long": "Voluntad"
       }
     },
     "Ability": {

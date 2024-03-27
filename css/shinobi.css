@@ -410,6 +410,10 @@
   min-width: 250px;
 }
 
+.shinobi .resistances-header {
+  min-width: 100%;
+}
+
 .shinobi .ability-label {
   text-align: left;
   min-width: 100px;
@@ -422,6 +426,36 @@
 
 .shinobi .ability-mod {
   text-align: center;
+}
+
+.shinobi .resistance {
+  min-width: 100%;
+}
+
+.shinobi .resistance-label {
+  text-align: left;
+  min-width: 30%;
+
+}
+
+.shinobi .resistance-level {
+  text-align: center;
+  min-width: 15%;
+}
+
+.shinobi .resistance-mod {
+  text-align: center;
+  min-width: 15%;
+}
+
+.shinobi .resistance-others {
+  text-align: center;
+  min-width: 20%;
+}
+
+.shinobi .resistance-final {
+  text-align: center;
+  min-width: 20%;
 }
 
 .shinobi .secondaries-name {

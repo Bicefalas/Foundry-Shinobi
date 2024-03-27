@@ -98,77 +98,9 @@ export class ShinobiActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.SHINOBI.ethnicities[k]) ?? k;
     }
 
-
-    let secondaries = context.system.secondaries
-    let abilities = context.system.abilities
-
-    secondaries.athletics.mod =
-      secondaries.swim.mod =
-      abilities.str.mod
-
-    secondaries.acrobatics.mod =
-      secondaries.sleightOfHand.mod =
-      secondaries.stealth.mod =
-      secondaries.traps.mod =
-      secondaries.openLocks.mod =
-      abilities.dex.mod
-
-    secondaries.search.mod =
-      secondaries.track.mod =
-      secondaries.notice.mod =
-      secondaries.examine.mod =
-      secondaries.insight.mod =
-      abilities.per.mod
-
-    secondaries.shinobiKnowledge.mod =
-      secondaries.ethnicKnowledge.mod =
-      secondaries.underworldKnowledge.mod =
-      secondaries.science.mod =
-      secondaries.history.mod =
-      secondaries.medicine.mod =
-      secondaries.nature.mod =
-      secondaries.religion.mod =
-      secondaries.animalHandling.mod =
-      abilities.int.mod
-
-    secondaries.persuasion.mod =
-      secondaries.interpret.mod =
-      secondaries.lie.mod =
-      secondaries.coldness.mod =
-      secondaries.intimidate.mod =
-      abilities.wil.mod
-
-    let ignorancePenalizer = 0
-
-    let inteligenceValue = context.system.abilities.int.value;
-
-    switch (true) {
-      case (inteligenceValue <= 3):
-        ignorancePenalizer = -6
-        break;
-      case (inteligenceValue == 4):
-        ignorancePenalizer = -4
-        break;
-      case (inteligenceValue >= 5 && inteligenceValue <= 6):
-        ignorancePenalizer = -3
-        break;
-      case (inteligenceValue >= 7 && inteligenceValue <= 9):
-        ignorancePenalizer = -2
-        break;
-      case (inteligenceValue >= 10):
-        ignorancePenalizer = -1
-        break;
+    for (let [k, v] of Object.entries(context.system.resistances)) {
+      v.label = game.i18n.localize(CONFIG.SHINOBI.resistances[k]) ?? k;
     }
-    Object.values(secondaries).forEach(secondary => {
-      if (secondary.ip + secondary.class + secondary.nd + secondary.others == 0) {
-        secondary.final = ignorancePenalizer
-      }
-
-      else {
-        secondary.final = secondary.ip + secondary.class + secondary.nd + secondary.others + secondary.mod
-      }
-    }
-    );
   }
 
 
@@ -270,8 +202,10 @@ export class ShinobiActorSheet extends ActorSheet {
         li.setAttribute('draggable', true);
         li.addEventListener('dragstart', handler, false);
       });
-      html.on('change', '.select-field', this._updateClass.bind(this));
+
     }
+    // Update tabs
+    this._updateClass(document.getElementsByName("system.class.value"));
   }
 
   /**
@@ -333,8 +267,15 @@ export class ShinobiActorSheet extends ActorSheet {
     }
   }
 
-  _updateClass(event) {
-    event.preventDefault();
-    return this.actor.update({ "system.class.value": this.actor.system.class.value });
+  _updateClass(element) {
+
+    Array.from(document.getElementsByClassName('class-dependant')).forEach((e) => {
+      e.setAttribute('hidden', 1)
+    });
+    if (element.length !== 0) {
+      Array.from(document.getElementsByClassName(element[0].value + '-dependant')).forEach((e) => {
+        e.removeAttribute('hidden')
+      });
+    }
   }
 }

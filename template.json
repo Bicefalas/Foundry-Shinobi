@@ -16,6 +16,9 @@
           "min": 0,
           "max": 5
         },
+        "initiative": {
+          "value": 0
+        },
         "biography": ""
       }
     },
@@ -27,6 +30,9 @@
         "level": {
           "value": 1
         }
+      },
+      "class": {
+        "value": "ninja"
       },
       "classes": {
         "warrior": {},
@@ -85,6 +91,36 @@
           "value": 5,
           "long": "Power",
           "abbr": "POW"
+        }
+      },
+      "resistances": {
+        "phy": {
+          "long": "Physical",
+          "level": 0,
+          "mod": 0,
+          "others": 0,
+          "final": 0
+        },
+        "ref": {
+          "long": "Reflexes",
+          "level": 0,
+          "mod": 0,
+          "others": 0,
+          "final": 0
+        },
+        "moo": {
+          "long": "Mood",
+          "level": 0,
+          "mod": 0,
+          "others": 0,
+          "final": 0
+        },
+        "wil": {
+          "long": "Will",
+          "level": 0,
+          "mod": 0,
+          "others": 0,
+          "final": 0
         }
       },
       "secondaries": {

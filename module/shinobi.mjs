@@ -118,7 +118,7 @@ async function createItemMacro(data, slot) {
 
 /**
  * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
+ * Get an existing item macro if one exists,rowise create a new one.
  * @param {string} itemUuid
  */
 function rollItemMacro(itemUuid) {

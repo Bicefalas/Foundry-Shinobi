@@ -75,7 +75,6 @@
           <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
         </div>
       </div>
-
     </div>
   </div>
 
@@ -88,6 +87,12 @@
     <a class="item" data-tab="items">{{localize "Items"}}</a>
     <a class="item" data-tab="spells">{{localize "Spells"}}</a>
     <a class="item" data-tab="effects">{{localize "Effects"}}</a>
+
+    <a class="item class-dependant warrior-dependant" id="tras-combat-styles" data-tab="tras-combat-styles">{{localize "Trascendental"}}</a>
+    <a class="item class-dependant ninja-dependant" id="chakra" data-tab="chakra">{{localize "Chakra"}}</a>
+    <a class="item class-dependant omnyoji-dependant" id="canalization" data-tab="canalization">{{localize "Canalization"}}</a>
+    <a class="item class-dependant samurai-dependant" id="invocation" data-tab="invocation">{{localize "Invocation"}}</a>
+
   </nav>
 
   {{!-- Sheet Body --}}
@@ -126,6 +131,41 @@
             </div>
             {{/each}}
           </div>
+          <br>
+          <div class="resistances flexcol">
+            <div class="resistances-header flexrow flex-group-center">
+              <h3 class="resistance-label">{{localize "Resistance"}}</h3>
+              <h3 class="resistance-level">{{localize "Level"}}</h3>
+              <h3 class="resistance-mod">{{localize "Mod."}}</h3>
+              <h3 class="resistance-others">{{localize "Others"}}</h3>
+              <h3 class="resistance-final">{{localize "Final"}}</h3>
+            </div>
+            {{#each system.resistances as |resistance key|}}
+            <div class="resistance flexrow flex-group-center">
+              <div class="resistance-label">
+                <label for="system.resistances.{{key}}.final" class="resource-label rollable flexlarge align-left"
+                  data-roll="d10+@resistances.{{key}}.final" data-label="{{localize 'Resistance'}}
+                  {{resistance.label}}"><i class="fa-solid fa-dice-d10" data-label="{{localize 'Resistance'}}
+                    {{resistance.label}}"></i> {{resistance.label}}</label>
+              </div>
+              <div class="resistance-level">
+                <label for="{{resistance.level}}">{{resistance.level}}</label>
+              </div>
+              <div class="resistance-mod">
+                <label type="number" name="system.resistances.{{key}}.mod" value="{{resistance.mod}}"
+                  data-dtype="Number">{{resistance.mod}}</label>
+              </div>
+              <div class="resistance-others">
+                <input type="number" name="system.resistances.{{key}}.others" value="{{resistance.others}}"
+                  data-dtype="Number" />
+              </div>
+              <div class="resistance-final">
+                <label type="number" name="system.resistances.{{key}}.final" value="{{resistance.final}}"
+                  data-dtype="Number">{{resistance.final}}</label>
+              </div>
+            </div>
+            {{/each}}
+          </div>
 
         </aside>
 
@@ -151,8 +191,8 @@
               {{#each system.secondaries as |secondary key|}}
               <div class="secondary flexrow flex-group-center">
                 <div class="secondary-label">
-                  <label for="system.secondaries.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                    data-roll="d10+@secondaries.{{key}}.value" data-label="{{secondary.label}}"><i
+                  <label for="system.secondaries.{{key}}.final" class="resource-label rollable flexlarge align-left"
+                    data-roll="d10+@secondaries.{{key}}.final" data-label="{{secondary.label}}"><i
                       class="fa-solid fa-dice-d10" data-label="{{secondary.label}}"></i> {{secondary.label}}</label>
                 </div>
                 <div class="secondary-ip">
@@ -177,7 +217,7 @@
                 </div>
                 <div class="secondary-final">
                   <label type="number" name="system.secondaries.{{key}}.final" value="{{secondary.final}}"
-                    data-dtype="Number">{{numberFormat secondary.final decimals=0 sign=false}}</label>
+                    data-dtype="Number">{{secondary.final}}</label>
                 </div>
               </div>
               {{/each}}
