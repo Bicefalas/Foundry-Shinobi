@@ -150,16 +150,131 @@ export class ShinobiActor extends Actor {
         ignorancePenalizer = -1
         break;
     }
+
+    let ipCostStr = 0
+    let ipCostDex = 0
+    let ipCostPer = 0
+    let ipCostInt = 0
+    let ipCostWil = 0
+    let ipCost = 0
+
+    switch (true) {
+      case (systemData.class.value == "warrior"):
+        ipCostStr = 2
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 3
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "rogue"):
+        ipCostStr = 3
+        ipCostDex = 1
+        ipCostPer = 1
+        ipCostInt = 2
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "ninja"):
+        ipCostStr = 2
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 3
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "shaolin"):
+        ipCostStr = 2
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 3
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "samurai"):
+        ipCostStr = 2
+        ipCostDex = 3
+        ipCostPer = 2
+        ipCostInt = 2
+        ipCostWil = 1
+        break;
+      case (systemData.class.value == "omnyoji"):
+        ipCostStr = 3
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 2
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "henge"):
+        ipCostStr = 3
+        ipCostDex = 1
+        ipCostPer = 1
+        ipCostInt = 2
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "kannushi"):
+        ipCostStr = 3
+        ipCostDex = 1
+        ipCostPer = 1
+        ipCostInt = 2
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "ryoshi"):
+        ipCostStr = 2
+        ipCostDex = 1
+        ipCostPer = 2
+        ipCostInt = 2
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "warriorOmnyoji"):
+        ipCostStr = 2
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 2
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "ronin"):
+        ipCostStr = 2
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 3
+        ipCostWil = 2
+        break;
+      case (systemData.class.value == "energyShaolin"):
+        ipCostStr = 2
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 3
+        ipCostWil = 2
+        break;
+    }
+
     Object.values(secondaries).forEach(secondary => {
-      if (secondary.ip + secondary.class + secondary.nd + secondary.others == 0) {
-        secondary.final = ignorancePenalizer
+
+      switch (true) {
+        case (secondary.long == "Athletics" || secondary.long == "Swim"):
+          ipCost = ipCostStr
+          break;
+        case (secondary.long == "Acrobatics" || secondary.long == "SleightOfHand" || secondary.long == "Stealth" || secondary.long == "Traps" || secondary.long == "OpenLocks"):
+          ipCost = ipCostDex
+          break;
+        case (secondary.long == "Search" || secondary.long == "track" || secondary.long == "notice" || secondary.long == "examine" || secondary.long == "insight"):
+          ipCost = ipCostPer
+          break;
+        case (secondary.long == "ShinobiKnowledge" || secondary.long == "ethnicKnowledge" || secondary.long == "underworldKnowledge" || secondary.long == "science" || secondary.long == "history" || secondary.long == "medicine" || secondary.long == "nature" || secondary.long == "religion" || secondary.long == "animalHandling"):
+          ipCost = ipCostInt
+          break;
+        case (secondary.long == "Persuasion" || secondary.long == "interpret" || secondary.long == "lie" || secondary.long == "coldness" || secondary.long == "intimidate"):
+          ipCost = ipCostWil
+          break;
+      }
+
+      if (Math.trunc(secondary.ip / ipCost + secondary.class + secondary.nd + secondary.others) == 0) {
+        secondary.final = ignorancePenalizer + secondary.mod
       }
 
       else {
-        secondary.final = secondary.ip + secondary.class + secondary.nd + secondary.others + secondary.mod
+        secondary.final = Math.trunc(secondary.ip / ipCost + secondary.class + secondary.nd + secondary.others + secondary.mod)
       }
-    }
-    );
+
+    });
+
 
     Object.values(resistances).forEach(resistance => {
       resistance.final = resistance.level + resistance.mod + resistance.others

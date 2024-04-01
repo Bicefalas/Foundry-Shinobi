@@ -29,6 +29,26 @@
       "attributes": {
         "level": {
           "value": 1
+        },
+        "carryArmor": {
+          "value": 0
+        },
+        "trascendentalShard": {
+          "value": 0,
+          "max": 0
+        },
+        "chakra": {
+          "value": 0,
+          "max": 0
+        },
+        "arcana": {
+          "value": 0,
+          "max": 0
+        },
+        "executionSpeed": {
+          "body": 0,
+          "speed": 0,
+          "soul": 0
         }
       },
       "class": {

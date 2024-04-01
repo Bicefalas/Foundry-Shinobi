@@ -190,6 +190,10 @@
   justify-content: space-between;
 }
 
+.flex-around {
+  justify-content: space-around;
+}
+
 .flexlarge {
   flex: 2;
 }
@@ -269,7 +273,13 @@
   font-weight: bold;
 }
 
+.shinobi .resource-field label {
+  margin: 5px;
+  max-width: 60px;
+}
+
 .shinobi .resource-field input {
+  margin: 5px;
   max-width: 50px;
 }
 
@@ -530,4 +540,5 @@
 
 .select-field {
   width: 90px;
+  margin: 3px;
 }

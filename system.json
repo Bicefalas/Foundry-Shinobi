@@ -69,7 +69,6 @@
   "gridDistance": 1,
   "gridUnits": "mts",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
   "url": "https://github.com/Bicefalas/Foundry-Shinobi",
   "background": "systems/shinobi/assets/background.jpg",
   "manifest": "https://github.com/Bicefalas/Foundry-Shinobi/blob/main/system.json",
