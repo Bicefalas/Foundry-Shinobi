@@ -43,9 +43,7 @@
             data-dtype="Number" />
         </div>
       </div>
-
     </div>
-
     <div class="resource flexrow flex-center flex-between">
       <div class="resource-content">
         <div class="resource-field">
@@ -61,16 +59,16 @@
         </div>
       </div>
     </div>
-    <div class="resource-content flexrow flex-center flex-">
-      <div class="resource-field">
+    <div class="resource-content  flexrow flex-center flex-between">
+      <div class="resource-field flexcolumn">
         <label for="system.health" class="resource-label">{{localize "Health"}}</label>
-        <div class="resource-field flexrow flex-center flex-between">
-          <div class="resource-field flexrow flex-center">
+        <div class="resource-field">
+          <div class="resource-field">
             <label for="system.health.value" class="resource-label">{{localize
               "Current"}}</label>
             <input type="number" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
           </div>
-          <div class="resource-field flexrow flex-center">
+          <div class="resource-field">
             <label for="system.health.max" class="resource-label">{{localize
               "Max"}}</label>
             <input type="number" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
@@ -81,8 +79,8 @@
         <label for="system.attributes.trascendentalShard"
           class="resource-label class-dependant warrior-dependant">{{localize
           "Trascendental Shards"}}</label>
-        <div class="resource-field flexrow flex-center flex-between">
-          <div class="resource-field flexrow flex-center">
+        <div class="resource-field flexcolumn">
+          <div class="resource-field">
             <label for="system.attributes.trascendentalShard.value"
               class="resource-label class-dependant warrior-dependant">{{localize
               "Current"}}</label>
@@ -90,7 +88,7 @@
               name="system.attributes.trascendentalShard.value" value="{{system.attributes.trascendentalShard.value}}"
               data-dtype="Number" />
           </div>
-          <div class="resource-field flexrow flex-center">
+          <div class="resource-field">
             <label for="system.attributes.trascendentalShard.max"
               class="resource-label class-dependant warrior-dependant">{{localize
               "Max"}}</label>
@@ -99,19 +97,19 @@
               data-dtype="Number" />
           </div>
         </div>
-        <div class="resource-field">
+        <div class="resource-field flexcolumn">
           <label for="system.attributes.chakra"
             class="resource-label class-dependant energyShaolin-dependant ninja-dependant">{{localize
             "Chakra"}}</label>
-          <div class="resource-field flexrow flex-center flex-between">
-            <div class="resource-field flexrow flex-center">
+          <div class="resource-field">
+            <div class="resource-field">
               <label for="system.attributes.chakra.value"
                 class="resource-label class-dependant energyShaolin-dependant ninja-dependant">{{localize
                 "Current"}}</label>
               <input class="class-dependant energyShaolin-dependant ninja-dependant" type="number"
                 name="system.attributes.chakra.value" value="{{system.attributes.chakra.value}}" data-dtype="Number" />
             </div>
-            <div class="resource-field flexrow flex-center">
+            <div class="resource-field">
               <label for="system.attributes.chakra.max"
                 class="resource-label class-dependant energyShaolin-dependant ninja-dependant">{{localize
                 "Max"}}</label>
@@ -120,12 +118,12 @@
             </div>
           </div>
         </div>
-        <div class="resource-field">
-          <label for="system.attributes.arcana"
-            class="resource-label class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant">{{localize
-            "Arcana"}}</label>
-          <div class="resource-field flexrow flex-center flex-between">
-            <div class="resource-field flexrow flex-center">
+        <div class="resource-content flexcolumn">
+          <div class="resource-field">
+            <label for="system.attributes.arcana"
+              class="resource-label class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant">{{localize
+              "Arcana"}}</label>
+            <div class="resource-field">
               <label for="system.attributes.arcana.value"
                 class="resource-label class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant">{{localize
                 "Current"}}</label>
@@ -141,37 +139,35 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="resource-content flexcolumn">
         <div class="resource-field">
           <label for="system.attributes.executionSpeed"
             class="resource-label class-dependant energyShaolin-dependant">{{localize
             "Execution Speed"}}</label>
-          <div class="resource-field flexrow flex-center flex-between">
-            <div class="resource-field flexrow flex-center">
-              <label for="system.attributes.executionSpeed.body"
-                class="resource-label class-dependant energyShaolin-dependant">{{localize
-                "Body"}}</label>
-     
-              <input class="class-dependant energyShaolin-dependant" type="number"
-                name="system.attributes.executionSpeed.body" value="{{system.attributes.executionSpeed.body}}"
-                data-dtype="Number" />
-            </div>
-            <div class="resource-field flexrow flex-center">
-              <label for="system.attributes.executionSpeed.speed"
-                class="resource-label class-dependant energyShaolin-dependant">{{localize
-                "Speed"}}</label>
-      
-              <input class="class-dependant energyShaolin-dependant" type="number"
-                name="system.attributes.executionSpeed.speed" value="{{system.attributes.executionSpeed.speed}}"
-                data-dtype="Number" />
-            </div>
-            <div class="resource-field flexrow flex-center">
-              <label for="system.attributes.executionSpeed.soul"
-                class="resource-label class-dependant energyShaolin-dependant">{{localize
-                "Soul"}}</label>
-              <input class="class-dependant energyShaolin-dependant" type="number"
-                name="system.attributes.executionSpeed.soul" value="{{system.attributes.executionSpeed.soul}}"
-                data-dtype="Number" />
-            </div>
+          <div class="resource-field">
+            <label for="system.attributes.executionSpeed.body"
+              class="resource-label class-dependant energyShaolin-dependant">{{localize
+              "Body"}}</label>
+            <input class="class-dependant energyShaolin-dependant" type="number"
+              name="system.attributes.executionSpeed.body" value="{{system.attributes.executionSpeed.body}}"
+              data-dtype="Number" />
+          </div>
+          <div class="resource-field">
+            <label for="system.attributes.executionSpeed.speed"
+              class="resource-label class-dependant energyShaolin-dependant">{{localize
+              "Speed"}}</label>
+            <input class="class-dependant energyShaolin-dependant" type="number"
+              name="system.attributes.executionSpeed.speed" value="{{system.attributes.executionSpeed.speed}}"
+              data-dtype="Number" />
+          </div>
+          <div class="resource-field">
+            <label for="system.attributes.executionSpeed.soul"
+              class="resource-label class-dependant energyShaolin-dependant">{{localize
+              "Soul"}}</label>
+            <input class="class-dependant energyShaolin-dependant" type="number"
+              name="system.attributes.executionSpeed.soul" value="{{system.attributes.executionSpeed.soul}}"
+              data-dtype="Number" />
           </div>
         </div>
       </div>
@@ -248,7 +244,7 @@
             <div class="resistance flexrow flex-group-center">
               <div class="resistance-label">
                 <label for="system.resistances.{{key}}.final" class="resource-label rollable flexlarge align-left"
-                  data-roll="1d10x10+@resistances.{{key}}.final" data-label="{{localize 'Resistance'}}
+                  data-roll="1d10+@resistances.{{key}}.final" data-label="{{localize 'Resistance'}}
                   {{resistance.label}}"><i class="fa-solid fa-dice-d10" data-label="{{localize 'Resistance'}}
                     {{resistance.label}}"></i> {{resistance.label}}</label>
               </div>
