@@ -52,27 +52,22 @@ export class ShinobiActor extends Actor {
       // Calculate the modifier.
       switch (ability.value) {
         case 1:
-          // if this case is allowed
           ability.mod = -8;
           break;
 
         case 2:
-          // if this case is allowed
           ability.mod = -4;
           break;
 
         case 3:
-          // if this case is allowed
           ability.mod = -2;
           break;
 
         case 4:
-          // if this case is allowed
           ability.mod = -1;
           break;
 
         default:
-          //if none of the cases doesn't fit
           ability.mod = Math.floor((ability.value - 5) / 3);
       };
     };
@@ -151,116 +146,101 @@ export class ShinobiActor extends Actor {
         break;
     }
 
-    let ipCostStr = 0
-    let ipCostDex = 0
-    let ipCostPer = 0
-    let ipCostInt = 0
-    let ipCostWil = 0
-    let ipCost = 0
+    let ipCostStr = 2
+    let ipCostDex = 2
+    let ipCostPer = 2
+    let ipCostInt = 2
+    let ipCostWil = 2
+    let ipCost = 2
 
-    switch (true) {
-      case (systemData.class.value == "warrior"):
+    switch (systemData.class.value) {
+      case "warrior":
+      case "ninja":
+      case "shaolin":
+      case "ronin":
+      case "energyShaolin":
         ipCostStr = 2
         ipCostDex = 2
         ipCostPer = 2
         ipCostInt = 3
         ipCostWil = 2
         break;
-      case (systemData.class.value == "rogue"):
+      case "rogue":
+      case "henge":
+      case "kannushi":
         ipCostStr = 3
         ipCostDex = 1
         ipCostPer = 1
         ipCostInt = 2
         ipCostWil = 2
         break;
-      case (systemData.class.value == "ninja"):
-        ipCostStr = 2
-        ipCostDex = 2
-        ipCostPer = 2
-        ipCostInt = 3
-        ipCostWil = 2
-        break;
-      case (systemData.class.value == "shaolin"):
-        ipCostStr = 2
-        ipCostDex = 2
-        ipCostPer = 2
-        ipCostInt = 3
-        ipCostWil = 2
-        break;
-      case (systemData.class.value == "samurai"):
+      case "samurai":
         ipCostStr = 2
         ipCostDex = 3
         ipCostPer = 2
         ipCostInt = 2
         ipCostWil = 1
         break;
-      case (systemData.class.value == "omnyoji"):
+      case "omnyoji":
         ipCostStr = 3
         ipCostDex = 2
         ipCostPer = 2
         ipCostInt = 2
         ipCostWil = 2
         break;
-      case (systemData.class.value == "henge"):
-        ipCostStr = 3
-        ipCostDex = 1
-        ipCostPer = 1
-        ipCostInt = 2
-        ipCostWil = 2
-        break;
-      case (systemData.class.value == "kannushi"):
-        ipCostStr = 3
-        ipCostDex = 1
-        ipCostPer = 1
-        ipCostInt = 2
-        ipCostWil = 2
-        break;
-      case (systemData.class.value == "ryoshi"):
+      case "ryoshi":
         ipCostStr = 2
         ipCostDex = 1
         ipCostPer = 2
         ipCostInt = 2
         ipCostWil = 2
         break;
-      case (systemData.class.value == "warriorOmnyoji"):
+      case "warriorOmnyoji":
         ipCostStr = 2
         ipCostDex = 2
         ipCostPer = 2
         ipCostInt = 2
-        ipCostWil = 2
-        break;
-      case (systemData.class.value == "ronin"):
-        ipCostStr = 2
-        ipCostDex = 2
-        ipCostPer = 2
-        ipCostInt = 3
-        ipCostWil = 2
-        break;
-      case (systemData.class.value == "energyShaolin"):
-        ipCostStr = 2
-        ipCostDex = 2
-        ipCostPer = 2
-        ipCostInt = 3
         ipCostWil = 2
         break;
     }
 
     Object.values(secondaries).forEach(secondary => {
 
-      switch (true) {
-        case (secondary.long == "Athletics" || secondary.long == "Swim"):
+      switch (secondary.long) {
+        case "Athletics":
+        case "Swim":
           ipCost = ipCostStr
           break;
-        case (secondary.long == "Acrobatics" || secondary.long == "SleightOfHand" || secondary.long == "Stealth" || secondary.long == "Traps" || secondary.long == "OpenLocks"):
+        case "Acrobatics":
+        case "Sleight Of Hand":
+        case "Stealth":
+        case "Traps":
+        case "Open Locks":
           ipCost = ipCostDex
           break;
-        case (secondary.long == "Search" || secondary.long == "track" || secondary.long == "notice" || secondary.long == "examine" || secondary.long == "insight"):
+        case "Search":
+        case "Track":
+        case "Notice":
+        case "Examine":
+        case "Insight":
           ipCost = ipCostPer
           break;
-        case (secondary.long == "ShinobiKnowledge" || secondary.long == "ethnicKnowledge" || secondary.long == "underworldKnowledge" || secondary.long == "science" || secondary.long == "history" || secondary.long == "medicine" || secondary.long == "nature" || secondary.long == "religion" || secondary.long == "animalHandling"):
+        case "Shinobi Knowledge":
+        case "Ethnic Knowledge":
+        case "Underworld Knowledge":
+        case "Science":
+        case "History":
+        case "Medicine":
+        case "Nature":
+        case "Religion":
+        case "Animal Handling":
           ipCost = ipCostInt
           break;
-        case (secondary.long == "Persuasion" || secondary.long == "interpret" || secondary.long == "lie" || secondary.long == "coldness" || secondary.long == "intimidate"):
+        case "Persuasion":
+        case "Interpret":
+        case "Lie":
+        case "Coldness":
+        case "Intimidate":
           ipCost = ipCostWil
           break;
       }
