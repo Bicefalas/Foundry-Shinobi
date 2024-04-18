@@ -35,7 +35,6 @@ export class ShinobiActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
   }
 
   /**
@@ -252,29 +251,13 @@ export class ShinobiActor extends Actor {
       else {
         secondary.final = Math.trunc(secondary.ip / ipCost + secondary.class + secondary.nd + secondary.others + secondary.mod)
       }
-
     });
-
 
     Object.values(resistances).forEach(resistance => {
       resistance.final = resistance.level + resistance.mod + resistance.others
     }
     );
-
   };
-
-
-
-  /**
-   * Prepare NPC type specific data.
-   */
-  _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
-
-    // Make modifications to data here. For example:
-    const systemData = actorData.system;
-    systemData.xp = systemData.cr * systemData.cr * 100;
-  }
 
   /**
    * Override getRollData() that's supplied to rolls.
@@ -320,11 +303,6 @@ export class ShinobiActor extends Actor {
         data[k] = foundry.utils.deepClone(v);
       }
     }
-
-    // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
-    }
   }
 
   /**
@@ -334,5 +312,30 @@ export class ShinobiActor extends Actor {
     if (this.type !== 'npc') return;
 
     // Process additional NPC data here.
+
+    // Copy the ability scores to the top level, so that rolls can use
+    // formulas like `@str.mod + 4`.
+    if (data.abilities) {
+      for (let [k, v] of Object.entries(data.abilities)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
+
+    if (data.secondaries) {
+      for (let [k, v] of Object.entries(data.secondaries)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
+
+    if (data.resistances) {
+      for (let [k, v] of Object.entries(data.resistances)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
+    if (data.combat) {
+      for (let [k, v] of Object.entries(data.combat)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
   }
 }

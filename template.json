@@ -11,15 +11,28 @@
           "min": 0,
           "max": 10
         },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        },
         "initiative": {
           "value": 0
         },
-        "biography": ""
+        "biography": "",
+        "fatigue": {
+          "value": 0,
+          "max": 0
+        },
+        "tiredness": {
+          "value": 0,
+          "max": 0
+        },
+        "speed": {
+          "value": 0
+        },
+        "armor": {
+          "phisical": 0,
+          "heat": 0,
+          "cold": 0,
+          "electrical": 0,
+          "sobrenatural": 0
+        }
       }
     },
     "shinobi": {
@@ -389,7 +402,175 @@
       "templates": [
         "base"
       ],
-      "cr": 0
+      "combat": {
+        "attack": 0,
+        "defense": 0
+      },
+      "attributes": {
+        "challengeLevel": 1,
+        "size": ""
+      },
+      "abilities": {
+        "str": {
+          "value": 5,
+          "long": "Strength",
+          "abbr": "STR"
+        },
+        "dex": {
+          "value": 5,
+          "long": "Dexterity",
+          "abbr": "DEX"
+        },
+        "con": {
+          "value": 5,
+          "long": "Constitution",
+          "abbr": "CON"
+        },
+        "int": {
+          "value": 5,
+          "long": "Intelligence",
+          "abbr": "INT"
+        },
+        "per": {
+          "value": 5,
+          "long": "Perception",
+          "abbr": "PER"
+        },
+        "wil": {
+          "value": 5,
+          "long": "Will",
+          "abbr": "WIL"
+        },
+        "pow": {
+          "value": 5,
+          "long": "Power",
+          "abbr": "POW"
+        }
+      },
+      "resistances": {
+        "phy": {
+          "long": "Physical",
+          "value": 0
+        },
+        "ref": {
+          "long": "Reflexes",
+          "value": 0
+        },
+        "moo": {
+          "long": "Mood",
+          "value": 0
+        },
+        "wil": {
+          "long": "Will",
+          "value": 0
+        }
+      },
+      "secondaries": {
+        "athletics": {
+          "long": "Athletics",
+          "value": 0
+        },
+        "swim": {
+          "long": "Swim",
+          "value": 0
+        },
+        "acrobatics": {
+          "long": "Acrobatics",
+          "value": 0
+        },
+        "sleightOfHand": {
+          "long": "Sleight Of Hand",
+          "value": 0
+        },
+        "stealth": {
+          "long": "Stealth",
+          "value": 0
+        },
+        "traps": {
+          "long": "Traps",
+          "value": 0
+        },
+        "openLocks": {
+          "long": "Open Locks",
+          "value": 0
+        },
+        "search": {
+          "long": "Search",
+          "value": 0
+        },
+        "track": {
+          "long": "Track",
+          "value": 0
+        },
+        "notice": {
+          "long": "Notice",
+          "value": 0
+        },
+        "examine": {
+          "long": "Examine",
+          "value": 0
+        },
+        "insight": {
+          "long": "Insight",
+          "value": 0
+        },
+        "shinobiKnowledge": {
+          "long": "Shinobi Knowledge",
+          "value": 0
+        },
+        "ethnicKnowledge": {
+          "long": "Ethnic Knowledge",
+          "value": 0
+        },
+        "underworldKnowledge": {
+          "long": "Underworld Knowledge",
+          "value": 0
+        },
+        "science": {
+          "long": "Science",
+          "value": 0
+        },
+        "history": {
+          "long": "History",
+          "value": 0
+        },
+        "medicine": {
+          "long": "Medicine",
+          "value": 0
+        },
+        "nature": {
+          "long": "Nature",
+          "value": 0
+        },
+        "religion": {
+          "long": "Religion",
+          "value": 0
+        },
+        "animalHandling": {
+          "long": "Animal Handling",
+          "value": 0
+        },
+        "persuasion": {
+          "long": "Persuasion",
+          "value": 0
+        },
+        "interpret": {
+          "long": "Interpret",
+          "value": 0
+        },
+        "lie": {
+          "long": "Lie",
+          "value": 0
+        },
+        "coldness": {
+          "long": "Coldness",
+          "value": 0
+        },
+        "intimidate": {
+          "long": "Intimidate",
+          "value": 0
+        }
+      }
     }
   },
   "Item": {

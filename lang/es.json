@@ -55,6 +55,23 @@
   "Attack Capacity": "Capacidad de Ataque",
   "Defense Capacity": "Capacidad de Defensa",
   "Magic Capacity": "Capacidad Mágica",
+  "Size": "Tamaño",
+  "Challenge Level": "Nivel de Desafío",
+  "Secondary Ability": "Habilidad Secundaria",
+  "Fatigue": "Fatiga",
+  "Tiredness": "Cansancio",
+  "Movement Speed": "Velocidad de Movimiento",
+  "Weapons": "Armas",
+  "Special Abilities": "Habilidades Especiales",
+  "Armor": "Armadura",
+  "Phisical": "Física",
+  "Heat": "Calor",
+  "Cold": "Frío",
+  "Electrical": "Eléctrica",
+  "Sobrenatural": "Sobrenatural",
+  " Type the Yokai attacks here...": "Escribe las armas del Yokai aquí...",
+  " Type the Yokai special abilities here...": "Escribe las habilidades especiales del Yokai aquí...",
+  " Type the Yokai description here...": "Escribe la descripción del Yokai aquí...",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -258,8 +275,8 @@
   },
   "TYPES": {
     "Actor": {
-      "shinobi": "Personaje Jugador",
-      "npc": "PNJ"
+      "shinobi": "Shinobi",
+      "npc": "Yokai"
     },
     "Item": {
       "object": "Objeto",

@@ -17,7 +17,7 @@ SHINOBI.classes = {
   ronin: 'SHINOBI.Class.Ronin.long',
   ryoshi: 'SHINOBI.Class.Ryoshi.long',
   energyShaolin: 'SHINOBI.Class.EnergyShaolin.long'
-}
+};
 
 SHINOBI.ethnicities = {
   ainu: 'SHINOBI.Ethnicity.Ainu.long',
@@ -26,7 +26,7 @@ SHINOBI.ethnicities = {
   buyei: 'SHINOBI.Ethnicity.Buyei.long',
   cuman: 'SHINOBI.Ethnicity.Cuman.long',
   scythian: 'SHINOBI.Ethnicity.Scythian.long'
-}
+};
 
 SHINOBI.abilities = {
   str: 'SHINOBI.Ability.Str.long',
@@ -83,5 +83,3 @@ SHINOBI.secondaries = {
   coldness: 'SHINOBI.Secondary.Coldness.long',
   intimidate: 'SHINOBI.Secondary.Intimidate.long'
 };
-
-

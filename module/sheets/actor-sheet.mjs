@@ -55,6 +55,7 @@ export class ShinobiActorSheet extends ActorSheet {
     // Prepare NPC data and items.
     if (actorData.type == 'npc') {
       this._prepareItems(context);
+      this._prepareNPCData(context);
     }
 
     // Add roll data for TinyMCE editors.
@@ -96,6 +97,24 @@ export class ShinobiActorSheet extends ActorSheet {
 
     for (let [k, v] of Object.entries(context.system.ethnicities)) {
       v.label = game.i18n.localize(CONFIG.SHINOBI.ethnicities[k]) ?? k;
+    }
+
+    for (let [k, v] of Object.entries(context.system.resistances)) {
+      v.label = game.i18n.localize(CONFIG.SHINOBI.resistances[k]) ?? k;
+    }
+  }
+
+  _prepareNPCData(context) {
+
+    // Handle ability scores.
+
+
+    for (let [k, v] of Object.entries(context.system.abilities)) {
+      v.label = game.i18n.localize(CONFIG.SHINOBI.abilities[k]) ?? k;
+    }
+
+    for (let [k, v] of Object.entries(context.system.secondaries)) {
+      v.label = game.i18n.localize(CONFIG.SHINOBI.secondaries[k]) ?? k;
     }
 
     for (let [k, v] of Object.entries(context.system.resistances)) {

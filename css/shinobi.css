@@ -218,6 +218,25 @@
   font-family: "Roboto", sans-serif;
 }
 
+.shinobi textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: medium;
+  resize: none;
+}
+
+.shinobi .description-body textarea {
+  height: 195px;
+}
+
+.shinobi .weapons-body textarea {
+  height: 117px;
+}
+
+.shinobi .special-body textarea {
+  height: 500px;
+}
+
+
 .shinobi .sheet-header {
   flex: 0 auto;
   overflow: hidden;
@@ -281,6 +300,11 @@
 .shinobi .resource-field input {
   margin: 5px;
   max-width: 50px;
+}
+
+.shinobi .resource-field-text input {
+  margin: 5px;
+  max-width: 100px;
 }
 
 .shinobi .items-header {
@@ -445,7 +469,6 @@
 .shinobi .resistance-label {
   text-align: left;
   min-width: 30%;
-
 }
 
 .shinobi .resistance-level {
@@ -466,6 +489,12 @@
 .shinobi .resistance-final {
   text-align: center;
   min-width: 20%;
+}
+
+.shinobi .resistance-value {
+  text-align: center;
+  min-width: 20%;
+  max-width: 20%;
 }
 
 .shinobi .secondaries-name {
@@ -503,6 +532,11 @@
   max-width: 10%;
 }
 
+.shinobi .secondaries-value {
+  text-align: center;
+  max-width: 20%;
+}
+
 .shinobi .secondary-label {
   text-align: left;
   min-width: 25%;
@@ -537,6 +571,12 @@
   max-width: 10%;
   text-align: center;
 }
+
+.shinobi .secondary-value {
+  max-width: 20%;
+  text-align: center;
+}
+
 
 .select-field {
   width: 90px;

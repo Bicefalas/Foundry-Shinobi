@@ -11,7 +11,10 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/actor-spells.hbs',
     'systems/shinobi/templates/actor/parts/actor-effects.hbs',
     'systems/shinobi/templates/actor/parts/actor-combat.hbs',
+    'systems/shinobi/templates/actor/parts/actor-bio.hbs',
     'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs',
+    'systems/shinobi/templates/actor/parts/actor-fatigue-tiredness.hbs',
+    'systems/shinobi/templates/actor/parts/actor-armor.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/warrior.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs',
@@ -22,7 +25,6 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/classes/tabs/chakra.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/invocation.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/canalization.hbs',
-    
     // Item partials
     'systems/shinobi/templates/item/parts/item-effects.hbs',
   ]);
