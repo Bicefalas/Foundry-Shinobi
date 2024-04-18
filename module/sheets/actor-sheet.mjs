@@ -204,8 +204,6 @@ export class ShinobiActorSheet extends ActorSheet {
       });
 
     }
-    // Update tabs
-    this._updateClass(document.getElementsByName("system.class.value"));
   }
 
   /**
@@ -264,18 +262,6 @@ export class ShinobiActorSheet extends ActorSheet {
         rollMode: game.settings.get('core', 'rollMode'),
       });
       return roll;
-    }
-  }
-
-  _updateClass(element) {
-
-    Array.from(document.getElementsByClassName('class-dependant')).forEach((e) => {
-      e.setAttribute('hidden', 1)
-    });
-    if (element.length !== 0) {
-      Array.from(document.getElementsByClassName(element[0].value + '-dependant')).forEach((e) => {
-        e.removeAttribute('hidden')
-      });
     }
   }
 }

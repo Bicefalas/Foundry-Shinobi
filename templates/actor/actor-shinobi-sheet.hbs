@@ -75,104 +75,43 @@
           </div>
         </div>
       </div>
-      <div class="resource-field">
-        <label for="system.attributes.trascendentalShard"
-          class="resource-label class-dependant warrior-dependant">{{localize
-          "Trascendental Shards"}}</label>
-        <div class="resource-field flexcolumn">
-          <div class="resource-field">
-            <label for="system.attributes.trascendentalShard.value"
-              class="resource-label class-dependant warrior-dependant">{{localize
-              "Current"}}</label>
-            <input class="class-dependant warrior-dependant" type="number"
-              name="system.attributes.trascendentalShard.value" value="{{system.attributes.trascendentalShard.value}}"
-              data-dtype="Number" />
-          </div>
-          <div class="resource-field">
-            <label for="system.attributes.trascendentalShard.max"
-              class="resource-label class-dependant warrior-dependant">{{localize
-              "Max"}}</label>
-            <input class="class-dependant warrior-dependant" type="number"
-              name="system.attributes.trascendentalShard.max" value="{{system.attributes.trascendentalShard.max}}"
-              data-dtype="Number" />
-          </div>
-        </div>
-        <div class="resource-field flexcolumn">
-          <label for="system.attributes.chakra"
-            class="resource-label class-dependant energyShaolin-dependant ninja-dependant">{{localize
-            "Chakra"}}</label>
-          <div class="resource-field">
-            <div class="resource-field">
-              <label for="system.attributes.chakra.value"
-                class="resource-label class-dependant energyShaolin-dependant ninja-dependant">{{localize
-                "Current"}}</label>
-              <input class="class-dependant energyShaolin-dependant ninja-dependant" type="number"
-                name="system.attributes.chakra.value" value="{{system.attributes.chakra.value}}" data-dtype="Number" />
-            </div>
-            <div class="resource-field">
-              <label for="system.attributes.chakra.max"
-                class="resource-label class-dependant energyShaolin-dependant ninja-dependant">{{localize
-                "Max"}}</label>
-              <input class="class-dependant energyShaolin-dependant ninja-dependant" type="number"
-                name="system.attributes.chakra.max" value="{{system.attributes.chakra.max}}" data-dtype="Number" />
-            </div>
-          </div>
-        </div>
-        <div class="resource-content flexcolumn">
-          <div class="resource-field">
-            <label for="system.attributes.arcana"
-              class="resource-label class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant">{{localize
-              "Arcana"}}</label>
-            <div class="resource-field">
-              <label for="system.attributes.arcana.value"
-                class="resource-label class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant">{{localize
-                "Current"}}</label>
-              <input class="class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant" type="number"
-                name="system.attributes.arcana.value" value="{{system.attributes.arcana.value}}" data-dtype="Number" />
-            </div>
-            <div class="resource-field flexrow flex-center">
-              <label for="system.attributes.arcana.max"
-                class="resource-label class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant">{{localize
-                "Max"}}</label>
-              <input class="class-dependant samurai-dependant warriorOmnyoji-dependant omnyoji-dependant" type="number"
-                name="system.attributes.arcana.max" value="{{system.attributes.arcana.max}}" data-dtype="Number" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="resource-content flexcolumn">
-        <div class="resource-field">
-          <label for="system.attributes.executionSpeed"
-            class="resource-label class-dependant energyShaolin-dependant">{{localize
-            "Execution Speed"}}</label>
-          <div class="resource-field">
-            <label for="system.attributes.executionSpeed.body"
-              class="resource-label class-dependant energyShaolin-dependant">{{localize
-              "Body"}}</label>
-            <input class="class-dependant energyShaolin-dependant" type="number"
-              name="system.attributes.executionSpeed.body" value="{{system.attributes.executionSpeed.body}}"
-              data-dtype="Number" />
-          </div>
-          <div class="resource-field">
-            <label for="system.attributes.executionSpeed.speed"
-              class="resource-label class-dependant energyShaolin-dependant">{{localize
-              "Speed"}}</label>
-            <input class="class-dependant energyShaolin-dependant" type="number"
-              name="system.attributes.executionSpeed.speed" value="{{system.attributes.executionSpeed.speed}}"
-              data-dtype="Number" />
-          </div>
-          <div class="resource-field">
-            <label for="system.attributes.executionSpeed.soul"
-              class="resource-label class-dependant energyShaolin-dependant">{{localize
-              "Soul"}}</label>
-            <input class="class-dependant energyShaolin-dependant" type="number"
-              name="system.attributes.executionSpeed.soul" value="{{system.attributes.executionSpeed.soul}}"
-              data-dtype="Number" />
-          </div>
-        </div>
-      </div>
+      {{!-- Exclusive resources depending of the class --}}
+      {{#ifCond "warrior" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/warrior.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "ninja" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "energyShaolin" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "samurai" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/samurai.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "warriorOmnyoji" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/warriorOmnyoji.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "omnyoji" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/omnyoji.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "omnyoji" '!=' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "omnyoji" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs'}}
+      {{/ifCond}}
+
+
     </div>
   </div>
+
 
 
   {{!-- Sheet Tab Navigation --}}
@@ -183,15 +122,34 @@
     <a class="item" data-tab="items">{{localize "Items"}}</a>
     <a class="item" data-tab="spells">{{localize "Spells"}}</a>
     <a class="item" data-tab="effects">{{localize "Effects"}}</a>
+    {{!-- Exclusive tabs depending of the class --}}
+    {{#ifCond "warrior" '==' system.class.value}}
+    <a class="item" data-tab="tras-combat-styles">{{localize "Trascendental"}}</a>
+    {{/ifCond}}
 
-    <a class="item class-dependant warrior-dependant" id="tras-combat-styles" data-tab="tras-combat-styles">{{localize
-      "Trascendental"}}</a>
-    <a class="item class-dependant ninja-dependant" id="chakra" data-tab="chakra">{{localize "Chakra"}}</a>
-    <a class="item class-dependant warriorOmnyoji-dependant omnyoji-dependant" id="canalization"
-      data-tab="canalization">{{localize
-      "Canalization"}}</a>
-    <a class="item class-dependant samurai-dependant" id="invocation" data-tab="invocation">{{localize
-      "Invocation"}}</a>
+    {{#ifCond "ninja" '==' system.class.value}}
+    <a class="item" data-tab="chakra">{{localize "Chakra"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "energyShaolin" '==' system.class.value}}
+    <a class="item" data-tab="chakra">{{localize "Chakra"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "samurai" '==' system.class.value}}
+    <a class="item" id="invocation" data-tab="invocation">{{localize "Invocation"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "warriorOmnyoji" '==' system.class.value}}
+    <a class="item" data-tab="canalization">{{localize "Canalization"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "omnyoji" '==' system.class.value}}
+    <a class="item" data-tab="canalization">{{localize "Canalization"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "omnyoji" '==' system.class.value}}
+    <a class="item" data-tab="canalization">{{localize "Canalization"}}</a>
+    {{/ifCond}}
 
   </nav>
 
@@ -350,6 +308,26 @@
     {{!-- Active Effects Tab --}}
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
       {{> "systems/shinobi/templates/actor/parts/actor-effects.hbs"}}
+    </div>
+
+    {{!-- Active Trascendental Combat Tab --}}
+    <div class="tab tras-combat-styles" data-group="primary" data-tab="tras-combat-styles">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/tras-combat-styles.hbs"}}
+    </div>
+
+    {{!-- Active Chakra Tab --}}
+    <div class="tab chakra" data-group="primary" data-tab="chakra">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/chakra.hbs"}}
+    </div>
+    
+    {{!-- Active Invocation Tab --}}
+    <div class="tab invocation" data-group="primary" data-tab="invocation">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/invocation.hbs"}}
+    </div>
+    
+    {{!-- Active Canalization Tab --}}
+    <div class="tab canalization" data-group="primary" data-tab="canalization">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/canalization.hbs"}}
     </div>
 
   </section>

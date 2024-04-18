@@ -51,6 +51,10 @@
   "Body": "Cuerpo",
   "Speed": "Velocidad",
   "Soul": "Alma",
+  "Combat": "Combate",
+  "Attack Capacity": "Capacidad de Ataque",
+  "Defense Capacity": "Capacidad de Defensa",
+  "Magic Capacity": "Capacidad Mágica",
   "SHINOBI": {
     "Class": {
       "Warrior": {

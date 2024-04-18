@@ -315,6 +315,11 @@ export class ShinobiActor extends Actor {
         data[k] = foundry.utils.deepClone(v);
       }
     }
+    if (data.combat) {
+      for (let [k, v] of Object.entries(data.combat)) {
+        data[k] = foundry.utils.deepClone(v);
+      }
+    }
 
     // Add level for easier access, or fall back to 0.
     if (data.attributes.level) {

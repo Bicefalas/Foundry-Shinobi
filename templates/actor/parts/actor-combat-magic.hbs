@@ -1,0 +1,11 @@
+<div class="resource-field flexcolumn">
+    <label for="system.combat" class="resource-label">{{localize "Combat"}}</label>
+    <div class="resource-field">
+        <div class="resource-field">
+            <label for="system.combat.magic" class="resource-label rollable" data-roll="1d10x10+@combat.magic"
+                data-label="{{localize 'Magic Capacity'}}"><i class="fa-solid fa-dice-d10"
+                    data-label="{{localize 'Magic Capacity'}}"></i> {{localize "Magic Capacity"}}</label>
+            <input type="number" name="system.combat.magic" value="{{system.combat.magic}}" data-dtype="Number" />
+        </div>
+    </div>
+</div>
