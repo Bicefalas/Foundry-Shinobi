@@ -63,6 +63,18 @@
           "value": 0,
           "max": 0
         },
+        "talisman": {
+          "value": 0,
+          "max": 0
+        },
+        "breaths": {
+          "value": 0,
+          "max": 0
+        },
+        "bloodPower": {
+          "value": 0,
+          "max": 0
+        },
         "executionSpeed": {
           "body": 0,
           "speed": 0,
