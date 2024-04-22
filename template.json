@@ -414,6 +414,10 @@
       "templates": [
         "base"
       ],
+      "description": "",
+      "weapons": "",
+      "special": "",
+      "size": "",
       "combat": {
         "attack": 0,
         "defense": 0

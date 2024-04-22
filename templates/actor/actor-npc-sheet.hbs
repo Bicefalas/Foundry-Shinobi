@@ -4,68 +4,57 @@
   <header class="sheet-header">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize Name}}" /></h1>
+      <h1 class="charname"><input name="name" data-dtype="text" type="text" value="{{actor.name}}"
+          placeholder="{{localize Name}}" /></h1>
     </div>
   </header>
   {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
   use both the "grid" and "grid-Ncol" class where "N" can be any number
   from 1 to 12 and will create that number of columns. --}}
-  <div class="resources grid grid-1col">
+  <div class="resources grid grid-4col">
 
     {{!-- "flex-group-center" is also defined in the _grid.scss file
     and it will add a small amount of padding, a border, and will
     center all of its child elements content and text. --}}
 
-    <div class="resource-content flexrow flex-center flex-between">
+    <div class="resource-content flexrow flex-center">
       <div class="resource-field">
         <label for="system.attributes.challengeLevel" class="resource-label">{{localize "Challenge Level"}}</label>
         <input type="number" name="system.attributes.challengeLevel" value="{{system.attributes.challengeLevel}}"
           data-dtype="Number" />
-      </div>
-      <div class="resource-content">
+        <br>
         <div class="resource-field-text">
           <label for="system.attributes.size" class="resource-label">{{localize "Size"}}</label>
-          <input type="text" name="system.attributes.size" value="{{system.attributes.size}}" data-dtype="Text" />
+          <input type="text" name="system.attributes.size" value="{{system.attributes.size}}" data-dtype="text" />
         </div>
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
       </div>
     </div>
-    <div class="resource flexrow flex-center flex-between">
-      <div class="resource-content">
-        <div class="resource-field">
-          <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
-          <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
-        </div>
-        <div class="resource-field">
-          <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
-          <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
-        </div>
-      </div>
-      <div class="resource-content">
-        <div class="resource-field flexcolumn">
-          <label for="system.health" class="resource-label">{{localize "Health"}}</label>
-          <div class="resource-field">
-            <div class="resource-field">
-              <label for="system.health.value" class="resource-label">{{localize "Current"}}</label>
-              <input type="number" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
-            </div>
-            <div class="resource-field">
-              <label for="system.health.max" class="resource-label">{{localize "Max"}}</label>
-              <input type="number" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
-            </div>
-          </div>
-        </div>
+    <div class="resource-content flexrow flex-center">
+      <div class="resource-field">
+        <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
+        <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
+        <br>
+        <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
+        <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
       </div>
     </div>
-    <div class="resource-content  flexrow flex-center flex-between">
-
-      {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
-
-      {{> 'systems/shinobi/templates/actor/parts/actor-fatigue-tiredness.hbs'}}
-
-      {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
+    <div class="resource-content flexrow flex-center">
+      <div class="resource-field">
+        {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
+      </div>
+    </div>
+    <div class="resource-content flexrow flex-center">
+      <div class="resource-field">
+        {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
+      </div>
     </div>
   </div>
-
   {{!-- Sheet Body --}}
   <section class="sheet-body">
 
@@ -82,9 +71,9 @@
           from 1 to 12 and will create that number of columns. --}}
           <div class="abilities flexcol">
             <div class="abilities-header flexrow flex-group-center">
-              <h3>{{localize "Feature"}}</h3>
-              <h3>{{localize "Value"}}</h3>
-              <h3>{{localize "Modifier"}}</h3>
+              <h3 class="ability-label">{{localize "Feature"}}</h3>
+              <h3 class="ability-input">{{localize "Value"}}</h3>
+              <h3 class="ability-mod">{{localize "Modifier"}}</h3>
             </div>
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
@@ -130,8 +119,8 @@
           <br>
           <div class="secondaries flexcol">
             <div class="secondaries-header flexrow flex-group-center">
-              <h3 class="secondaries-name">{{localize "Secondary Ability"}}</h3>
-              <h3 class="secondaries-value">{{localize "Value"}}</h3>
+              <h3 class="secondary-label">{{localize "Secondary Ability"}}</h3>
+              <h3 class="secondary-value">{{localize "Value"}}</h3>
             </div>
             {{#each system.secondaries as |secondary key|}}
             <div class="secondary flexrow flex-group-center">
@@ -162,8 +151,8 @@
                 <h3 class="description-name">{{localize "Description"}}</h3>
               </div>
               <div class="description-body">
-                <textarea placeholder="{{localize " Type the Yokai description here..."}}" name="system.description"
-                  value="{{system.description}}"></textarea>
+                <textarea data-dtype="text" placeholder="{{localize " Type the Yokai description here..."}}"
+                  name="system.description" value="{{system.description}}">{{system.description}}</textarea>
               </div>
             </div>
 
@@ -172,8 +161,8 @@
                 <h3 class="weapons-name">{{localize "Weapons"}}</h3>
               </div>
               <div class="weapons-body">
-                <textarea placeholder="{{localize " Type the Yokai attacks here..."}}" name="system.weapons"
-                  value="{{system.weapons}}"></textarea>
+                <textarea data-dtype="text" placeholder="{{localize " Type the Yokai attacks here..."}}"
+                  name="system.weapons" value="{{system.weapons}}">{{system.weapons}}</textarea>
               </div>
             </div>
 
@@ -182,8 +171,8 @@
                 <h3 class="special-name">{{localize "Special Abilities"}}</h3>
               </div>
               <div class="special-body">
-                <textarea placeholder="{{localize " Type the Yokai special abilities here..."}}" name="system.special"
-                  value="{{system.special}}"></textarea>
+                <textarea data-dtype="text" placeholder="{{localize " Type the Yokai special abilities here..."}}"
+                  name="system.special" value="{{system.special}}">{{system.special}}</textarea>
               </div>
             </div>
           </aside>

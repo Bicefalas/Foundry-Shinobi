@@ -35,13 +35,14 @@ export class ShinobiActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
+    this._prepareNPCData(actorData);
   }
 
   /**
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'shinobi' && actorData.type !== 'npc') return;
+    if (actorData.type !== 'shinobi') return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
@@ -257,6 +258,39 @@ export class ShinobiActor extends Actor {
       resistance.final = resistance.level + resistance.mod + resistance.others
     }
     );
+  };
+
+
+  _prepareNPCData(actorData) {
+    if (actorData.type !== 'npc') return;
+
+    // Make modifications to data here. For example:
+    const systemData = actorData.system;
+
+    // Loop through ability scores, and add their modifiers to our sheet output.
+    for (let [key, ability] of Object.entries(systemData.abilities)) {
+      // Calculate the modifier.
+      switch (ability.value) {
+        case 1:
+          ability.mod = -8;
+          break;
+
+        case 2:
+          ability.mod = -4;
+          break;
+
+        case 3:
+          ability.mod = -2;
+          break;
+
+        case 4:
+          ability.mod = -1;
+          break;
+
+        default:
+          ability.mod = Math.floor((ability.value - 5) / 3);
+      };
+    };
   };
 
   /**
