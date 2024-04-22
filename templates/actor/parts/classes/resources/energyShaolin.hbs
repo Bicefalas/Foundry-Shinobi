@@ -1,43 +1,32 @@
-<div class="resource-field flexcolumn">
-    <label for="system.attributes.chakra" class="resource-label">{{localize
-        "Chakra"}}</label>
-    <div class="resource-field">
-        <div class="resource-field">
-            <label for="system.attributes.chakra.value" class="resource-label">{{localize
-                "Current"}}</label>
-            <input class="class-dependant" type="number" name="system.attributes.chakra.value"
-                value="{{system.attributes.chakra.value}}" data-dtype="Number" />
-        </div>
-        <div class="resource-field">
-            <label for="system.attributes.chakra.max" class="resource-label">{{localize
-                "Max"}}</label>
-            <input class="class-dependant" type="number" name="system.attributes.chakra.max"
-                value="{{system.attributes.chakra.max}}" data-dtype="Number" />
-        </div>
-    </div>
+<label for="system.attributes.chakra" class="resource-label">{{localize
+    "Chakra"}}</label>
+<div class="resource-box">
+    <label for="system.attributes.chakra.value" class="resource-label">{{localize
+        "Current"}}</label>
+    <input class="class-dependant" type="number" name="system.attributes.chakra.value"
+        value="{{system.attributes.chakra.value}}" data-dtype="Number" />
+    <br>
+    <label for="system.attributes.chakra.max" class="resource-label">{{localize
+        "Max"}}</label>
+    <input class="class-dependant" type="number" name="system.attributes.chakra.max"
+        value="{{system.attributes.chakra.max}}" data-dtype="Number" />
 </div>
 
-<div class="resource-content flexcolumn">
-    <div class="resource-field">
-        <label for="system.attributes.executionSpeed" class="resource-label">{{localize
-            "Execution Speed"}}</label>
-        <div class="resource-field">
-            <label for="system.attributes.executionSpeed.body" class="resource-label">{{localize
-                "Body"}}</label>
-            <input type="number" name="system.attributes.executionSpeed.body"
-                value="{{system.attributes.executionSpeed.body}}" data-dtype="Number" />
-        </div>
-        <div class="resource-field">
-            <label for="system.attributes.executionSpeed.speed" class="resource-label">{{localize
-                "Speed"}}</label>
-            <input type="number" name="system.attributes.executionSpeed.speed"
-                value="{{system.attributes.executionSpeed.speed}}" data-dtype="Number" />
-        </div>
-        <div class="resource-field">
-            <label for="system.attributes.executionSpeed.soul" class="resource-label">{{localize
-                "Soul"}}</label>
-            <input type="number" name="system.attributes.executionSpeed.soul"
-                value="{{system.attributes.executionSpeed.soul}}" data-dtype="Number" />
-        </div>
-    </div>
+<label for="system.attributes.executionSpeed" class="resource-label">{{localize
+    "Execution Speed"}}</label>
+<div class="resource-box">
+    <label for="system.attributes.executionSpeed.body" class="resource-label">{{localize
+        "Body"}}</label>
+    <input type="number" name="system.attributes.executionSpeed.body" value="{{system.attributes.executionSpeed.body}}"
+        data-dtype="Number" />
+    <br>
+    <label for="system.attributes.executionSpeed.speed" class="resource-label">{{localize
+        "Speed"}}</label>
+    <input type="number" name="system.attributes.executionSpeed.speed"
+        value="{{system.attributes.executionSpeed.speed}}" data-dtype="Number" />
+    <br>
+    <label for="system.attributes.executionSpeed.soul" class="resource-label">{{localize
+        "Soul"}}</label>
+    <input type="number" name="system.attributes.executionSpeed.soul" value="{{system.attributes.executionSpeed.soul}}"
+        data-dtype="Number" />
 </div>

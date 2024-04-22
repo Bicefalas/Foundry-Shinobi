@@ -10,7 +10,7 @@
   {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
   use both the "grid" and "grid-Ncol" class where "N" can be any number
   from 1 to 12 and will create that number of columns. --}}
-  <div class="resources grid grid-1col">
+  <div class="resources grid grid-4col">
 
     {{!-- "flex-group-center" is also defined in the _grid.scss file
     and it will add a small amount of padding, a border, and will
@@ -35,107 +35,93 @@
           {{/each}}
           {{/select}}
         </select>
-      </div>
-      <div class="resource-content">
-        <div class="resource-field">
-          <label for="system.attributes.level.value" class="resource-label">{{localize "Level"}}</label>
-          <input type="number" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
-            data-dtype="Number" />
-        </div>
-        <div class="resource-field">
-          <label for="system.attributes.carryArmor.value" class="resource-label">{{localize "Carry Armor"}}</label>
-          <input type="number" name="system.attributes.carryArmor.value" value="{{system.attributes.carryArmor.value}}"
-            data-dtype="Number" />
-        </div>
+        <br>
+        <label for="system.attributes.level.value" class="resource-label">{{localize "Level"}}</label>
+        <input type="number" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
+          data-dtype="Number" />
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
       </div>
     </div>
-    <div class="resource flexrow flex-center flex-between">
-      <div class="resource-content">
-        <div class="resource-field">
-          <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
-          <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
-        </div>
-        <div class="resource-field">
-          <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
-          <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
-        </div>
-      </div>
-      <div class="resource-content">
-        <div class="resource-field flexcolumn">
-          <label for="system.health" class="resource-label">{{localize "Health"}}</label>
-          <div class="resource-field">
-            <label for="system.health.value" class="resource-label">{{localize
-              "Current"}}</label>
-            <input type="number" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
-          </div>
-          <div class="resource-field">
-            <label for="system.health.max" class="resource-label">{{localize
-              "Max"}}</label>
-            <input type="number" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
-          </div>
-        </div>
+    <div class="resource-content flexrow flex-center flex-between">
+      <div class="resource-field">
+        <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
+        <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
+        <br>
+        <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
+        <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
+        <br>
+        {{#ifCond "omnyoji" '!=' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
+        {{/ifCond}}
+
+        {{#ifCond "omnyoji" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs'}}
+        {{/ifCond}}
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
       </div>
     </div>
-    <div class="resource-content  flexrow flex-center flex-between">
-      {{!-- Exclusive resources depending of the class --}}
-      {{#ifCond "warrior" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/warrior.hbs'}}
-      {{/ifCond}}
+    <div class="resource-content flexrow flex-center flex-between">
+      <div class="resource-field">
+        <label for="system.attributes.carryArmor.value" class="resource-label">{{localize "Carry Armor"}}</label>
+        <input type="number" name="system.attributes.carryArmor.value" value="{{system.attributes.carryArmor.value}}"
+          data-dtype="Number" />
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
+      </div>
+    </div>
+    <div class="resource-content flexrow flex-center flex-between">
+      <div class="resource-field">
+        {{!-- Exclusive resources depending of the class --}}
+        {{#ifCond "warrior" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/warrior.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "ninja" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
-      {{/ifCond}}
+        {{#ifCond "ninja" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "energyShaolin" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs'}}
-      {{/ifCond}}
+        {{#ifCond "energyShaolin" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "samurai" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/samurai.hbs'}}
-      {{/ifCond}}
+        {{#ifCond "samurai" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/samurai.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "warriorOmnyoji" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/warriorOmnyoji.hbs'}}
-      {{/ifCond}}
+        {{#ifCond "warriorOmnyoji" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/warriorOmnyoji.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "omnyoji" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/omnyoji.hbs'}}
-      {{/ifCond}}
+        {{#ifCond "omnyoji" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/omnyoji.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "kannushi" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/kannushi.hbs'}}
-      {{/ifCond}}
+        {{#ifCond "kannushi" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/kannushi.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "ronin" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/ronin.hbs'}}
-      {{/ifCond}}
+        {{#ifCond "ronin" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/ronin.hbs'}}
+        {{/ifCond}}
 
-      {{#ifCond "ryoshi" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/classes/resources/ryoshi.hbs'}}
-      {{/ifCond}}
-
-      {{#ifCond "omnyoji" '!=' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
-      {{/ifCond}}
-
-      {{#ifCond "omnyoji" '==' system.class.value}}
-      {{> 'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs'}}
-      {{/ifCond}}
-
-      {{> 'systems/shinobi/templates/actor/parts/actor-fatigue-tiredness.hbs'}}
-
-
-      {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
-
-
+        {{#ifCond "ryoshi" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/ryoshi.hbs'}}
+        {{/ifCond}}
+      </div>
     </div>
   </div>
+
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">{{localize "Features"}}</a>
     <a class="item" data-tab="description">{{localize "Description"}}</a>
+    <a class="item" data-tab="adv-disadv">{{localize "Advantages and Disadvantages"}}</a>
     <a class="item" data-tab="items">{{localize "Items"}}</a>
     {{!-- Exclusive tabs depending of the class --}}
     {{#ifCond "warrior" '==' system.class.value}}
@@ -195,6 +181,11 @@
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
       {{> "systems/shinobi/templates/actor/parts/actor-bio.hbs"}}
+    </div>
+
+    {{!-- Owned Advantages and Disadvantages Tab --}}
+    <div class="tab adv-disadv" data-group="primary" data-tab="adv-disadv">
+      {{> "systems/shinobi/templates/actor/parts/actor-adv-disadv.hbs"}}
     </div>
 
     {{!-- Owned Items Tab --}}

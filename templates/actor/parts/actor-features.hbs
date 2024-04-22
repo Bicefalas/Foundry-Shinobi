@@ -7,16 +7,16 @@
     {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
     use both the "grid" and "grid-Ncol" class where "N" can be any number
     from 1 to 12 and will create that number of columns. --}}
-    <div class="abilities flexcol">
+    <div class="abilities">
       <div class="abilities-header flexrow flex-group-center">
-        <h3>{{localize "Feature"}}</h3>
-        <h3>{{localize "Value"}}</h3>
-        <h3>{{localize "Modifier"}}</h3>
+        <h3 class="ability-label">{{localize "Feature"}}</h3>
+        <h3 class="ability-input">{{localize "Value"}}</h3>
+        <h3 class="ability-mod">{{localize "Modifier"}}</h3>
       </div>
       {{#each system.abilities as |ability key|}}
       <div class="ability flexrow flex-group-center">
         <div class="ability-label">
-          <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+          <label for="system.abilities.{{key}}.value" class="resource-label rollable"
             data-roll="1d10x10+@abilities.{{key}}.value" data-label="{{ability.label}}"><i class="fa-solid fa-dice-d10"
               data-label="{{ability.label}}"></i> {{ability.label}}</label>
         </div>
@@ -32,7 +32,7 @@
       {{/each}}
     </div>
     <br>
-    <div class="resistances flexcol">
+    <div class="resistances">
       <div class="resistances-header flexrow flex-group-center">
         <h3 class="resistance-label">{{localize "Resistance"}}</h3>
         <h3 class="resistance-level">{{localize "Level"}}</h3>
@@ -43,7 +43,7 @@
       {{#each system.resistances as |resistance key|}}
       <div class="resistance flexrow flex-group-center">
         <div class="resistance-label">
-          <label for="system.resistances.{{key}}.final" class="resource-label rollable flexlarge align-left"
+          <label for="system.resistances.{{key}}.final" class="resource-label rollable"
             data-roll="1d10+@resistances.{{key}}.final" data-label="{{localize 'Resistance'}}
                   {{resistance.label}}"><i class="fa-solid fa-dice-d10" data-label="{{localize 'Resistance'}}
                     {{resistance.label}}"></i> {{resistance.label}}</label>
@@ -77,18 +77,18 @@
       from 1 to 12 and will create that number of columns. --}}
       <div class="secondaries flexcol">
         <div class="secondaries-header flexrow flex-group-center">
-          <h3 class="secondaries-name">{{localize "Secondary Ability"}}</h3>
-          <h3 class="secondaries-ip">{{localize "IP"}}</h3>
-          <h3 class="secondaries-mod">{{localize "Mod."}}</h3>
-          <h3 class="secondaries-class">{{localize "Class"}}</h3>
-          <h3 class="secondaries-nd">{{localize "ND"}}</h3>
-          <h3 class="secondaries-others">{{localize "Others"}}</h3>
-          <h3 class="secondaries-final">{{localize "Final"}}</h3>
+          <h3 class="secondary-label">{{localize "Secondary Ability"}}</h3>
+          <h3 class="secondary-ip">{{localize "IP"}}</h3>
+          <h3 class="secondary-mod">{{localize "Mod."}}</h3>
+          <h3 class="secondary-class">{{localize "Class"}}</h3>
+          <h3 class="secondary-nd">{{localize "ND"}}</h3>
+          <h3 class="secondary-others">{{localize "Others"}}</h3>
+          <h3 class="secondary-final">{{localize "Final"}}</h3>
         </div>
         {{#each system.secondaries as |secondary key|}}
         <div class="secondary flexrow flex-group-center">
           <div class="secondary-label">
-            <label for="system.secondaries.{{key}}.final" class="resource-label rollable flexlarge align-left"
+            <label for="system.secondaries.{{key}}.final" class="resource-label rollable"
               data-roll="1d10x10+@secondaries.{{key}}.final" data-label="{{secondary.label}}"><i
                 class="fa-solid fa-dice-d10" data-label="{{secondary.label}}"></i> {{secondary.label}}</label>
           </div>
