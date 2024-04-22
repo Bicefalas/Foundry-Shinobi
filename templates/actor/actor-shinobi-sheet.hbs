@@ -64,16 +64,14 @@
         <div class="resource-field flexcolumn">
           <label for="system.health" class="resource-label">{{localize "Health"}}</label>
           <div class="resource-field">
-            <div class="resource-field">
-              <label for="system.health.value" class="resource-label">{{localize
-                "Current"}}</label>
-              <input type="number" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
-            </div>
-            <div class="resource-field">
-              <label for="system.health.max" class="resource-label">{{localize
-                "Max"}}</label>
-              <input type="number" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
-            </div>
+            <label for="system.health.value" class="resource-label">{{localize
+              "Current"}}</label>
+            <input type="number" name="system.health.value" value="{{system.health.value}}" data-dtype="Number" />
+          </div>
+          <div class="resource-field">
+            <label for="system.health.max" class="resource-label">{{localize
+              "Max"}}</label>
+            <input type="number" name="system.health.max" value="{{system.health.max}}" data-dtype="Number" />
           </div>
         </div>
       </div>
@@ -102,6 +100,18 @@
 
       {{#ifCond "omnyoji" '==' system.class.value}}
       {{> 'systems/shinobi/templates/actor/parts/classes/resources/omnyoji.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "kannushi" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/kannushi.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "ronin" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/ronin.hbs'}}
+      {{/ifCond}}
+
+      {{#ifCond "ryoshi" '==' system.class.value}}
+      {{> 'systems/shinobi/templates/actor/parts/classes/resources/ryoshi.hbs'}}
       {{/ifCond}}
 
       {{#ifCond "omnyoji" '!=' system.class.value}}
@@ -152,6 +162,26 @@
     <a class="item" data-tab="canalization">{{localize "Canalization"}}</a>
     {{/ifCond}}
 
+    {{#ifCond "henge" '==' system.class.value}}
+    <a class="item" data-tab="impregnate-tech">{{localize "Impregnate Techniques"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "kannushi" '==' system.class.value}}
+    <a class="item" data-tab="divine-power">{{localize "Divine Power"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "ronin" '==' system.class.value}}
+    <a class="item" data-tab="breaths-tech">{{localize "Breath Techniques"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "ryoshi" '==' system.class.value}}
+    <a class="item" data-tab="hunt-tech">{{localize "Hunt Techniques"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "ryoshi" '==' system.class.value}}
+    <a class="item" data-tab="blood-tech">{{localize "Blood Techniques"}}</a>
+    {{/ifCond}}
+
   </nav>
 
   {{!-- Sheet Body --}}
@@ -190,6 +220,31 @@
     {{!-- Active Canalization Tab --}}
     <div class="tab canalization" data-group="primary" data-tab="canalization">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/canalization.hbs"}}
+    </div>
+
+    {{!-- Active Impregnate Techniques Tab --}}
+    <div class="tab impregnate-tech" data-group="primary" data-tab="impregnate-tech">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/impregnate-tech.hbs"}}
+    </div>
+
+    {{!-- Active Divine Power Tab --}}
+    <div class="tab divine-power" data-group="primary" data-tab="divine-power">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/divine-power.hbs"}}
+    </div>
+
+    {{!-- Active Breath Techniques Tab --}}
+    <div class="tab breaths-tech" data-group="primary" data-tab="breaths-tech">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/breaths-tech.hbs"}}
+    </div>
+
+    {{!-- Active Hunt Techniques Tab --}}
+    <div class="tab hunt-tech" data-group="primary" data-tab="hunt-tech">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/hunt-tech.hbs"}}
+    </div>
+
+    {{!-- Active Blood Techniques Tab --}}
+    <div class="tab blood-tech" data-group="primary" data-tab="blood-tech">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/blood-tech.hbs"}}
     </div>
 
   </section>

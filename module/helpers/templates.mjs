@@ -21,10 +21,18 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/classes/resources/samurai.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/warriorOmnyoji.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/omnyoji.hbs',
+    'systems/shinobi/templates/actor/parts/classes/resources/kannushi.hbs',
+    'systems/shinobi/templates/actor/parts/classes/resources/ronin.hbs',
+    'systems/shinobi/templates/actor/parts/classes/resources/ryoshi.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/tras-combat-styles.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/chakra.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/invocation.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/canalization.hbs',
+    'systems/shinobi/templates/actor/parts/classes/tabs/divine-power.hbs',
+    'systems/shinobi/templates/actor/parts/classes/tabs/impregnate-tech.hbs',
+    'systems/shinobi/templates/actor/parts/classes/tabs/breaths-tech.hbs',
+    'systems/shinobi/templates/actor/parts/classes/tabs/hunt-tech.hbs',
+    'systems/shinobi/templates/actor/parts/classes/tabs/blood-tech.hbs',
     // Item partials
     'systems/shinobi/templates/item/parts/item-effects.hbs',
   ]);
