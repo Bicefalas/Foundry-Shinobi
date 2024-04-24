@@ -93,6 +93,13 @@
   "Reload": "Recarga",
   "Range": "Rango",
   "Attributes": "Atributos",
+  "Required Carry Armor": "Llevar Armadura Requerido",
+  "Phisical Armor Value": "Valor de Armadura Físico",
+  "Heat Armor Value": "Valor de Armadura de Calor",
+  "Cold Armor Value": "Valor de Armadura de Frío",
+  "Electrical Armor Value": "Valor de Armadura Eléctrica",
+  "Sobrenatural Armor Value": "Valor de Armadura Sobrenatural",
+  "Penalizer": "Penalizador",
   "SHINOBI": {
     "Class": {
       "Warrior": {

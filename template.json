@@ -639,7 +639,6 @@
       "templates": [
         "base"
       ],
-      "initiative": 0,
       "requiredCarryArmor": 0,
       "phisicalArmorValue": 0,
       "heatArmorValue": 0,
