@@ -560,3 +560,21 @@
   margin: 5px;
   box-sizing: border-box;
 }
+
+.shinobi .advDisadv-name-adv input,
+.shinobi .advDisadv-name-adv textarea {
+  width: 95%;
+}
+
+
+.shinobi .advDisadv-name-disadv input,
+.shinobi .advDisadv-name-disadv textarea {
+  width: 95%;
+}
+
+.shinobi .advDisadv-name-adv h2,
+.shinobi .advDisadv-name-disadv h2,
+.shinobi .advDisadv-cost h2,
+.shinobi .advDisadv-gain h2 {
+  text-align: center;
+}
