@@ -236,6 +236,10 @@
   height: 500px;
 }
 
+.shinobi .description-body textarea {
+  height: 250px;
+}
+
 
 .shinobi .sheet-header {
   flex: 0 auto;
@@ -278,6 +282,11 @@
 .shinobi .sheet-body .tab,
 .shinobi .sheet-body .tab .editor {
   height: 100%;
+}
+
+.shinobi .sheet-body.item-body,
+.shinobi .sheet-body.item-body .editor {
+  height: 350px;
 }
 
 .shinobi .tox .tox-editor-container {

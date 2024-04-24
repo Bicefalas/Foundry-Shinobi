@@ -35,6 +35,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/classes/tabs/hunt-tech.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/blood-tech.hbs',
     // Item partials
-    'systems/shinobi/templates/item/parts/item-effects.hbs',
+    'systems/shinobi/templates/item/parts/item-weapons-attributes.hbs',
+    'systems/shinobi/templates/item/parts/item-armors-attributes.hbs'
   ]);
 };

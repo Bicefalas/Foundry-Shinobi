@@ -17,7 +17,7 @@ SHINOBI.classes = {
   ronin: 'SHINOBI.Class.Ronin.long',
   ryoshi: 'SHINOBI.Class.Ryoshi.long',
   energyShaolin: 'SHINOBI.Class.EnergyShaolin.long'
-};
+}
 
 SHINOBI.ethnicities = {
   ainu: 'SHINOBI.Ethnicity.Ainu.long',
@@ -26,7 +26,7 @@ SHINOBI.ethnicities = {
   buyei: 'SHINOBI.Ethnicity.Buyei.long',
   cuman: 'SHINOBI.Ethnicity.Cuman.long',
   scythian: 'SHINOBI.Ethnicity.Scythian.long'
-};
+}
 
 SHINOBI.abilities = {
   str: 'SHINOBI.Ability.Str.long',
@@ -36,14 +36,14 @@ SHINOBI.abilities = {
   per: 'SHINOBI.Ability.Per.long',
   wil: 'SHINOBI.Ability.Wil.long',
   pow: 'SHINOBI.Ability.Pow.long'
-};
+}
 
 SHINOBI.resistances = {
   phy: 'SHINOBI.Resistance.Phy.long',
   ref: 'SHINOBI.Resistance.Ref.long',
   moo: 'SHINOBI.Resistance.Moo.long',
   wil: 'SHINOBI.Resistance.Wil.long'
-};
+}
 
 SHINOBI.abilityAbbreviations = {
   str: 'SHINOBI.Ability.Str.abbr',
@@ -53,7 +53,7 @@ SHINOBI.abilityAbbreviations = {
   per: 'SHINOBI.Ability.Per.abbr',
   wil: 'SHINOBI.Ability.Wil.abbr',
   pow: 'SHINOBI.Ability.Pow.abbr'
-};
+}
 
 SHINOBI.secondaries = {
   athletics: 'SHINOBI.Secondary.Athletics.long',
@@ -82,4 +82,20 @@ SHINOBI.secondaries = {
   lie: 'SHINOBI.Secondary.Lie.long',
   coldness: 'SHINOBI.Secondary.Coldness.long',
   intimidate: 'SHINOBI.Secondary.Intimidate.long'
-};
+}
+
+SHINOBI.rarities = {
+  c: 'SHINOBI.Rarity.C.long',
+  b: 'SHINOBI.Rarity.B.long',
+  a: 'SHINOBI.Rarity.A.long',
+  s: 'SHINOBI.Rarity.S.long'
+}
+
+SHINOBI.types = {
+  edge: 'SHINOBI.Type.Edge.long',
+  blunt: 'SHINOBI.Type.Blunt.long',
+  axe: 'SHINOBI.Type.Axe.long',
+  pole: 'SHINOBI.Type.Pole.long',
+  ranged: 'SHINOBI.Type.Ranged.long',
+  shield: 'SHINOBI.Type.Shield.long'
+}

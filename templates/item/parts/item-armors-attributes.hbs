@@ -1,0 +1,48 @@
+<div class="grid grid-2col">
+    <div class="resource">
+        <label class="resource-label">{{localize "Initiative"}}</label>
+        <input type="number" name="system.initiative" value="{{system.initiative}}" data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Required Carry Armor"}}</label>
+        <input type="number" name="system.requiredCarryArmor" value="{{system.requiredCarryArmor}}"
+            data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Phisical Armor Value"}}</label>
+        <input type="number" name="system.phisicalArmorValue" value="{{system.phisicalArmorValue}}"
+            data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Heat Armor Value"}}</label>
+        <input type="number" name="system.heatArmorValue" value="{{system.heatArmorValue}}" data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Cold Armor Value"}}</label>
+        <input type="number" name="system.coldArmorValue" value="{{system.coldArmorValue}}"
+            data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Electrical Armor Value"}}</label>
+        <input type="number" name="system.electricalArmorValue" value="{{system.electricalArmorValue}}"
+            data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Sobrenatural Armor Value"}}</label>
+        <input type="number" name="system.sobrenaturalArmorValue" value="{{system.sobrenaturalArmorValue}}"
+            data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Quality"}}</label>
+        <input type="number" name="system.quality" value="{{system.quality}}" data-dtype="number" />
+    </div>
+    <div class="resource">
+        <label class="resource-label">{{localize "Penalizer"}}</label>
+        <input type="number" name="system.penalizer" value="{{system.penalizer}}" data-dtype="number" />
+    </div>
+</div>
+<div class="resource">
+    <label class="resource-label">{{localize "Properties"}}</label>
+    {{editor system.special target="system.special" rollData=rollData button=true owner=owner
+    editable=editable}}
+</div>

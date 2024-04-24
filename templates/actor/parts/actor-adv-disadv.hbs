@@ -1,8 +1,9 @@
-{{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to
-the rollData property. --}}
-
-<h1>
-    {{localize "Advantages and Disadvantages"}}
-</h1>
-
-{{editor system.advDisadv target="system.advDisadv" rollData=rollData button=true owner=owner editable=editable}}
+<div class="advDisadv grid grid-2col">
+    <div class="advantages-header flexrow flex-center">
+        <h2>{{localize "Advantages"}}</h2>
+        <h2>{{localize "Cost"}}</h2>
+    </div>
+    <div class="advantages flexrow flex-center">
+        <input type="text">
+    </div>
+</div>

@@ -598,15 +598,21 @@
     ],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "cost": 0,
+        "rarities": {
+          "c": {},
+          "b": {},
+          "a": {},
+          "s": {}
+        }
       }
     },
     "object": {
       "templates": [
         "base"
       ],
-      "quantity": 1,
-      "weight": 0
+      "quantity": 1
     },
     "weapon": {
       "templates": [
@@ -619,7 +625,15 @@
       "reload": 0,
       "range": 0,
       "special": "",
-      "formula": "d10 + @abilities.dex.mod"
+      "quality": 0,
+      "types": {
+        "edge": {},
+        "blunt": {},
+        "axe": {},
+        "pole": {},
+        "ranged": {},
+        "shield": {}
+      }
     },
     "armor": {
       "templates": [
@@ -631,13 +645,27 @@
       "heatArmorValue": 0,
       "coldArmorValue": 0,
       "electricalArmorValue": 0,
-      "sobrenaturalArmorValue": 0
+      "sobrenaturalArmorValue": 0,
+      "penalizer": 0,
+      "quality": 0,
+      "special": ""
     },
     "technic": {
-      "templates": [
-        "base"
-      ],
-      "technicLevel": 1
+      "description": "",
+      "classes": {
+        "warrior": {},
+        "rogue": {},
+        "ninja": {},
+        "shaolin": {},
+        "omnyoji": {},
+        "samurai": {},
+        "henge": {},
+        "kannushi": {},
+        "warriorOmnyoji": {},
+        "ronin": {},
+        "ryoshi": {},
+        "energyShaolin": {}
+      }
     }
   }
 }

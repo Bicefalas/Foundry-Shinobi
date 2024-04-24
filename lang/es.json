@@ -82,6 +82,17 @@
   " Type the Yokai attacks here...": "Escribe las armas del Yokai aquí...",
   " Type the Yokai special abilities here...": "Escribe las habilidades especiales del Yokai aquí...",
   " Type the Yokai description here...": "Escribe la descripción del Yokai aquí...",
+  " Type the description here...": "Escribe la descripción aquí...",
+  "Rarity": "Rareza",
+  "Cost": "Coste",
+  "Quantity": "Cantidad",
+  "Properties": "Propiedades",
+  "Damage": "Daño",
+  "Required Strengh": "Fuerza Requerida",
+  "Quality": "Calidad",
+  "Reload": "Recarga",
+  "Range": "Rango",
+  "Attributes": "Atributos",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -263,6 +274,40 @@
       },
       "Intimidate": {
         "long": "Intimidar"
+      }
+    },
+    "Rarity": {
+      "C": {
+        "long": "C"
+      },
+      "B": {
+        "long": "B"
+      },
+      "A": {
+        "long": "A"
+      },
+      "S": {
+        "long": "S"
+      }
+    },
+    "Type": {
+      "Edge": {
+        "long": "Filo"
+      },
+      "Blunt": {
+        "long": "Contundente"
+      },
+      "Axe": {
+        "long": "Hacha"
+      },
+      "Pole": {
+        "long": "Asta"
+      },
+      "Ranged": {
+        "long": "A distancia"
+      },
+      "Shield": {
+        "long": "Escudo"
       }
     },
     "SheetLabels": {

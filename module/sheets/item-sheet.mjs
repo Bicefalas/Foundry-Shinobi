@@ -12,8 +12,8 @@ export class ShinobiItemSheet extends ItemSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['shinobi', 'sheet', 'item'],
-      width: 520,
-      height: 480,
+      width: 500,
+      height: 600,
       tabs: [
         {
           navSelector: '.sheet-tabs',
@@ -39,6 +39,7 @@ export class ShinobiItemSheet extends ItemSheet {
 
   /** @override */
   getData() {
+
     // Retrieve base data structure.
     const context = super.getData();
 
@@ -52,11 +53,47 @@ export class ShinobiItemSheet extends ItemSheet {
     context.system = itemData.system;
     context.flags = itemData.flags;
 
+
+    // Preparing Item Data
+    this._prepareItemData(context);
+
+
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
 
     return context;
   }
+
+  /**
+  * Organize and classify Items for Character sheets.
+  *
+  * @param {Object} itemData The actor to prepare.
+  *
+  * @return {undefined}
+  */
+
+  _prepareItemData(context) {
+    const itemData = context.data;
+
+    // Handle rarity scores.
+    if (itemData.type != 'technic') {
+      for (let [k, v] of Object.entries(context.system.rarities)) {
+        v.label = game.i18n.localize(CONFIG.SHINOBI.rarities[k]) ?? k;
+      }
+    }
+    if (itemData.type == 'weapon') {
+      for (let [k, v] of Object.entries(context.system.types)) {
+        v.label = game.i18n.localize(CONFIG.SHINOBI.types[k]) ?? k;
+      }
+    }
+    if (itemData.type == 'technic') {
+      for (let [k, v] of Object.entries(context.system.classes)) {
+        v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
+      }
+    }
+  }
+
+
 
   /* -------------------------------------------- */
 

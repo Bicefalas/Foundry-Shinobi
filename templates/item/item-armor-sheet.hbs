@@ -3,14 +3,10 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
-      <div class="grid grid-3col">
-        <div class="resource">
-          <label class="resource-label">{{localize "Quantity"}}</label>
-          <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="Number" />
-        </div>
+      <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label">{{localize "Cost"}}</label>
-          <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="Number" />
+          <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="text" />
         </div>
         <div class="resource">
           <label class="resource-label">{{localize "Rarity"}}</label>
@@ -25,12 +21,19 @@
       </div>
     </div>
   </header>
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="attributes">{{localize "Attributes"}}</a>
+    <a class="item" data-tab="descriptions">{{localize "Description"}}</a>
+  </nav>
+  {{!-- Sheet Body --}}
   <section class="sheet-body item-body">
-    {{!-- Description Tab --}}
-    <div class="description-header flex-group-center">
-      <h3 class="description-name">{{localize "Description"}}</h3>
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      {{> 'systems/shinobi/templates/item/parts/item-armors-attributes.hbs'}}
     </div>
-    <div>
+    {{!-- Description Tab --}}
+    <div class="tab descriptions" data-group="primary" data-tab="descriptions">
       {{editor system.description target="system.description" rollData=rollData button=true owner=owner
       editable=editable}}
     </div>
