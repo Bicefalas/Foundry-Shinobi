@@ -26,7 +26,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/classes/resources/ronin.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/ryoshi.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/tras-combat-styles.hbs',
-    'systems/shinobi/templates/actor/parts/classes/tabs/chakra.hbs',
+    'systems/shinobi/templates/actor/parts/classes/tabs/ki.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/invocation.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/canalization.hbs',
     'systems/shinobi/templates/actor/parts/classes/tabs/divine-power.hbs',

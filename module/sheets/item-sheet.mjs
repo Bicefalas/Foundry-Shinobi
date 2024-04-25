@@ -87,9 +87,7 @@ export class ShinobiItemSheet extends ItemSheet {
       }
     }
     if (itemData.type == 'technic') {
-      for (let [k, v] of Object.entries(context.system.classes)) {
-        v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
-      }
+      47
     }
   }
 
