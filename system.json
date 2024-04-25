@@ -56,6 +56,13 @@
       "system": "shinobi",
       "path": "packs/technics",
       "type": "Item"
+    },
+    {
+      "name": "classes",
+      "label": "Clases",
+      "system": "shinobi",
+      "path": "packs/classes",
+      "type": "JournalEntry"
     }
   ],
   "languages": [
