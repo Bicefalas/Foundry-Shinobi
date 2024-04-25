@@ -90,6 +90,7 @@
   " Type the description here...": "Escribe la descripción aquí...",
   " Type the disadvantage description here...": "Escribe la descripción de la desventaja aquí...",
   " Type the advantage description here...": "Escribe la descripción de la ventaja aquí...",
+  " Type the clan description here...": "Escribe la descripción del clan aquí...",
   "Rarity": "Rareza",
   "Cost": "Coste",
   "Quantity": "Cantidad",
@@ -107,6 +108,11 @@
   "Electrical Armor Value": "Valor de Armadura Eléctrica",
   "Sobrenatural Armor Value": "Valor de Armadura Sobrenatural",
   "Penalizer": "Penalizador",
+  "Copper Coins": "Monedas de Cobre",
+  "Silver Coins": "Monedas de Plata",
+  "Gold Coins": "Monedas de Oro",
+  "Clan": "Clan",
+  "Clan Description": "Descripción del Clan",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -327,19 +333,6 @@
     "SheetLabels": {
       "Actor": "Shinobi Actor Sheet",
       "Item": "Shinobi Item Sheet"
-    },
-    "Item": {
-      "Spell": {
-        "SpellLVL": "Level {level} Spells",
-        "AddLVL": "Add LVL {level}"
-      }
-    },
-    "Effect": {
-      "Source": "Source",
-      "Toggle": "Toggle Effect",
-      "Temporary": "Temporary Effects",
-      "Passive": "Passive Effects",
-      "Inactive": "Inactive Effects"
     }
   },
   "TYPES": {

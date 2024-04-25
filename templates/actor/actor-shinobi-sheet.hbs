@@ -40,18 +40,15 @@
         <input type="number" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
           data-dtype="Number" />
         <br>
-        {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
         <br>
         {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
       </div>
     </div>
     <div class="resource-content flexrow flex-center">
       <div class="resource-field">
-        <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
-        <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
-        <br>
-        <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
-        <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
+        {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
         <br>
         {{#ifCond "omnyoji" '!=' system.class.value}}
         {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
@@ -60,8 +57,15 @@
         {{#ifCond "omnyoji" '==' system.class.value}}
         {{> 'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs'}}
         {{/ifCond}}
+
         <br>
-        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
+        <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
+        <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
+        <br>
+        <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
+        <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
+        <br>
+
       </div>
     </div>
     <div class="resource-content flexrow flex-center">
