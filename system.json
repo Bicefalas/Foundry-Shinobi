@@ -63,6 +63,13 @@
       "system": "shinobi",
       "path": "packs/classes",
       "type": "JournalEntry"
+    },
+    {
+      "name": "rolltables",
+      "label": "Tablas Aleatorias",
+      "system": "shinobi",
+      "path": "packs/rolltables",
+      "type": "RollTable"
     }
   ],
   "languages": [
