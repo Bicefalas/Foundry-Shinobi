@@ -1,5 +1,3 @@
-2024/04/25-18:27:30.452 51ac Delete type=3 #1
-2024/04/25-18:28:05.506 2584 Level-0 table #5: started
-2024/04/25-18:28:05.517 2584 Level-0 table #5: 3340 bytes OK
-2024/04/25-18:28:05.518 2584 Delete type=0 #3
-2024/04/25-18:28:05.520 2584 Manual compaction at level-0 from '!tables!1x3NrzcU6ihPwKEo' @ 72057594037927935 : 1 .. '!tables.results!YJa6KsWMNTC859HM.u1kQUnjZ9Mn5SVc4' @ 0 : 0; will stop at (end)
+2024/04/30-13:32:25.146 1b94 Recovering log #35
+2024/04/30-13:32:25.149 1b94 Delete type=0 #35
+2024/04/30-13:32:25.149 1b94 Delete type=3 #34

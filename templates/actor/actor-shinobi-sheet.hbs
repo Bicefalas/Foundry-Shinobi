@@ -41,9 +41,44 @@
           data-dtype="Number" />
         <br>
         <br>
-        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
+        <label for="system.initiative" class="resource-label">{{localize "Initiative"}}</label>
+        <div class="resource-box grid grid-col-2">
+          <div class="resource">
+            <label for="system.initiative.mod" class="resource-label">{{system.abilities.dex.label}}</label>
+            <input type="number" name="system.initiative.mod" value="{{system.abilities.dex.mod}}" data-dtype="Number"
+              readonly />
+          </div>
+          <div class="resource">
+            <label for="system.initiative.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.initiative.class" value="{{system.initiative.class}}"
+              data-dtype="Number" />
+          </div>
+          <div class="resource">
+            <label for="system.initiative.weapon" class="resource-label">{{localize "Weapon"}}</label>
+            <input type="number" name="system.initiative.weapon" value="{{system.initiative.weapon}}"
+              data-dtype="Number" />
+          </div>
+          <div class="resource">
+            <label for="system.initiative.armor" class="resource-label">{{localize "Armor"}}</label>
+            <input type="number" name="system.initiative.armor" value="{{system.initiative.armor}}"
+              data-dtype="Number" />
+          </div>
+          <div class="resource">
+            <label for="system.initiative.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.initiative.others" value="{{system.initiative.others}}"
+              data-dtype="Number" />
+          </div>
+          <div class="resource">
+            <label for="system.initiative.value" class="resource-label">{{localize "Total"}}</label>
+            <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number"
+              readonly />
+          </div>
+        </div>
         <br>
-        {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
+        <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
+        <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
+        <br>
+
       </div>
     </div>
     <div class="resource-content flexrow flex-center">
@@ -57,15 +92,8 @@
         {{#ifCond "omnyoji" '==' system.class.value}}
         {{> 'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs'}}
         {{/ifCond}}
-
         <br>
-        <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
-        <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
-        <br>
-        <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
-        <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
-        <br>
-
+        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
       </div>
     </div>
     <div class="resource-content flexrow flex-center">
@@ -75,6 +103,8 @@
           data-dtype="Number" />
         <br>
         {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
+        <br>
+        {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
       </div>
     </div>
     <div class="resource-content flexrow flex-center">

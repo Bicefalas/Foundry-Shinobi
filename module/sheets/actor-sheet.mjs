@@ -12,7 +12,7 @@ export class ShinobiActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['shinobi', 'sheet', 'actor'],
-      width: 1200,
+      width: 1250,
       height: 800,
       tabs: [
         {

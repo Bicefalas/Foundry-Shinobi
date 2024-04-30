@@ -6,9 +6,11 @@ the rollData property. --}}
     <label for="system.clan.name" class="resource-label">{{localize "Clan"}}</label>
     <input type="text" name="system.clan.name" value="{{system.clan.name}}" data-dtype="text" />
     <br><br>
-    <label for="system.clan.description" class="resource-label">{{localize "Clan Description"}}</label>
-    <textarea data-dtype="text" placeholder="{{localize " Type the clan description here..."}}"
-        name="system.clan.description" value="{{system.clan.description}}">{{system.clan.description}}</textarea>
+    <div class="clan-body">
+        <label for="system.clan.effects" class="resource-label">{{localize "Clan Description"}}</label>
+        <textarea data-dtype="text" placeholder="{{localize " Type the clan description here..."}}"
+            name="system.clan.effects" value="{{system.clan.effects}}">{{system.clan.effects}}</textarea>
+    </div>
 </div>
 <br>
 <h1>

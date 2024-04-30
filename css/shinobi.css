@@ -220,12 +220,12 @@
 
 .shinobi textarea {
   font-family: "Roboto", sans-serif;
-  font-size: medium;
+  font-size: small;
   resize: none;
 }
 
-.shinobi .description-body textarea {
-  height: 195px;
+.shinobi .advDisadv textarea {
+  height: 125px;
 }
 
 .shinobi .weapons-body textarea {
@@ -238,6 +238,15 @@
 
 .shinobi .description-body textarea {
   height: 250px;
+}
+
+.shinobi .clan-body textarea {
+  height: 100px;
+}
+
+
+.shinobi .resource-chart {
+  align-items: center;
 }
 
 
@@ -299,6 +308,10 @@
 
 .shinobi .resource-label {
   font-weight: bold;
+  margin: 5px;
+}
+
+.shinobi .resource-label-light {
   margin: 5px;
 }
 

@@ -75,6 +75,14 @@ export class ShinobiActor extends Actor {
     let abilities = systemData.abilities
     let resistances = systemData.resistances
     let level = systemData.attributes.level.value
+    let initiative = systemData.initiative
+
+    initiative.value =
+      abilities.dex.mod +
+      initiative.class +
+      initiative.weapon +
+      initiative.armor +
+      initiative.others
 
     secondaries.athletics.mod =
       secondaries.swim.mod =

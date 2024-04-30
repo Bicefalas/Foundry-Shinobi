@@ -12,7 +12,7 @@ export class ShinobiItemSheet extends ItemSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['shinobi', 'sheet', 'item'],
-      width: 500,
+      width: 700,
       height: 600,
       tabs: [
         {
@@ -87,7 +87,9 @@ export class ShinobiItemSheet extends ItemSheet {
       }
     }
     if (itemData.type == 'technic') {
-      47
+      for (let [k, v] of Object.entries(context.system.classes)) {
+        v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
+      }
     }
   }
 

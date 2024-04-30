@@ -95,6 +95,21 @@ Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
   }
 });
 
+Handlebars.registerHelper('Math', function (v1, operator, v2, options) {
+  switch (operator) {
+    case '+':
+      return Math.trunc((Number(v1) + Number(v2)))
+    case '-':
+      return Math.trunc((Number(v1) - Number(v2)))
+    case '*':
+      return Math.trunc((Number(v1) * Number(v2)))
+    case '/':
+      return Math.trunc((Number(v1) / Number(v2)))
+    default:
+      return "Error";
+  }
+});
+
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
