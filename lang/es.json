@@ -118,6 +118,11 @@
   "Damage chart": "Tabla de daño",
   "Total": "Total",
   "Weapon": "Arma",
+  "Secondary Ability of Strenght": "Habilidad Secundaria de Fuerza",
+  "Secondary Ability of Dexterity": "Habilidad Secundaria de Destreza",
+  "Secondary Ability of Perception": "Habilidad Secundaria de Percepción",
+  "Secondary Ability of Intelligence": "Habilidad Secundaria de Inteligencia",
+  "Secondary Ability of Will": "Habilidad Secundaria de Voluntad",
   "SHINOBI": {
     "Class": {
       "Warrior": {

@@ -77,7 +77,7 @@
       from 1 to 12 and will create that number of columns. --}}
       <div class="secondaries flexcol">
         <div class="secondaries-header flexrow flex-group-center">
-          <h3 class="secondary-label">{{localize "Secondary Ability"}}</h3>
+          <h3 class="secondary-label">{{localize "Secondary Ability of Strenght"}}</h3>
           <h3 class="secondary-ip">{{localize "IP"}}</h3>
           <h3 class="secondary-mod">{{localize "Mod."}}</h3>
           <h3 class="secondary-class">{{localize "Class"}}</h3>
@@ -85,38 +85,48 @@
           <h3 class="secondary-others">{{localize "Others"}}</h3>
           <h3 class="secondary-final">{{localize "Final"}}</h3>
         </div>
-        {{#each system.secondaries as |secondary key|}}
-        <div class="secondary flexrow flex-group-center">
-          <div class="secondary-label">
-            <label for="system.secondaries.{{key}}.final" class="resource-label rollable"
-              data-roll="1d10x10+@secondaries.{{key}}.final" data-label="{{secondary.label}}"><i
-                class="fa-solid fa-dice-d10" data-label="{{secondary.label}}"></i> {{secondary.label}}</label>
-          </div>
-          <div class="secondary-ip">
-            <input type="number" name="system.secondaries.{{key}}.ip" value="{{secondary.ip}}" data-dtype="Number" />
-          </div>
-          <div class="secondary-mod">
-            <label type="number" name="system.secondaries.{{key}}.mod" value="{{secondary.mod}}"
-              data-dtype="Number">{{secondary.mod}}</label>
-          </div>
-          <div class="secondary-class">
-            <input type="number" name="system.secondaries.{{key}}.class" value="{{secondary.class}}"
-              data-dtype="Number"></input>
-          </div>
-          <div class="secondary-nd">
-            <input type="number" name="system.secondaries.{{key}}.nd" value="{{secondary.nd}}"
-              data-dtype="Number"></input>
-          </div>
-          <div class="secondary-others">
-            <input type="number" name="system.secondaries.{{key}}.others" value="{{secondary.others}}"
-              data-dtype="Number"></input>
-          </div>
-          <div class="secondary-final">
-            <label type="number" name="system.secondaries.{{key}}.final" value="{{secondary.final}}"
-              data-dtype="Number">{{secondary.final}}</label>
-          </div>
+        <div class="secondary">
+          {{#each system.secondaries as |secondary key|}}
+          {{#ifCond key '==' "acrobatics"}}<br>
+          <h3>{{localize "Secondary Ability of Dexterity"}}</h3>{{/ifCond}}
+          {{#ifCond key '==' "search"}}<br>
+          <h3>{{localize "Secondary Ability of Perception"}}</h3>{{/ifCond}}
+          {{#ifCond key '==' "shinobiKnowledge"}}<br>
+          <h3>{{localize "Secondary Ability of Intelligence"}}</h3>{{/ifCond}}
+          {{#ifCond key '==' "persuasion"}}<br>
+          <h3>{{localize "Secondary Ability of Will"}}</h3>{{/ifCond}}
+          <span class="flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.secondaries.{{key}}.final" class="resource-label rollable"
+                data-roll="1d10x10+@secondaries.{{key}}.final" data-label="{{secondary.label}}"><i
+                  class="fa-solid fa-dice-d10" data-label="{{secondary.label}}"></i> {{secondary.label}}</label>
+            </div>
+            <div class="secondary-ip">
+              <input type="number" name="system.secondaries.{{key}}.ip" value="{{secondary.ip}}" data-dtype="Number" />
+            </div>
+            <div class="secondary-mod">
+              <label type="number" name="system.secondaries.{{key}}.mod" value="{{secondary.mod}}"
+                data-dtype="Number">{{secondary.mod}}</label>
+            </div>
+            <div class="secondary-class">
+              <input type="number" name="system.secondaries.{{key}}.class" value="{{secondary.class}}"
+                data-dtype="Number"></input>
+            </div>
+            <div class="secondary-nd">
+              <input type="number" name="system.secondaries.{{key}}.nd" value="{{secondary.nd}}"
+                data-dtype="Number"></input>
+            </div>
+            <div class="secondary-others">
+              <input type="number" name="system.secondaries.{{key}}.others" value="{{secondary.others}}"
+                data-dtype="Number"></input>
+            </div>
+            <div class="secondary-final">
+              <label type="number" name="system.secondaries.{{key}}.final" value="{{secondary.final}}"
+                data-dtype="Number">{{secondary.final}}</label>
+            </div>
+          </span>
+          {{/each}}
         </div>
-        {{/each}}
       </div>
     </aside>
   </section>
