@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@font-face {
+  font-family: "Naruto";
+  src: url('../assets/fonts/njnaruto.ttf');
+}
 
 /* Global styles */
 .window-app {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;  
 }
 
 .rollable {
@@ -258,6 +262,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-bottom: 10px;
+  font-family: "Naruto";
 }
 
 .shinobi .sheet-header .profile-img {
@@ -593,7 +598,7 @@
 
 .shinobi .advDisadv-name-disadv .resource-field-advDisadv input,
 .shinobi .advDisadv-name-disadv textarea,
-.shinobi .advDisadv-gain input  {
+.shinobi .advDisadv-gain input {
   width: 95%;
   margin: 5px;
 }
@@ -603,10 +608,6 @@
 .shinobi .advDisadv-cost h2,
 .shinobi .advDisadv-gain h2 {
   text-align: center;
-}
-
-.shinobi .summary label{
-  pointer-events: none
 }
 
 .shinobi .secondary span {
@@ -622,8 +623,20 @@
   margin: 5px;
 }
 
+.shinobi .summary {
+  width: fit-content;
+}
+
+.shinobi .summary label {
+  pointer-events: none
+}
+
 .shinobi summary:hover {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
+}
+
+.shinobi summary:hover::marker {
+  color: red;
 }
