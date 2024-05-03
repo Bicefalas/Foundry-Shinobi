@@ -1,0 +1,38 @@
+<details>
+    <summary class="resource-field summary">
+        <label for="system.initiative" class="resource-box-label">{{localize "Initiative"}}</label>
+        <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number"
+            readonly />
+    </summary>
+    <div class="resource-box">
+        <div class="resource-field">
+            <label for="system.initiative.mod" class="resource-label">{{system.abilities.dex.label}}</label>
+            <input type="number" name="system.initiative.mod" value="{{system.abilities.dex.mod}}" data-dtype="Number"
+                readonly />
+        </div>
+        <hr>
+        <div class="resource-field">
+            <label for="system.initiative.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.initiative.class" value="{{system.initiative.class}}"
+                data-dtype="Number" />
+        </div>
+        <hr>
+        <div class="resource-field">
+            <label for="system.initiative.weapon" class="resource-label">{{localize "Weapon"}}</label>
+            <input type="number" name="system.initiative.weapon" value="{{system.initiative.weapon}}"
+                data-dtype="Number" />
+        </div>
+        <hr>
+        <div class="resource-field">
+            <label for="system.initiative.armor" class="resource-label">{{localize "Armor"}}</label>
+            <input type="number" name="system.initiative.armor" value="{{system.initiative.armor}}"
+                data-dtype="Number" />
+        </div>
+        <hr>
+        <div class="resource-field">
+            <label for="system.initiative.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.initiative.others" value="{{system.initiative.others}}"
+                data-dtype="Number" />
+        </div>
+    </div>
+</details>

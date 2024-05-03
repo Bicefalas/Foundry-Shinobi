@@ -29,6 +29,7 @@
             {{numberFormat ability.mod decimals=0 sign=true}}</span>
         </div>
       </div>
+      <hr>
       {{/each}}
     </div>
     <br>
@@ -64,6 +65,7 @@
             data-dtype="Number">{{resistance.final}}</label>
         </div>
       </div>
+      <hr>
       {{/each}}
     </div>
   </aside>
@@ -95,7 +97,7 @@
           <h3>{{localize "Secondary Ability of Intelligence"}}</h3>{{/ifCond}}
           {{#ifCond key '==' "persuasion"}}<br>
           <h3>{{localize "Secondary Ability of Will"}}</h3>{{/ifCond}}
-          <span class="flexrow flex-group-center">
+          <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
               <label for="system.secondaries.{{key}}.final" class="resource-label rollable"
                 data-roll="1d10x10+@secondaries.{{key}}.final" data-label="{{secondary.label}}"><i

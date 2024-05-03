@@ -16,6 +16,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/actor-armor.hbs',
     'systems/shinobi/templates/actor/parts/actor-health.hbs',
     'systems/shinobi/templates/actor/parts/actor-adv-disadv.hbs',
+    'systems/shinobi/templates/actor/parts/actor-initiative.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/warrior.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs',

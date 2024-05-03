@@ -1,19 +1,16 @@
-{{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to
-the rollData property. --}}
-
-<br>
-<div class="resource-field">
-    <label for="system.money.copper" class="resource-label">{{localize "Copper Coins"}}</label>
-    <input type="number" name="system.money.copper" value="{{system.money.copper}}" data-dtype="Number" />
-    
-    <label for="system.money.silver" class="resource-label">{{localize "Silver Coins"}}</label>
-    <input type="number" name="system.money.silver" value="{{system.money.silver}}" data-dtype="Number" />
-   
-    <label for="system.money.gold" class="resource-label">{{localize "Gold Coins"}}</label>
-    <input type="number" name="system.money.gold" value="{{system.money.gold}}" data-dtype="Number" />
+<div class="resource-content flexrow">
+    <div class="resource-field">
+        <label for="system.money.copper" class="resource-label">{{localize "Copper Coins"}}</label>
+        <input type="number" name="system.money.copper" value="{{system.money.copper}}" data-dtype="Number" />
+    </div>
+    <div class="resource-field">
+        <label for="system.money.silver" class="resource-label">{{localize "Silver Coins"}}</label>
+        <input type="number" name="system.money.silver" value="{{system.money.silver}}" data-dtype="Number" />
+    </div>
+    <div class="resource-field">
+        <label for="system.money.gold" class="resource-label">{{localize "Gold Coins"}}</label>
+        <input type="number" name="system.money.gold" value="{{system.money.gold}}" data-dtype="Number" />
+    </div>
 </div>
-<br>
-<h1>
-    {{localize "Items"}}
-</h1>
+<h1>{{localize "Items"}}</h1>
 {{editor system.itemsOwned target="system.itemsOwned" rollData=rollData button=true owner=owner editable=editable}}

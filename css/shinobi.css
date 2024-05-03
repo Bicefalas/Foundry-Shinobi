@@ -281,6 +281,7 @@
   width: 100%;
   height: 100%;
   margin: 0;
+  text-align: left;
 }
 
 .shinobi .sheet-tabs {
@@ -306,6 +307,13 @@
   padding: 0 8px;
 }
 
+.shinobi .resource-box-label {
+  font-size: medium;
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 5px;
+}
+
 .shinobi .resource-label {
   font-weight: bold;
   margin: 5px;
@@ -322,7 +330,8 @@
 
 .shinobi .resource-field input {
   margin: 5px;
-  max-width: 50px;
+  max-width: 35px;
+  text-align: center;
 }
 
 .shinobi .resource-field-text input {
@@ -561,7 +570,7 @@
 }
 
 .shinobi .select-field {
-  width: 90px;
+  width: 150px;
   margin: 3px;
 }
 
@@ -574,15 +583,19 @@
   box-sizing: border-box;
 }
 
-.shinobi .advDisadv-name-adv input,
-.shinobi .advDisadv-name-adv textarea {
+.shinobi .advDisadv-name-adv .resource-field-advDisadv input,
+.shinobi .advDisadv-name-adv textarea,
+.shinobi .advDisadv-cost input {
   width: 95%;
+  margin: 5px;
 }
 
 
-.shinobi .advDisadv-name-disadv input,
-.shinobi .advDisadv-name-disadv textarea {
+.shinobi .advDisadv-name-disadv .resource-field-advDisadv input,
+.shinobi .advDisadv-name-disadv textarea,
+.shinobi .advDisadv-gain input  {
   width: 95%;
+  margin: 5px;
 }
 
 .shinobi .advDisadv-name-adv h2,
@@ -592,7 +605,25 @@
   text-align: center;
 }
 
-.shinobi .secondary span:nth-child(even) {
-  background-color: rgba(47, 79, 79, 0.20);
+.shinobi .summary label{
+  pointer-events: none
+}
+
+.shinobi .secondary span {
+  padding: 3px;
+}
+
+.shinobi .secondary span:nth-of-type(odd) {
+  background-color: rgba(47, 79, 79, 0.12);
   border-radius: 5px;
+}
+
+.shinobi .resource-content div {
+  margin: 5px;
+}
+
+.shinobi summary:hover {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
 }

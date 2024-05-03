@@ -1,19 +1,17 @@
-{{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to
-the rollData property. --}}
-
-
-<div class="resource-field-text">
-    <label for="system.clan.name" class="resource-label">{{localize "Clan"}}</label>
-    <input type="text" name="system.clan.name" value="{{system.clan.name}}" data-dtype="text" />
-    <br><br>
-    <div class="clan-body">
-        <label for="system.clan.effects" class="resource-label">{{localize "Clan Description"}}</label>
-        <textarea data-dtype="text" placeholder="{{localize " Type the clan description here..."}}"
-            name="system.clan.effects" value="{{system.clan.effects}}">{{system.clan.effects}}</textarea>
-    </div>
+<div class="resource-content">
+    <details>
+        <summary class="resource-field-text summary">
+            <label for="system.clan.name" class="resource-box-label">{{localize "Clan"}}</label>
+            <input type="text" name="system.clan.name" value="{{system.clan.name}}" data-dtype="text" />
+        </summary>
+        <div class="resource-box">
+            <div class="clan-body">
+                <label for="system.clan.effects" class="resource-label">{{localize "Clan Description"}}</label>
+                <textarea data-dtype="text" placeholder="{{localize " Type the clan description here..."}}"
+                    name="system.clan.effects" value="{{system.clan.effects}}">{{system.clan.effects}}</textarea>
+            </div>
+        </div>
+    </details>
 </div>
-<br>
-<h1>
-    {{localize "Description"}}
-</h1>
+<h1>{{localize "Description"}}</h1>
 {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
