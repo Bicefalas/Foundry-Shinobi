@@ -1,3 +1,8 @@
 2024/05/03-13:02:29.097 68ac Recovering log #59
 2024/05/03-13:02:29.099 68ac Delete type=0 #59
 2024/05/03-13:02:29.100 68ac Delete type=3 #58
+2024/05/03-13:13:32.134 2aa8 Level-0 table #63: started
+2024/05/03-13:13:32.135 2aa8 Level-0 table #63: 0 bytes OK
+2024/05/03-13:13:32.135 2aa8 Delete type=0 #61
+2024/05/03-13:13:32.137 2aa8 Manual compaction at level-0 from '!tables!1x3NrzcU6ihPwKEo' @ 72057594037927935 : 1 .. '!tables.results!YJa6KsWMNTC859HM.u1kQUnjZ9Mn5SVc4' @ 0 : 0; will stop at (end)
+2024/05/03-13:13:32.137 2aa8 Manual compaction at level-1 from '!tables!1x3NrzcU6ihPwKEo' @ 72057594037927935 : 1 .. '!tables.results!YJa6KsWMNTC859HM.u1kQUnjZ9Mn5SVc4' @ 0 : 0; will stop at (end)
