@@ -31,7 +31,22 @@
           "heat": 0,
           "cold": 0,
           "electrical": 0,
-          "sobrenatural": 0
+          "sobrenatural": 0,
+          "phisicalMaterial": 0,
+          "phisicalNatural": 0,
+          "phisicalSobrenatural": 0,
+          "heatMaterial": 0,
+          "heatNatural": 0,
+          "heatSobrenatural": 0,
+          "coldMaterial": 0,
+          "coldNatural": 0,
+          "coldSobrenatural": 0,
+          "electricalMaterial": 0,
+          "electricalNatural": 0,
+          "electricalSobrenatural": 0,
+          "sobrenaturalMaterial": 0,
+          "sobrenaturalNatural": 0,
+          "sobrenaturalSobrenatural": 0
         }
       }
     },

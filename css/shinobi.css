@@ -625,6 +625,7 @@
 
 .shinobi .summary {
   width: fit-content;
+  margin: 5px;
 }
 
 .shinobi .summary label {
@@ -639,4 +640,8 @@
 
 .shinobi summary:hover::marker {
   color: red;
+}
+
+.shinobi .summary.shadow::marker {
+  content: "";
 }

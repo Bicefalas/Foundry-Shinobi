@@ -80,7 +80,6 @@ export class ShinobiActorSheet extends ActorSheet {
 
     // Handle ability scores.
 
-
     for (let [k, v] of Object.entries(context.system.abilities)) {
       v.label = game.i18n.localize(CONFIG.SHINOBI.abilities[k]) ?? k;
     }
@@ -137,6 +136,8 @@ export class ShinobiActorSheet extends ActorSheet {
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
+
+    html.on('click', 'summary', this._openedDetails.bind(this));
 
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
@@ -231,5 +232,23 @@ export class ShinobiActorSheet extends ActorSheet {
       });
       return roll;
     }
+  };
+
+  // Manage the data of opened details elements.
+  _openedDetails(event) {
+    var currentDetail = event.currentTarget.parentElement.id;
+
+    let previous = '{}';
+    if (localStorage.getItem("openDetails") == null)
+      localStorage.setItem("openDetails", previous)
+
+    previous = JSON.parse(localStorage.getItem("openDetails"))
+
+    if (currentDetail in previous) 
+      delete previous[currentDetail];
+    else 
+      previous[currentDetail] = true;
+    
+    localStorage.setItem("openDetails", JSON.stringify(previous));
   }
 }

@@ -1,28 +1,116 @@
 <label for="system.armor" class="resource-box-label">{{localize "Armor"}}</label>
 <div class="resource-box">
-    <div class="resource-field">
-        <label for="system.armor.phisical" class="resource-label">{{localize "Phisical"}}</label>
-        <input type="number" name="system.armor.phisical" value="{{system.armor.phisical}}" data-dtype="number" />
-    </div>
+    <details id="physical" {{#openDetails "physical" }}{{/openDetails}}>
+        <summary class="resource-field summary shadow">
+            <label for="system.armor.phisical" class="resource-label">{{localize "Phisical"}}</label>
+            <input type="number" name="system.armor.phisical" value="{{system.armor.phisical}}" data-dtype="number"
+                readonly />
+        </summary>
+        <div class="resource-field">
+            <label for="system.armor.phisicalMaterial" class="resource-label">{{localize "Material"}}</label>
+            <input type="number" name="system.armor.phisicalMaterial" value="{{system.armor.phisicalMaterial}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.phisicalNatural" class="resource-label">{{localize "Natural"}}</label>
+            <input type="number" name="system.armor.phisicalNatural" value="{{system.armor.phisicalNatural}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.phisicalSobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
+            <input type="number" name="system.armor.phisicalSobrenatural" value="{{system.armor.phisicalSobrenatural}}"
+                data-dtype="number" />
+        </div>
+    </details>
     <hr>
-    <div class="resource-field">
-        <label for="system.armor.heat" class="resource-label">{{localize "Heat"}}</label>
-        <input type="number" name="system.armor.heat" value="{{system.armor.heat}}" data-dtype="number" />
-    </div>
+    <details id="heat" {{#openDetails "heat" }}{{/openDetails}}>
+        <summary class="resource-field summary shadow">
+            <label for="system.armor.heat" class="resource-label">{{localize "Heat"}}</label>
+            <input type="number" name="system.armor.heat" value="{{system.armor.heat}}" data-dtype="number" readonly />
+        </summary>
+        <div class="resource-field">
+            <label for="system.armor.heatMaterial" class="resource-label">{{localize "Material"}}</label>
+            <input type="number" name="system.armor.heatMaterial" value="{{system.armor.heatMaterial}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.heatNatural" class="resource-label">{{localize "Natural"}}</label>
+            <input type="number" name="system.armor.heatNatural" value="{{system.armor.heatNatural}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.heatSobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
+            <input type="number" name="system.armor.heatSobrenatural" value="{{system.armor.heatSobrenatural}}"
+                data-dtype="number" />
+        </div>
+    </details>
     <hr>
-    <div class="resource-field">
-        <label for="system.armor.cold" class="resource-label">{{localize "Cold"}}</label>
-        <input type="number" name="system.armor.cold" value="{{system.armor.cold}}" data-dtype="number" />
-    </div>
+    <details id="cold" {{#openDetails "cold" }}{{/openDetails}}>
+        <summary class="resource-field summary shadow">
+            <label for="system.armor.cold" class="resource-label">{{localize "Cold"}}</label>
+            <input type="number" name="system.armor.cold" value="{{system.armor.cold}}" data-dtype="number" readonly />
+        </summary>
+        <div class="resource-field">
+            <label for="system.armor.coldMaterial" class="resource-label">{{localize "Material"}}</label>
+            <input type="number" name="system.armor.coldMaterial" value="{{system.armor.coldMaterial}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.coldNatural" class="resource-label">{{localize "Natural"}}</label>
+            <input type="number" name="system.armor.coldNatural" value="{{system.armor.coldNatural}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.coldSobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
+            <input type="number" name="system.armor.coldSobrenatural" value="{{system.armor.coldSobrenatural}}"
+                data-dtype="number" />
+        </div>
+    </details>
     <hr>
-    <div class="resource-field">
-        <label for="system.armor.electrical" class="resource-label">{{localize "Electrical"}}</label>
-        <input type="number" name="system.armor.electrical" value="{{system.armor.electrical}}" data-dtype="number" />
-    </div>
+    <details id="electrical" {{#openDetails "electrical" }}{{/openDetails}}>
+        <summary class="resource-field summary shadow">
+            <label for="system.armor.electrical" class="resource-label">{{localize "Electrical"}}</label>
+            <input type="number" name="system.armor.electrical" value="{{system.armor.electrical}}" data-dtype="number"
+                readonly />
+        </summary>
+        <div class="resource-field">
+            <label for="system.armor.electricalMaterial" class="resource-label">{{localize "Material"}}</label>
+            <input type="number" name="system.armor.electricalMaterial" value="{{system.armor.electricalMaterial}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.electricalNatural" class="resource-label">{{localize "Natural"}}</label>
+            <input type="number" name="system.armor.electricalNatural" value="{{system.armor.electricalNatural}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.electricalSobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
+            <input type="number" name="system.armor.electricalSobrenatural"
+                value="{{system.armor.electricalSobrenatural}}" data-dtype="number" />
+        </div>
+    </details>
     <hr>
-    <div class="resource-field">
-        <label for="system.armor.sobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
-        <input type="number" name="system.armor.sobrenatural" value="{{system.armor.sobrenatural}}"
-            data-dtype="number" />
-    </div>
+    <details id="sobrenatural" {{#openDetails "sobrenatural" }}{{/openDetails}}>
+        <summary class="resource-field summary shadow">
+            <label for="system.armor.sobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
+            <input type="number" name="system.armor.sobrenatural" value="{{system.armor.sobrenatural}}"
+                data-dtype="number" readonly />
+        </summary>
+        <div class="resource-field">
+            <label for="system.armor.sobrenaturalMaterial" class="resource-label">{{localize "Material"}}</label>
+            <input type="number" name="system.armor.sobrenaturalMaterial" value="{{system.armor.sobrenaturalMaterial}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.sobrenaturalNatural" class="resource-label">{{localize "Natural"}}</label>
+            <input type="number" name="system.armor.sobrenaturalNatural" value="{{system.armor.sobrenaturalNatural}}"
+                data-dtype="number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.armor.sobrenaturalSobrenatural" class="resource-label">{{localize
+                "Sobrenatural"}}</label>
+            <input type="number" name="system.armor.sobrenaturalSobrenatural"
+                value="{{system.armor.sobrenaturalSobrenatural}}" data-dtype="number" />
+        </div>
+    </details>
 </div>
