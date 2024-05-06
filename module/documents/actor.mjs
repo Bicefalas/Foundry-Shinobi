@@ -71,11 +71,69 @@ export class ShinobiActor extends Actor {
           ability.mod = Math.floor((ability.value - 5) / 3);
       };
     };
-    let secondaries = systemData.secondaries
-    let abilities = systemData.abilities
-    let resistances = systemData.resistances
-    let level = systemData.attributes.level.value
-    let initiative = systemData.initiative
+    let secondaries = systemData.secondaries;
+    let abilities = systemData.abilities;
+    let resistances = systemData.resistances;
+    let level = systemData.attributes.level.value;
+    let initiative = systemData.initiative;
+    let armor = systemData.armor;
+    let health = systemData.health;
+    let combat = systemData.combat;
+    let fatigue = systemData.fatigue;
+    let tiredness = systemData.tiredness;
+
+    tiredness.max =
+      abilities.con.value +
+      tiredness.others
+
+    fatigue.max =
+      abilities.pow.value +
+      fatigue.others
+
+    combat.attack =
+      abilities.dex.mod +
+      combat.classAttack +
+      combat.othersAttack
+
+    combat.defense =
+      abilities.dex.mod +
+      combat.classDefense +
+      combat.othersDefense
+
+    combat.magic =
+      abilities.dex.mod +
+      combat.classMagic +
+      combat.othersMagic
+
+    health.max =
+      health.class +
+      health.con +
+      health.others
+
+    armor.phisical =
+      armor.phisicalMaterial +
+      armor.phisicalNatural +
+      armor.phisicalSobrenatural
+
+    armor.heat =
+      armor.heatMaterial +
+      armor.heatNatural +
+      armor.heatSobrenatural
+
+    armor.cold =
+      armor.coldMaterial +
+      armor.coldNatural +
+      armor.coldSobrenatural
+
+    armor.electrical =
+      armor.electricalMaterial +
+      armor.electricalNatural +
+      armor.electricalSobrenatural
+
+    armor.sobrenatural =
+      armor.sobrenaturalMaterial +
+      armor.sobrenaturalNatural +
+      armor.sobrenaturalSobrenatural
 
     initiative.value =
       abilities.dex.mod +

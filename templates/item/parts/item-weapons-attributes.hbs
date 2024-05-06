@@ -11,15 +11,15 @@
     </div>
     <div class="resource">
         <label class="resource-label">{{localize "Damage"}}</label>
-        <input type="number" name="system.damage" value="{{system.damage}}" data-dtype="number" />
+        <input type="number" name="system.damage" value="{{system.damage}}" data-dtype="Number" />
     </div>
     <div class="resource">
         <label class="resource-label">{{localize "Initiative"}}</label>
-        <input type="number" name="system.initiative" value="{{system.initiative}}" data-dtype="number" />
+        <input type="number" name="system.initiative" value="{{system.initiative}}" data-dtype="Number" />
     </div>
     <div class="resource">
         <label class="resource-label">{{localize "Required Strengh"}}</label>
-        <input type="number" name="system.requiredStrengh" value="{{system.requiredStrengh}}" data-dtype="number" />
+        <input type="number" name="system.requiredStrengh" value="{{system.requiredStrengh}}" data-dtype="Number" />
     </div>
     <div class="resource">
         <label class="resource-label">{{localize "Size"}}</label>
@@ -27,16 +27,16 @@
     </div>
     <div class="resource">
         <label class="resource-label">{{localize "Quality"}}</label>
-        <input type="number" name="system.quality" value="{{system.quality}}" data-dtype="number" />
+        <input type="number" name="system.quality" value="{{system.quality}}" data-dtype="Number" />
     </div>
     {{#ifCond "ranged" '==' system.type.value}}
     <div class="resource">
         <label class="resource-label">{{localize "Range"}}</label>
-        <input type="number" name="system.range" value="{{system.range}}" data-dtype="number" />
+        <input type="number" name="system.range" value="{{system.range}}" data-dtype="Number" />
     </div>
     <div class="resource">
         <label class="resource-label">{{localize "Reload"}}</label>
-        <input type="number" name="system.reload" value="{{system.reload}}" data-dtype="number" />
+        <input type="number" name="system.reload" value="{{system.reload}}" data-dtype="Number" />
     </div>
     {{/ifCond}}
 </div>

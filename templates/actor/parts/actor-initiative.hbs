@@ -1,14 +1,14 @@
 <details id="initiative" {{#openDetails "initiative" }}{{/openDetails}}>
     <summary class="resource-field summary">
         <label for="system.initiative" class="resource-box-label">{{localize "Initiative"}}</label>
-        <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number"
-            readonly />
+        <label type="number" name="system.initiative.value"
+            value="{{system.initiative.value}}">{{system.initiative.value}}</label>
     </summary>
     <div class="resource-box">
         <div class="resource-field">
             <label for="system.initiative.mod" class="resource-label">{{system.abilities.dex.label}}</label>
-            <input type="number" name="system.initiative.mod" value="{{system.abilities.dex.mod}}" data-dtype="Number"
-                readonly />
+            <label type="number" name="system.initiative.mod"
+                value="{{system.abilities.dex.mod}}">{{system.abilities.dex.mod}}</label>
         </div>
         <hr>
         <div class="resource-field">

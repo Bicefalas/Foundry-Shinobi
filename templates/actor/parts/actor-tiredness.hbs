@@ -5,8 +5,20 @@
         <input type="number" name="system.tiredness.value" value="{{system.tiredness.value}}" data-dtype="Number" />
     </div>
     <hr>
-    <div class="resource-field">
-        <label for="system.tiredness.max" class="resource-label">{{localize "Max"}}</label>
-        <input type="number" name="system.tiredness.max" value="{{system.tiredness.max}}" data-dtype="Number" />
-    </div>
+    <details id="tiredness" {{#openDetails "tiredness" }}{{/openDetails}}>
+        <summary class="resource-field summary shadow">
+            <label for="system.tiredness.max" class="resource-label">{{localize "Max"}}</label>
+            <label type="number" name="system.tiredness.max" value="{{system.tiredness.max}}">{{system.tiredness.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.abilities.con.value" class="resource-label">{{system.abilities.con.label}}</label>
+            <label type="number" name="system.abilities.con.value"
+                value="{{system.abilities.con.value}}">{{system.abilities.con.value}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.tiredness.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.tiredness.others" value="{{system.tiredness.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
 </div>
