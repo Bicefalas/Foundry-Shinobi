@@ -262,7 +262,6 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-bottom: 10px;
-  font-family: "Naruto";
 }
 
 .shinobi .sheet-header .profile-img {
@@ -382,7 +381,7 @@
 }
 
 .shinobi .items-list .item-name {
-  flex: 2;
+  flex: 1;
   margin: 0;
   overflow: hidden;
   font-size: 13px;
@@ -404,8 +403,17 @@
   justify-content: flex-end;
 }
 
+.shinobi .items-list .item-features h3,
+.shinobi .items-list .item-features h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
 .shinobi .items-list .item-controls a {
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
   margin: 0 6px;
 }
@@ -430,6 +438,11 @@
   background-size: 30px;
   border: none;
   margin-right: 5px;
+}
+
+.shinobi .items-list .item .item-feature {
+  margin: 0;
+  text-align: center;
 }
 
 .shinobi .items-list .item-prop {

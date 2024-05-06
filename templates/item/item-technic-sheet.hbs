@@ -3,7 +3,7 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
-      <div class="grid grid-1col">
+      <div class="grid grid-3col">
         <div class="resource">
           <label class="resource-label">{{localize "Class"}}</label>
           <select value="{{system.class.value}}" class="select-field" name="system.class.value">
@@ -14,6 +14,10 @@
             {{/select}}
           </select>
         </div>
+        <div class="resource grid-span-2">
+          <label class="resource-label">{{localize "Cost"}}</label>
+          <input type="text" data-dtype="text" value="{{system.cost}}" name="system.cost">
+        </div>
       </div>
     </div>
   </header>
@@ -22,8 +26,12 @@
     <div class="description-header flex-group-center">
       <h3 class="description-name">{{localize "Description"}}</h3>
     </div>
+    <div class="description-body">
+      <textarea data-dtype="text" placeholder="{{localize " Type the technic description here..."}}" name="system.description"
+        value="{{system.description}}">{{system.description}}</textarea>
+    </div>
     <div>
-      {{editor system.description target="system.description" rollData=rollData button=true owner=owner
+      {{editor system.description1 target="system.description1" rollData=rollData button=true owner=owner
       editable=editable}}
     </div>
   </section>

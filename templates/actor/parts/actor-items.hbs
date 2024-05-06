@@ -1,16 +1,117 @@
 <div class="resource-content flexrow">
-    <div class="resource-field">
-        <label for="system.money.copper" class="resource-label">{{localize "Copper Coins"}}</label>
-        <input type="number" name="system.money.copper" value="{{system.money.copper}}" data-dtype="Number" />
-    </div>
-    <div class="resource-field">
-        <label for="system.money.silver" class="resource-label">{{localize "Silver Coins"}}</label>
-        <input type="number" name="system.money.silver" value="{{system.money.silver}}" data-dtype="Number" />
-    </div>
-    <div class="resource-field">
-        <label for="system.money.gold" class="resource-label">{{localize "Gold Coins"}}</label>
-        <input type="number" name="system.money.gold" value="{{system.money.gold}}" data-dtype="Number" />
-    </div>
+  <div class="resource-field">
+    <label for="system.money.copper" class="resource-label">{{localize "Copper Coins"}}</label>
+    <input type="number" name="system.money.copper" value="{{system.money.copper}}" data-dtype="Number" />
+  </div>
+  <div class="resource-field">
+    <label for="system.money.silver" class="resource-label">{{localize "Silver Coins"}}</label>
+    <input type="number" name="system.money.silver" value="{{system.money.silver}}" data-dtype="Number" />
+  </div>
+  <div class="resource-field">
+    <label for="system.money.gold" class="resource-label">{{localize "Gold Coins"}}</label>
+    <input type="number" name="system.money.gold" value="{{system.money.gold}}" data-dtype="Number" />
+  </div>
 </div>
-<h1>{{localize "Items"}}</h1>
-{{editor system.itemsOwned target="system.itemsOwned" rollData=rollData button=true owner=owner editable=editable}}
+<div class="resource-content grid grid-3col ">
+  <div class="resource-chart">
+    <h1>{{localize "Items"}}</h1>
+    <ol class='items-list'>
+      <li class='item flexrow items-header'>
+        <div class='item-name'>{{localize 'Name'}}</div>
+        <div class='item-controls'>
+          <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type=' object'}}' data-type='object'>
+            <i class='fas fa-plus'></i>
+            {{localize 'DOCUMENT.New' type='objecto'}}
+          </a>
+        </div>
+      </li>
+      {{#each object as |item id|}}
+      <li class='item flexrow' data-item-id='{{item._id}}'>
+        <div class='item-name item-control item-edit'>
+          <div class='item-image'>
+            <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
+          </div>
+          <h4>{{item.name}}</h4>
+        </div>
+        <div class='item-controls'>
+          <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Item'}}'>
+            <i class='fas fa-trash'></i>
+          </a>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+  <div class="resource-chart">
+    <h1>{{localize "Weapons"}}</h1>
+    <ol class='items-list'>
+      <li class='item flexrow items-header'>
+        <div class='item-name'>{{localize 'Name'}}</div>
+        <div class='item-features'>{{localize 'Damage'}}</div>
+        <div class='item-controls'>{{localize 'Erase'}}</div>
+      </li>
+      {{#each weapon as |item id|}}
+      <li class='item flexrow' data-item-id='{{item._id}}'>
+        <div class='item-name item-control item-edit'>
+          <div class='item-image'>
+            <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
+          </div>
+          <h4>{{localize item.name}}</h4>
+        </div>
+        <div class='item-features'>
+          <h4>{{system.damage}}</h4>
+        </div>
+        <div class='item-controls'>
+          <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Weapon'}}'>
+            <i class='fas fa-trash'></i>
+          </a>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+  <div class="resource-chart">
+    <h1>{{localize "Armors"}}</h1>
+    <ol class='items-list'>
+      <li class='item flexrow items-header'>
+        <div class='item-name'>{{localize 'Name'}}</div>
+        <div class='item-features grid grid-5col'>
+          <div class='item-feature'>{{localize 'PR'}}</div>
+          <div class='item-feature'>{{localize 'HR'}}</div>
+          <div class='item-feature'>{{localize 'CR'}}</div>
+          <div class='item-feature'>{{localize 'ER'}}</div>
+          <div class='item-feature'>{{localize 'SR'}}</div>
+        </div>
+        <div class='item-controls'>{{localize 'Erase'}}</div>
+      </li>
+      {{#each armor as |item id|}}
+      <li class='item flexrow' data-item-id='{{item._id}}'>
+        <div class='item-name item-control item-edit'>
+          <div class='item-image'>
+            <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
+          </div>
+          <h4>{{item.name}}</h4>
+        </div>
+        <div class='item-features grid grid-5col'>
+          <div class='item-feature'>{{system.phisicalArmorValue}}</div>
+          <div class='item-feature'>{{system.heatArmorValue}}</div>
+          <div class='item-feature'>{{system.coldArmorValue}}</div>
+          <div class='item-feature'>{{system.electricalArmorValue}}</div>
+          <div class='item-feature'>{{system.sobrenaturalArmorValue}}</div>
+        </div>
+        <div class='item-controls'>
+          <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Armor'}}'>
+            <i class='fas fa-trash'></i>
+          </a>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+</div>
+
+<h1>
+    {{localize "Items"}}
+</h1>
+
+{{editor system.ki target="system.items" rollData=rollData button=true owner=owner editable=editable}}

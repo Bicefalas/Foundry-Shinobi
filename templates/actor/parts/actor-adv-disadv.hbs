@@ -3,7 +3,7 @@
         <h2>{{localize "Advantages"}}</h2>
         <div class="resource-field-advDisadv">
             <label for="system.adv1" class="resource-label">{{localize "Advantage"}} 1</label>
-            <details>
+            <details id="adv1" {{#openDetails "adv1" }}{{/openDetails}}>
                 <summary><input name="system.adv1.name" value="{{system.adv1.name}}" data-dtype="text" type="text">
                 </summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the advantage description here..."}}"
@@ -13,7 +13,7 @@
         </div>
         <div class="resource-field-advDisadv">
             <label for="system.adv2" class="resource-label">{{localize "Advantage"}} 2</label>
-            <details>
+            <details id="adv2" {{#openDetails "adv2" }}{{/openDetails}}>
                 <summary><input name="system.adv2.name" value="{{system.adv2.name}}" data-dtype="text" type="text">
                 </summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the advantage description here..."}}"
@@ -23,7 +23,7 @@
         </div>
         <div class="resource-field-advDisadv">
             <label for="system.adv3" class="resource-label">{{localize "Advantage"}} 3</label>
-            <details>
+            <details id="adv3" {{#openDetails "adv3" }}{{/openDetails}}>
                 <summary><input name="system.adv3.name" value="{{system.adv3.name}}" data-dtype="text" type="text">
                 </summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the advantage description here..."}}"
@@ -33,7 +33,7 @@
         </div>
         <div class="resource-field-advDisadv">
             <label for="system.adv4" class="resource-label">{{localize "Advantage"}} 4</label>
-            <details>
+            <details id="adv4" {{#openDetails "adv4" }}{{/openDetails}}>
                 <summary><input name="system.adv4.name" value="{{system.adv4.name}}" data-dtype="text" type="text">
                 </summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the advantage description here..."}}"
@@ -84,7 +84,7 @@
         <h2>{{localize "Disadvantages"}}</h2>
         <div class="resource-field-advDisadv">
             <label for="system.disadv1" class="resource-label">{{localize "Disadvantage"}} 1</label>
-            <details>
+            <details id="disavd1" {{#openDetails "disadv1" }}{{/openDetails}}>
                 <summary><input name="system.disadv1.name" value="{{system.disadv1.name}}" data-dtype="text"
                         type="text"></summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the disadvantage description here..."}}"
@@ -94,7 +94,7 @@
         </div>
         <div class="resource-field-advDisadv">
             <label for="system.disadv2" class="resource-label">{{localize "Disadvantage"}} 2</label>
-            <details>
+            <details id="disadv2" {{#openDetails "disadv2" }}{{/openDetails}}>
                 <summary><input name="system.disadv2.name" value="{{system.disadv2.name}}" data-dtype="text"
                         type="text"></summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the disadvantage description here..."}}"
@@ -104,7 +104,7 @@
         </div>
         <div class="resource-field-advDisadv">
             <label for="system.disadv3" class="resource-label">{{localize "Disadvantage"}} 3</label>
-            <details>
+            <details id="disadv3" {{#openDetails "disadv3" }}{{/openDetails}}>
                 <summary><input name="system.disadv3.name" value="{{system.disadv3.name}}" data-dtype="text"
                         type="text"></summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the disadvantage description here..."}}"
@@ -114,7 +114,7 @@
         </div>
         <div class="resource-field-advDisadv">
             <label for="system.disadv4" class="resource-label">{{localize "Disadvantage"}} 4</label>
-            <details>
+            <details id="disadv4" {{#openDetails "disadv4" }}{{/openDetails}}>
                 <summary><input name="system.disadv4.name" value="{{system.disadv4.name}}" data-dtype="text"
                         type="text"></summary>
                 <textarea data-dtype="text" placeholder="{{localize " Type the disadvantage description here..."}}"

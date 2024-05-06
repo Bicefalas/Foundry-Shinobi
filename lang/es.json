@@ -91,6 +91,7 @@
   " Type the disadvantage description here...": "Escribe la descripción de la desventaja aquí...",
   " Type the advantage description here...": "Escribe la descripción de la ventaja aquí...",
   " Type the clan description here...": "Escribe la descripción del clan aquí...",
+  " Type the technic description here...": "Escribe la descripción de la técnica aquí...",
   "Rarity": "Rareza",
   "Cost": "Coste",
   "Quantity": "Cantidad",
@@ -125,6 +126,13 @@
   "Secondary Ability of Will": "Habilidad Secundaria de Voluntad",
   "Material": "Material",
   "Natural": "Natural",
+  "Armors": "Armaduras",
+  "PR": "RFí",
+  "HR": "RC",
+  "CR": "RFr",
+  "ER": "RE",
+  "SR": "RS",
+  "Ki Technics": "Técnicas de Ki",
   "SHINOBI": {
     "Class": {
       "Warrior": {
