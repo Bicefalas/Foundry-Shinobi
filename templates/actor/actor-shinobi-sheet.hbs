@@ -42,11 +42,10 @@
           data-dtype="Number" />
       </div>
       <div class="resource-field">
-        {{> 'systems/shinobi/templates/actor/parts/actor-initiative.hbs'}}
+        {{> 'systems/shinobi/templates/actor/parts/actor-movementSpeed.hbs'}}
       </div>
       <div class="resource-field">
-        <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
-        <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
+        {{> 'systems/shinobi/templates/actor/parts/actor-initiative.hbs'}}
       </div>
       <div class="resource-field">
         {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
@@ -70,9 +69,7 @@
     </div>
     <div class="resource-content">
       <div class="resource-field">
-        <label for="system.attributes.carryArmor.value" class="resource-label">{{localize "Carry Armor"}}</label>
-        <input type="number" name="system.attributes.carryArmor.value" value="{{system.attributes.carryArmor.value}}"
-          data-dtype="Number" />
+        {{> 'systems/shinobi/templates/actor/parts/actor-carryArmor.hbs'}}
       </div>
       <div class="resource-field">
         {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
@@ -89,6 +86,10 @@
         {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
         {{/ifCond}}
 
+        {{#ifCond "shaolin" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/shaolin.hbs'}}
+        {{/ifCond}}
+
         {{#ifCond "energyShaolin" '==' system.class.value}}
         {{> 'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs'}}
         {{/ifCond}}
@@ -103,6 +104,10 @@
 
         {{#ifCond "omnyoji" '==' system.class.value}}
         {{> 'systems/shinobi/templates/actor/parts/classes/resources/omnyoji.hbs'}}
+        {{/ifCond}}
+
+        {{#ifCond "henge" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/henge.hbs'}}
         {{/ifCond}}
 
         {{#ifCond "kannushi" '==' system.class.value}}

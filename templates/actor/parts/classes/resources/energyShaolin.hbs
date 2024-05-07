@@ -1,3 +1,4 @@
+{{> 'systems/shinobi/templates/actor/parts/actor-maxRange.hbs'}}
 <label for="system.attributes.ki" class="resource-box-label">{{localize "Ki"}}</label>
 <div class="resource-box">
     <div class="resource-field">
@@ -6,11 +7,23 @@
             value="{{system.attributes.ki.value}}" data-dtype="Number" />
     </div>
     <hr>
-    <div class="resource-field">
-        <label for="system.attributes.ki.max" class="resource-label">{{localize "Max"}}</label>
-        <input class="class-dependant" type="number" name="system.attributes.ki.max"
-            value="{{system.attributes.ki.max}}" data-dtype="Number" />
-    </div>
+    <details id="ki" {{#openDetails "ki" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.ki.max" class="resource-label">{{localize "Max"}}</label>
+            <label class="class-dependant" type="number" name="system.attributes.ki.max"
+                value="{{system.attributes.ki.max}}">{{system.attributes.ki.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.ki.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.attributes.ki.class" value="{{system.attributes.ki.class}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.ki.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.ki.others" value="{{system.attributes.ki.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
 </div>
 <label for="system.attributes.executionSpeed" class="resource-box-label">{{localize "Execution Speed"}}</label>
 <div class="resource-box">
@@ -31,4 +44,24 @@
         <input type="number" name="system.attributes.executionSpeed.soul"
             value="{{system.attributes.executionSpeed.soul}}" data-dtype="Number" />
     </div>
+</div>
+<label for="system.attributes.kiLearning" class="resource-box-label">{{localize "Ki Learning"}}</label>
+<div class="resource-box">
+    <details id="kiLearning" {{#openDetails "kiLearning" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.kiLearning.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.attributes.kiLearning.value"
+                value="{{system.attributes.kiLearning.value}}">{{system.attributes.kiLearning.value}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.kiLearning.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.attributes.kiLearning.class"
+                value="{{system.attributes.kiLearning.class}}" data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.kiLearning.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.kiLearning.others"
+                value="{{system.attributes.kiLearning.others}}" data-dtype="Number" />
+        </div>
+    </details>
 </div>

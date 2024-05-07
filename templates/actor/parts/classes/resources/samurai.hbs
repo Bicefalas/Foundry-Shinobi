@@ -6,9 +6,51 @@
             data-dtype="Number" />
     </div>
     <hr>
-    <div class="resource-field">
-        <label for="system.attributes.arcana.max" class="resource-label">{{localize "Max"}}</label>
-        <input type="number" name="system.attributes.arcana.max" value="{{system.attributes.arcana.max}}"
-            data-dtype="Number" />
-    </div>
+    <details id="arcana" {{#openDetails "arcana" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.arcana.max" class="resource-label">{{localize "Max"}}</label>
+            <label type="number" name="system.attributes.arcana.max"
+                value="{{system.attributes.arcana.max}}">{{system.attributes.arcana.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.arcana.base" class="resource-label">{{localize "Base"}}</label>
+            <input type="number" name="system.attributes.arcana.base" value="{{system.attributes.arcana.base}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.arcana.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.attributes.arcana.class" value="{{system.attributes.arcana.class}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.arcana.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.arcana.others" value="{{system.attributes.arcana.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
+</div>
+<label for="system.attributes.invocation" class="resource-box-label">{{localize "Invocation"}}</label>
+<div class="resource-box">
+    <details id="invocation" {{#openDetails "invocation" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.invocation.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.attributes.invocation.value"
+                value="{{system.attributes.invocation.value}}">{{system.attributes.invocation.value}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.abilities.int.mod" class="resource-label">{{localize system.abilities.int.long}}</label>
+            <label type="number" name="system.abilities.int.mod"
+                value="{{system.abilities.int.mod}}">{{system.abilities.int.mod}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.invocation.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.attributes.invocation.class"
+                value="{{system.attributes.invocation.class}}" data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.invocation.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.invocation.others"
+                value="{{system.attributes.invocation.others}}" data-dtype="Number" />
+        </div>
+    </details>
 </div>

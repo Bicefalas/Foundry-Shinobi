@@ -101,6 +101,7 @@
   "Quality": "Calidad",
   "Reload": "Recarga",
   "Range": "Rango",
+  "Sobrenatural Range": "Rango Sobrenatural",
   "Attributes": "Atributos",
   "Required Carry Armor": "Llevar Armadura Requerido",
   "Phisical Armor Value": "Valor de Armadura Físico",
@@ -134,6 +135,13 @@
   "SR": "RS",
   "Ki Technics": "Técnicas de Ki",
   "Constitution": "Constitución",
+  "Base": "Base",
+  "Multipliers": "Multiplicadores",
+  "Channel": "Canalizar",
+  "Ki Learning": "Aprendizaje de Ki",
+  "Intelligence": "Inteligencia",
+  "Unlimited": "Ilimitado",
+  "Strength": "Fuerza",
   "SHINOBI": {
     "Class": {
       "Warrior": {

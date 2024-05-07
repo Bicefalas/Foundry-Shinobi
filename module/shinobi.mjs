@@ -111,10 +111,9 @@ Handlebars.registerHelper('Math', function (v1, operator, v2, options) {
 });
 
 Handlebars.registerHelper('openDetails', function (id) {
-  var openDetails =  JSON.parse(localStorage.getItem("openDetails"))
-  if (id in openDetails) {
+  var openDetails = JSON.parse(localStorage.getItem("openDetails"))
+  if (localStorage.getItem("openDetails") != null && id in openDetails)
     return "open"
-  }
 });
 
 

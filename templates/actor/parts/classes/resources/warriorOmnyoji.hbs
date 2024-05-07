@@ -1,3 +1,4 @@
+{{> 'systems/shinobi/templates/actor/parts/actor-maxRange.hbs'}}
 <label for="system.attributes.arcana" class="resource-box-label">{{localize "Arcana"}}</label>
 <div class="resource-box">
     <div class="resource-field">
@@ -6,9 +7,76 @@
             data-dtype="Number" />
     </div>
     <hr>
-    <div class="resource-field">
-        <label for="system.attributes.arcana.max" class="resource-label">{{localize "Max"}}</label>
-        <input type="number" name="system.attributes.arcana.max" value="{{system.attributes.arcana.max}}"
-            data-dtype="Number" />
-    </div>
+    <details id="arcana" {{#openDetails "arcana" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.arcana.max" class="resource-label">{{localize "Max"}}</label>
+            <label type="number" name="system.attributes.arcana.max"
+                value="{{system.attributes.arcana.max}}">{{system.attributes.arcana.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.arcana.base" class="resource-label">{{localize "Base"}}</label>
+            <input type="number" name="system.attributes.arcana.base" value="{{system.attributes.arcana.base}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.arcana.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.attributes.arcana.class" value="{{system.attributes.arcana.class}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.arcana.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.arcana.others" value="{{system.attributes.arcana.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
+</div>
+<label for="system.attributes.cat" class="resource-box-label">{{localize "CAT"}}</label>
+<div class="resource-box">
+    <details id="cat" {{#openDetails "cat" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.cat.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.attributes.cat.value"
+                value="{{system.attributes.cat.value}}">{{system.attributes.cat.value}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.cat.base" class="resource-label">{{localize "Base"}}</label>
+            <input type="number" name="system.attributes.cat.base" value="{{system.attributes.cat.base}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.cat.multipliers" class="resource-label">{{localize "Multipliers"}}</label>
+            <input type="number" name="system.attributes.cat.multipliers" value="{{system.attributes.cat.multipliers}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.cat.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.cat.others" value="{{system.attributes.cat.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
+</div>
+<label for="system.attributes.channel" class="resource-box-label">{{localize "Channel"}}</label>
+<div class="resource-box">
+    <details id="channel" {{#openDetails "channel" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.channel.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.attributes.channel.value"
+                value="{{system.attributes.channel.value}}">{{system.attributes.channel.value}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.abilities.pow.mod" class="resource-label">{{localize system.abilities.pow.long}}</label>
+            <label type="number" name="system.abilities.pow.mod"
+                value="{{system.abilities.pow.mod}}">{{system.abilities.pow.mod}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.channel.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.attributes.channel.class" value="{{system.attributes.channel.class}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.channel.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.channel.others" value="{{system.attributes.channel.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
 </div>

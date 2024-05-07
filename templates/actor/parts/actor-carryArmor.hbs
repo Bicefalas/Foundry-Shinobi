@@ -1,0 +1,25 @@
+<label for="system.attributes.carryArmor.value" class="resource-box-label">{{localize "Carry Armor"}}</label>
+<div class="resource-box">
+    <details id="carryArmor" {{#openDetails "carryArmor" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.carryArmor.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.attributes.carryArmor.value"
+                value="{{system.attributes.carryArmor.value}}">{{system.attributes.carryArmor.value}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.abilities.str.mod" class="resource-label">{{localize system.abilities.str.long}}</label>
+            <label type="number" name="system.abilities.str.mod"
+                value="{{system.abilities.str.mod}}">{{system.abilities.str.mod}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.carryArmor.class" class="resource-label">{{localize "Class"}}</label>
+            <label type="number" name="system.attributes.carryArmor.class"
+                value="{{system.attributes.carryArmor.class}}">{{system.attributes.carryArmor.class}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.carryArmor.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.carryArmor.others"
+                value="{{system.attributes.carryArmor.others}}" data-dtype="Number" />
+        </div>
+    </details>
+</div>

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 @font-face {
   font-family: "Naruto";
   src: url('../assets/fonts/njnaruto.ttf');
@@ -6,7 +7,7 @@
 
 /* Global styles */
 .window-app {
-  font-family: "Roboto", sans-serif;  
+  font-family: "Roboto", sans-serif;
 }
 
 .rollable {
@@ -453,7 +454,7 @@
 }
 
 .shinobi .items-list .items-header {
-  height: 28px;
+  height: 40px;
   margin: 2px 0;
   padding: 0;
   align-items: center;
@@ -633,12 +634,12 @@
 }
 
 .shinobi .resource-content div {
-  margin: 5px;
+  margin: 10px;
 }
 
 .shinobi .summary {
   width: fit-content;
-  margin: 5px;
+  padding: 10px;
 }
 
 .shinobi .summary label {
@@ -655,6 +656,26 @@
   color: red;
 }
 
-.shinobi .summary.shadow::marker {
-  content: "";
+.shinobi .resource-box details>summary {
+  list-style: none;
+}
+
+.shinobi .resource-box summary::-webkit-details-marker {
+  display: none
+}
+
+.shinobi .resource-box summary::after {
+  content: ' ►';
+}
+
+.shinobi .resource-box details[open] summary:after {
+  content: " ▼";
+}
+
+.shinobi .resource-box summary:hover::after {
+  color: red;
+}
+
+.shinobi .resource-box details[open] summary:hover:after {
+  color: red;
 }

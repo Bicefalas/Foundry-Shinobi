@@ -2,9 +2,9 @@
 * Ninja Naruto Font Readme
 **********
 
-Ninja Naruto is designed by sk89q. Derivative typeface © 2004 The 
+Ninja Naruto is designed by sk89q. Derivative typeface ï¿½ 2004 The 
 Risen Realm (http://www.therisenrealm.com) and Keiichi Anime 
-Forever (http://anime.therisenrealm.com). Original type © Kishimoto 
+Forever (http://anime.therisenrealm.com). Original type ï¿½ Kishimoto 
 Masashi, Shueisha, TV Tokyo. All Rights Reserved.
 
 ##########

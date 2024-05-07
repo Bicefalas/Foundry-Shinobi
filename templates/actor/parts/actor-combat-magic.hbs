@@ -1,7 +1,7 @@
 <label for="system.combat" class="resource-box-label">{{localize "Combat"}}</label>
 <div class="resource-box">
     <details id="combat.magic" {{#openDetails "combat.magic" }}{{/openDetails}}>
-        <summary class="resource-field">
+        <summary class="resource-field summary">
             <label for="system.combat.magic" class="resource-label rollable" data-roll="1d10x10+@combat.magic"
                 data-label="{{localize 'Magic Capacity'}}"><i class="fa-solid fa-dice-d10"
                     data-label="{{localize 'Magic Capacity'}}"></i> {{localize "Magic Capacity"}}</label>
@@ -15,8 +15,8 @@
         </div>
         <div class="resource-field">
             <label for="system.combat.classMagic" class="resource-label">{{localize "Class"}}</label>
-            <input type="number" name="system.combat.classMagic" value="{{system.combat.classMagic}}"
-                data-dtype="Number" />
+            <label type="number" name="system.combat.classMagic"
+                value="{{system.combat.classMagic}}">{{system.combat.classMagic}}</label>
         </div>
         <div class="resource-field">
             <label for="system.combat.othersMagic" class="resource-label">{{localize "Others"}}</label>

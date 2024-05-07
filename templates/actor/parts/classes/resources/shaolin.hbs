@@ -1,0 +1,20 @@
+<label for="system.attributes.kiLearning" class="resource-box-label">{{localize "Ki Learning"}}</label>
+<div class="resource-box">
+    <details id="kiLearning" {{#openDetails "kiLearning" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.kiLearning.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.attributes.kiLearning.value"
+                value="{{system.attributes.kiLearning.value}}">{{system.attributes.kiLearning.value}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.kiLearning.class" class="resource-label">{{localize "Class"}}</label>
+            <input type="number" name="system.attributes.kiLearning.class"
+                value="{{system.attributes.kiLearning.class}}" data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.kiLearning.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.kiLearning.others"
+                value="{{system.attributes.kiLearning.others}}" data-dtype="Number" />
+        </div>
+    </details>
+</div>

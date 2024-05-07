@@ -6,17 +6,18 @@
     </div>
     <hr>
     <details id="health" {{#openDetails "health" }}{{/openDetails}}>
-        <summary class="resource-field summary shadow">
+        <summary class="resource-field summary">
             <label for="system.health.max" class="resource-label">{{localize "Max"}}</label>
             <label type="number" name="system.health.max" value="{{system.health.max}}">{{system.health.max}}</label>
         </summary>
         <div class="resource-field">
             <label for="system.health.class" class="resource-label">{{localize "Class"}}</label>
-            <input type="number" name="system.health.class" value="{{system.health.class}}" data-dtype="Number" />
+            <label type="number" name="system.health.class"
+                value="{{system.health.class}}">{{system.health.class}}</label>
         </div>
         <div class="resource-field">
             <label for="system.health.con" class="resource-label">{{localize "Constitution"}}</label>
-            <input type="number" name="system.health.con" value="{{system.health.con}}" data-dtype="Number" />
+            <label type="number" name="system.health.con" value="{{system.health.con}}">{{system.health.con}}</label>
         </div>
         <div class="resource-field">
             <label for="system.health.others" class="resource-label">{{localize "Others"}}</label>
