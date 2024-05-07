@@ -9,19 +9,26 @@
         "health": {
           "value": 10,
           "min": 0,
-          "max": 10
+          "max": 10,
+          "class": 0,
+          "others": 0
         },
         "initiative": {
-          "value": 0
+          "value": 0,
+          "weapon": 0,
+          "armor": 0,
+          "others": 0
         },
         "biography": "",
         "fatigue": {
           "value": 0,
-          "max": 0
+          "max": 0,
+          "others": 0
         },
         "tiredness": {
           "value": 0,
-          "max": 0
+          "max": 0,
+          "others": 0
         },
         "speed": {
           "value": 0
@@ -56,15 +63,22 @@
       ],
       "combat": {
         "attack": 0,
+        "classAttack": 0,
+        "othersAttack": 0,
         "defense": 0,
-        "magic": 0
+        "classDefense": 0,
+        "othersDefense": 0,
+        "magic": 0,
+        "classMagic": 0,
+        "othersMagic": 0
       },
       "attributes": {
         "level": {
           "value": 1
         },
         "carryArmor": {
-          "value": 0
+          "value": 0,
+          "others": 0
         },
         "trascendentalShard": {
           "value": 0,
@@ -72,11 +86,16 @@
         },
         "ki": {
           "value": 0,
-          "max": 0
+          "max": 0,
+          "class": 0,
+          "others": 0
         },
         "arcana": {
           "value": 0,
-          "max": 0
+          "max": 0,
+          "base": 0,
+          "class": 0,
+          "others": 0
         },
         "talisman": {
           "value": 0,
@@ -94,6 +113,27 @@
           "body": 0,
           "speed": 0,
           "soul": 0
+        },
+        "invocation": {
+          "value": 0,
+          "class": 0,
+          "others": 0
+        },
+        "kiLearning": {
+          "value": 0,
+          "class": 0,
+          "others": 0
+        },
+        "channel": {
+          "value": 0,
+          "class": 0,
+          "others": 0
+        },
+        "cat": {
+          "value": 0,
+          "base": 0,
+          "multipliers": 0,
+          "others": 0
         }
       },
       "class": {
