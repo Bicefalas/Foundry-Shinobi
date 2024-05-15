@@ -7,9 +7,42 @@
             value="{{system.attributes.bloodPower.value}}" data-dtype="Number" />
     </div>
     <hr>
-    <div class="resource-field">
-        <label for="system.attributes.bloodPower.max" class="resource-label">{{localize "Max"}}</label>
-        <input class="class-dependant" type="number" name="system.attributes.bloodPower.max"
-            value="{{system.attributes.bloodPower.max}}" data-dtype="Number" />
-    </div>
+    <details id="bloodPower" {{#openDetails "bloodPower" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.bloodPower.max" class="resource-label">{{localize "Max"}}</label>
+            <label class="class-dependant" type="number" name="system.attributes.bloodPower.max"
+                value="{{system.attributes.bloodPower.max}}">{{system.attributes.bloodPower.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.bloodPower.base" class="resource-label">{{localize "Base"}}</label>
+            <label type="number" name="system.attributes.bloodPower.base"
+                value="{{system.attributes.bloodPower.base}}">{{system.attributes.bloodPower.base}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.bloodPower.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.bloodPower.others"
+                value="{{system.attributes.bloodPower.others}}" data-dtype="Number" />
+        </div>
+    </details>
+</div>
+<label for="system.attributes.bloodPowerLearning" class="resource-box-label">{{localize "Blood Power Learning"}}</label>
+<div class="resource-box">
+    <details id="bloodPowerLearning" {{#openDetails "bloodPowerLearning" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.bloodPowerLearning.max" class="resource-label">{{localize "Max"}}</label>
+            <label class="class-dependant" type="number" name="system.attributes.bloodPowerLearning.max"
+                value="{{system.attributes.bloodPowerLearning.max}}">{{system.attributes.bloodPowerLearning.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.bloodPowerLearning.class" class="resource-label">{{localize "Class"}}</label>
+            <label type="number" name="system.attributes.bloodPowerLearning.class"
+                value="{{system.attributes.bloodPowerLearning.class}}">{{system.attributes.bloodPowerLearning.class}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.bloodPowerLearning.others" class="resource-label">{{localize
+                "Others"}}</label>
+            <input type="number" name="system.attributes.bloodPowerLearning.others"
+                value="{{system.attributes.bloodPowerLearning.others}}" data-dtype="Number" />
+        </div>
+    </details>
 </div>

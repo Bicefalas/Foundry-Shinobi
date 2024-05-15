@@ -7,9 +7,26 @@
             value="{{system.attributes.talisman.value}}" data-dtype="Number" />
     </div>
     <hr>
-    <div class="resource-field">
-        <label for="system.attributes.talisman.max" class="resource-label">{{localize "Max"}}</label>
-        <input class="class-dependant" type="number" name="system.attributes.talisman.max"
-            value="{{system.attributes.talisman.max}}" data-dtype="Number" />
-    </div>
+    <details id="talisman" {{#openDetails "talisman" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.talisman.max" class="resource-label">{{localize "Max"}}</label>
+            <label class="class-dependant" type="number" name="system.attributes.talisman.max"
+                value="{{system.attributes.talisman.max}}">{{system.attributes.talisman.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.talisman.base" class="resource-label">{{localize "Base"}}</label>
+            <label type="number" name="system.attributes.talisman.base"
+                value="{{system.attributes.talisman.base}}">{{system.attributes.talisman.base}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.talisman.class" class="resource-label">{{localize "Class"}}</label>
+            <label type="number" name="system.attributes.talisman.class"
+                value="{{system.attributes.talisman.class}}">{{system.attributes.talisman.class}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.talisman.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.talisman.others" value="{{system.attributes.talisman.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
 </div>

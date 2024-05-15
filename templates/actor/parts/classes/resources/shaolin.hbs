@@ -1,3 +1,29 @@
+<label for="system.attributes.ki" class="resource-box-label">{{localize "Ki"}}</label>
+<div class="resource-box">
+    <div class="resource-field">
+        <label for="system.attributes.ki.value" class="resource-label">{{localize "Current"}}</label>
+        <input class="class-dependant" type="number" name="system.attributes.ki.value"
+            value="{{system.attributes.ki.value}}" data-dtype="Number" />
+    </div>
+    <hr>
+    <details id="ki" {{#openDetails "ki" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.ki.max" class="resource-label">{{localize "Max"}}</label>
+            <label class="class-dependant" type="number" name="system.attributes.ki.max"
+                value="{{system.attributes.ki.max}}">{{system.attributes.ki.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.ki.class" class="resource-label">{{localize "Class"}}</label>
+            <label type="number" name="system.attributes.ki.class"
+                value="{{system.attributes.ki.class}}">{{system.attributes.ki.class}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.ki.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.ki.others" value="{{system.attributes.ki.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
+</div>
 <label for="system.attributes.kiLearning" class="resource-box-label">{{localize "Ki Learning"}}</label>
 <div class="resource-box">
     <details id="kiLearning" {{#openDetails "kiLearning" }}{{/openDetails}}>
@@ -8,8 +34,8 @@
         </summary>
         <div class="resource-field">
             <label for="system.attributes.kiLearning.class" class="resource-label">{{localize "Class"}}</label>
-            <input type="number" name="system.attributes.kiLearning.class"
-                value="{{system.attributes.kiLearning.class}}" data-dtype="Number" />
+            <label type="number" name="system.attributes.kiLearning.class"
+                value="{{system.attributes.kiLearning.class}}">{{system.attributes.kiLearning.class}}</label>
         </div>
         <div class="resource-field">
             <label for="system.attributes.kiLearning.others" class="resource-label">{{localize "Others"}}</label>
