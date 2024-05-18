@@ -26,10 +26,12 @@
     padding: 0px;
     margin: 5px 0;
     border-bottom: 0;
+
     input {
       width: 100%;
       height: 100%;
       margin: 0;
+      text-align: left;
     }
   }
 }
@@ -44,6 +46,20 @@
   height: 100%;
 }
 
+.sheet-body {
+  &.item-body {
+    height: 350px;
+
+    .editor {
+      height: 350px;
+
+      .editor-content {
+        height: 350px;
+      }
+    }
+  }
+}
+
 .tox {
   .tox-editor-container {
     background: $c-white;
@@ -52,4 +68,238 @@
   .tox-edit-area {
     padding: 0 8px;
   }
+}
+
+
+textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: small;
+  resize: none;
+  height: 100%;
+}
+
+.weapons,
+.special,
+.description {
+  height: 100%;
+
+  &-body {
+    height: 100%;
+  }
+}
+
+.advDisadv,
+.clan-body {
+  textarea {
+    height: 125px;
+  }
+}
+
+
+.resource-chart {
+  align-items: center;
+}
+
+
+.resource-box-label {
+  font-size: $box-header;
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 5px;
+}
+
+
+
+
+
+
+
+
+.abilities-header {
+  min-width: 250px;
+}
+
+.resistances-header {
+  min-width: 100%;
+}
+
+.ability-label {
+  text-align: left;
+  min-width: 100px;
+}
+
+.ability-input {
+  max-width: 30px;
+  text-align: center;
+}
+
+.ability-mod {
+  text-align: center;
+}
+
+.resistance {
+  min-width: 100%;
+}
+
+.resistance-label {
+  text-align: left;
+  min-width: 30%;
+}
+
+.resistance-level {
+  text-align: center;
+  min-width: 15%;
+}
+
+.resistance-mod {
+  text-align: center;
+  min-width: 15%;
+}
+
+.resistance-others {
+  text-align: center;
+  min-width: 20%;
+}
+
+.resistance-final {
+  text-align: center;
+  min-width: 20%;
+}
+
+.resistance-value {
+  text-align: center;
+  min-width: 20%;
+  max-width: 20%;
+}
+
+.secondary-label {
+  text-align: left;
+  min-width: 25%;
+}
+
+.secondary-ip {
+  max-width: 10%;
+  text-align: center;
+}
+
+.secondary-mod {
+  max-width: 10%;
+  text-align: center;
+}
+
+.secondary-class {
+  max-width: 10%;
+  text-align: center;
+}
+
+.secondary-nd {
+  max-width: 10%;
+  text-align: center;
+}
+
+.secondary-others {
+  max-width: 10%;
+  text-align: center;
+}
+
+.secondary-final {
+  max-width: 10%;
+  text-align: center;
+}
+
+.secondary-value {
+  max-width: 20%;
+  text-align: center;
+}
+
+.select-field {
+  width: 150px;
+  margin: 3px;
+}
+
+.resource-box {
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #000;
+  border-style: solid;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.advDisadv-name-adv .resource-field-advDisadv input,
+.advDisadv-name-adv textarea,
+.advDisadv-cost input {
+  width: 95%;
+  margin: 5px;
+}
+
+
+.advDisadv-name-disadv .resource-field-advDisadv input,
+.advDisadv-name-disadv textarea,
+.advDisadv-gain input {
+  width: 95%;
+  margin: 5px;
+}
+
+.advDisadv-name-adv h2,
+.advDisadv-name-disadv h2,
+.advDisadv-cost h2,
+.advDisadv-gain h2 {
+  text-align: center;
+}
+
+.secondary span {
+  padding: 3px;
+}
+
+.secondary span:nth-of-type(odd) {
+  background-color: rgba(47, 79, 79, 0.12);
+  border-radius: 5px;
+}
+
+.resource-content div {
+  margin: 10px;
+}
+
+.summary {
+  width: fit-content;
+  padding: 10px;
+}
+
+.summary label {
+  pointer-events: none
+}
+
+summary:hover {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+summary:hover::marker {
+  color: red;
+}
+
+.resource-box details>summary {
+  list-style: none;
+}
+
+.resource-box summary::-webkit-details-marker {
+  display: none
+}
+
+.resource-box summary::after {
+  content: ' ►';
+}
+
+.resource-box details[open] summary:after {
+  content: " ▼";
+}
+
+.resource-box summary:hover::after {
+  color: red;
+}
+
+.resource-box details[open] summary:hover:after {
+  color: red;
 }

@@ -17,42 +17,45 @@
     and it will add a small amount of padding, a border, and will
     center all of its child elements content and text. --}}
 
-    <div class="resource-content flexrow flex-center">
+    <div class="resource-content">
       <div class="resource-field">
         <label for="system.attributes.challengeLevel" class="resource-label">{{localize "Challenge Level"}}</label>
         <input type="number" name="system.attributes.challengeLevel" value="{{system.attributes.challengeLevel}}"
           data-dtype="Number" />
-        <br>
-        <div class="resource-field-text">
-          <label for="system.attributes.size" class="resource-label">{{localize "Size"}}</label>
-          <input type="text" name="system.attributes.size" value="{{system.attributes.size}}" data-dtype="text" />
-        </div>
-        <br>
-        {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
       </div>
+      <br>
+      <div class="resource-field-text">
+        <label for="system.attributes.size" class="resource-label">{{localize "Size"}}</label>
+        <input type="text" name="system.attributes.size" value="{{system.attributes.size}}" data-dtype="text" />
+      </div>
+      <br>
+      {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
     </div>
-    <div class="resource-content flexrow flex-center">
+    <div class="resource-content">
       <div class="resource-field">
         <label for="system.initiative.value" class="resource-label">{{localize "Initiative"}}</label>
         <input type="number" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number" />
-        <br>
+      </div>
+      <br>
+      <div class="resource-field">
         <label for="system.speed.value" class="resource-label">{{localize "Movement Speed"}}</label>
         <input type="number" name="system.speed.value" value="{{system.speed.value}}" data-dtype="Number" />
-        <br>
-        {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
       </div>
+      <br>
+      {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
+
     </div>
-    <div class="resource-content flexrow flex-center">
-      <div class="resource-field">
-        {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
-        <br>
-        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
-      </div>
+    <div class="resource-content">
+
+      {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
+      <br>
+      {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
+
     </div>
-    <div class="resource-content flexrow flex-center">
-      <div class="resource-field">
-        {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
-      </div>
+    <div class="resource-content">
+
+      {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
+
     </div>
   </div>
   {{!-- Sheet Body --}}
@@ -64,12 +67,13 @@
       {{> "systems/shinobi/templates/actor/parts/actor-features.hbs"}}
       --}}
 
+
       <section class="grid grid-3col">
         <aside class="sidebar">
           {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
           use both the "grid" and "grid-Ncol" class where "N" can be any number
           from 1 to 12 and will create that number of columns. --}}
-          <div class="abilities flexcol">
+          <div class="abilities">
             <div class="abilities-header flexrow flex-group-center">
               <h3 class="ability-label">{{localize "Feature"}}</h3>
               <h3 class="ability-input">{{localize "Value"}}</h3>
@@ -95,8 +99,30 @@
             </div>
             {{/each}}
           </div>
-          <br>
-          <div class="resistances flexcol">
+        </aside>
+
+        <section class="main grid-span-2">
+          <div class="description">
+            <div class="description-header flexrow flex-group-center">
+              <h3 class="description-name">{{localize "Description"}}</h3>
+            </div>
+            <div class="description-body">
+              <textarea data-dtype="text" placeholder="{{localize " Type the Yokai description here..."}}"
+                name="system.description" value="{{system.description}}">{{system.description}}</textarea>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <br>
+
+
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns. --}}
+          <div class="resistances">
             <div class="resistances-header flexrow flex-group-center">
               <h3 class="resistance-label">{{localize "Resistance"}}</h3>
               <h3 class="resistance-value">{{localize "Value"}}</h3>
@@ -116,8 +142,29 @@
             </div>
             {{/each}}
           </div>
-          <br>
-          <div class="secondaries flexcol">
+        </aside>
+
+        <section class="main grid-span-2">
+          <div class="weapons">
+            <div class="weapons-header flexrow flex-group-center">
+              <h3 class="weapons-name">{{localize "Weapons"}}</h3>
+            </div>
+            <div class="weapons-body">
+              <textarea data-dtype="text" placeholder="{{localize " Type the Yokai attacks here..."}}"
+                name="system.weapons" value="{{system.weapons}}">{{system.weapons}}</textarea>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <br>
+
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns. --}}
+          <div class="secondaries">
             <div class="secondaries-header flexrow flex-group-center">
               <h3 class="secondary-label">{{localize "Secondary Ability"}}</h3>
               <h3 class="secondary-value">{{localize "Value"}}</h3>
@@ -137,45 +184,17 @@
             {{/each}}
           </div>
         </aside>
-        {{!-- For the main features list, span the right two columns --}}
+
         <section class="main grid-span-2">
-          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in
-          module/helpers/templates.mjs --}}
-          <aside class="sidebar">
-            {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-            use both the "grid" and "grid-Ncol" class where "N" can be any number
-            from 1 to 12 and will create that number of columns. --}}
-
-            <div class="description flexcol">
-              <div class="description-header flexrow flex-group-center">
-                <h3 class="description-name">{{localize "Description"}}</h3>
-              </div>
-              <div class="description-body">
-                <textarea data-dtype="text" placeholder="{{localize " Type the Yokai description here..."}}"
-                  name="system.description" value="{{system.description}}">{{system.description}}</textarea>
-              </div>
+          <div class="special">
+            <div class="special-header flexrow flex-group-center">
+              <h3 class="special-name">{{localize "Special Abilities"}}</h3>
             </div>
-
-            <div class="weapons flexcol">
-              <div class="weapons-header flexrow flex-group-center">
-                <h3 class="weapons-name">{{localize "Weapons"}}</h3>
-              </div>
-              <div class="weapons-body">
-                <textarea data-dtype="text" placeholder="{{localize " Type the Yokai attacks here..."}}"
-                  name="system.weapons" value="{{system.weapons}}">{{system.weapons}}</textarea>
-              </div>
+            <div class="special-body">
+              <textarea data-dtype="text" placeholder="{{localize " Type the Yokai special abilities here..."}}"
+                name="system.special" value="{{system.special}}">{{system.special}}</textarea>
             </div>
-
-            <div class="special flexcol">
-              <div class="special-header flexrow flex-group-center">
-                <h3 class="special-name">{{localize "Special Abilities"}}</h3>
-              </div>
-              <div class="special-body">
-                <textarea data-dtype="text" placeholder="{{localize " Type the Yokai special abilities here..."}}"
-                  name="system.special" value="{{system.special}}">{{system.special}}</textarea>
-              </div>
-            </div>
-          </aside>
+          </div>
         </section>
       </section>
     </div>

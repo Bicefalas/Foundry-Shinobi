@@ -1,11 +1,17 @@
 .resource-label {
   font-weight: bold;
+  margin: 5px;
 }
 
 .resource-field {
   input {
-    max-width: 20px;
+    margin: 5px;
+    max-width: 35px;
+    text-align: center;
+  }
 
-
+  &-text input {
+    margin: 5px;
+    max-width: 100px;
   }
 }

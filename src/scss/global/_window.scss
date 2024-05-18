@@ -2,7 +2,13 @@
   font-family: $font-primary;
 }
 
+.app.window-app .window-content {
+  background: url(/ui/parchment-white.jpg) repeat;
+
+}
+
 .rollable {
+
   &:hover,
   &:focus {
     color: #000;

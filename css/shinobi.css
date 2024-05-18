@@ -1,21 +1,15 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
-@font-face {
-  font-family: "Naruto";
-  src: url('../assets/fonts/njnaruto.ttf');
-}
-
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
 }
 
-.rollable {
-  cursor: pointer;
+.app.window-app .window-content {
+  background: url(/ui/parchment-white.jpg) repeat;
 }
 
-.rollable:hover,
-.rollable:focus {
+.rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
@@ -195,10 +189,6 @@
   justify-content: space-between;
 }
 
-.flex-around {
-  justify-content: space-around;
-}
-
 .flexlarge {
   flex: 2;
 }
@@ -218,43 +208,14 @@
   text-align: center;
 }
 
+.flex-around {
+  justify-content: space-around;
+}
+
 /* Styles limited to shinobi sheets */
 .shinobi .item-form {
   font-family: "Roboto", sans-serif;
 }
-
-.shinobi textarea {
-  font-family: "Roboto", sans-serif;
-  font-size: small;
-  resize: none;
-}
-
-.shinobi .advDisadv textarea {
-  height: 125px;
-}
-
-.shinobi .weapons-body textarea {
-  height: 117px;
-}
-
-.shinobi .special-body textarea {
-  height: 500px;
-}
-
-.shinobi .description-body textarea {
-  height: 250px;
-}
-
-.shinobi .clan-body textarea {
-  height: 100px;
-}
-
-
-.shinobi .resource-chart {
-  align-items: center;
-}
-
-
 .shinobi .sheet-header {
   flex: 0 auto;
   overflow: hidden;
@@ -264,86 +225,241 @@
   justify-content: flex-start;
   margin-bottom: 10px;
 }
-
 .shinobi .sheet-header .profile-img {
   flex: 0 0 100px;
   height: 100px;
   margin-right: 10px;
 }
-
 .shinobi .sheet-header .header-fields {
   flex: 1;
 }
-
 .shinobi .sheet-header h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
-
 .shinobi .sheet-header h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
   text-align: left;
 }
-
 .shinobi .sheet-tabs {
   flex: 0;
 }
-
 .shinobi .sheet-body,
 .shinobi .sheet-body .tab,
 .shinobi .sheet-body .tab .editor {
   height: 100%;
 }
-
-.shinobi .sheet-body.item-body,
+.shinobi .sheet-body.item-body {
+  height: 350px;
+}
 .shinobi .sheet-body.item-body .editor {
   height: 350px;
 }
-
+.shinobi .sheet-body.item-body .editor .editor-content {
+  height: 350px;
+}
 .shinobi .tox .tox-editor-container {
   background: #fff;
 }
-
 .shinobi .tox .tox-edit-area {
   padding: 0 8px;
 }
-
+.shinobi textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: small;
+  resize: none;
+  height: 100%;
+}
+.shinobi .weapons,
+.shinobi .special,
+.shinobi .description {
+  height: 100%;
+}
+.shinobi .weapons-body,
+.shinobi .special-body,
+.shinobi .description-body {
+  height: 100%;
+}
+.shinobi .advDisadv textarea,
+.shinobi .clan-body textarea {
+  height: 125px;
+}
+.shinobi .resource-chart {
+  align-items: center;
+}
 .shinobi .resource-box-label {
-  font-size: medium;
+  font-size: 18px;
   text-decoration: underline;
   font-weight: bold;
   margin: 5px;
 }
-
+.shinobi .abilities-header {
+  min-width: 250px;
+}
+.shinobi .resistances-header {
+  min-width: 100%;
+}
+.shinobi .ability-label {
+  text-align: left;
+  min-width: 100px;
+}
+.shinobi .ability-input {
+  max-width: 30px;
+  text-align: center;
+}
+.shinobi .ability-mod {
+  text-align: center;
+}
+.shinobi .resistance {
+  min-width: 100%;
+}
+.shinobi .resistance-label {
+  text-align: left;
+  min-width: 30%;
+}
+.shinobi .resistance-level {
+  text-align: center;
+  min-width: 15%;
+}
+.shinobi .resistance-mod {
+  text-align: center;
+  min-width: 15%;
+}
+.shinobi .resistance-others {
+  text-align: center;
+  min-width: 20%;
+}
+.shinobi .resistance-final {
+  text-align: center;
+  min-width: 20%;
+}
+.shinobi .resistance-value {
+  text-align: center;
+  min-width: 20%;
+  max-width: 20%;
+}
+.shinobi .secondary-label {
+  text-align: left;
+  min-width: 25%;
+}
+.shinobi .secondary-ip {
+  max-width: 10%;
+  text-align: center;
+}
+.shinobi .secondary-mod {
+  max-width: 10%;
+  text-align: center;
+}
+.shinobi .secondary-class {
+  max-width: 10%;
+  text-align: center;
+}
+.shinobi .secondary-nd {
+  max-width: 10%;
+  text-align: center;
+}
+.shinobi .secondary-others {
+  max-width: 10%;
+  text-align: center;
+}
+.shinobi .secondary-final {
+  max-width: 10%;
+  text-align: center;
+}
+.shinobi .secondary-value {
+  max-width: 20%;
+  text-align: center;
+}
+.shinobi .select-field {
+  width: 150px;
+  margin: 3px;
+}
+.shinobi .resource-box {
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #000;
+  border-style: solid;
+  margin: 5px;
+  box-sizing: border-box;
+}
+.shinobi .advDisadv-name-adv .resource-field-advDisadv input,
+.shinobi .advDisadv-name-adv textarea,
+.shinobi .advDisadv-cost input {
+  width: 95%;
+  margin: 5px;
+}
+.shinobi .advDisadv-name-disadv .resource-field-advDisadv input,
+.shinobi .advDisadv-name-disadv textarea,
+.shinobi .advDisadv-gain input {
+  width: 95%;
+  margin: 5px;
+}
+.shinobi .advDisadv-name-adv h2,
+.shinobi .advDisadv-name-disadv h2,
+.shinobi .advDisadv-cost h2,
+.shinobi .advDisadv-gain h2 {
+  text-align: center;
+}
+.shinobi .secondary span {
+  padding: 3px;
+}
+.shinobi .secondary span:nth-of-type(odd) {
+  background-color: rgba(47, 79, 79, 0.12);
+  border-radius: 5px;
+}
+.shinobi .resource-content div {
+  margin: 10px;
+}
+.shinobi .summary {
+  width: fit-content;
+  padding: 10px;
+}
+.shinobi .summary label {
+  pointer-events: none;
+}
+.shinobi summary:hover {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+.shinobi summary:hover::marker {
+  color: red;
+}
+.shinobi .resource-box details > summary {
+  list-style: none;
+}
+.shinobi .resource-box summary::-webkit-details-marker {
+  display: none;
+}
+.shinobi .resource-box summary::after {
+  content: " ►";
+}
+.shinobi .resource-box details[open] summary:after {
+  content: " ▼";
+}
+.shinobi .resource-box summary:hover::after {
+  color: red;
+}
+.shinobi .resource-box details[open] summary:hover:after {
+  color: red;
+}
 .shinobi .resource-label {
   font-weight: bold;
   margin: 5px;
 }
-
-.shinobi .resource-label-light {
-  margin: 5px;
-}
-
-.shinobi .resource-field label {
-  margin: 5px;
-  max-width: 60px;
-}
-
 .shinobi .resource-field input {
   margin: 5px;
   max-width: 35px;
   text-align: center;
 }
-
 .shinobi .resource-field-text input {
   margin: 5px;
   max-width: 100px;
 }
-
 .shinobi .items-header {
   height: 28px;
   margin: 2px 0;
@@ -353,19 +469,16 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-
-.shinobi .items-header>* {
+.shinobi .items-header > * {
   font-size: 14px;
   text-align: center;
 }
-
 .shinobi .items-header .item-name {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
   display: flex;
 }
-
 .shinobi .items-list {
   list-style: none;
   margin: 0;
@@ -374,15 +487,7 @@
   scrollbar-width: thin;
   color: #444;
 }
-
-.shinobi .items-list .item-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 .shinobi .items-list .item-name {
-  flex: 1;
   margin: 0;
   overflow: hidden;
   font-size: 13px;
@@ -390,21 +495,17 @@
   align-items: center;
   display: flex;
 }
-
-.shinobi .items-list .item-name h3,
 .shinobi .items-list .item-name h4 {
   margin: 0;
+  padding: 2px;
   white-space: nowrap;
   overflow-x: hidden;
+  text-overflow: ellipsis;
 }
-
-.shinobi .items-list .item-controls {
-  display: flex;
-  flex: 0 0 100px;
-  justify-content: flex-end;
+.shinobi .items-list .item-features .item-feature {
+  margin: 0;
+  text-align: center;
 }
-
-.shinobi .items-list .item-features h3,
 .shinobi .items-list .item-features h4 {
   margin: 0;
   white-space: nowrap;
@@ -412,27 +513,28 @@
   text-align: center;
   text-overflow: ellipsis;
 }
-
+.shinobi .items-list .item-controls {
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
 .shinobi .items-list .item-controls a {
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
-
 .shinobi .items-list .item {
   align-items: center;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
+  flex-wrap: nowrap;
 }
-
 .shinobi .items-list .item:last-child {
   border-bottom: none;
 }
-
 .shinobi .items-list .item .item-name {
   color: #191813;
 }
-
 .shinobi .items-list .item .item-name .item-image {
   flex: 0 0 30px;
   height: 30px;
@@ -440,19 +542,12 @@
   border: none;
   margin-right: 5px;
 }
-
-.shinobi .items-list .item .item-feature {
-  margin: 0;
-  text-align: center;
-}
-
 .shinobi .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-
 .shinobi .items-list .items-header {
   height: 40px;
   margin: 2px 0;
@@ -462,22 +557,18 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-
-.shinobi .items-list .items-header>* {
+.shinobi .items-list .items-header > * {
   font-size: 12px;
   text-align: center;
 }
-
 .shinobi .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
 }
-
 .shinobi .item-formula {
   flex: 0 0 200px;
   padding: 0 8px;
 }
-
 .shinobi .effects .item .effect-source,
 .shinobi .effects .item .effect-duration,
 .shinobi .effects .item .effect-controls {
@@ -486,196 +577,8 @@
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-
 .shinobi .effects .item .effect-controls {
   border: none;
 }
 
-.shinobi .abilities-header {
-  min-width: 250px;
-}
-
-.shinobi .resistances-header {
-  min-width: 100%;
-}
-
-.shinobi .ability-label {
-  text-align: left;
-  min-width: 100px;
-}
-
-.shinobi .ability-input {
-  max-width: 30px;
-  text-align: center;
-}
-
-.shinobi .ability-mod {
-  text-align: center;
-}
-
-.shinobi .resistance {
-  min-width: 100%;
-}
-
-.shinobi .resistance-label {
-  text-align: left;
-  min-width: 30%;
-}
-
-.shinobi .resistance-level {
-  text-align: center;
-  min-width: 15%;
-}
-
-.shinobi .resistance-mod {
-  text-align: center;
-  min-width: 15%;
-}
-
-.shinobi .resistance-others {
-  text-align: center;
-  min-width: 20%;
-}
-
-.shinobi .resistance-final {
-  text-align: center;
-  min-width: 20%;
-}
-
-.shinobi .resistance-value {
-  text-align: center;
-  min-width: 20%;
-  max-width: 20%;
-}
-
-.shinobi .secondary-label {
-  text-align: left;
-  min-width: 25%;
-}
-
-.shinobi .secondary-ip {
-  max-width: 10%;
-  text-align: center;
-}
-
-.shinobi .secondary-mod {
-  max-width: 10%;
-  text-align: center;
-}
-
-.shinobi .secondary-class {
-  max-width: 10%;
-  text-align: center;
-}
-
-.shinobi .secondary-nd {
-  max-width: 10%;
-  text-align: center;
-}
-
-.shinobi .secondary-others {
-  max-width: 10%;
-  text-align: center;
-}
-
-.shinobi .secondary-final {
-  max-width: 10%;
-  text-align: center;
-}
-
-.shinobi .secondary-value {
-  max-width: 20%;
-  text-align: center;
-}
-
-.shinobi .select-field {
-  width: 150px;
-  margin: 3px;
-}
-
-.shinobi .resource-box {
-  border-width: 1px;
-  border-radius: 5px;
-  border-color: #000;
-  border-style: solid;
-  margin: 5px;
-  box-sizing: border-box;
-}
-
-.shinobi .advDisadv-name-adv .resource-field-advDisadv input,
-.shinobi .advDisadv-name-adv textarea,
-.shinobi .advDisadv-cost input {
-  width: 95%;
-  margin: 5px;
-}
-
-
-.shinobi .advDisadv-name-disadv .resource-field-advDisadv input,
-.shinobi .advDisadv-name-disadv textarea,
-.shinobi .advDisadv-gain input {
-  width: 95%;
-  margin: 5px;
-}
-
-.shinobi .advDisadv-name-adv h2,
-.shinobi .advDisadv-name-disadv h2,
-.shinobi .advDisadv-cost h2,
-.shinobi .advDisadv-gain h2 {
-  text-align: center;
-}
-
-.shinobi .secondary span {
-  padding: 3px;
-}
-
-.shinobi .secondary span:nth-of-type(odd) {
-  background-color: rgba(47, 79, 79, 0.12);
-  border-radius: 5px;
-}
-
-.shinobi .resource-content div {
-  margin: 10px;
-}
-
-.shinobi .summary {
-  width: fit-content;
-  padding: 10px;
-}
-
-.shinobi .summary label {
-  pointer-events: none
-}
-
-.shinobi summary:hover {
-  color: #000;
-  text-shadow: 0 0 10px red;
-  cursor: pointer;
-}
-
-.shinobi summary:hover::marker {
-  color: red;
-}
-
-.shinobi .resource-box details>summary {
-  list-style: none;
-}
-
-.shinobi .resource-box summary::-webkit-details-marker {
-  display: none
-}
-
-.shinobi .resource-box summary::after {
-  content: ' ►';
-}
-
-.shinobi .resource-box details[open] summary:after {
-  content: " ▼";
-}
-
-.shinobi .resource-box summary:hover::after {
-  color: red;
-}
-
-.shinobi .resource-box details[open] summary:hover:after {
-  color: red;
-}
+/*# sourceMappingURL=shinobi.css.map */
