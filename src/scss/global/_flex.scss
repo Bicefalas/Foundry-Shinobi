@@ -51,3 +51,12 @@
   justify-content: space-around;
 }
 
+.flex-container {
+  display: flex;
+  width: 100%;
+}
+
+.flex-col {
+  flex: 1;
+  margin: 0 5px 0 10px;
+}

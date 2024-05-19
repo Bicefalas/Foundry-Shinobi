@@ -1,8 +1,46 @@
-{{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to
-the rollData property. --}}
-
-<h1>
-    {{localize "Invocation"}}
-</h1>
-
-{{editor system.invocation target="system.invocation" rollData=rollData button=true owner=owner editable=editable}}
+<div class="grid grid-4col">
+<div class="resource-content">
+    <div class="resource-field">
+        {{#ifCond "samurai" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/classes/resources/samurai.hbs'}}
+        {{/ifCond}}
+    </div>
+</div>
+    <div class="class-editor grid-span-3">
+        <h1>{{localize "Invocation"}}</h1>
+        {{editor system.invocation target="system.invocation" rollData=rollData button=true owner=owner
+        editable=editable}}
+    </div>
+</div>
+    <div class="resource-chart">
+        <h1>{{localize "Invocations"}}</h1>
+        <ol class='items-list'>
+            <li class='item grid grid-4col items-header'>
+                <div class='item-name'>{{localize 'Name'}}</div>
+                <div class='item-features'>{{localize 'Description'}}</div>
+                <div class='item-features'>{{localize 'Cost'}}</div>
+                <div class='item-controls'>{{localize 'Erase'}}</div>
+            </li>
+            {{#each technic as |item id|}}
+            <li class='item grid grid-4col' data-item-id='{{item._id}}'>
+                <div class='item-name item-control item-edit'>
+                    <div class='item-image'>
+                        <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
+                    </div>
+                    <h4>{{localize item.name}}</h4>
+                </div>
+                <div class='item-features'>
+                    <h4>{{system.description}}</h4>
+                </div>
+                <div class='item-features'>
+                    <h4>{{system.cost}}</h4>
+                </div>
+                <div class='item-controls'>
+                    <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Technic'}}'>
+                        <i class='fas fa-trash'></i>
+                    </a>
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+    </div>

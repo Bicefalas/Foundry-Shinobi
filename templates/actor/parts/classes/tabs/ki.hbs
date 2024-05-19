@@ -1,16 +1,31 @@
-<h1>
-    {{localize "Ki"}}
-</h1>
+<div class="grid grid-4col">
+    <div class="resource-content">
+        <div class="resource-field">
+            {{#ifCond "ninja" '==' system.class.value}}
+            {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
+            {{/ifCond}}
 
-{{editor system.ki target="system.ki" rollData=rollData button=true owner=owner editable=editable}}
+            {{#ifCond "shaolin" '==' system.class.value}}
+            {{> 'systems/shinobi/templates/actor/parts/classes/resources/shaolin.hbs'}}
+            {{/ifCond}}
 
+            {{#ifCond "energyShaolin" '==' system.class.value}}
+            {{> 'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs'}}
+            {{/ifCond}}
+        </div>
+    </div>
+    <div class="class-editor grid-span-3">
+        <h1>{{localize "Ki"}}</h1>
+        {{editor system.ki target="system.ki" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+</div>
 <div class="resource-chart">
     <h1>{{localize "Ki Technics"}}</h1>
     <ol class='items-list'>
         <li class='item grid grid-4col items-header'>
             <div class='item-name'>{{localize 'Name'}}</div>
             <div class='item-features'>{{localize 'Description'}}</div>
-            <div class='item-features'>{{localize 'Coste'}}</div>
+            <div class='item-features'>{{localize 'Cost'}}</div>
             <div class='item-controls'>{{localize 'Erase'}}</div>
         </li>
         {{#each technic as |item id|}}

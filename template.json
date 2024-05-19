@@ -99,7 +99,10 @@
         },
         "talisman": {
           "value": 0,
-          "max": 0
+          "max": 0,
+          "class": 0,
+          "base": 0,
+          "others": 0
         },
         "breaths": {
           "value": 0,
@@ -107,7 +110,13 @@
         },
         "bloodPower": {
           "value": 0,
+          "others": 0,
           "max": 0
+        },
+        "bloodPowerLearning": {
+          "max": 0,
+          "class": 0,
+          "others": 0
         },
         "executionSpeed": {
           "body": 0,

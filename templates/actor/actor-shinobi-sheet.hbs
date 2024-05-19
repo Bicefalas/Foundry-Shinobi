@@ -10,7 +10,7 @@
   {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
   use both the "grid" and "grid-Ncol" class where "N" can be any number
   from 1 to 12 and will create that number of columns. --}}
-  <div class="resources grid grid-4col">
+  <div class="resources grid grid-3col">
 
     {{!-- "flex-group-center" is also defined in the _grid.scss file
     and it will add a small amount of padding, a border, and will
@@ -48,7 +48,12 @@
         {{> 'systems/shinobi/templates/actor/parts/actor-initiative.hbs'}}
       </div>
       <div class="resource-field">
-        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
+        {{#ifCond "omnyoji" '!=' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
+        {{/ifCond}}
+        {{#ifCond "omnyoji" '==' system.class.value}}
+        {{> 'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs'}}
+        {{/ifCond}}
       </div>
     </div>
     <div class="resource-content">
@@ -56,12 +61,8 @@
         {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
       </div>
       <div class="resource-field">
-        {{#ifCond "omnyoji" '!=' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
-        {{/ifCond}}
-        {{#ifCond "omnyoji" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/actor-combat-magic.hbs'}}
-        {{/ifCond}}
+
+        {{> 'systems/shinobi/templates/actor/parts/actor-tiredness.hbs'}}
       </div>
       <div class="resource-field">
         {{> 'systems/shinobi/templates/actor/parts/actor-fatigue.hbs'}}
@@ -73,54 +74,6 @@
       </div>
       <div class="resource-field">
         {{> 'systems/shinobi/templates/actor/parts/actor-armor.hbs'}}
-      </div>
-    </div>
-    <div class="resource-content">
-      <div class="resource-field">
-        {{!-- Exclusive resources depending of the class --}}
-        {{#ifCond "warrior" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/warrior.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "ninja" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "shaolin" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/shaolin.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "energyShaolin" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "samurai" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/samurai.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "warriorOmnyoji" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/warriorOmnyoji.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "omnyoji" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/omnyoji.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "henge" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/henge.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "kannushi" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/kannushi.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "ronin" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/ronin.hbs'}}
-        {{/ifCond}}
-
-        {{#ifCond "ryoshi" '==' system.class.value}}
-        {{> 'systems/shinobi/templates/actor/parts/classes/resources/ryoshi.hbs'}}
-        {{/ifCond}}
       </div>
     </div>
   </div>
@@ -139,6 +92,10 @@
     {{/ifCond}}
 
     {{#ifCond "ninja" '==' system.class.value}}
+    <a class="item" data-tab="ki">{{localize "Ki"}}</a>
+    {{/ifCond}}
+
+    {{#ifCond "shaolin" '==' system.class.value}}
     <a class="item" data-tab="ki">{{localize "Ki"}}</a>
     {{/ifCond}}
 
@@ -247,6 +204,5 @@
     <div class="tab blood-tech" data-group="primary" data-tab="blood-tech">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/blood-tech.hbs"}}
     </div>
-
   </section>
 </form>

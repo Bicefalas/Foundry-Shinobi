@@ -88,6 +88,13 @@ textarea {
   }
 }
 
+.class-editor {
+  .editor-content {
+    height: 300px;
+    overflow-y: scroll;
+  }
+}
+
 .advDisadv,
 .clan-body {
   textarea {
@@ -226,19 +233,24 @@ textarea {
   box-sizing: border-box;
 }
 
-.advDisadv-name-adv .resource-field-advDisadv input,
-.advDisadv-name-adv textarea,
-.advDisadv-cost input {
-  width: 95%;
-  margin: 5px;
+.advDisadv-name-adv,
+.advDisadv-name-disadv {
+
+  .resource-field-advDisadv input,
+  textarea {
+    margin: 5px;
+    width: calc(100% - 25px);
+  }
 }
 
 
-.advDisadv-name-disadv .resource-field-advDisadv input,
-.advDisadv-name-disadv textarea,
-.advDisadv-gain input {
-  width: 95%;
-  margin: 5px;
+.advDisadv-gain,
+.advDisadv-cost {
+  width: 90px;
+
+  input {
+    margin: 5px;
+  }
 }
 
 .advDisadv-name-adv h2,

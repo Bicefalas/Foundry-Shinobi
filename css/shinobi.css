@@ -212,6 +212,16 @@
   justify-content: space-around;
 }
 
+.flex-container {
+  display: flex;
+  width: 100%;
+}
+
+.flex-col {
+  flex: 1;
+  margin: 0 5px 0 10px;
+}
+
 /* Styles limited to shinobi sheets */
 .shinobi .item-form {
   font-family: "Roboto", sans-serif;
@@ -283,6 +293,10 @@
 .shinobi .special-body,
 .shinobi .description-body {
   height: 100%;
+}
+.shinobi .class-editor .editor-content {
+  height: 300px;
+  overflow-y: scroll;
 }
 .shinobi .advDisadv textarea,
 .shinobi .clan-body textarea {
@@ -388,14 +402,17 @@
 }
 .shinobi .advDisadv-name-adv .resource-field-advDisadv input,
 .shinobi .advDisadv-name-adv textarea,
-.shinobi .advDisadv-cost input {
-  width: 95%;
-  margin: 5px;
-}
 .shinobi .advDisadv-name-disadv .resource-field-advDisadv input,
-.shinobi .advDisadv-name-disadv textarea,
-.shinobi .advDisadv-gain input {
-  width: 95%;
+.shinobi .advDisadv-name-disadv textarea {
+  margin: 5px;
+  width: calc(100% - 25px);
+}
+.shinobi .advDisadv-gain,
+.shinobi .advDisadv-cost {
+  width: 90px;
+}
+.shinobi .advDisadv-gain input,
+.shinobi .advDisadv-cost input {
   margin: 5px;
 }
 .shinobi .advDisadv-name-adv h2,
