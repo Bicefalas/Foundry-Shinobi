@@ -1,5 +1,7 @@
-2024/05/19-18:31:45.245 6ecc Delete type=3 #1
-2024/05/19-18:37:04.412 5dcc Level-0 table #5: started
-2024/05/19-18:37:04.412 5dcc Level-0 table #5: 0 bytes OK
-2024/05/19-18:37:04.412 5dcc Delete type=0 #3
-2024/05/19-18:37:04.413 5dcc Manual compaction at level-0 from 'undefined' @ 72057594037927935 : 1 .. 'undefined' @ 0 : 0; will stop at (end)
+2024/05/19-18:49:43.377 6ecc Recovering log #8
+2024/05/19-18:49:43.379 6ecc Delete type=0 #8
+2024/05/19-18:49:43.380 6ecc Delete type=3 #6
+2024/05/19-18:53:26.441 5dcc Level-0 table #13: started
+2024/05/19-18:53:26.441 5dcc Level-0 table #13: 0 bytes OK
+2024/05/19-18:53:26.441 5dcc Delete type=0 #11
+2024/05/19-18:53:26.442 5dcc Manual compaction at level-0 from 'undefined' @ 72057594037927935 : 1 .. 'undefined' @ 0 : 0; will stop at (end)
