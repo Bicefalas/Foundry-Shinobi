@@ -76,7 +76,7 @@ export class ShinobiItemSheet extends ItemSheet {
     const itemData = context.data;
 
     // Handle rarity scores.
-    if (itemData.type != 'technic') {
+    if (itemData.type != 'technique') {
       for (let [k, v] of Object.entries(context.system.rarities)) {
         v.label = game.i18n.localize(CONFIG.SHINOBI.rarities[k]) ?? k;
       }
@@ -86,7 +86,7 @@ export class ShinobiItemSheet extends ItemSheet {
         v.label = game.i18n.localize(CONFIG.SHINOBI.types[k]) ?? k;
       }
     }
-    if (itemData.type == 'technic') {
+    if (itemData.type == 'technique') {
       for (let [k, v] of Object.entries(context.system.classes)) {
         v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
       }

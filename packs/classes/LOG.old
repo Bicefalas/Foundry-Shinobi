@@ -1,3 +1,8 @@
-2024/05/19-17:11:41.675 5490 Recovering log #153
-2024/05/19-17:11:41.678 5490 Delete type=0 #153
-2024/05/19-17:11:41.678 5490 Delete type=3 #152
+2024/05/19-18:31:45.248 7668 Recovering log #162
+2024/05/19-18:31:45.251 7668 Delete type=0 #162
+2024/05/19-18:31:45.251 7668 Delete type=3 #160
+2024/05/19-18:37:04.415 5dcc Level-0 table #167: started
+2024/05/19-18:37:04.415 5dcc Level-0 table #167: 0 bytes OK
+2024/05/19-18:37:04.415 5dcc Delete type=0 #165
+2024/05/19-18:37:04.416 5dcc Manual compaction at level-0 from '!journal!Ihqe9UFcOpyqA9ZT' @ 72057594037927935 : 1 .. '!journal.pages!sSM6qrB6OAvAES8h.xGpMQ0XjWtyWaha0' @ 0 : 0; will stop at (end)
+2024/05/19-18:37:04.416 5dcc Manual compaction at level-1 from '!journal!Ihqe9UFcOpyqA9ZT' @ 72057594037927935 : 1 .. '!journal.pages!sSM6qrB6OAvAES8h.xGpMQ0XjWtyWaha0' @ 0 : 0; will stop at (end)

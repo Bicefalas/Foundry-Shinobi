@@ -1,3 +1,8 @@
-2024/05/19-17:11:41.683 74c4 Recovering log #137
-2024/05/19-17:11:41.685 74c4 Delete type=0 #137
-2024/05/19-17:11:41.685 74c4 Delete type=3 #136
+2024/05/19-18:31:45.255 6ecc Recovering log #146
+2024/05/19-18:31:45.257 6ecc Delete type=0 #146
+2024/05/19-18:31:45.257 6ecc Delete type=3 #144
+2024/05/19-18:37:04.412 5dcc Level-0 table #151: started
+2024/05/19-18:37:04.412 5dcc Level-0 table #151: 0 bytes OK
+2024/05/19-18:37:04.413 5dcc Delete type=0 #149
+2024/05/19-18:37:04.414 5dcc Manual compaction at level-0 from '!tables!1x3NrzcU6ihPwKEo' @ 72057594037927935 : 1 .. '!tables.results!YJa6KsWMNTC859HM.u1kQUnjZ9Mn5SVc4' @ 0 : 0; will stop at (end)
+2024/05/19-18:37:04.416 5dcc Manual compaction at level-1 from '!tables!1x3NrzcU6ihPwKEo' @ 72057594037927935 : 1 .. '!tables.results!YJa6KsWMNTC859HM.u1kQUnjZ9Mn5SVc4' @ 0 : 0; will stop at (end)

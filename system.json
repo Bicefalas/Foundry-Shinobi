@@ -51,10 +51,10 @@
       "type": "Item"
     },
     {
-      "name": "technics",
+      "name": "techniques",
       "label": "Técnicas",
       "system": "shinobi",
-      "path": "packs/technics",
+      "path": "packs/techniques",
       "type": "Item"
     },
     {

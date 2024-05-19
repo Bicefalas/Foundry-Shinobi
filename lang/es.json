@@ -91,7 +91,7 @@
   " Type the disadvantage description here...": "Escribe la descripción de la desventaja aquí...",
   " Type the advantage description here...": "Escribe la descripción de la ventaja aquí...",
   " Type the clan description here...": "Escribe la descripción del clan aquí...",
-  " Type the technic description here...": "Escribe la descripción de la técnica aquí...",
+  " Type the technique description here...": "Escribe la descripción de la técnica aquí...",
   "Rarity": "Rareza",
   "Cost": "Coste",
   "Quantity": "Cantidad",
@@ -133,7 +133,9 @@
   "CR": "RFr",
   "ER": "RE",
   "SR": "RS",
-  "Ki Technics": "Técnicas de Ki",
+  "Ki Techniques": "Técnicas de Ki",
+  "Divine Techniques": "Técnicas Divinas",
+  "Canalization Techniques": "Técnicas de Canalización",
   "Constitution": "Constitución",
   "Base": "Base",
   "Multipliers": "Multiplicadores",
@@ -144,7 +146,7 @@
   "Strength": "Fuerza",
   "Blood Power Learning": "Aprendizaje de Sangre",
   "Invocations": "Invocaciones",
-  "Trascendental Combat Technics": "Técnicas de Combate Trascendental",
+  "Trascendental Combat Techniques": "Técnicas de Combate Trascendental",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -376,7 +378,7 @@
       "object": "Objeto",
       "weapon": "Arma",
       "armor": "Armadura",
-      "technic": "Técnica"
+      "technique": "Técnica"
     }
   }
 }

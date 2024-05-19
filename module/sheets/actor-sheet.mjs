@@ -120,56 +120,56 @@ export class ShinobiActorSheet extends ActorSheet {
     }
   }
 
-    /**
-   * Organize and classify Items for Character sheets.
-   *
-   * @param {Object} actorData The actor to prepare.
-   *
-   * @return {undefined}
-   */
-    _prepareItems(context) {
-      // Initialize containers.
-      const object = [];
-      const weapon = [];
-      const armor = [];
-      const technic = [];
-     
-      // Iterate through items, allocating to containers
-      for (let i of context.items) {
-        i.img = i.img || Item.DEFAULT_ICON;
-        // Append to object.
-        if (i.type === 'object') {
-          object.push(i);
-        }
+  /**
+ * Organize and classify Items for Character sheets.
+ *
+ * @param {Object} actorData The actor to prepare.
+ *
+ * @return {undefined}
+ */
+  _prepareItems(context) {
+    // Initialize containers.
+    const object = [];
+    const weapon = [];
+    const armor = [];
+    const technique = [];
+
+    // Iterate through items, allocating to containers
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      // Append to object.
+      if (i.type === 'object') {
+        object.push(i);
       }
-      for (let i of context.items) {
-        i.img = i.img || Item.DEFAULT_ICON;
-        // Append to weapon.
-        if (i.type === 'weapon') {
-          weapon.push(i);
-        }
-      }
-      for (let i of context.items) {
-        i.img = i.img || Item.DEFAULT_ICON;
-        // Append to armor.
-        if (i.type === 'armor') {
-          armor.push(i);
-        }
-      }
-      for (let i of context.items) {
-        i.img = i.img || Item.DEFAULT_ICON;
-        // Append to technic.
-        if (i.type === 'technic') {
-          technic.push(i);
-        }
-      }
-  
-      // Assign and return
-      context.object = object;
-      context.weapon = weapon;
-      context.armor = armor;
-      context.technic = technic;
     }
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      // Append to weapon.
+      if (i.type === 'weapon') {
+        weapon.push(i);
+      }
+    }
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      // Append to armor.
+      if (i.type === 'armor') {
+        armor.push(i);
+      }
+    }
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      // Append to technique.
+      if (i.type === 'technique') {
+        technique.push(i);
+      }
+    }
+
+    // Assign and return
+    context.object = object;
+    context.weapon = weapon;
+    context.armor = armor;
+    context.technique = technique;
+  }
 
 
   /* -------------------------------------------- */
@@ -296,11 +296,11 @@ export class ShinobiActorSheet extends ActorSheet {
 
     previous = JSON.parse(localStorage.getItem("openDetails"))
 
-    if (currentDetail in previous) 
+    if (currentDetail in previous)
       delete previous[currentDetail];
-    else 
+    else
       previous[currentDetail] = true;
-    
+
     localStorage.setItem("openDetails", JSON.stringify(previous));
   }
 }

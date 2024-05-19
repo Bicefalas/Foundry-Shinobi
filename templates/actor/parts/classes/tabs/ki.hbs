@@ -20,7 +20,7 @@
     </div>
 </div>
 <div class="resource-chart">
-    <h1>{{localize "Ki Technics"}}</h1>
+    <h1>{{localize "Ki Techniques"}}</h1>
     <ol class='items-list'>
         <li class='item grid grid-4col items-header'>
             <div class='item-name'>{{localize 'Name'}}</div>
@@ -28,7 +28,7 @@
             <div class='item-features'>{{localize 'Cost'}}</div>
             <div class='item-controls'>{{localize 'Erase'}}</div>
         </li>
-        {{#each technic as |item id|}}
+        {{#each technique as |item id|}}
         <li class='item grid grid-4col' data-item-id='{{item._id}}'>
             <div class='item-name item-control item-edit'>
                 <div class='item-image'>
@@ -43,7 +43,7 @@
                 <h4>{{system.cost}}</h4>
             </div>
             <div class='item-controls'>
-                <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Technic'}}'>
+                <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Technique'}}'>
                     <i class='fas fa-trash'></i>
                 </a>
             </div>
