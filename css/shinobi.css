@@ -7,6 +7,15 @@
 
 .app.window-app .window-content {
   background: url(/ui/parchment-white.jpg) repeat;
+  color: #000;
+}
+.app.window-app .window-content .compendium-name {
+  color: #fff;
+}
+.app.window-app .window-content .sidebar,
+.app.window-app .window-content .journal-entry-content {
+  background: url(/ui/parchment-white.jpg) repeat;
+  color: #000;
 }
 
 .rollable:hover, .rollable:focus {
@@ -435,6 +444,9 @@
   width: fit-content;
   padding: 10px;
 }
+.shinobi .summary.combat-summary label {
+  pointer-events: auto;
+}
 .shinobi .summary label {
   pointer-events: none;
 }
@@ -597,5 +609,3 @@
 .shinobi .effects .item .effect-controls {
   border: none;
 }
-
-/*# sourceMappingURL=shinobi.css.map */

@@ -2,10 +2,10 @@
   "id": "shinobi",
   "title": "Shinobi - Tierras Ocultas",
   "description": "Un juego de ninjas situado en un continente lejano, basado en el sistema de juego RENd10.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": {
-    "minimum": "10",
-    "verified": "11",
+    "minimum": "12",
+    "verified": "12",
     "maximum": "12"
   },
   "authors": [
@@ -80,8 +80,8 @@
     }
   ],
   "socket": false,
-  "gridDistance": 1,
-  "gridUnits": "mts",
+  "grid.distance": 1,
+  "grid.units": "mts",
   "primaryTokenAttribute": "health",
   "url": "https://github.com/Bicefalas/Foundry-Shinobi",
   "background": "systems/shinobi/assets/background.jpg",

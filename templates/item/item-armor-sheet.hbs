@@ -10,12 +10,9 @@
         </div>
         <div class="resource">
           <label class="resource-label">{{localize "Rarity"}}</label>
-          <select value="{{system.rarity.value}}" class="select-field" name="system.rarity.value">
-            {{#select system.rarity.value}}
-            {{#each system.rarities as |rarity name|}}
-            <option value="{{name}}">{{rarity.label}}</option>
-            {{/each}}
-            {{/select}}
+          <select class="select-field" name="system.rarity.value">
+            {{#selectOptions system.rarities selected=system.rarity.value}}
+            {{/selectOptions}}
           </select>
         </div>
       </div>

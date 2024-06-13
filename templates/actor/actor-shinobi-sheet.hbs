@@ -18,22 +18,16 @@
     <div class="resource-content">
       <div class="resource-field">
         <label for="system.class.value" class="resource-label">{{localize "Class"}}</label>
-        <select value="{{system.class.value}}" class="select-field" name="system.class.value">
-          {{#select system.class.value}}
-          {{#each system.classes as |class name|}}
-          <option value="{{name}}">{{class.label}}</option>
-          {{/each}}
-          {{/select}}
+        <select class="select-field" name="system.class.value">
+          {{#selectOptions system.classes selected=system.class.value}}
+          {{/selectOptions}}
         </select>
       </div>
       <div class="resource-field">
         <label for="system.ethnicity.value" class="resource-label">{{localize "Ethnicity"}}</label>
-        <select name="system.ethnicity.value" class="select-field">
-          {{#select system.ethnicity.value}}
-          {{#each system.ethnicities as |ethnicity name|}}
-          <option value="{{name}}">{{ethnicity.label}}</option>
-          {{/each}}
-          {{/select}}
+        <select class="select-field" name="system.ethnicity.value">
+          {{#selectOptions system.ethnicities selected=system.ethnicity.value}}
+          {{/selectOptions}}
         </select>
       </div>
       <div class="resource-field">

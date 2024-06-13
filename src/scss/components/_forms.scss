@@ -278,6 +278,10 @@ textarea {
   padding: 10px;
 }
 
+.summary.combat-summary label {
+  pointer-events: auto;
+}
+
 .summary label {
   pointer-events: none
 }

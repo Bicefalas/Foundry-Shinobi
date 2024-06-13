@@ -1,10 +1,21 @@
 .window-app {
   font-family: $font-primary;
+
 }
 
 .app.window-app .window-content {
-  background: url(/ui/parchment-white.jpg) repeat;
+  .compendium-name {
+    color: #fff;
+  }
 
+  .sidebar,
+  .journal-entry-content {
+    background: url(/ui/parchment-white.jpg) repeat;
+    color: #000;
+  }
+
+  background: url(/ui/parchment-white.jpg) repeat;
+  color: #000;
 }
 
 .rollable {

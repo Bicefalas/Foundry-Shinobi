@@ -1,7 +1,7 @@
 <label for="system.combat" class="resource-box-label">{{localize "Combat"}}</label>
 <div class="resource-box">
     <details id="combat.attack" {{#openDetails "combat.attack" }}{{/openDetails}}>
-        <summary class="resource-field summary">
+        <summary class="resource-field summary combat-summary">
             <label for="system.combat.attack" class="resource-label rollable" data-roll="1d10x10+@combat.attack"
                 data-label="{{localize 'Attack Capacity'}}"><i class="fa-solid fa-dice-d10"
                     data-label="{{localize 'Attack Capacity'}}"></i> {{localize "Attack Capacity"}}</label>
@@ -26,7 +26,7 @@
     </details>
     <hr>
     <details id="combat.defense" {{#openDetails "combat.defense" }}{{/openDetails}}>
-        <summary class="resource-field summary">
+        <summary class="resource-field summary combat-summary">
             <label for="system.combat.defense" class="resource-label rollable" data-roll="1d10x10+@combat.defense"
                 data-label="{{localize 'Defense Capacity'}}"><i class="fa-solid fa-dice-d10"
                     data-label="{{localize 'Defense Capacity'}}"></i> {{localize "Defense Capacity"}}</label>

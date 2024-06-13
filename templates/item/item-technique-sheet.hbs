@@ -6,12 +6,9 @@
       <div class="grid grid-3col">
         <div class="resource">
           <label class="resource-label">{{localize "Class"}}</label>
-          <select value="{{system.class.value}}" class="select-field" name="system.class.value">
-            {{#select system.class.value}}
-            {{#each system.classes as |class name|}}
-            <option value="{{name}}">{{class.label}}</option>
-            {{/each}}
-            {{/select}}
+          <select class="select-field" name="system.class.value">
+            {{#selectOptions system.classes selected=system.class.value}}
+            {{/selectOptions}}
           </select>
         </div>
         <div class="resource grid-span-2">
