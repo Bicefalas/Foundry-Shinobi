@@ -530,7 +530,6 @@ export class ShinobiActor extends Actor {
       case "warrior":
       case "ninja":
       case "shaolin":
-      case "ronin":
       case "energyShaolin":
         ipCostStr = 2
         ipCostDex = 2
@@ -574,6 +573,13 @@ export class ShinobiActor extends Actor {
         ipCostPer = 2
         ipCostInt = 2
         ipCostWil = 2
+        break;
+      case "ronin":
+        ipCostStr = 2
+        ipCostDex = 2
+        ipCostPer = 2
+        ipCostInt = 2
+        ipCostWil = 3
         break;
     }
 
@@ -742,122 +748,122 @@ export class ShinobiActor extends Actor {
           case 1:
             classAttack = 9;
             classDefense = 8;
-            classInitiative = 0;
-            classHealth = 20;
+            classInitiative = 1;
+            classHealth = 15;
             break;
           case 2:
             classAttack = 10;
-            classDefense = 10;
-            classInitiative = 1;
-            classHealth = 40;
+            classDefense = 9;
+            classInitiative = 2;
+            classHealth = 30;
             break;
           case 3:
             classAttack = 11;
-            classDefense = 11;
-            classInitiative = 1;
-            classHealth = 60;
+            classDefense = 10;
+            classInitiative = 3;
+            classHealth = 45;
             break;
           case 4:
-            classAttack = 13;
+            classAttack = 12;
             classDefense = 12;
-            classInitiative = 2;
-            classHealth = 80;
+            classInitiative = 4;
+            classHealth = 60;
             break;
           case 5:
-            classAttack = 14;
+            classAttack = 13;
             classDefense = 13;
-            classInitiative = 2;
-            classHealth = 100;
+            classInitiative = 5;
+            classHealth = 75;
             break;
           case 6:
-            classAttack = 15;
+            classAttack = 14;
             classDefense = 14;
-            classInitiative = 3;
-            classHealth = 120;
+            classInitiative = 6;
+            classHealth = 90;
             break;
           case 7:
             classAttack = 16;
             classDefense = 15;
-            classInitiative = 3;
-            classHealth = 140;
+            classInitiative = 7;
+            classHealth = 105;
             break;
           case 8:
             classAttack = 17;
-            classDefense = 16;
-            classInitiative = 4;
-            classHealth = 160;
+            classDefense = 15;
+            classInitiative = 8;
+            classHealth = 120;
             break;
           case 9:
             classAttack = 18;
-            classDefense = 17;
-            classInitiative = 4;
-            classHealth = 180;
+            classDefense = 16;
+            classInitiative = 9;
+            classHealth = 135;
             break;
           case 10:
-            classAttack = 19;
+            classAttack = 18;
             classDefense = 18;
-            classInitiative = 5;
-            classHealth = 200;
+            classInitiative = 10;
+            classHealth = 150;
             break;
           case 11:
-            classAttack = 20;
+            classAttack = 19;
             classDefense = 19;
-            classInitiative = 5;
-            classHealth = 220;
+            classInitiative = 11;
+            classHealth = 165;
             break;
           case 12:
-            classAttack = 21;
+            classAttack = 20;
             classDefense = 20;
-            classInitiative = 6;
-            classHealth = 240;
+            classInitiative = 12;
+            classHealth = 180;
             break;
           case 13:
-            classAttack = 22;
+            classAttack = 21;
             classDefense = 21;
-            classInitiative = 6;
-            classHealth = 260;
+            classInitiative = 13;
+            classHealth = 195;
             break;
           case 14:
-            classAttack = 23;
+            classAttack = 22;
             classDefense = 22;
-            classInitiative = 7;
-            classHealth = 280;
+            classInitiative = 14;
+            classHealth = 210;
             break;
           case 15:
-            classAttack = 24;
+            classAttack = 23;
             classDefense = 23;
-            classInitiative = 7;
-            classHealth = 300;
+            classInitiative = 15;
+            classHealth = 225;
             break;
           case 16:
-            classAttack = 25;
+            classAttack = 24;
             classDefense = 24;
-            classInitiative = 8;
-            classHealth = 320;
+            classInitiative = 16;
+            classHealth = 240;
             break;
           case 17:
-            classAttack = 26;
+            classAttack = 25;
             classDefense = 25;
-            classInitiative = 8;
-            classHealth = 340;
+            classInitiative = 17;
+            classHealth = 255;
             break;
           case 18:
-            classAttack = 27;
+            classAttack = 26;
             classDefense = 26;
-            classInitiative = 9;
-            classHealth = 360;
+            classInitiative = 18;
+            classHealth = 270;
             break;
           case 19:
-            classAttack = 28;
+            classAttack = 27;
             classDefense = 27;
-            classInitiative = 9;
-            classHealth = 380;
+            classInitiative = 19;
+            classHealth = 285;
             break;
           case 20:
-            classAttack = 29;
+            classAttack = 28;
             classDefense = 28;
-            classInitiative = 10;
-            classHealth = 400;
+            classInitiative = 20;
+            classHealth = 300;
             break;
         }
         break;
