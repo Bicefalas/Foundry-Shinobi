@@ -80,8 +80,8 @@
     }
   ],
   "socket": false,
-  "grid.distance": 1,
-  "grid.units": "mts",
+  "gridDistance": 1,
+  "gridUnits": "mts",
   "primaryTokenAttribute": "health",
   "url": "https://github.com/Bicefalas/Foundry-Shinobi",
   "background": "systems/shinobi/assets/background.jpg",
