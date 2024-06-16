@@ -135,8 +135,10 @@ export class ShinobiActor extends Actor {
 
     secondaries.athletics.mod =
       secondaries.swim.mod =
-      resistances.phy.mod =
       abilities.str.mod
+
+    resistances.phy.mod =
+      abilities.con.mod
 
     secondaries.acrobatics.mod =
       secondaries.sleightOfHand.mod =
