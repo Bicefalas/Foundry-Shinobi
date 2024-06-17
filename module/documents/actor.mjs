@@ -100,6 +100,37 @@ export class ShinobiActor extends Actor {
     let constitutionValue = systemData.abilities.con.value;
 
 
+    switch (systemData.advDisadv.advanced) {
+      case true:
+        systemData.adv.total =
+          systemData.adv1.cost +
+          systemData.adv2.cost +
+          systemData.adv3.cost +
+          systemData.adv4.cost +
+          systemData.adv.ip
+
+        systemData.disadv.total =
+          systemData.disadv1.gain +
+          systemData.disadv2.gain +
+          systemData.disadv3.gain +
+          systemData.disadv4.gain +
+          systemData.disadv.ip
+        break;
+
+      case false:
+        systemData.adv.total =
+          systemData.adv1.cost +
+          systemData.adv2.cost +
+          systemData.adv3.cost +
+          systemData.adv4.cost
+
+        systemData.disadv.total =
+          systemData.disadv1.gain +
+          systemData.disadv2.gain +
+          systemData.disadv3.gain +
+          systemData.disadv4.gain
+        break;
+    }
     tiredness.max =
       abilities.con.value +
       tiredness.others

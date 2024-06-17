@@ -65,6 +65,13 @@
       "type": "JournalEntry"
     },
     {
+      "name": "advDisadv",
+      "label": "Ventajas y Desventajas",
+      "system": "shinobi",
+      "path": "packs/advDisadv",
+      "type": "JournalEntry"
+    },
+    {
       "name": "rolltables",
       "label": "Tablas Aleatorias",
       "system": "shinobi",

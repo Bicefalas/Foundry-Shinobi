@@ -1,3 +1,8 @@
+<div class="resource-field">
+    <label for="system.advDisadv.advanced" class="resource-label">{{localize "Expanded options"}}</label>
+    <input name="system.advDisadv.advanced" type="checkbox" {{#if system.advDisadv.advanced}}checked{{/if}}>
+</div>
+
 <div class="advDisadv flex-container">
     <div class="flex-container flex-col">
         <div class="advDisadv-name-adv flex-col">
@@ -42,6 +47,12 @@
                         value="{{system.adv4.description}}">{{system.adv4.description}}</textarea>
                 </details>
             </div>
+            <hr>
+            {{#if system.advDisadv.advanced}}
+            <div class="resource-field-advDisadv">
+                <label for="system.adv.ip" class="resource-label">{{localize "IP obtained from Disadvantages"}}</label>
+            </div>
+            {{/if}}
         </div>
         <div class="advDisadv-cost">
             <h2>{{localize "Cost"}}</h2>
@@ -60,6 +71,18 @@
             <div class="resource-field-advDisadv">
                 <label for="system.adv4" class="resource-label">{{localize "Cost"}} 4</label>
                 <input name="system.adv4.cost" value="{{system.adv4.cost}}" data-dtype="Number" type="number">
+            </div>
+            <hr>
+            {{#if system.advDisadv.advanced}}
+            <div class="resource-field-advDisadv">
+                <label for="system.disadv.ip" class="resource-label">{{localize "IP"}}</label>
+                <input name="system.adv.ip" value="{{system.adv.ip}}" data-dtype="Number" type="number">
+            </div>
+            <hr>
+            {{/if}}
+            <div class="resource-field-advDisadv">
+                <label for="system.adv.total" class="resource-label">{{localize "Total"}}</label>
+                <label type="number" name="system.adv.total" value="{{system.adv.total}}">{{system.adv.total}}</label>
             </div>
         </div>
     </div>
@@ -81,6 +104,19 @@
             <div class="resource-field-advDisadv">
                 <label for="system.disadv4" class="resource-label">{{localize "Gain"}} 4</label>
                 <input name="system.disadv4.gain" value="{{system.disadv4.gain}}" data-dtype="Number" type="number">
+            </div>
+            <hr>
+            {{#if system.advDisadv.advanced}}
+            <div class="resource-field-advDisadv">
+                <label for="system.disadv.ip" class="resource-label">{{localize "IP"}}</label>
+                <input name="system.disadv.ip" value="{{system.disadv.ip}}" data-dtype="Number" type="number">
+            </div>
+            <hr>
+            {{/if}}
+            <div class="resource-field-advDisadv">
+                <label for="system.disadv.total" class="resource-label">{{localize "Total"}}</label>
+                <label type="number" name="system.disadv.total"
+                    value="{{system.disadv.total}}">{{system.disadv.total}}</label>
             </div>
         </div>
         <div class="advDisadv-name-disadv flex-col">
@@ -125,6 +161,12 @@
                         value="{{system.disadv4.description}}">{{system.disadv4.description}}</textarea>
                 </details>
             </div>
+            <hr>
+            {{#if system.advDisadv.advanced}}
+            <div class="resource-field-advDisadv">
+                <label for="system.disadv.ip" class="resource-label">{{localize "IP inverted on Advantages"}}</label>
+            </div>
+            {{/if}}
         </div>
     </div>
 </div>

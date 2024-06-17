@@ -54,6 +54,15 @@
           "sobrenaturalMaterial": 0,
           "sobrenaturalNatural": 0,
           "sobrenaturalSobrenatural": 0
+        },
+        "adv": {
+          "total": 0
+        },
+        "disadv": {
+          "total": 0
+        },
+        "advDisadv": {
+          "advanced": 0
         }
       }
     },

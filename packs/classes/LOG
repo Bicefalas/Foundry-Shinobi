@@ -1,5 +1,3 @@
-2024/06/14-22:52:52.838 3cec Recovering log #211
-2024/06/14-22:52:52.839 3cec Level-0 table #214: started
-2024/06/14-22:52:52.846 3cec Level-0 table #214: 125233 bytes OK
-2024/06/14-22:52:52.849 3cec Delete type=0 #211
-2024/06/14-22:52:52.849 3cec Delete type=3 #205
+2024/06/17-12:49:31.536 7fac Recovering log #229
+2024/06/17-12:49:31.539 7fac Delete type=0 #229
+2024/06/17-12:49:31.540 7fac Delete type=3 #228
