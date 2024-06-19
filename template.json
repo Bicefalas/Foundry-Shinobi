@@ -33,6 +33,15 @@
         "speed": {
           "value": 0
         },
+        "regeneration": {
+          "value": 0,
+          "mod": 0,
+          "others": 0,
+          "sobrenatural": false,
+          "isSobrenatural": false,
+          "points": 0,
+          "otherPoints": 0
+        },
         "armor": {
           "phisical": 0,
           "heat": 0,

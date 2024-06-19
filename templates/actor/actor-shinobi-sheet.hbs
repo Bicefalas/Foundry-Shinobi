@@ -42,6 +42,9 @@
         {{> 'systems/shinobi/templates/actor/parts/actor-initiative.hbs'}}
       </div>
       <div class="resource-field">
+        {{> 'systems/shinobi/templates/actor/parts/actor-regeneration.hbs'}}
+      </div>
+      <div class="resource-field">
         {{#ifCond "omnyoji" '!=' system.class.value}}
         {{> 'systems/shinobi/templates/actor/parts/actor-combat.hbs'}}
         {{/ifCond}}
@@ -53,6 +56,7 @@
     <div class="resource-content">
       <div class="resource-field">
         {{> 'systems/shinobi/templates/actor/parts/actor-health.hbs'}}
+        {{> 'systems/shinobi/templates/actor/parts/actor-rest.hbs'}}
       </div>
       <div class="resource-field">
 

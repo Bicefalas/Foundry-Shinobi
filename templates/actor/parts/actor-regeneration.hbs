@@ -1,0 +1,62 @@
+{{#ifCond system.regeneration.isSobrenatural '==' false }}
+<label for="system.initiative" class="resource-box-label">{{localize "Regeneration"}}</label>
+<div class="resource-box">
+    <details id="regeneration" {{#openDetails "regeneration" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.regeneration.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.regeneration.value"
+                value="{{system.regeneration.value}}">{{system.regeneration.value}} {{localize "Points of Life"}} /
+                {{localize system.regeneration.time}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.regeneration.sobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
+            <input name="system.regeneration.sobrenatural" type="checkbox" {{#if
+                system.regeneration.sobrenatural}}checked{{/if}}>
+        </div>
+        <div class="resource-field">
+            <label for="system.regeneration.mod" class="resource-label">{{localize "Constitution"}}</label>
+            <label type="number" name="system.regeneration.mod"
+                value="{{system.regeneration.mod}}">{{system.regeneration.mod}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.regeneration.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.regeneration.others" value="{{system.regeneration.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
+</div>
+{{/ifCond}}
+
+{{#if system.regeneration.isSobrenatural }}
+<label for="system.initiative" class="resource-box-label">{{localize "Sobrenatural Regeneration"}}</label>
+<div class="resource-box">
+    <details id="regeneration" {{#openDetails "regeneration" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.regeneration.value" class="resource-label">{{localize "Value"}}</label>
+            <label type="number" name="system.regeneration.value"
+                value="{{system.regeneration.value}}">{{system.regeneration.value}} {{localize "Points of Life"}} /
+                {{localize system.regeneration.time}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.regeneration.sobrenatural" class="resource-label">{{localize "Sobrenatural"}}</label>
+            <input name="system.regeneration.sobrenatural" type="checkbox" {{#if
+                system.regeneration.sobrenatural}}checked{{/if}}>
+        </div>
+        <div class="resource-field">
+            <label for="system.regeneration.points" class="resource-label">{{localize "Points"}}</label>
+            <label type="number" name="system.regeneration.points"
+                value="{{system.regeneration.points}}">{{system.regeneration.points}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.regeneration.otherPoints" class="resource-label">{{localize "Other Points"}}</label>
+            <input type="number" name="system.regeneration.otherPoints" value="{{system.regeneration.otherPoints}}"
+                data-dtype="Number" />
+        </div>
+        <div class="resource-field">
+            <label for="system.regeneration.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.regeneration.others" value="{{system.regeneration.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
+</div>
+{{/if}}

@@ -98,6 +98,7 @@ export class ShinobiActor extends Actor {
     let dexterityValue = systemData.abilities.dex.value;
     let powerValue = systemData.abilities.pow.value;
     let constitutionValue = systemData.abilities.con.value;
+    let regeneration = systemData.regeneration
 
 
     switch (systemData.advDisadv.advanced) {
@@ -2384,6 +2385,54 @@ export class ShinobiActor extends Actor {
     bloodPowerLearning.max =
       bloodPowerLearning.class +
       bloodPowerLearning.others
+
+    if (abilities.con.value <= 14 && systemData.regeneration.sobrenatural == false) {
+      regeneration.isSobrenatural = false
+      regeneration.time = "per day"
+      if (abilities.con.value < 8) regeneration.mod = 10
+      if (abilities.con.value >= 8 && abilities.con.value < 11) regeneration.mod = 20
+      if (abilities.con.value >= 11 && abilities.con.value < 14) regeneration.mod = 40
+      regeneration.value = regeneration.mod + regeneration.others
+    }
+    else {
+      regeneration.isSobrenatural = true
+      regeneration.points =
+        abilities.con.mod +
+        regeneration.otherPoints
+
+      if (regeneration.points <= 7) regeneration.time = "per day"
+      else regeneration.time = "per turn"
+
+      switch (regeneration.points) {
+        case 1:
+          regeneration.value = 100 + regeneration.others
+          if (regeneration.value > health.max) regeneration.value = health.max
+          break
+        case 2:
+          regeneration.value = 250 + regeneration.others
+          if (regeneration.value > health.max) regeneration.value = health.max
+          break
+        case 3:
+          regeneration.value = 500 + regeneration.others
+          if (regeneration.value > health.max) regeneration.value = health.max
+          break
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+          regeneration.value = health.max
+          break
+        case 8:
+          regeneration.value = 5
+          break
+        case 9:
+          regeneration.value = 10
+          break
+        case 10:
+          regeneration.value = 50
+          break
+      }
+    }
 
 
     Object.values(secondaries).forEach(secondary => {

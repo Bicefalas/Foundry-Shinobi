@@ -19,6 +19,8 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/actor-adv-disadv.hbs',
     'systems/shinobi/templates/actor/parts/actor-initiative.hbs',
     'systems/shinobi/templates/actor/parts/actor-movementSpeed.hbs',
+    'systems/shinobi/templates/actor/parts/actor-regeneration.hbs',
+    'systems/shinobi/templates/actor/parts/actor-rest.hbs',
     'systems/shinobi/templates/actor/parts/actor-maxRange.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/warrior.hbs',
     'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs',

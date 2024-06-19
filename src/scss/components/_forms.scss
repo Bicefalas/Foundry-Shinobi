@@ -319,3 +319,21 @@ summary:hover::marker {
 .resource-box details[open] summary:hover:after {
   color: red;
 }
+
+.rest {
+  display: flex;
+  justify-content: center;
+
+  .half-rest,
+  .total-rest {
+    display: flex;
+    width: 100px;
+    text-align: center;
+    background-color: rgba(47, 79, 79, 0.12);
+    border-width: 1px;
+    border-color: #000;
+    border-style: solid;
+    margin: 5px;
+    box-sizing: border-box;
+  }
+}

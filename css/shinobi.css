@@ -476,6 +476,22 @@
 .shinobi .resource-box details[open] summary:hover:after {
   color: red;
 }
+.shinobi .rest {
+  display: flex;
+  justify-content: center;
+}
+.shinobi .rest .half-rest,
+.shinobi .rest .total-rest {
+  display: flex;
+  width: 100px;
+  text-align: center;
+  background-color: rgba(47, 79, 79, 0.12);
+  border-width: 1px;
+  border-color: #000;
+  border-style: solid;
+  margin: 5px;
+  box-sizing: border-box;
+}
 .shinobi .resource-label {
   font-weight: bold;
   margin: 5px;
@@ -609,3 +625,5 @@
 .shinobi .effects .item .effect-controls {
   border: none;
 }
+
+/*# sourceMappingURL=shinobi.css.map */

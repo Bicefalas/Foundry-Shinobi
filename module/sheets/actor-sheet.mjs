@@ -191,6 +191,8 @@ export class ShinobiActorSheet extends ActorSheet {
 
     html.on('click', 'summary', this._openedDetails.bind(this));
 
+    html.on('click', '.half-rest', this._halfRest.bind(this));
+    html.on('click', '.total-rest', this._totalRest.bind(this));
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
 
@@ -302,5 +304,30 @@ export class ShinobiActorSheet extends ActorSheet {
       previous[currentDetail] = true;
 
     localStorage.setItem("openDetails", JSON.stringify(previous));
+  }
+
+  _halfRest() {
+    const health = this.actor.system.health
+    const regeneration = this.actor.system.regeneration
+    if (health.value < health.max) {
+      let regenerationCap = health.value + regeneration.value / 2
+      if (regenerationCap < health.max) health.value = health.value + regeneration.value / 2;
+      else health.value = health.max
+      this.actor.sheet.render();
+    }
+  }
+  _totalRest() {
+    const health = this.actor.system.health
+    const fatigue = this.actor.system.fatigue
+    const tiredness = this.actor.system.tiredness
+    const regeneration = this.actor.system.regeneration
+    fatigue.value = fatigue.max;
+    tiredness.value = tiredness.max;
+    if (health.value < health.max) {
+      let regenerationCap = health.value + regeneration.value
+      if (regenerationCap < health.max) health.value = health.value + regeneration.value;
+      else health.value = health.max
+    }
+    this.actor.sheet.render();
   }
 }
