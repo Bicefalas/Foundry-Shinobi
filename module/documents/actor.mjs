@@ -2386,7 +2386,7 @@ export class ShinobiActor extends Actor {
       bloodPowerLearning.class +
       bloodPowerLearning.others
 
-    if (abilities.con.value <= 14 && systemData.regeneration.sobrenatural == false) {
+    if (abilities.con.value < 14 && systemData.regeneration.sobrenatural == false) {
       regeneration.isSobrenatural = false
       regeneration.time = "per day"
       if (abilities.con.value < 8) regeneration.mod = 10
