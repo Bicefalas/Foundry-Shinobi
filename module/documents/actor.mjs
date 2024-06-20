@@ -98,7 +98,7 @@ export class ShinobiActor extends Actor {
     let dexterityValue = systemData.abilities.dex.value;
     let powerValue = systemData.abilities.pow.value;
     let constitutionValue = systemData.abilities.con.value;
-    let regeneration = systemData.regeneration
+    let regeneration = systemData.regeneration;
 
 
     switch (systemData.advDisadv.advanced) {
@@ -631,6 +631,11 @@ export class ShinobiActor extends Actor {
     let classInvocation = 0;
     let classTalisman = 0;
     let classBloodPowerLearning = 0;
+    let strClass = 0;
+    let dexClass = 0;
+    let perClass = 0;
+    let intClass = 0;
+    let wilClass = 0;
 
     switch (systemData.class.value) {
       case "warrior":
@@ -641,6 +646,7 @@ export class ShinobiActor extends Actor {
             classArmor = 5;
             classInitiative = 0;
             classHealth = 20;
+            strClass = 1;
             break;
           case 2:
             classAttack = 10;
@@ -648,6 +654,7 @@ export class ShinobiActor extends Actor {
             classArmor = 6;
             classInitiative = 1;
             classHealth = 40;
+            strClass = 2;
             break;
           case 3:
             classAttack = 11;
@@ -655,6 +662,7 @@ export class ShinobiActor extends Actor {
             classArmor = 7;
             classInitiative = 1;
             classHealth = 60;
+            strClass = 3;
             break;
           case 4:
             classAttack = 13;
@@ -662,6 +670,7 @@ export class ShinobiActor extends Actor {
             classArmor = 8;
             classInitiative = 2;
             classHealth = 80;
+            strClass = 4;
             break;
           case 5:
             classAttack = 14;
@@ -669,6 +678,7 @@ export class ShinobiActor extends Actor {
             classArmor = 9;
             classInitiative = 2;
             classHealth = 100;
+            strClass = 5;
             break;
           case 6:
             classAttack = 15;
@@ -676,6 +686,7 @@ export class ShinobiActor extends Actor {
             classArmor = 10;
             classInitiative = 3;
             classHealth = 120;
+            strClass = 6;
             break;
           case 7:
             classAttack = 16;
@@ -683,6 +694,7 @@ export class ShinobiActor extends Actor {
             classArmor = 11;
             classInitiative = 3;
             classHealth = 140;
+            strClass = 7;
             break;
           case 8:
             classAttack = 17;
@@ -690,6 +702,7 @@ export class ShinobiActor extends Actor {
             classArmor = 12;
             classInitiative = 4;
             classHealth = 160;
+            strClass = 8;
             break;
           case 9:
             classAttack = 18;
@@ -697,6 +710,7 @@ export class ShinobiActor extends Actor {
             classArmor = 13;
             classInitiative = 4;
             classHealth = 180;
+            strClass = 9;
             break;
           case 10:
             classAttack = 19;
@@ -704,6 +718,7 @@ export class ShinobiActor extends Actor {
             classArmor = 14;
             classInitiative = 5;
             classHealth = 200;
+            strClass = 10;
             break;
           case 11:
             classAttack = 20;
@@ -711,6 +726,7 @@ export class ShinobiActor extends Actor {
             classArmor = 15;
             classInitiative = 5;
             classHealth = 220;
+            strClass = 11;
             break;
           case 12:
             classAttack = 21;
@@ -718,6 +734,7 @@ export class ShinobiActor extends Actor {
             classArmor = 16;
             classInitiative = 6;
             classHealth = 240;
+            strClass = 12;
             break;
           case 13:
             classAttack = 22;
@@ -725,6 +742,7 @@ export class ShinobiActor extends Actor {
             classArmor = 17;
             classInitiative = 6;
             classHealth = 260;
+            strClass = 13;
             break;
           case 14:
             classAttack = 23;
@@ -732,6 +750,7 @@ export class ShinobiActor extends Actor {
             classArmor = 18;
             classInitiative = 7;
             classHealth = 280;
+            strClass = 14;
             break;
           case 15:
             classAttack = 24;
@@ -739,6 +758,7 @@ export class ShinobiActor extends Actor {
             classArmor = 19;
             classInitiative = 7;
             classHealth = 300;
+            strClass = 15;
             break;
           case 16:
             classAttack = 25;
@@ -746,6 +766,7 @@ export class ShinobiActor extends Actor {
             classArmor = 20;
             classInitiative = 8;
             classHealth = 320;
+            strClass = 16;
             break;
           case 17:
             classAttack = 26;
@@ -753,6 +774,7 @@ export class ShinobiActor extends Actor {
             classArmor = 21;
             classInitiative = 8;
             classHealth = 340;
+            strClass = 17;
             break;
           case 18:
             classAttack = 27;
@@ -760,6 +782,7 @@ export class ShinobiActor extends Actor {
             classArmor = 22;
             classInitiative = 9;
             classHealth = 360;
+            strClass = 18;
             break;
           case 19:
             classAttack = 28;
@@ -767,6 +790,7 @@ export class ShinobiActor extends Actor {
             classArmor = 23;
             classInitiative = 9;
             classHealth = 380;
+            strClass = 19;
             break;
           case 20:
             classAttack = 29;
@@ -774,6 +798,7 @@ export class ShinobiActor extends Actor {
             classArmor = 24;
             classInitiative = 10;
             classHealth = 400;
+            strClass = 20;
             break;
         }
         break;
@@ -784,120 +809,160 @@ export class ShinobiActor extends Actor {
             classDefense = 8;
             classInitiative = 1;
             classHealth = 15;
+            strClass = 1;
+            dexClass = 1;
             break;
           case 2:
             classAttack = 10;
             classDefense = 9;
             classInitiative = 2;
             classHealth = 30;
+            strClass = 2;
+            dexClass = 2;
             break;
           case 3:
             classAttack = 11;
             classDefense = 10;
             classInitiative = 3;
             classHealth = 45;
+            strClass = 3;
+            dexClass = 3;
             break;
           case 4:
             classAttack = 12;
             classDefense = 12;
             classInitiative = 4;
             classHealth = 60;
+            strClass = 4;
+            dexClass = 4;
             break;
           case 5:
             classAttack = 13;
             classDefense = 13;
             classInitiative = 5;
             classHealth = 75;
+            strClass = 5;
+            dexClass = 5;
             break;
           case 6:
             classAttack = 14;
             classDefense = 14;
             classInitiative = 6;
             classHealth = 90;
+            strClass = 6;
+            dexClass = 6;
             break;
           case 7:
             classAttack = 16;
             classDefense = 15;
             classInitiative = 7;
             classHealth = 105;
+            strClass = 7;
+            dexClass = 7;
             break;
           case 8:
             classAttack = 17;
             classDefense = 15;
             classInitiative = 8;
             classHealth = 120;
+            strClass = 8;
+            dexClass = 8;
             break;
           case 9:
             classAttack = 18;
             classDefense = 16;
             classInitiative = 9;
             classHealth = 135;
+            strClass = 9;
+            dexClass = 9;
             break;
           case 10:
             classAttack = 18;
             classDefense = 18;
             classInitiative = 10;
             classHealth = 150;
+            strClass = 10;
+            dexClass = 10;
             break;
           case 11:
             classAttack = 19;
             classDefense = 19;
             classInitiative = 11;
             classHealth = 165;
+            strClass = 11;
+            dexClass = 11;
             break;
           case 12:
             classAttack = 20;
             classDefense = 20;
             classInitiative = 12;
             classHealth = 180;
+            strClass = 12;
+            dexClass = 12;
             break;
           case 13:
             classAttack = 21;
             classDefense = 21;
             classInitiative = 13;
             classHealth = 195;
+            strClass = 13;
+            dexClass = 13;
             break;
           case 14:
             classAttack = 22;
             classDefense = 22;
             classInitiative = 14;
             classHealth = 210;
+            strClass = 14;
+            dexClass = 14;
             break;
           case 15:
             classAttack = 23;
             classDefense = 23;
             classInitiative = 15;
             classHealth = 225;
+            strClass = 15;
+            dexClass = 15;
             break;
           case 16:
             classAttack = 24;
             classDefense = 24;
             classInitiative = 16;
             classHealth = 240;
+            strClass = 16;
+            dexClass = 16;
             break;
           case 17:
             classAttack = 25;
             classDefense = 25;
             classInitiative = 17;
             classHealth = 255;
+            strClass = 17;
+            dexClass = 17;
             break;
           case 18:
             classAttack = 26;
             classDefense = 26;
             classInitiative = 18;
             classHealth = 270;
+            strClass = 18;
+            dexClass = 18;
             break;
           case 19:
             classAttack = 27;
             classDefense = 27;
             classInitiative = 19;
             classHealth = 285;
+            strClass = 19;
+            dexClass = 19;
             break;
           case 20:
             classAttack = 28;
             classDefense = 28;
             classInitiative = 20;
             classHealth = 300;
+            strClass = 20;
+            dexClass = 20;
             break;
         }
         break;
@@ -1054,6 +1119,7 @@ export class ShinobiActor extends Actor {
             classHealth = 5;
             classKi = 30;
             classKiLearning = 4;
+            dexClass = 1;
             break;
           case 2:
             classAttack = 10;
@@ -1062,6 +1128,7 @@ export class ShinobiActor extends Actor {
             classHealth = 10;
             classKi = 30;
             classKiLearning = 7;
+            dexClass = 2;
             break;
           case 3:
             classAttack = 11;
@@ -1070,6 +1137,7 @@ export class ShinobiActor extends Actor {
             classHealth = 15;
             classKi = 30;
             classKiLearning = 11;
+            dexClass = 3;
             break;
           case 4:
             classAttack = 12;
@@ -1078,6 +1146,7 @@ export class ShinobiActor extends Actor {
             classHealth = 20;
             classKi = 30;
             classKiLearning = 15;
+            dexClass = 4;
             break;
           case 5:
             classAttack = 13;
@@ -1086,6 +1155,7 @@ export class ShinobiActor extends Actor {
             classHealth = 25;
             classKi = 30;
             classKiLearning = 19;
+            dexClass = 5;
             break;
           case 6:
             classAttack = 14;
@@ -1094,6 +1164,7 @@ export class ShinobiActor extends Actor {
             classHealth = 30;
             classKi = 30;
             classKiLearning = 23;
+            dexClass = 6;
             break;
           case 7:
             classAttack = 14;
@@ -1102,6 +1173,7 @@ export class ShinobiActor extends Actor {
             classHealth = 35;
             classKi = 30;
             classKiLearning = 27;
+            dexClass = 7;
             break;
           case 8:
             classAttack = 16;
@@ -1110,6 +1182,7 @@ export class ShinobiActor extends Actor {
             classHealth = 40;
             classKi = 30;
             classKiLearning = 31;
+            dexClass = 8;
             break;
           case 9:
             classAttack = 16;
@@ -1118,6 +1191,7 @@ export class ShinobiActor extends Actor {
             classHealth = 45;
             classKi = 30;
             classKiLearning = 35;
+            dexClass = 9;
             break;
           case 10:
             classAttack = 18;
@@ -1126,6 +1200,7 @@ export class ShinobiActor extends Actor {
             classHealth = 50;
             classKi = 30;
             classKiLearning = 39;
+            dexClass = 10;
             break;
           case 11:
             classAttack = 18;
@@ -1134,6 +1209,7 @@ export class ShinobiActor extends Actor {
             classHealth = 55;
             classKi = 30;
             classKiLearning = 43;
+            dexClass = 11;
             break;
           case 12:
             classAttack = 20;
@@ -1142,6 +1218,7 @@ export class ShinobiActor extends Actor {
             classHealth = 60;
             classKi = 30;
             classKiLearning = 47;
+            dexClass = 12;
             break;
           case 13:
             classAttack = 20;
@@ -1150,6 +1227,7 @@ export class ShinobiActor extends Actor {
             classHealth = 65;
             classKi = 30;
             classKiLearning = 51;
+            dexClass = 13;
             break;
           case 14:
             classAttack = 22;
@@ -1158,6 +1236,7 @@ export class ShinobiActor extends Actor {
             classHealth = 70;
             classKi = 30;
             classKiLearning = 55;
+            dexClass = 14;
             break;
           case 15:
             classAttack = 22;
@@ -1166,6 +1245,7 @@ export class ShinobiActor extends Actor {
             classHealth = 75;
             classKi = 30;
             classKiLearning = 59;
+            dexClass = 15;
             break;
           case 16:
             classAttack = 24;
@@ -1174,6 +1254,7 @@ export class ShinobiActor extends Actor {
             classHealth = 80;
             classKi = 30;
             classKiLearning = 63;
+            dexClass = 16;
             break;
           case 17:
             classAttack = 24;
@@ -1182,6 +1263,7 @@ export class ShinobiActor extends Actor {
             classHealth = 85;
             classKi = 30;
             classKiLearning = 67;
+            dexClass = 17;
             break;
           case 18:
             classAttack = 26;
@@ -1190,6 +1272,7 @@ export class ShinobiActor extends Actor {
             classHealth = 90;
             classKi = 30;
             classKiLearning = 71;
+            dexClass = 18;
             break;
           case 19:
             classAttack = 26;
@@ -1198,6 +1281,7 @@ export class ShinobiActor extends Actor {
             classHealth = 95;
             classKi = 30;
             classKiLearning = 75;
+            dexClass = 19;
             break;
           case 20:
             classAttack = 28;
@@ -1206,6 +1290,7 @@ export class ShinobiActor extends Actor {
             classHealth = 100;
             classKi = 30;
             classKiLearning = 79;
+            dexClass = 20;
             break;
         }
         break;
@@ -1217,6 +1302,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 0;
             classHealth = 5;
             classKi = 30;
+            dexClass = 1;
             break;
           case 2:
             classAttack = 9;
@@ -1224,6 +1310,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 1;
             classHealth = 10;
             classKi = 30;
+            dexClass = 2;
             break;
           case 3:
             classAttack = 11;
@@ -1231,6 +1318,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 1;
             classHealth = 15;
             classKi = 40;
+            dexClass = 3;
             break;
           case 4:
             classAttack = 11;
@@ -1238,6 +1326,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 2;
             classHealth = 20;
             classKi = 40;
+            dexClass = 4;
             break;
           case 5:
             classAttack = 13;
@@ -1245,6 +1334,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 2;
             classHealth = 25;
             classKi = 50;
+            dexClass = 5;
             break;
           case 6:
             classAttack = 14;
@@ -1252,6 +1342,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 3;
             classHealth = 30;
             classKi = 50;
+            dexClass = 6;
             break;
           case 7:
             classAttack = 14;
@@ -1259,6 +1350,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 3;
             classHealth = 35;
             classKi = 60;
+            dexClass = 7;
             break;
           case 8:
             classAttack = 16;
@@ -1266,6 +1358,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 4;
             classHealth = 40;
             classKi = 60;
+            dexClass = 8;
             break;
           case 9:
             classAttack = 17;
@@ -1273,6 +1366,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 4;
             classHealth = 45;
             classKi = 70;
+            dexClass = 9;
             break;
           case 10:
             classAttack = 18;
@@ -1280,6 +1374,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 5;
             classHealth = 50;
             classKi = 70;
+            dexClass = 10;
             break;
           case 11:
             classAttack = 19;
@@ -1287,6 +1382,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 5;
             classHealth = 55;
             classKi = 80;
+            dexClass = 11;
             break;
           case 12:
             classAttack = 20;
@@ -1294,6 +1390,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 6;
             classHealth = 60;
             classKi = 80;
+            dexClass = 12;
             break;
           case 13:
             classAttack = 21;
@@ -1301,6 +1398,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 6;
             classHealth = 65;
             classKi = 90;
+            dexClass = 13;
             break;
           case 14:
             classAttack = 22;
@@ -1308,6 +1406,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 7;
             classHealth = 70;
             classKi = 90;
+            dexClass = 14;
             break;
           case 15:
             classAttack = 23;
@@ -1315,6 +1414,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 7;
             classHealth = 75;
             classKi = 100;
+            dexClass = 15;
             break;
           case 16:
             classAttack = 24;
@@ -1322,6 +1422,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 8;
             classHealth = 80;
             classKi = 100;
+            dexClass = 16;
             break;
           case 17:
             classAttack = 25;
@@ -1329,6 +1430,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 8;
             classHealth = 85;
             classKi = 110;
+            dexClass = 17;
             break;
           case 18:
             classAttack = 27;
@@ -1336,6 +1438,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 9;
             classHealth = 90;
             classKi = 110;
+            dexClass = 18;
             break;
           case 19:
             classAttack = 27;
@@ -1343,6 +1446,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 9;
             classHealth = 95;
             classKi = 120;
+            dexClass = 19;
             break;
           case 20:
             classAttack = 29;
@@ -1350,6 +1454,7 @@ export class ShinobiActor extends Actor {
             classInitiative = 10;
             classHealth = 100;
             classKi = 120;
+            dexClass = 20;
             break;
         }
         break;
@@ -1361,120 +1466,180 @@ export class ShinobiActor extends Actor {
             classDefense = 8;
             classInitiative = 1;
             classHealth = 5;
+            dexClass = 2;
+            perClass = 2;
+            wilClass = 1;
             break;
           case 2:
             classAttack = 9;
             classDefense = 10;
             classInitiative = 2;
             classHealth = 10;
+            dexClass = 4;
+            perClass = 4;
+            wilClass = 2;
             break;
           case 3:
             classAttack = 10;
             classDefense = 10;
             classInitiative = 3;
             classHealth = 15;
+            dexClass = 6;
+            perClass = 6;
+            wilClass = 3;
             break;
           case 4:
             classAttack = 11;
             classDefense = 12;
             classInitiative = 4;
             classHealth = 20;
+            dexClass = 8;
+            perClass = 8;
+            wilClass = 4;
             break;
           case 5:
             classAttack = 13;
             classDefense = 13;
             classInitiative = 5;
             classHealth = 25;
+            dexClass = 10;
+            perClass = 10;
+            wilClass = 5;
             break;
           case 6:
             classAttack = 14;
             classDefense = 14;
             classInitiative = 6;
             classHealth = 30;
+            dexClass = 12;
+            perClass = 12;
+            wilClass = 6;
             break;
           case 7:
             classAttack = 15;
             classDefense = 16;
             classInitiative = 7;
             classHealth = 35;
+            dexClass = 14;
+            perClass = 14;
+            wilClass = 7;
             break;
           case 8:
             classAttack = 16;
             classDefense = 17;
             classInitiative = 8;
             classHealth = 40;
+            dexClass = 16;
+            perClass = 16;
+            wilClass = 8;
             break;
           case 9:
             classAttack = 17;
             classDefense = 18;
             classInitiative = 9;
             classHealth = 45;
+            dexClass = 18;
+            perClass = 18;
+            wilClass = 9;
             break;
           case 10:
             classAttack = 18;
             classDefense = 19;
             classInitiative = 10;
             classHealth = 50;
+            dexClass = 20;
+            perClass = 20;
+            wilClass = 10;
             break;
           case 11:
             classAttack = 20;
             classDefense = 20;
             classInitiative = 11;
             classHealth = 55;
+            dexClass = 22;
+            perClass = 22;
+            wilClass = 11;
             break;
           case 12:
             classAttack = 21;
             classDefense = 22;
             classInitiative = 12;
             classHealth = 60;
+            dexClass = 24;
+            perClass = 24;
+            wilClass = 12;
             break;
           case 13:
             classAttack = 23;
             classDefense = 23;
             classInitiative = 13;
             classHealth = 65;
+            dexClass = 26;
+            perClass = 26;
+            wilClass = 13;
             break;
           case 14:
             classAttack = 24;
             classDefense = 25;
             classInitiative = 14;
             classHealth = 70;
+            dexClass = 28;
+            perClass = 28;
+            wilClass = 14;
             break;
           case 15:
             classAttack = 25;
             classDefense = 25;
             classInitiative = 15;
             classHealth = 75;
+            dexClass = 30;
+            perClass = 30;
+            wilClass = 15;
             break;
           case 16:
             classAttack = 26;
             classDefense = 27;
             classInitiative = 16;
             classHealth = 80;
+            dexClass = 32;
+            perClass = 32;
+            wilClass = 16;
             break;
           case 17:
             classAttack = 28;
             classDefense = 28;
             classInitiative = 17;
             classHealth = 85;
+            dexClass = 34;
+            perClass = 34;
+            wilClass = 17;
             break;
           case 18:
             classAttack = 29;
             classDefense = 30;
             classInitiative = 18;
             classHealth = 90;
+            dexClass = 36;
+            perClass = 36;
+            wilClass = 18;
             break;
           case 19:
             classAttack = 31;
             classDefense = 31;
             classInitiative = 19;
             classHealth = 95;
+            dexClass = 38;
+            perClass = 38;
+            wilClass = 19;
             break;
           case 20:
             classAttack = 32;
             classDefense = 33;
             classInitiative = 20;
             classHealth = 100;
+            dexClass = 40;
+            perClass = 40;
+            wilClass = 20;
             break;
         }
         break;
@@ -1486,34 +1651,45 @@ export class ShinobiActor extends Actor {
             classInitiative = 1;
             classHealth = 5;
             classTalisman = 0;
-            break;
+            dexClass = 2;
+            perClass = 2;
+            wilClass = 1; break;
           case 2:
             classAttack = 9;
             classDefense = 9;
             classInitiative = 2;
             classHealth = 10;
             classTalisman = 1;
-            break;
+            dexClass = 4;
+            perClass = 4;
+            wilClass = 2; break;
           case 3:
             classAttack = 11;
             classDefense = 11;
             classInitiative = 3;
             classHealth = 15;
             classTalisman = 1;
-            break;
+            dexClass = 6;
+            perClass = 6;
+            wilClass = 3; break;
           case 4:
             classAttack = 12;
             classDefense = 12;
             classInitiative = 4;
             classHealth = 20;
             classTalisman = 1;
-            break;
+            dexClass = 8;
+            perClass = 8;
+            wilClass = 4; break;
           case 5:
             classAttack = 13;
             classDefense = 13;
             classInitiative = 5;
             classHealth = 25;
             classTalisman = 2;
+            dexClass = 10;
+            perClass = 10;
+            wilClass = 5;
             break;
           case 6:
             classAttack = 13;
@@ -1521,6 +1697,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 6;
             classHealth = 30;
             classTalisman = 2;
+            dexClass = 12;
+            perClass = 12;
+            wilClass = 6;
             break;
           case 7:
             classAttack = 14;
@@ -1528,6 +1707,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 7;
             classHealth = 35;
             classTalisman = 2;
+            dexClass = 14;
+            perClass = 14;
+            wilClass = 7;
             break;
           case 8:
             classAttack = 15;
@@ -1535,6 +1717,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 8;
             classHealth = 40;
             classTalisman = 3;
+            dexClass = 16;
+            perClass = 16;
+            wilClass = 8;
             break;
           case 9:
             classAttack = 17;
@@ -1542,6 +1727,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 9;
             classHealth = 45;
             classTalisman = 3;
+            dexClass = 18;
+            perClass = 18;
+            wilClass = 9;
             break;
           case 10:
             classAttack = 17;
@@ -1549,6 +1737,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 10;
             classHealth = 50;
             classTalisman = 3;
+            dexClass = 20;
+            perClass = 20;
+            wilClass = 10;
             break;
           case 11:
             classAttack = 18;
@@ -1556,6 +1747,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 11;
             classHealth = 55;
             classTalisman = 4;
+            dexClass = 22;
+            perClass = 22;
+            wilClass = 11;
             break;
           case 12:
             classAttack = 20;
@@ -1563,6 +1757,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 12;
             classHealth = 60;
             classTalisman = 4;
+            dexClass = 24;
+            perClass = 24;
+            wilClass = 12;
             break;
           case 13:
             classAttack = 21;
@@ -1570,6 +1767,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 13;
             classHealth = 65;
             classTalisman = 4;
+            dexClass = 26;
+            perClass = 26;
+            wilClass = 13;
             break;
           case 14:
             classAttack = 21;
@@ -1577,6 +1777,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 14;
             classHealth = 70;
             classTalisman = 4;
+            dexClass = 28;
+            perClass = 28;
+            wilClass = 14;
             break;
           case 15:
             classAttack = 22;
@@ -1584,6 +1787,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 15;
             classHealth = 75;
             classTalisman = 4;
+            dexClass = 30;
+            perClass = 30;
+            wilClass = 15;
             break;
           case 16:
             classAttack = 22;
@@ -1591,6 +1797,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 16;
             classHealth = 80;
             classTalisman = 4;
+            dexClass = 32;
+            perClass = 32;
+            wilClass = 16;
             break;
           case 17:
             classAttack = 24;
@@ -1598,6 +1807,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 17;
             classHealth = 85;
             classTalisman = 5;
+            dexClass = 34;
+            perClass = 34;
+            wilClass = 17;
             break;
           case 18:
             classAttack = 26;
@@ -1605,6 +1817,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 18;
             classHealth = 90;
             classTalisman = 5;
+            dexClass = 36;
+            perClass = 36;
+            wilClass = 18;
             break;
           case 19:
             classAttack = 27;
@@ -1612,6 +1827,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 19;
             classHealth = 95;
             classTalisman = 6;
+            dexClass = 38;
+            perClass = 38;
+            wilClass = 19;
             break;
           case 20:
             classAttack = 28;
@@ -1619,6 +1837,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 20;
             classHealth = 100;
             classTalisman = 6;
+            dexClass = 40;
+            perClass = 40;
+            wilClass = 20;
             break;
         }
         break;
@@ -1632,6 +1853,7 @@ export class ShinobiActor extends Actor {
             classHealth = 15;
             classArcana = 120;
             classInvocation = 7;
+            wilClass = 1;
             break;
           case 2:
             classAttack = 10;
@@ -1641,6 +1863,7 @@ export class ShinobiActor extends Actor {
             classHealth = 30;
             classArcana = 140;
             classInvocation = 10;
+            wilClass = 2;
             break;
           case 3:
             classAttack = 11;
@@ -1650,6 +1873,7 @@ export class ShinobiActor extends Actor {
             classHealth = 45;
             classArcana = 160;
             classInvocation = 13;
+            wilClass = 3;
             break;
           case 4:
             classAttack = 13;
@@ -1659,6 +1883,7 @@ export class ShinobiActor extends Actor {
             classHealth = 60;
             classArcana = 180;
             classInvocation = 16;
+            wilClass = 4;
             break;
           case 5:
             classAttack = 14;
@@ -1668,6 +1893,7 @@ export class ShinobiActor extends Actor {
             classHealth = 75;
             classArcana = 200;
             classInvocation = 19;
+            wilClass = 5;
             break;
           case 6:
             classAttack = 15;
@@ -1677,6 +1903,7 @@ export class ShinobiActor extends Actor {
             classHealth = 90;
             classArcana = 220;
             classInvocation = 22;
+            wilClass = 6;
             break;
           case 7:
             classAttack = 17;
@@ -1686,6 +1913,7 @@ export class ShinobiActor extends Actor {
             classHealth = 105;
             classArcana = 240;
             classInvocation = 25;
+            wilClass = 7;
             break;
           case 8:
             classAttack = 18;
@@ -1695,6 +1923,7 @@ export class ShinobiActor extends Actor {
             classHealth = 120;
             classArcana = 260;
             classInvocation = 28;
+            wilClass = 8;
             break;
           case 9:
             classAttack = 19;
@@ -1704,6 +1933,7 @@ export class ShinobiActor extends Actor {
             classHealth = 135;
             classArcana = 280;
             classInvocation = 31;
+            wilClass = 9;
             break;
           case 10:
             classAttack = 20;
@@ -1713,6 +1943,7 @@ export class ShinobiActor extends Actor {
             classHealth = 150;
             classArcana = 300;
             classInvocation = 34;
+            wilClass = 10;
             break;
           case 11:
             classAttack = 22;
@@ -1722,6 +1953,7 @@ export class ShinobiActor extends Actor {
             classHealth = 165;
             classArcana = 320;
             classInvocation = 37;
+            wilClass = 11;
             break;
           case 12:
             classAttack = 24;
@@ -1731,6 +1963,7 @@ export class ShinobiActor extends Actor {
             classHealth = 180;
             classArcana = 340;
             classInvocation = 40;
+            wilClass = 12;
             break;
           case 13:
             classAttack = 25;
@@ -1740,6 +1973,7 @@ export class ShinobiActor extends Actor {
             classHealth = 195;
             classArcana = 360;
             classInvocation = 43;
+            wilClass = 13;
             break;
           case 14:
             classAttack = 26;
@@ -1749,6 +1983,7 @@ export class ShinobiActor extends Actor {
             classHealth = 210;
             classArcana = 380;
             classInvocation = 46;
+            wilClass = 14;
             break;
           case 15:
             classAttack = 28;
@@ -1758,6 +1993,7 @@ export class ShinobiActor extends Actor {
             classHealth = 225;
             classArcana = 400;
             classInvocation = 49;
+            wilClass = 15;
             break;
           case 16:
             classAttack = 29;
@@ -1767,6 +2003,7 @@ export class ShinobiActor extends Actor {
             classHealth = 240;
             classArcana = 420;
             classInvocation = 52;
+            wilClass = 16;
             break;
           case 17:
             classAttack = 31;
@@ -1776,6 +2013,7 @@ export class ShinobiActor extends Actor {
             classHealth = 255;
             classArcana = 440;
             classInvocation = 55;
+            wilClass = 17;
             break;
           case 18:
             classAttack = 32;
@@ -1785,6 +2023,7 @@ export class ShinobiActor extends Actor {
             classHealth = 270;
             classArcana = 460;
             classInvocation = 58;
+            wilClass = 18;
             break;
           case 19:
             classAttack = 33;
@@ -1794,6 +2033,7 @@ export class ShinobiActor extends Actor {
             classHealth = 285;
             classArcana = 480;
             classInvocation = 61;
+            wilClass = 19;
             break;
           case 20:
             classAttack = 35;
@@ -1803,6 +2043,7 @@ export class ShinobiActor extends Actor {
             classHealth = 300;
             classArcana = 500;
             classInvocation = 64;
+            wilClass = 20;
             break;
         }
         break;
@@ -1815,6 +2056,7 @@ export class ShinobiActor extends Actor {
             classArcana = 225;
             classChannel = 8;
             classCAT = 4;
+            intClass = 2;
             break;
           case 2:
             classMagic = 12;
@@ -1823,6 +2065,7 @@ export class ShinobiActor extends Actor {
             classArcana = 350;
             classChannel = 10;
             classCAT = 5;
+            intClass = 4;
             break;
           case 3:
             classMagic = 14;
@@ -1831,6 +2074,7 @@ export class ShinobiActor extends Actor {
             classArcana = 425;
             classChannel = 11;
             classCAT = 5;
+            intClass = 6;
             break;
           case 4:
             classMagic = 16;
@@ -1839,6 +2083,7 @@ export class ShinobiActor extends Actor {
             classArcana = 600;
             classChannel = 13;
             classCAT = 5;
+            intClass = 8;
             break;
           case 5:
             classMagic = 19;
@@ -1847,6 +2092,7 @@ export class ShinobiActor extends Actor {
             classArcana = 675;
             classChannel = 15;
             classCAT = 5;
+            intClass = 10;
             break;
           case 6:
             classMagic = 20;
@@ -1855,6 +2101,7 @@ export class ShinobiActor extends Actor {
             classArcana = 800;
             classChannel = 17;
             classCAT = 6;
+            intClass = 12;
             break;
           case 7:
             classMagic = 22;
@@ -1863,6 +2110,7 @@ export class ShinobiActor extends Actor {
             classArcana = 875;
             classChannel = 18;
             classCAT = 6;
+            intClass = 14;
             break;
           case 8:
             classMagic = 24;
@@ -1871,6 +2119,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1050;
             classChannel = 20;
             classCAT = 6;
+            intClass = 16;
             break;
           case 9:
             classMagic = 27;
@@ -1879,6 +2128,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1125;
             classChannel = 22;
             classCAT = 6;
+            intClass = 18;
             break;
           case 10:
             classMagic = 28;
@@ -1887,6 +2137,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1250;
             classChannel = 24;
             classCAT = 7;
+            intClass = 20;
             break;
           case 11:
             classMagic = 30;
@@ -1895,6 +2146,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1325;
             classChannel = 25;
             classCAT = 7;
+            intClass = 22;
             break;
           case 12:
             classMagic = 32;
@@ -1903,6 +2155,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1500;
             classChannel = 27;
             classCAT = 7;
+            intClass = 24;
             break;
           case 13:
             classMagic = 35;
@@ -1911,6 +2164,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1575;
             classChannel = 29;
             classCAT = 7;
+            intClass = 26;
             break;
           case 14:
             classMagic = 36;
@@ -1919,6 +2173,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1700;
             classChannel = 31;
             classCAT = 8;
+            intClass = 28;
             break;
           case 15:
             classMagic = 38;
@@ -1927,6 +2182,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1775;
             classChannel = 32;
             classCAT = 8;
+            intClass = 30;
             break;
           case 16:
             classMagic = 40;
@@ -1935,6 +2191,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1950;
             classChannel = 34;
             classCAT = 8;
+            intClass = 32;
             break;
           case 17:
             classMagic = 43;
@@ -1943,6 +2200,7 @@ export class ShinobiActor extends Actor {
             classArcana = 2025;
             classChannel = 36;
             classCAT = 8;
+            intClass = 34;
             break;
           case 18:
             classMagic = 44;
@@ -1951,6 +2209,7 @@ export class ShinobiActor extends Actor {
             classArcana = 2150;
             classChannel = 38;
             classCAT = 9;
+            intClass = 36;
             break;
           case 19:
             classMagic = 46;
@@ -1959,6 +2218,7 @@ export class ShinobiActor extends Actor {
             classArcana = 2225;
             classChannel = 39;
             classCAT = 9;
+            intClass = 38;
             break;
           case 20:
             classMagic = 48;
@@ -1967,6 +2227,7 @@ export class ShinobiActor extends Actor {
             classArcana = 2400;
             classChannel = 41;
             classCAT = 9;
+            intClass = 40;
             break;
         }
         break;
@@ -1978,6 +2239,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 1;
             classHealth = 10;
             classBloodPowerLearning = 2;
+            dexClass = 2;
+            perClass = 1;
+            intClass = 1;
             break;
           case 2:
             classAttack = 11;
@@ -1985,6 +2249,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 2;
             classHealth = 20;
             classBloodPowerLearning = 2;
+            dexClass = 4;
+            perClass = 2;
+            intClass = 2;
             break;
           case 3:
             classAttack = 12;
@@ -1992,6 +2259,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 3;
             classHealth = 30;
             classBloodPowerLearning = 3;
+            dexClass = 6;
+            perClass = 3;
+            intClass = 3;
             break;
           case 4:
             classAttack = 14;
@@ -1999,6 +2269,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 4;
             classHealth = 40;
             classBloodPowerLearning = 3;
+            dexClass = 8;
+            perClass = 4;
+            intClass = 4;
             break;
           case 5:
             classAttack = 15;
@@ -2006,6 +2279,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 5;
             classHealth = 50;
             classBloodPowerLearning = 4;
+            dexClass = 10;
+            perClass = 5;
+            intClass = 5;
             break;
           case 6:
             classAttack = 17;
@@ -2013,6 +2289,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 6;
             classHealth = 60;
             classBloodPowerLearning = 4;
+            dexClass = 12;
+            perClass = 6;
+            intClass = 6;
             break;
           case 7:
             classAttack = 18;
@@ -2020,6 +2299,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 7;
             classHealth = 70;
             classBloodPowerLearning = 5;
+            dexClass = 14;
+            perClass = 7;
+            intClass = 7;
             break;
           case 8:
             classAttack = 20;
@@ -2027,6 +2309,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 8;
             classHealth = 80;
             classBloodPowerLearning = 5;
+            dexClass = 16;
+            perClass = 8;
+            intClass = 8;
             break;
           case 9:
             classAttack = 22;
@@ -2034,6 +2319,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 9;
             classHealth = 90;
             classBloodPowerLearning = 6;
+            dexClass = 18;
+            perClass = 9;
+            intClass = 9;
             break;
           case 10:
             classAttack = 24;
@@ -2041,6 +2329,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 10;
             classHealth = 100;
             classBloodPowerLearning = 6;
+            dexClass = 20;
+            perClass = 10;
+            intClass = 10;
             break;
           case 11:
             classAttack = 25;
@@ -2048,6 +2339,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 11;
             classHealth = 110;
             classBloodPowerLearning = 7;
+            dexClass = 22;
+            perClass = 11;
+            intClass = 11;
             break;
           case 12:
             classAttack = 26;
@@ -2055,6 +2349,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 12;
             classHealth = 120;
             classBloodPowerLearning = 7;
+            dexClass = 24;
+            perClass = 12;
+            intClass = 12;
             break;
           case 13:
             classAttack = 28;
@@ -2062,6 +2359,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 13;
             classHealth = 130;
             classBloodPowerLearning = 7;
+            dexClass = 26;
+            perClass = 13;
+            intClass = 13;
             break;
           case 14:
             classAttack = 29;
@@ -2069,6 +2369,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 14;
             classHealth = 140;
             classBloodPowerLearning = 8;
+            dexClass = 28;
+            perClass = 14;
+            intClass = 14;
             break;
           case 15:
             classAttack = 31;
@@ -2076,6 +2379,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 15;
             classHealth = 150;
             classBloodPowerLearning = 9;
+            dexClass = 30;
+            perClass = 15;
+            intClass = 15;
             break;
           case 16:
             classAttack = 32;
@@ -2083,6 +2389,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 16;
             classHealth = 160;
             classBloodPowerLearning = 10;
+            dexClass = 32;
+            perClass = 16;
+            intClass = 16;
             break;
           case 17:
             classAttack = 33;
@@ -2090,6 +2399,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 17;
             classHealth = 170;
             classBloodPowerLearning = 11;
+            dexClass = 34;
+            perClass = 17;
+            intClass = 17;
             break;
           case 18:
             classAttack = 34;
@@ -2097,6 +2409,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 18;
             classHealth = 180;
             classBloodPowerLearning = 11;
+            dexClass = 36;
+            perClass = 18;
+            intClass = 18;
             break;
           case 19:
             classAttack = 36;
@@ -2104,6 +2419,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 19;
             classHealth = 190;
             classBloodPowerLearning = 12;
+            dexClass = 38;
+            perClass = 19;
+            intClass = 19;
             break;
           case 20:
             classAttack = 38;
@@ -2111,6 +2429,9 @@ export class ShinobiActor extends Actor {
             classInitiative = 20;
             classHealth = 200;
             classBloodPowerLearning = 12;
+            dexClass = 40;
+            perClass = 20;
+            intClass = 20;
             break;
         }
         break;
@@ -2124,6 +2445,7 @@ export class ShinobiActor extends Actor {
             classArcana = 20;
             classChannel = 5;
             classCAT = 2;
+            intClass = 1;
             break;
           case 2:
             classAttack = 9;
@@ -2133,6 +2455,7 @@ export class ShinobiActor extends Actor {
             classArcana = 90;
             classChannel = 8;
             classCAT = 2;
+            intClass = 2;
             break;
           case 3:
             classAttack = 11;
@@ -2142,6 +2465,7 @@ export class ShinobiActor extends Actor {
             classArcana = 160;
             classChannel = 10;
             classCAT = 2;
+            intClass = 3;
             break;
           case 4:
             classAttack = 12;
@@ -2151,6 +2475,7 @@ export class ShinobiActor extends Actor {
             classArcana = 230;
             classChannel = 11;
             classCAT = 3;
+            intClass = 4;
             break;
           case 5:
             classAttack = 14;
@@ -2160,6 +2485,7 @@ export class ShinobiActor extends Actor {
             classArcana = 300;
             classChannel = 12;
             classCAT = 4;
+            intClass = 5;
             break;
           case 6:
             classAttack = 15;
@@ -2169,6 +2495,7 @@ export class ShinobiActor extends Actor {
             classArcana = 370;
             classChannel = 14;
             classCAT = 4;
+            intClass = 6;
             break;
           case 7:
             classAttack = 17;
@@ -2178,6 +2505,7 @@ export class ShinobiActor extends Actor {
             classArcana = 390;
             classChannel = 15;
             classCAT = 4;
+            intClass = 7;
             break;
           case 8:
             classAttack = 18;
@@ -2187,6 +2515,7 @@ export class ShinobiActor extends Actor {
             classArcana = 410;
             classChannel = 16;
             classCAT = 4;
+            intClass = 8;
             break;
           case 9:
             classAttack = 20;
@@ -2196,6 +2525,7 @@ export class ShinobiActor extends Actor {
             classArcana = 480;
             classChannel = 17;
             classCAT = 5;
+            intClass = 9;
             break;
           case 10:
             classAttack = 21;
@@ -2205,6 +2535,7 @@ export class ShinobiActor extends Actor {
             classArcana = 600;
             classChannel = 20;
             classCAT = 5;
+            intClass = 10;
             break;
           case 11:
             classAttack = 23;
@@ -2214,6 +2545,7 @@ export class ShinobiActor extends Actor {
             classArcana = 620;
             classChannel = 22;
             classCAT = 5;
+            intClass = 11;
             break;
           case 12:
             classAttack = 24;
@@ -2223,6 +2555,7 @@ export class ShinobiActor extends Actor {
             classArcana = 690;
             classChannel = 25;
             classCAT = 5;
+            intClass = 12;
             break;
           case 13:
             classAttack = 26;
@@ -2232,6 +2565,7 @@ export class ShinobiActor extends Actor {
             classArcana = 710;
             classChannel = 26;
             classCAT = 5;
+            intClass = 13;
             break;
           case 14:
             classAttack = 27;
@@ -2241,6 +2575,7 @@ export class ShinobiActor extends Actor {
             classArcana = 780;
             classChannel = 27;
             classCAT = 6;
+            intClass = 14;
             break;
           case 15:
             classAttack = 29;
@@ -2250,6 +2585,7 @@ export class ShinobiActor extends Actor {
             classArcana = 800;
             classChannel = 29;
             classCAT = 6;
+            intClass = 15;
             break;
           case 16:
             classAttack = 30;
@@ -2259,6 +2595,7 @@ export class ShinobiActor extends Actor {
             classArcana = 920;
             classChannel = 32;
             classCAT = 6;
+            intClass = 16;
             break;
           case 17:
             classAttack = 32;
@@ -2268,6 +2605,7 @@ export class ShinobiActor extends Actor {
             classArcana = 940;
             classChannel = 34;
             classCAT = 7;
+            intClass = 17;
             break;
           case 18:
             classAttack = 33;
@@ -2277,6 +2615,7 @@ export class ShinobiActor extends Actor {
             classArcana = 960;
             classChannel = 34;
             classCAT = 7;
+            intClass = 18;
             break;
           case 19:
             classAttack = 35;
@@ -2286,6 +2625,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1030;
             classChannel = 35;
             classCAT = 7;
+            intClass = 19;
             break;
           case 20:
             classAttack = 36;
@@ -2295,6 +2635,7 @@ export class ShinobiActor extends Actor {
             classArcana = 1150;
             classChannel = 38;
             classCAT = 7;
+            intClass = 20;
             break;
         }
         break;
@@ -2385,6 +2726,12 @@ export class ShinobiActor extends Actor {
     bloodPowerLearning.max =
       bloodPowerLearning.class +
       bloodPowerLearning.others
+
+    systemData.points.str.class = strClass;
+    systemData.points.dex.class = dexClass;
+    systemData.points.per.class = perClass;
+    systemData.points.int.class = intClass;
+    systemData.points.wil.class = wilClass;
 
     if (abilities.con.value < 14 && systemData.regeneration.sobrenatural == false) {
       regeneration.isSobrenatural = false

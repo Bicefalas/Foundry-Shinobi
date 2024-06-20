@@ -33,7 +33,7 @@
       <div class="resource-field">
         <label for="system.attributes.level.value" class="resource-label">{{localize "Level"}}</label>
         <input type="number" name="system.attributes.level.value" value="{{system.attributes.level.value}}"
-          data-dtype="Number" />
+          data-dtype="Number" max="20" min="1" />
       </div>
       <div class="resource-field">
         {{> 'systems/shinobi/templates/actor/parts/actor-movementSpeed.hbs'}}

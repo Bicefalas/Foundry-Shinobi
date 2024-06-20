@@ -193,6 +193,8 @@ export class ShinobiActorSheet extends ActorSheet {
 
     html.on('click', '.half-rest', this._halfRest.bind(this));
     html.on('click', '.total-rest', this._totalRest.bind(this));
+
+    html.ready(this._classPoints.bind(this));
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
 
@@ -329,5 +331,58 @@ export class ShinobiActorSheet extends ActorSheet {
       else health.value = health.max
     }
     this.actor.sheet.render();
+  }
+
+  _classPoints() {
+    const characteristics = document.getElementsByClassName("class-points");
+    const str = this.actor.system.points.str.class;
+    const dex = this.actor.system.points.dex.class;
+    const per = this.actor.system.points.per.class;
+    const int = this.actor.system.points.int.class;
+    const wil = this.actor.system.points.wil.class;
+
+
+    const strInverted =
+      this.actor.system.secondaries.athletics.class +
+      this.actor.system.secondaries.swim.class;
+
+    const dexInverted =
+      this.actor.system.secondaries.acrobatics.class +
+      this.actor.system.secondaries.sleightOfHand.class +
+      this.actor.system.secondaries.stealth.class +
+      this.actor.system.secondaries.traps.class +
+      this.actor.system.secondaries.openLocks.class;
+
+    const perInverted =
+      this.actor.system.secondaries.search.class +
+      this.actor.system.secondaries.track.class +
+      this.actor.system.secondaries.notice.class +
+      this.actor.system.secondaries.examine.class +
+      this.actor.system.secondaries.insight.class;
+
+    const intInverted =
+      this.actor.system.secondaries.shinobiKnowledge.class +
+      this.actor.system.secondaries.ethnicKnowledge.class +
+      this.actor.system.secondaries.underworldKnowledge.class +
+      this.actor.system.secondaries.science.class +
+      this.actor.system.secondaries.history.class +
+      this.actor.system.secondaries.medicine.class +
+      this.actor.system.secondaries.nature.class +
+      this.actor.system.secondaries.religion.class +
+      this.actor.system.secondaries.animalHandling.class;
+
+    const wilInverted =
+      this.actor.system.secondaries.persuasion.class +
+      this.actor.system.secondaries.interpret.class +
+      this.actor.system.secondaries.lie.class +
+      this.actor.system.secondaries.coldness.class +
+      this.actor.system.secondaries.intimidate.class;
+
+
+    characteristics[0].firstChild.data = str - strInverted;
+    characteristics[1].firstChild.data = dex - dexInverted;
+    characteristics[2].firstChild.data = per - perInverted;
+    characteristics[3].firstChild.data = int - intInverted;
+    characteristics[4].firstChild.data = wil - wilInverted;
   }
 }

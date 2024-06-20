@@ -160,6 +160,11 @@
   "Rest": "Descanso",
   "Half Rest": "Descanso Medio",
   "Total Rest": "Descanso Completo",
+  "Remaining Strenght Class Points": "Pts de Clase Fuerza Disponibles",
+  "Remaining Dexterity Class Points": "Pts de Clase Destreza Disponibles",
+  "Remaining Perception Class Points": "Pts de Clase Percepción Disponibles",
+  "Remaining Intelligence Class Points": "Pts de Clase Inteligencia Disponibles",
+  "Remaining Will Class Points": "Pts de Clase Voluntad Disponibles",
   "SHINOBI": {
     "Class": {
       "Warrior": {

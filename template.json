@@ -490,6 +490,23 @@
           "others": 0,
           "final": 0
         }
+      },
+      "points": {
+        "str": {
+          "class": 0
+        },
+        "dex": {
+          "class": 0
+        },
+        "per": {
+          "class": 0
+        },
+        "int": {
+          "class": 0
+        },
+        "wil": {
+          "class": 0
+        }
       }
     },
     "npc": {

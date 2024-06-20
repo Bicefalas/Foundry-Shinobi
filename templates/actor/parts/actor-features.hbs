@@ -89,13 +89,73 @@
         </div>
         <div class="secondary">
           {{#each system.secondaries as |secondary key|}}
-          {{#ifCond key '==' "acrobatics"}}<br>
+          {{#ifCond key '==' "acrobatics"}}
+          <br>
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.str.class" class="resource-label">{{localize "Remaining Strenght Class Points"}}</label>
+            </div>
+            <div class="secondary-ip"></div>
+            <div class="secondary-mod"></div>
+            <div class="secondary-class">
+              <label type="number" name="system.points.str.class" class="class-points">0</label>
+            </div>
+            <div class="secondary-nd"></div>
+            <div class="secondary-others"></div>
+            <div class="secondary-final"></div>
+          </span>
+          <br>
           <h3>{{localize "Secondary Ability of Dexterity"}}</h3>{{/ifCond}}
-          {{#ifCond key '==' "search"}}<br>
+          {{#ifCond key '==' "search"}}
+          <br>
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.dex.class" class="resource-label">{{localize "Remaining Dexterity Class Points"}}</label>
+            </div>
+            <div class="secondary-ip"></div>
+            <div class="secondary-mod"></div>
+            <div class="secondary-class">
+              <label type="number" name="system.points.dex.class" class="class-points">0</label>
+            </div>
+            <div class="secondary-nd"></div>
+            <div class="secondary-others"></div>
+            <div class="secondary-final"></div>
+          </span>
+          <br>
           <h3>{{localize "Secondary Ability of Perception"}}</h3>{{/ifCond}}
-          {{#ifCond key '==' "shinobiKnowledge"}}<br>
+          {{#ifCond key '==' "shinobiKnowledge"}}
+          <br>
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.per.class" class="resource-label">{{localize "Remaining Perception Class Points"}}</label>
+            </div>
+            <div class="secondary-ip"></div>
+            <div class="secondary-mod"></div>
+            <div class="secondary-class">
+              <label type="number" name="system.points.per.class" class="class-points">0</label>
+            </div>
+            <div class="secondary-nd"></div>
+            <div class="secondary-others"></div>
+            <div class="secondary-final"></div>
+          </span>
+          <br>
           <h3>{{localize "Secondary Ability of Intelligence"}}</h3>{{/ifCond}}
-          {{#ifCond key '==' "persuasion"}}<br>
+          {{#ifCond key '==' "persuasion"}}
+          <br>
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.int.class" class="resource-label">{{localize "Remaining Intelligence Class Points"}}</label>
+            </div>
+            <div class="secondary-ip"></div>
+            <div class="secondary-mod"></div>
+            <div class="secondary-class">
+              <label type="number" name="system.points.int.class" class="class-points">0</label>
+            </div>
+            <div class="secondary-nd"></div>
+            <div class="secondary-others"></div>
+            <div class="secondary-final"></div>
+          </span>
+          <br>
           <h3>{{localize "Secondary Ability of Will"}}</h3>{{/ifCond}}
           <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
@@ -127,6 +187,22 @@
                 data-dtype="Number">{{secondary.final}}</label>
             </div>
           </span>
+          {{#ifCond key '==' "intimidate"}}
+          <br>
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.wil.class" class="resource-label">{{localize "Remaining Will Class Points"}}</label>
+            </div>
+            <div class="secondary-ip"></div>
+            <div class="secondary-mod"></div>
+            <div class="secondary-class">
+              <label type="number" class="class-points" name="system.points.wil.class">0</label>
+            </div>
+            <div class="secondary-nd"></div>
+            <div class="secondary-others"></div>
+            <div class="secondary-final"></div>
+          </span>
+          {{/ifCond}}
           {{/each}}
         </div>
       </div>
