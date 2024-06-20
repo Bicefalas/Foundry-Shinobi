@@ -3082,8 +3082,8 @@ export class ShinobiActor extends Actor {
     cat.multipliers = classCAT;
     invocation.class = classInvocation;
     talisman.class = classTalisman;
-    bloodPowerLearning.class = classBloodPowerLearning;
-
+    if (abilities.con.mod >= 1) bloodPowerLearning.class = classBloodPowerLearning * abilities.con.mod;
+    else bloodPowerLearning.class = classBloodPowerLearning * 0.5;
     combat.attack =
       abilities.dex.mod +
       combat.classAttack +
