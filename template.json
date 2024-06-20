@@ -506,6 +506,18 @@
         },
         "wil": {
           "class": 0
+        },
+        "obtained": {
+          "ip": 0,
+          "nd": 0
+        },
+        "spentSecondaries": {
+          "ip": 0,
+          "nd": 0
+        },
+        "remaining": {
+          "ip": 0,
+          "nd": 0
         }
       }
     },

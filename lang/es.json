@@ -165,6 +165,12 @@
   "Remaining Perception Class Points": "Pts de Clase Percepción Disponibles",
   "Remaining Intelligence Class Points": "Pts de Clase Inteligencia Disponibles",
   "Remaining Will Class Points": "Pts de Clase Voluntad Disponibles",
+  "Inversion and Natural Development Points": "Puntos de Inversión y de Desarrollo Natural",
+  "Obtained Points": "Puntos obtenidos",
+  "Secondaries Spent Points": "Puntos invertidos en Secundarias",
+  "Advantages Spent Points": "Puntos invertidos en Ventajas",
+  "Disadvantages Obtained Points": "Puntos obtenidos de Desventajas",
+  "Remaining Points": "Puntos sin gastar",
   "SHINOBI": {
     "Class": {
       "Warrior": {

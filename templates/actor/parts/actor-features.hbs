@@ -93,7 +93,9 @@
           <br>
           <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
-              <label for="system.points.str.class" class="resource-label">{{localize "Remaining Strenght Class Points"}}</label>
+              <label for="system.points.str.class" class="resource-label">
+                {{localize "Remaining Strenght Class Points"}}
+              </label>
             </div>
             <div class="secondary-ip"></div>
             <div class="secondary-mod"></div>
@@ -110,7 +112,9 @@
           <br>
           <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
-              <label for="system.points.dex.class" class="resource-label">{{localize "Remaining Dexterity Class Points"}}</label>
+              <label for="system.points.dex.class" class="resource-label">
+                {{localize "Remaining Dexterity Class Points"}}
+              </label>
             </div>
             <div class="secondary-ip"></div>
             <div class="secondary-mod"></div>
@@ -127,7 +131,9 @@
           <br>
           <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
-              <label for="system.points.per.class" class="resource-label">{{localize "Remaining Perception Class Points"}}</label>
+              <label for="system.points.per.class" class="resource-label">
+                {{localize "Remaining Perception Class Points"}}
+              </label>
             </div>
             <div class="secondary-ip"></div>
             <div class="secondary-mod"></div>
@@ -144,7 +150,9 @@
           <br>
           <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
-              <label for="system.points.int.class" class="resource-label">{{localize "Remaining Intelligence Class Points"}}</label>
+              <label for="system.points.int.class" class="resource-label">
+                {{localize "Remaining Intelligence Class Points"}}
+              </label>
             </div>
             <div class="secondary-ip"></div>
             <div class="secondary-mod"></div>
@@ -191,7 +199,9 @@
           <br>
           <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
-              <label for="system.points.wil.class" class="resource-label">{{localize "Remaining Will Class Points"}}</label>
+              <label for="system.points.wil.class" class="resource-label">
+                {{localize "Remaining Will Class Points"}}
+              </label>
             </div>
             <div class="secondary-ip"></div>
             <div class="secondary-mod"></div>
@@ -204,6 +214,121 @@
           </span>
           {{/ifCond}}
           {{/each}}
+        </div>
+        <br>
+        <div class="secondary">
+          <div class="secondaries-header">
+            <h3 class="secondary-label">{{localize "Inversion and Natural Development Points"}}</h3>
+          </div>
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.obtained" class="resource-label">{{localize "Obtained Points"}}</label>
+            </div>
+            <div class="secondary-ip">
+              <label type="number" name="system.points.obtained.ip"
+                data-dtype="Number">{{system.points.obtained.ip}}</label>
+            </div>
+            <div class="secondary-mod">
+            </div>
+            <div class="secondary-class">
+            </div>
+            <div class="secondary-nd">
+              <label type="number" name="system.points.obtained.nd"
+                data-dtype="Number">{{system.points.obtained.nd}}</label>
+            </div>
+            <div class="secondary-others">
+            </div>
+            <div class="secondary-final">
+            </div>
+          </span>
+          {{#if system.advDisadv.advanced}}
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.disadv.ip" class="resource-label">
+                {{localize "Disadvantages Obtained Points"}}</label>
+            </div>
+            <div class="secondary-ip">
+              <label type="number" name="system.disadv.ip"
+                data-dtype="Number">{{system.disadv.ip}}</label>
+            </div>
+            <div class="secondary-mod">
+            </div>
+            <div class="secondary-class">
+            </div>
+            <div class="secondary-nd">
+            </div>
+            <div class="secondary-others">
+            </div>
+            <div class="secondary-final">
+            </div>
+          </span>
+          {{/if}}
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.spentSecondaries" class="resource-label">
+                {{localize "Secondaries Spent Points"}}</label>
+            </div>
+            <div class="secondary-ip">
+              <label type="number" name="system.points.spentSecondaries.ip"
+                data-dtype="Number">{{system.points.spentSecondaries.ip}}</label>
+            </div>
+            <div class="secondary-mod">
+            </div>
+            <div class="secondary-class">
+            </div>
+            <div class="secondary-nd">
+              <label type="number" name="system.points.spentSecondaries.nd"
+                data-dtype="Number">{{system.points.spentSecondaries.nd}}</label>
+            </div>
+            <div class="secondary-others">
+            </div>
+            <div class="secondary-final">
+            </div>
+          </span>
+          {{#if system.advDisadv.advanced}}
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.adv.ip" class="resource-label">
+                {{localize "Advantages Spent Points"}}</label>
+            </div>
+            <div class="secondary-ip">
+              <label type="number" name="system.adv.ip"
+                data-dtype="Number">{{system.adv.ip}}</label>
+            </div>
+            <div class="secondary-mod">
+            </div>
+            <div class="secondary-class">
+            </div>
+            <div class="secondary-nd">
+            </div>
+            <div class="secondary-others">
+            </div>
+            <div class="secondary-final">
+            </div>
+          </span>
+          {{/if}}
+          <hr>
+          <span class="secondary flexrow flex-group-center">
+            <div class="secondary-label">
+              <label for="system.points.remaining" class="resource-label">{{localize "Remaining Points"}}</label>
+            </div>
+            <div class="secondary-ip">
+              <label type="number" name="system.points.remaining.ip"
+                data-dtype="Number">{{system.points.remaining.ip}}</label>
+            </div>
+            <div class="secondary-mod">
+            </div>
+            <div class="secondary-class">
+            </div>
+            <div class="secondary-nd">
+              <label type="number" name="system.points.remaining.nd"
+                data-dtype="Number">{{system.points.remaining.nd}}</label>
+            </div>
+            <div class="secondary-others">
+            </div>
+            <div class="secondary-final">
+            </div>
+          </span>
         </div>
       </div>
     </aside>
