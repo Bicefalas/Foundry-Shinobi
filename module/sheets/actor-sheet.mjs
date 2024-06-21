@@ -308,7 +308,8 @@ export class ShinobiActorSheet extends ActorSheet {
     localStorage.setItem("openDetails", JSON.stringify(previous));
   }
 
-  _halfRest() {
+  _halfRest(event) {
+    event.preventDefault();
     const health = this.actor.system.health
     const regeneration = this.actor.system.regeneration
     if (health.value < health.max) {
@@ -317,8 +318,19 @@ export class ShinobiActorSheet extends ActorSheet {
       else health.value = health.max
       this.actor.sheet.render();
     }
+    // Chat message
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    let label = game.i18n.localize("Half Rest");
+
+    let chatData = {
+      speaker: speaker,
+      flavor: label,
+    };
+
+    ChatMessage.create(chatData);
   }
-  _totalRest() {
+  _totalRest(event) {
+    event.preventDefault();
     const health = this.actor.system.health
     const fatigue = this.actor.system.fatigue
     const tiredness = this.actor.system.tiredness
@@ -331,52 +343,64 @@ export class ShinobiActorSheet extends ActorSheet {
       else health.value = health.max
     }
     this.actor.sheet.render();
+    // Chat message
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    let label = game.i18n.localize("Total Rest");
+
+    let chatData = {
+      speaker: speaker,
+      flavor: label,
+    };
+
+    ChatMessage.create(chatData);
   }
 
   _classPoints() {
     const characteristics = document.getElementsByClassName("class-points");
-    const str = this.actor.system.points.str.class;
-    const dex = this.actor.system.points.dex.class;
-    const per = this.actor.system.points.per.class;
-    const int = this.actor.system.points.int.class;
-    const wil = this.actor.system.points.wil.class;
+    const secondaries = this.actor.system.secondaries;
+    const points = this.actor.system.points;
+    const str = points.str.class;
+    const dex = points.dex.class;
+    const per = points.per.class;
+    const int = points.int.class;
+    const wil = points.wil.class;
 
 
     const strInverted =
-      this.actor.system.secondaries.athletics.class +
-      this.actor.system.secondaries.swim.class;
+      secondaries.athletics.class +
+      secondaries.swim.class;
 
     const dexInverted =
-      this.actor.system.secondaries.acrobatics.class +
-      this.actor.system.secondaries.sleightOfHand.class +
-      this.actor.system.secondaries.stealth.class +
-      this.actor.system.secondaries.traps.class +
-      this.actor.system.secondaries.openLocks.class;
+      secondaries.acrobatics.class +
+      secondaries.sleightOfHand.class +
+      secondaries.stealth.class +
+      secondaries.traps.class +
+      secondaries.openLocks.class;
 
     const perInverted =
-      this.actor.system.secondaries.search.class +
-      this.actor.system.secondaries.track.class +
-      this.actor.system.secondaries.notice.class +
-      this.actor.system.secondaries.examine.class +
-      this.actor.system.secondaries.insight.class;
+      secondaries.search.class +
+      secondaries.track.class +
+      secondaries.notice.class +
+      secondaries.examine.class +
+      secondaries.insight.class;
 
     const intInverted =
-      this.actor.system.secondaries.shinobiKnowledge.class +
-      this.actor.system.secondaries.ethnicKnowledge.class +
-      this.actor.system.secondaries.underworldKnowledge.class +
-      this.actor.system.secondaries.science.class +
-      this.actor.system.secondaries.history.class +
-      this.actor.system.secondaries.medicine.class +
-      this.actor.system.secondaries.nature.class +
-      this.actor.system.secondaries.religion.class +
-      this.actor.system.secondaries.animalHandling.class;
+      secondaries.shinobiKnowledge.class +
+      secondaries.ethnicKnowledge.class +
+      secondaries.underworldKnowledge.class +
+      secondaries.science.class +
+      secondaries.history.class +
+      secondaries.medicine.class +
+      secondaries.nature.class +
+      secondaries.religion.class +
+      secondaries.animalHandling.class;
 
     const wilInverted =
-      this.actor.system.secondaries.persuasion.class +
-      this.actor.system.secondaries.interpret.class +
-      this.actor.system.secondaries.lie.class +
-      this.actor.system.secondaries.coldness.class +
-      this.actor.system.secondaries.intimidate.class;
+      secondaries.persuasion.class +
+      secondaries.interpret.class +
+      secondaries.lie.class +
+      secondaries.coldness.class +
+      secondaries.intimidate.class;
 
 
     characteristics[0].firstChild.data = str - strInverted;

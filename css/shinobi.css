@@ -492,6 +492,13 @@
   margin: 5px;
   box-sizing: border-box;
 }
+.shinobi .rest .half-rest:hover, .shinobi .rest .half-rest:focus,
+.shinobi .rest .total-rest:hover,
+.shinobi .rest .total-rest:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
 .shinobi .resource-label {
   font-weight: bold;
   margin: 5px;
