@@ -3179,9 +3179,9 @@ export class ShinobiActor extends Actor {
 
     if (systemData.advDisadv.advanced) points.remaining.ip =
       points.obtained.ip +
-      systemData.disadv.ip -
+      systemData.adv.ip -
       points.spentSecondaries.ip -
-      systemData.adv.ip;
+      systemData.disadv.ip;
 
     else
       points.remaining.ip =
