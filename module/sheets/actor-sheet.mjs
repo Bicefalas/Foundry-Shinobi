@@ -311,6 +311,7 @@ export class ShinobiActorSheet extends ActorSheet {
   _halfRest(event) {
     event.preventDefault();
     const health = this.actor.system.health
+    const previousHealth = this.actor.system.health.value
     const regeneration = this.actor.system.regeneration
     if (health.value < health.max) {
       let regenerationCap = health.value + regeneration.value / 2
@@ -320,7 +321,7 @@ export class ShinobiActorSheet extends ActorSheet {
     }
     // Chat message
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    let label = game.i18n.localize("Half Rest");
+    let label = game.i18n.localize("Has take a Half Rest and have recover ") + (health.value - previousHealth) + game.i18n.localize(" Life Points.");
 
     let chatData = {
       speaker: speaker,
@@ -335,6 +336,7 @@ export class ShinobiActorSheet extends ActorSheet {
     const fatigue = this.actor.system.fatigue
     const tiredness = this.actor.system.tiredness
     const regeneration = this.actor.system.regeneration
+    const previousHealth = this.actor.system.health.value
     fatigue.value = fatigue.max;
     tiredness.value = tiredness.max;
     if (health.value < health.max) {
@@ -345,7 +347,7 @@ export class ShinobiActorSheet extends ActorSheet {
     this.actor.sheet.render();
     // Chat message
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    let label = game.i18n.localize("Total Rest");
+    let label = game.i18n.localize("Has take a Total Rest and have recover ") + (health.value - previousHealth) + game.i18n.localize(" Life Points and all Tiredness and Fatigue Points.");
 
     let chatData = {
       speaker: speaker,
