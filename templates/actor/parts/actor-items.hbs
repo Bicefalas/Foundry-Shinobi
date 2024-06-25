@@ -1,7 +1,7 @@
 <div class="resource-content">
   <div class="resource-field">
-    <label for="system.items.carryWeight" class="resource-label">{{localize "Max Carry Weight"}}</label>
-    <label type="text" name="system.items.carryWeight" data-dtype="text">{{system.items.carryWeight}}</label>
+    <label for="system.objects.carryWeight" class="resource-label">{{localize "Max Carry Weight"}}</label>
+    <label type="text" name="system.objects.carryWeight" data-dtype="text">{{system.objects.carryWeight}}</label>
   </div>
 </div>
 <div class="resource-content flexrow">
@@ -120,4 +120,4 @@
   {{localize "Items"}}
 </h1>
 
-{{editor system.items.textbox target="system.items.textbox" rollData=rollData button=true owner=owner editable=editable}}
+{{editor system.items target="system.items" rollData=rollData button=true owner=owner editable=editable}}

@@ -101,7 +101,7 @@ export class ShinobiActor extends Actor {
     let constitutionValue = systemData.abilities.con.value;
     let regeneration = systemData.regeneration;
     let points = systemData.points;
-    let items = systemData.items;
+    let objects = systemData.objects;
 
 
     switch (systemData.advDisadv.advanced) {
@@ -491,7 +491,7 @@ export class ShinobiActor extends Actor {
         break;
     }
 
-    items.carryWeight = carryWeight;
+    objects.carryWeight = carryWeight;
 
 
 
