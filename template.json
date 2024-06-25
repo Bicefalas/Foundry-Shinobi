@@ -72,6 +72,9 @@
         },
         "advDisadv": {
           "advanced": 0
+        },
+        "items": {
+          "carryWeight": "0 Kg"
         }
       }
     },
@@ -110,6 +113,7 @@
         },
         "arcana": {
           "value": 0,
+          "channeled": 0,
           "max": 0,
           "base": 0,
           "class": 0,

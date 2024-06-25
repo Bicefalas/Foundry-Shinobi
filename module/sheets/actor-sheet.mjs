@@ -332,18 +332,34 @@ export class ShinobiActorSheet extends ActorSheet {
   }
   _totalRest(event) {
     event.preventDefault();
-    const health = this.actor.system.health
-    const fatigue = this.actor.system.fatigue
-    const tiredness = this.actor.system.tiredness
-    const regeneration = this.actor.system.regeneration
-    const previousHealth = this.actor.system.health.value
+    const actorClass = this.actor.system.class.value;
+    const health = this.actor.system.health;
+    const fatigue = this.actor.system.fatigue;
+    const tiredness = this.actor.system.tiredness;
+    const regeneration = this.actor.system.regeneration;
+    const previousHealth = this.actor.system.health.value;
+    const bloodPower = this.actor.system.attributes.bloodPower;
+    const trascendentalShard = this.actor.system.attributes.trascendentalShard;
+    const ki = this.actor.system.attributes.ki;
+    const talisman = this.actor.system.attributes.talisman;
+    const arcana = this.actor.system.attributes.arcana;
+
     fatigue.value = fatigue.max;
     tiredness.value = tiredness.max;
+    bloodPower.value = bloodPower.max;
+    trascendentalShard.value = trascendentalShard.max;
+    ki.value = ki.max;
+    talisman.value = talisman.max;
+    arcana.value = arcana.max;
+
+
     if (health.value < health.max) {
       let regenerationCap = health.value + regeneration.value
       if (regenerationCap < health.max) health.value = health.value + regeneration.value;
       else health.value = health.max
     }
+
+
     this.actor.sheet.render();
     // Chat message
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });

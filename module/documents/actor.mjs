@@ -93,6 +93,7 @@ export class ShinobiActor extends Actor {
     let talisman = systemData.attributes.talisman;
     let bloodPower = systemData.attributes.bloodPower;
     let bloodPowerLearning = systemData.attributes.bloodPowerLearning;
+    let strengthValue = systemData.abilities.str.value
     let inteligenceValue = systemData.abilities.int.value;
     let perceptionValue = systemData.abilities.per.value;
     let dexterityValue = systemData.abilities.dex.value;
@@ -100,6 +101,7 @@ export class ShinobiActor extends Actor {
     let constitutionValue = systemData.abilities.con.value;
     let regeneration = systemData.regeneration;
     let points = systemData.points;
+    let items = systemData.items;
 
 
     switch (systemData.advDisadv.advanced) {
@@ -359,8 +361,6 @@ export class ShinobiActor extends Actor {
 
     let life = 0;
 
-
-
     switch (true) {
       case (constitutionValue <= 1):
         life = 5
@@ -426,8 +426,76 @@ export class ShinobiActor extends Actor {
 
     health.con = life;
 
-    let baseArcana = 0;
+    let carryWeight = 0;
 
+    switch (true) {
+      case (strengthValue <= 1):
+        carryWeight = "1 Kg"
+        break;
+      case (strengthValue == 2):
+        carryWeight = "10 Kg"
+        break;
+      case (strengthValue == 3):
+        carryWeight = "20 Kg"
+        break;
+      case (strengthValue == 4):
+        carryWeight = "40 Kg"
+        break;
+      case (strengthValue == 5):
+        carryWeight = "60 Kg"
+        break;
+      case (strengthValue == 6):
+        carryWeight = "100 Kg"
+        break;
+      case (strengthValue == 7):
+        carryWeight = "150 Kg"
+        break;
+      case (strengthValue == 8):
+        carryWeight = "210 Kg"
+        break;
+      case (strengthValue == 9):
+        carryWeight = "280 Kg"
+        break;
+      case (strengthValue == 10):
+        carryWeight = "360 Kg"
+        break;
+      case (strengthValue == 11):
+        carryWeight = "450 Kg"
+        break;
+      case (strengthValue == 12):
+        carryWeight = "550 Kg"
+        break;
+      case (strengthValue == 13):
+        carryWeight = "660 Kg"
+        break;
+      case (strengthValue == 14):
+        carryWeight = "780 Kg"
+        break;
+      case (strengthValue == 15):
+        carryWeight = "1.000 Kg"
+        break;
+      case (strengthValue == 16):
+        carryWeight = "1.500 Kg"
+        break;
+      case (strengthValue == 17):
+        carryWeight = "2.000 Kg"
+        break;
+      case (strengthValue == 18):
+        carryWeight = "4.000 Kg"
+        break;
+      case (strengthValue == 19):
+        carryWeight = "10.000 Kg"
+        break;
+      case (strengthValue >= 20):
+        carryWeight = "100.000 Kg"
+        break;
+    }
+
+    items.carryWeight = carryWeight;
+
+
+
+    let baseArcana = 0;
 
 
     switch (true) {
@@ -1071,7 +1139,7 @@ export class ShinobiActor extends Actor {
             classDefense = 17;
             classInitiative = 4;
             classHealth = 80;
-            classKi = 700;
+            classKi = 70;
             classIp = 56;
             break;
           case 9:
