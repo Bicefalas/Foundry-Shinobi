@@ -1,0 +1,15 @@
+<div class="dice-roll">
+    {{#if flavor}}<div class="dice-flavor">{{flavor}}</div>{{/if}}
+    <div class="dice-result">
+        <div class="dice-formula">{{formula}}</div>
+        <h4 class="dice-total">
+            {{#if critical}} <span style="color: #0f6f0f; font-size:0.7em;">{{localize "Open!"}} ▶ </span>{{/if}}
+            {{#if fumble}} <span style="color: #862020; font-size:0.7em;">{{localize "Fumble!"}} ▶ </span>{{/if}}
+            {{differenceValue}}
+        </h4>
+    </div>
+</div>
+<div style="text-align: center;">
+    {{#if (eq type "chatButtonDefense")}}<span style="color: #862020; font-weight: bold; font-size: 1.5em;">{{value}} %</span> {{localize "Of Damage"}}{{/if}}
+    <div style="text-align: right;font-size:1em;">>>> {{target}}</div>
+</div>

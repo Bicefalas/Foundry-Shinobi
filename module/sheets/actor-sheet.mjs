@@ -263,7 +263,8 @@ export class ShinobiActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
+
+  async _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -278,14 +279,67 @@ export class ShinobiActorSheet extends ActorSheet {
     }
 
     // Handle rolls that supply the formula directly.
+
     if (dataset.roll) {
+      const rollData = this.actor.getRollData();
+
+      let roll = new Roll(dataset.roll, rollData);
+      await roll.evaluate();
+
       let label = dataset.label ? `${game.i18n.localize("Check of")} ${dataset.label}` : '';
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
-      roll.toMessage({
+
+      let chatData = {
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
+        rollMode: game.settings.get("core", "rollMode"),
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+        rolls: [roll],
+      };
+
+      let chatCritical = null;
+      let chatFumble = null;
+      if (roll.terms[0].total >= 10) chatCritical = 1;
+      if (roll.terms[0].total == 1) chatFumble = 1;
+
+      let chatapply = dataset.apply;
+      chatData.flags = {
+        total: roll.total,
+        apply: chatapply,
+      };
+
+      if (element.attributes.for.nodeValue == "system.combat.attack") {
+        chatData.content = await renderTemplate(
+          "systems/shinobi/templates/roll/roll-attack.hbs",
+          {
+            formula: roll.formula,
+            tooltip: await roll.getTooltip(),
+            critical: chatCritical,
+            fumble: chatFumble,
+            total: roll.total,
+            apply: chatapply,
+          }
+        );
+      }
+
+
+      if (element.attributes.for.nodeValue !== "system.combat.attack") {
+        chatData.content = await renderTemplate(
+          "systems/shinobi/templates/roll/roll.hbs",
+          {
+            formula: roll.formula,
+            tooltip: await roll.getTooltip(),
+            critical: chatCritical,
+            fumble: chatFumble,
+            total: roll.total,
+            apply: chatapply,
+          }
+        );
+      }
+
+
+
+      ChatMessage.create(chatData);
+
       return roll;
     }
   };

@@ -177,6 +177,14 @@
   " Life Points and all Tiredness and Fatigue Points.": " Puntos de Vida y todos los Puntos de Cansancio y Fatiga.",
   "Max Carry Weight": "Carga Máxima",
   "Channeled": "Canalizada",
+  "Open!": "¡Abierta!",
+  "Fumble!": "¡Pifia!",
+  "No token selected.": "Ningún token ha sido seleccionado.",
+  "Multiple tokens selected.": "Múltiples tokens seleccionados.",
+  "Of Damage": "Del Daño",
+  "OK": "Confirmar",
+  "Indicate your Armor Value": "Indica tu Valor de Armadura",
+  "Damage Calculation": "Cálculo de daño",
   "SHINOBI": {
     "Class": {
       "Warrior": {
