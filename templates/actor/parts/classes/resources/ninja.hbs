@@ -25,3 +25,36 @@
         </div>
     </details>
 </div>
+<details id="kiTree" {{#openDetails "kiTree" }}{{/openDetails}}>
+    <summary class="resource-field summary">
+        <label for="system.attributes.kiTree" class="resource-box-label">{{localize "Ki Trees"}}</label>
+    </summary>
+    <div class="resource-box">
+        <div class="resource-field-text">
+            {{localize "Tree"}} 1<input type="text" name="system.attributes.kiTree.t1"
+                value="{{system.attributes.kiTree.t1}}" data-dtype="text" />
+        </div>
+        <div class="resource-field">
+            {{localize "Level"}}<input type="number" name="system.attributes.kiTree.level1"
+                value="{{system.attributes.kiTree.level1}}" data-dtype="Number" />
+        </div>
+        <hr>
+        <div class="resource-field-text">
+            {{localize "Tree"}} 2<input type="text" name="system.attributes.kiTree.t2"
+                value="{{system.attributes.kiTree.t2}}" data-dtype="text" />
+        </div>
+        <div class="resource-field">
+            {{localize "Level"}}<input type="number" name="system.attributes.kiTree.level2"
+                value="{{system.attributes.kiTree.level2}}" data-dtype="Number" />
+        </div>
+        <hr>
+        <div class="resource-field-text">
+            {{localize "Tree"}} 3<input type="text" name="system.attributes.kiTree.t3"
+                value="{{system.attributes.kiTree.t3}}" data-dtype="text" />
+        </div>
+        <div class="resource-field">
+            {{localize "Level"}}<input type="number" name="system.attributes.kiTree.level3"
+                value="{{system.attributes.kiTree.level3}}" data-dtype="Number" />
+        </div>
+    </div>
+</details>

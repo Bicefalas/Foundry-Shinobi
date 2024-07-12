@@ -60,7 +60,7 @@ export async function chatButton(chatMessage, buttonType) {
 
         // Construct the Defense Roll instance
 
-        //TODO Fix the damage calculation when the add is lower than 0 (Counter attacks)
+        //TODO Work on the damage calculation when the add is lower than 0 (Counter attacks)
 
         let totalDefenseRoll = new Roll("1d10x10 + @defense + @armor", { defense: targetActor.system.combat.defense, armor: armor });
 
