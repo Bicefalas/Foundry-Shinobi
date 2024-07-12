@@ -428,6 +428,9 @@ export class ShinobiActorSheet extends ActorSheet {
   }
 
   _classPoints() {
+    let actorData = super.getData()
+    if (actorData.document.type == 'npc') return;
+
     const characteristics = document.getElementsByClassName("class-points");
     const secondaries = this.actor.system.secondaries;
     const points = this.actor.system.points;
