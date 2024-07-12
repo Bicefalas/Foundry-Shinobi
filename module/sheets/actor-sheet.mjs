@@ -367,10 +367,15 @@ export class ShinobiActorSheet extends ActorSheet {
     const health = this.actor.system.health
     const previousHealth = this.actor.system.health.value
     const regeneration = this.actor.system.regeneration
+
     if (health.value < health.max) {
       let regenerationCap = health.value + regeneration.value / 2
-      if (regenerationCap < health.max) health.value = health.value + regeneration.value / 2;
-      else health.value = health.max
+
+      if (regeneration.points >= 4 && regeneration.isSobrenatural) health.value = health.max
+      else
+        if (regenerationCap < health.max) health.value = health.value + regeneration.value / 2;
+        else health.value = health.max
+
       this.actor.sheet.render();
     }
     // Chat message

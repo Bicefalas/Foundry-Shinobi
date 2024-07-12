@@ -3257,7 +3257,7 @@ export class ShinobiActor extends Actor {
         points.spentSecondaries.ip;
 
 
-    if (abilities.con.value < 14 && systemData.regeneration.sobrenatural == false) {
+    if (abilities.con.value < 14 && regeneration.sobrenatural == false) {
       regeneration.isSobrenatural = false
       regeneration.time = "per day"
       if (abilities.con.value < 8) regeneration.mod = 10
@@ -3277,15 +3277,12 @@ export class ShinobiActor extends Actor {
       switch (regeneration.points) {
         case 1:
           regeneration.value = 100 + regeneration.others
-          if (regeneration.value > health.max) regeneration.value = health.max
           break
         case 2:
           regeneration.value = 250 + regeneration.others
-          if (regeneration.value > health.max) regeneration.value = health.max
           break
         case 3:
           regeneration.value = 500 + regeneration.others
-          if (regeneration.value > health.max) regeneration.value = health.max
           break
         case 4:
         case 5:
