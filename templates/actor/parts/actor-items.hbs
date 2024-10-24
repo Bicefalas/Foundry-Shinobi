@@ -24,7 +24,7 @@
     <ol class='items-list'>
       <li class='item flexrow items-header'>
         <div class='item-name'>{{localize 'Name'}}</div>
-        <div class='item-controls'>
+        <div class='item-object-controls'>
           <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type=' object'}}' data-type='object'>
             <i class='fas fa-plus'></i>
             {{localize 'DOCUMENT.New' type='objeto'}}
@@ -39,7 +39,7 @@
           </div>
           <h4>{{item.name}}</h4>
         </div>
-        <div class='item-controls'>
+        <div class='item-object-controls'>
           <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Item'}}'>
             <i class='fas fa-trash'></i>
           </a>
@@ -52,12 +52,17 @@
     <h1>{{localize "Weapons"}}</h1>
     <ol class='items-list'>
       <li class='item flexrow items-header'>
-        <div class='item-name'>{{localize 'Name'}}</div>
+        {{!-- <div class='item-eq'>{{localize 'Eq.'}}</div> --}}
+        <div class='item-name weapon'>{{localize 'Name'}}</div>
         <div class='item-features'>{{localize 'Damage'}}</div>
         <div class='item-controls'>{{localize 'Erase'}}</div>
       </li>
       {{#each weapon as |item id|}}
       <li class='item flexrow' data-item-id='{{item._id}}'>
+        {{!-- <div class='item-eq item-control item-edit'>
+          <input type="checkbox" name="{{system.equipped}}" onclick="return false;" {{#if
+            system.equipped}}checked{{/if}}>
+        </div> --}}
         <div class='item-name item-control item-edit'>
           <div class='item-image'>
             <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />

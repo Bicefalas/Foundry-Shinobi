@@ -24,8 +24,9 @@
           <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
         </div>
         <div class="ability-mod">
-          <span class="ability-mod rollable" data-roll="1d10x10+@abilities.{{key}}.mod"
-            data-label="{{ability.label}} Mod"><i class="fa-solid fa-dice-d10" data-label="{{ability.label}} Mod"></i>
+          <span for="system.abilities.{{key}}.mod" class="ability-mod rollable"
+            data-roll="1d10x10+@abilities.{{key}}.mod" data-label="{{ability.label}} Mod"><i
+              class="fa-solid fa-dice-d10" data-label="{{ability.label}} Mod"></i>
             {{numberFormat ability.mod decimals=0 sign=true}}</span>
         </div>
       </div>
@@ -248,8 +249,7 @@
                 {{localize "Disadvantages Obtained Points"}}</label>
             </div>
             <div class="secondary-ip">
-              <label type="number" name="system.disadv.ip"
-                data-dtype="Number">{{system.disadv.ip}}</label>
+              <label type="number" name="system.disadv.ip" data-dtype="Number">{{system.disadv.ip}}</label>
             </div>
             <div class="secondary-mod">
             </div>
@@ -292,8 +292,7 @@
                 {{localize "Advantages Spent Points"}}</label>
             </div>
             <div class="secondary-ip">
-              <label type="number" name="system.adv.ip"
-                data-dtype="Number">{{system.adv.ip}}</label>
+              <label type="number" name="system.adv.ip" data-dtype="Number">{{system.adv.ip}}</label>
             </div>
             <div class="secondary-mod">
             </div>

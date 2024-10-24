@@ -546,6 +546,7 @@
   text-align: left;
   align-items: center;
   display: flex;
+  flex: 0 0 100px;
 }
 .shinobi .items-list .item-name h4 {
   margin: 0;
@@ -565,9 +566,19 @@
   text-align: center;
   text-overflow: ellipsis;
 }
+.shinobi .items-list .item-object-controls {
+  display: flex;
+  justify-content: flex-end;
+  flex: 50 0 0px;
+}
+.shinobi .items-list .item-object-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
 .shinobi .items-list .item-controls {
   display: flex;
-  flex: 0 0 100px;
+  flex: 0 0 0px;
   justify-content: flex-end;
 }
 .shinobi .items-list .item-controls a {
@@ -612,6 +623,9 @@
 .shinobi .items-list .items-header > * {
   font-size: 12px;
   text-align: center;
+}
+.shinobi .items-list .items-header .item-name.weapon {
+  margin-left: 55px;
 }
 .shinobi .items-list .items-header .item-name {
   padding-left: 5px;

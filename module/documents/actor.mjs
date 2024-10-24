@@ -3303,6 +3303,30 @@ export class ShinobiActor extends Actor {
     }
 
 
+    // function damage(event) {
+    //   event.preventDefault();
+    //   const a = event.currentTarget.parentElement;
+    //   // const li = a.closest('item');
+    //   // const effect = li.dataset.effectId
+    //   //   ? owner.effects.get(li.dataset.effectId)
+    //   //   : null;
+    //   // switch (a.dataset.action) {
+    //   //   case 'edit':
+    //   //     return effect.sheet.render(true);
+    //   //   case 'delete':
+    //   //     return effect.delete();
+    //   //   case 'toggle':
+    //   //     return effect.update({ disabled: !effect.disabled });
+    //   // }
+    // }
+
+    //   // Bring Damage data to Actorsheet
+    //   document.on('load', '.item-control', (ev) => damage(ev)
+    //   );
+
+    // if (i.system.equipped) system.damage = systemData.items.system.damage;
+
+
     Object.values(secondaries).forEach(secondary => {
 
       switch (secondary.long) {

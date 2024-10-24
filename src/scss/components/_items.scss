@@ -43,6 +43,7 @@
     text-align: left;
     align-items: center;
     display: flex;
+    flex: 0 0 100px;
 
     h4 {
       margin: 0;
@@ -68,9 +69,23 @@
   }
 
   // Control Buttons
+
+  .item-object-controls {
+    display: flex;
+    justify-content: flex-end;
+    flex: 50 0 0px;
+
+    a {
+      font-size: 12px;
+      text-align: center;
+      margin: 0 6px;
+    }
+  }
+
+
   .item-controls {
     display: flex;
-    flex: 0 0 100px;
+    flex: 0 0 0px;
     justify-content: flex-end;
 
     a {
@@ -124,6 +139,10 @@
     >* {
       font-size: 12px;
       text-align: center;
+    }
+
+    .item-name.weapon{
+      margin-left: 55px;
     }
 
     .item-name {
