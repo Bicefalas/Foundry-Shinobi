@@ -22,6 +22,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/shinobi/templates/actor/parts/actor-regeneration.hbs',
     'systems/shinobi/templates/actor/parts/actor-rest.hbs',
     'systems/shinobi/templates/actor/parts/actor-maxRange.hbs',
+    'systems/shinobi/templates/actor/parts/actor-martial-combat.hbs',
     'systems/shinobi/templates/actor/parts/npc/npc-health.hbs',
     'systems/shinobi/templates/actor/parts/npc/npc-combat.hbs',
     'systems/shinobi/templates/actor/parts/npc/npc-fatigue.hbs',

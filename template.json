@@ -20,6 +20,11 @@
           "others": 0
         },
         "biography": "",
+        "martial-combat": {
+          "combat-styles": "",
+          "martial-arts": "",
+          "combat-move": ""
+        },
         "fatigue": {
           "value": 0,
           "max": 0,
