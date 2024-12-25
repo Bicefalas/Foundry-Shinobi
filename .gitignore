@@ -15,3 +15,9 @@ foundry
 build/
 LOCK
 css/shinobi.css.map
+
+# Logs
+LOG
+CURRENT
+LOG.old
+*.log
