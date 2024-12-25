@@ -102,7 +102,7 @@
     {{/ifCond}}
 
     {{#ifCond "ninja" '==' system.class.value}}
-    <a class="item" data-tab="ki">{{localize "Ki"}}</a>
+    <a class="item" data-tab="chakra">{{localize "Chakra"}}</a>
     {{/ifCond}}
 
     {{#ifCond "shaolin" '==' system.class.value}}
@@ -178,6 +178,11 @@
     {{!-- Active Trascendental Combat Tab --}}
     <div class="tab tras-combat-styles" data-group="primary" data-tab="tras-combat-styles">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/tras-combat-styles.hbs"}}
+    </div>
+
+    {{!-- Active Chakra Tab --}}
+    <div class="tab chakra" data-group="primary" data-tab="chakra">
+      {{> "systems/shinobi/templates/actor/parts/classes/tabs/chakra.hbs"}}
     </div>
 
     {{!-- Active Ki Tab --}}

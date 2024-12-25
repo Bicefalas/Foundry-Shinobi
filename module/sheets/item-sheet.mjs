@@ -76,7 +76,7 @@ export class ShinobiItemSheet extends ItemSheet {
     const itemData = context.data;
 
     // Handle rarity scores.
-    if (itemData.type != 'technique') {
+    if (itemData.type != 'technique' && itemData.type != 'chakra_tech') {
       for (let [k, v] of Object.entries(context.system.rarities)) {
         v.label = game.i18n.localize(CONFIG.SHINOBI.rarities[k]) ?? k;
       }
@@ -89,6 +89,11 @@ export class ShinobiItemSheet extends ItemSheet {
     if (itemData.type == 'technique') {
       for (let [k, v] of Object.entries(context.system.classes)) {
         v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
+      }
+    }
+    if (itemData.type == 'chakra_tech') {
+      for (let [k, v] of Object.entries(context.system.trees)) {
+        v.label = game.i18n.localize(CONFIG.SHINOBI.trees[k]) ?? k;
       }
     }
   }

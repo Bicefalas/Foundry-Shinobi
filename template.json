@@ -714,7 +714,8 @@
       "object",
       "weapon",
       "armor",
-      "technique"
+      "technique",
+      "chakra_tech"
     ],
     "templates": {
       "base": {
@@ -770,7 +771,6 @@
       "special": ""
     },
     "technique": {
-      "description": "",
       "classes": {
         "warrior": {},
         "rogue": {},
@@ -785,6 +785,34 @@
         "ryoshi": {},
         "energyShaolin": {}
       }
+    },
+    "chakra_tech": {
+      "trees": {
+        "destruction": {},
+        "fire": {},
+        "wind": {},
+        "earth": {},
+        "ilusion": {},
+        "water": {},
+        "necromancy": {},
+        "creation": {},
+        "essence": {},
+        "light": {},
+        "darkness": {},
+        "lighting": {},
+        "sand": {},
+        "blood": {},
+        "ice": {},
+        "wood": {},
+        "plasma": {},
+        "steam": {},
+        "gravity": {},
+        "puppeteer": {},
+        "lava": {},
+        "poison": {}
+      },
+      "level": 0,
+      "requirement": ""
     }
   }
 }

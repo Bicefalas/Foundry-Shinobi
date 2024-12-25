@@ -193,6 +193,7 @@
   "Combat Styles": "Estilos de Combate",
   "Martial Arts": "Artes Marciales",
   "Habitual Combat Move": "Maniobras de Combate Habituales",
+  "Requirement": "Requisito",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -410,6 +411,74 @@
         "long": "Escudo"
       }
     },
+    "Tree": {
+      "Destruction": {
+        "long": "Destrucción"
+      },
+      "Fire": {
+        "long": "Fuego"
+      },
+      "Wind": {
+        "long": "Aire"
+      },
+      "Earth": {
+        "long": "Tierra"
+      },
+      "Ilusion": {
+        "long": "Ilusión"
+      },
+      "Water": {
+        "long": "Agua"
+      },
+      "Necromancy": {
+        "long": "Nigromancia"
+      },
+      "Creation": {
+        "long": "Creación"
+      },
+      "Essence": {
+        "long": "Esencia"
+      },
+      "Light": {
+        "long": "Luz"
+      },
+      "Darkness": {
+        "long": "Oscuridad"
+      },
+      "Lighting": {
+        "long": "Rayo"
+      },
+      "Sand": {
+        "long": "Arena"
+      },
+      "Blood": {
+        "long": "Sangre"
+      },
+      "Ice": {
+        "long": "Hielo"
+      },
+      "Wood": {
+        "long": "Madera"
+      },
+      "Plasma": {
+        "long": "Plasma"
+      },
+      "Steam": {
+        "long": "Vapor"
+      },
+      "Gravity": {
+        "long": "Gravedad"
+      },
+      "Puppeteer": {
+        "long": "Marionetista"
+      },
+      "Lava": {
+        "long": "Lava"
+      },
+      "Poison": {
+        "long": "Veneno"
+      }
+    },
     "SheetLabels": {
       "Actor": "Shinobi Actor Sheet",
       "Item": "Shinobi Item Sheet"
@@ -424,7 +493,8 @@
       "object": "Objeto",
       "weapon": "Arma",
       "armor": "Armadura",
-      "technique": "Técnica"
+      "technique": "Técnica",
+      "chakra_tech": "Técnica de Chakra"
     }
   }
 }

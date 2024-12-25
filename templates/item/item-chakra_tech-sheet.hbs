@@ -1,0 +1,39 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+      <div class="grid grid-3col">
+        <div class="resource">
+          <label class="resource-label">{{localize "Tree"}}</label>
+          <select class="select-field" name="system.tree.value">
+            {{#selectOptions system.trees selected=system.tree.value}}
+            {{/selectOptions}}
+          </select>
+        </div>
+        <div class="resource grid-span">
+          <label class="resource-label">{{localize "Level"}}</label>
+          <input type="text" data-dtype="text" value="{{system.level}}" name="system.level">
+        </div>
+        <div class="resource grid-span">
+          <label class="resource-label">{{localize "Cost"}}</label>
+          <input type="text" data-dtype="text" value="{{system.cost}}" name="system.cost">
+        </div>
+        <div class="resource grid-span">
+          <label class="resource-label">{{localize "Requirement"}}</label>
+          <input type="text" data-dtype="text" value="{{system.requirement}}" name="system.requirement">
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="sheet-body item-body">
+    {{!-- Description Tab --}}
+    <div class="description-header flex-group-center">
+      <h3 class="description-name">{{localize "Description"}}</h3>
+    </div>
+    <div class="description-body">
+      <textarea data-dtype="text" placeholder="{{localize " Type the technique description here..."}}"
+        name="system.description" value="{{system.description}}">{{system.description}}</textarea>
+    </div>
+  </section>
+</form>

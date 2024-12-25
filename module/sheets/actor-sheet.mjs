@@ -133,6 +133,7 @@ export class ShinobiActorSheet extends ActorSheet {
     const weapon = [];
     const armor = [];
     const technique = [];
+    const chakra_tech = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -163,12 +164,20 @@ export class ShinobiActorSheet extends ActorSheet {
         technique.push(i);
       }
     }
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      // Append to chakra_tech.
+      if (i.type === 'chakra_tech') {
+        chakra_tech.push(i);
+      }
+    }
 
     // Assign and return
     context.object = object;
     context.weapon = weapon;
     context.armor = armor;
     context.technique = technique;
+    context.chakra_tech = chakra_tech;
   }
 
 

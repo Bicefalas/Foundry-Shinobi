@@ -1,22 +1,18 @@
 <div class="grid grid-4col">
     <div class="resource-content">
         <div class="resource-field">
-            {{#ifCond "shaolin" '==' system.class.value}}
-            {{> 'systems/shinobi/templates/actor/parts/classes/resources/shaolin.hbs'}}
-            {{/ifCond}}
-
-            {{#ifCond "energyShaolin" '==' system.class.value}}
-            {{> 'systems/shinobi/templates/actor/parts/classes/resources/energyShaolin.hbs'}}
+            {{#ifCond "ninja" '==' system.class.value}}
+            {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
             {{/ifCond}}
         </div>
     </div>
     <div class="class-editor grid-span-3">
-        <h1>{{localize "Ki"}}</h1>
-        {{editor system.ki target="system.ki" rollData=rollData button=true owner=owner editable=editable}}
+        <h1>{{localize "Chakra"}}</h1>
+        {{editor system.ki target="system.chakra" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 </div>
 <div class="resource-chart">
-    <h1>{{localize "Ki Techniques"}}</h1>
+    <h1>{{localize "Chakra Techniques"}}</h1>
     <ol class='items-list'>
         <li class='item grid grid-4col items-header'>
             <div class='item-name'>{{localize 'Name'}}</div>
@@ -24,7 +20,7 @@
             <div class='item-features'>{{localize 'Cost'}}</div>
             <div class='item-controls'>{{localize 'Erase'}}</div>
         </li>
-        {{#each technique as |item id|}}
+        {{#each chakra_tech as |item id|}}
         <li class='item grid grid-4col' data-item-id='{{item._id}}'>
             <div class='item-name item-control item-edit'>
                 <div class='item-image'>

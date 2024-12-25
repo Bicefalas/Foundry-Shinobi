@@ -99,3 +99,28 @@ SHINOBI.types = {
   ranged: 'SHINOBI.Type.Ranged.long',
   shield: 'SHINOBI.Type.Shield.long'
 }
+
+SHINOBI.trees = {
+  destruction: 'SHINOBI.Tree.Destruction.long',
+  fire: 'SHINOBI.Tree.Fire.long',
+  wind: 'SHINOBI.Tree.Wind.long',
+  earth: 'SHINOBI.Tree.Earth.long',
+  ilusion: 'SHINOBI.Tree.Ilusion.long',
+  water: 'SHINOBI.Tree.Water.long',
+  necromancy: 'SHINOBI.Tree.Necromancy.long',
+  creation: 'SHINOBI.Tree.Creation.long',
+  essence: 'SHINOBI.Tree.Essence.long',
+  light: 'SHINOBI.Tree.Light.long',
+  darkness: 'SHINOBI.Tree.Darkness.long',
+  lighting: 'SHINOBI.Tree.Lighting.long',
+  sand: 'SHINOBI.Tree.Sand.long',
+  blood: 'SHINOBI.Tree.Blood.long',
+  ice: 'SHINOBI.Tree.Ice.long',
+  wood: 'SHINOBI.Tree.Wood.long',
+  plasma: 'SHINOBI.Tree.Plasma.long',
+  steam: 'SHINOBI.Tree.Steam.long',
+  gravity: 'SHINOBI.Tree.Gravity.long',
+  puppeteer: 'SHINOBI.Tree.Puppeteer.long',
+  lava: 'SHINOBI.Tree.Lava.long',
+  poison: 'SHINOBI.Tree.Poison.long'
+}
