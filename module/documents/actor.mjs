@@ -2,8 +2,8 @@
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-import * as tables from './tables.js';
-import {lifeValues} from "./tables.js";
+import * as tables from './tables.mjs';
+import {lifeValues} from "./tables.mjs";
 
 export class ShinobiActor extends Actor {
   /** @override */
