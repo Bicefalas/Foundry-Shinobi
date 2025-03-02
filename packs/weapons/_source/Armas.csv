@@ -1,0 +1,69 @@
+Name,Damage,Initiative,requiredStrength1H,requiredStrength2H,Size,Reload,Range,Rarity,Cost,Special,Type
+Arco Ikayop,35,-3,0,5,Medio,1,50,c,5 MO,-,ranged
+Arco Chuan,40,-4,0,6,Medio,2,75,C,8 MO,-,A distancia
+Arco compuesto recurvado,40,-5,0,7,Medio,2,100,B,25 MO,Permite aplicar el modificador de Fuerza multiplicado por 10 al daño de los ataques hasta un máximo de 20. Este límite aumenta en 10 puntos por cada +1 que tenga la Calidad del arma.,A distancia
+Yumi,60,-10,0,9,Grande,3,200,A,45 MO,Permite aplicar el modificador de Fuerza multiplicado por 10 al daño de los ataques hasta un máximo de 30. Este límite aumenta en 10 puntos por cada +1 que tenga la Calidad del arma.,A distancia
+Ballesta de Mano,30,-1,0,3,Pequeña,2,40,C,15 MO,-,A distancia
+Ballesta de Repetición,20,-2,0,5,Mediana,4,60,B,40 MO,Tiene un cargador de 6 virotes. Únicamente se aplica el penalizador de Recarga cuandos se queda sin munición.,A distancia
+Ballesta Pesada,50,-5,0,6,Mediana,5,100,A,35 MO,-,A distancia
+Tirachinas,15,0,0,3,Pequeña,1,30,C,1 MP,Precisión,A distancia
+Cerbatana,20,0,0,3,Pequeña,1,25,C,4 MP,-,A distancia
+Sodegarami,30,-1,5,0,Mediana,0,2,C,7 MO,El personaje no sufre ningún penalizador a su Capacidad de Ataque a la hora de realizar la Maniobra de Combate Tumbar mientras el objetivo lleve una armadura cuyo Valor de Armadura Físico sea menor de 4 antes de aplicar los modificadores por Calidad.,Asta
+Arpón,30,0,5,0,Mediana,0,2,C,1 MO,Arrojadizo,Asta
+Lanza Corta,35,-1,4,0,Mediana,0,2,C,10 MO,Arrojadiza,Asta
+Jabalina,40,-2,4,0,Mediana,0,2,C,12 MO,"Afilado Blando, Arrojadiza",Asta
+Kontos,45,-3,6,0,Grande,0,2,C,25 MO,"A dos manos, Sangrado",Asta
+Naginata,60,-4,6,12,Grande,0,2,B,32 MO,A dos manos,Asta
+Guan dao,65,-6,6,12,Grande,0,2,A,38 MO,"A dos manos, Afilado duro",Asta
+Yari,70,-7,7,12,Grande,0,2,A,42 MO,"A dos manos, Gran alcance",Asta
+Lanza de Vlach,75,-6,7,0,Grande,0,2,A,50 MO,Solo se puede utilizar mientras se va montado. Aplica 15 veces el modificador de Fuerza en lugar de 10.,Asta
+Desarmado,5,0,-4,0,Pequeña,0,2,C,-,-,Contundente
+Guantes Shaolin,25,0,2,0,Pequeña,0,2,B,20 MO,Multiplica por 15 el modificador de Fuerza del portador a la hora de calcular el daño.,Contundente
+Martillo de Mano,30,0,4,0,Mediana,0,2,C,1 MO,Precisión,Contundente
+Bokken,35,-1,5,0,Mediana,0,2,C,25 MP,Reduce en -1 el penalizador de los ataques apuntados a la hora de realizar la Maniobra de Combate Incapacitar,Contundente
+Nunchaku,30,-2,5,0,Mediana,0,2,C,10 MO,Arma Doble,Contundente
+Bo,35,0,6,0,Grande,0,2,C,1 MP,A dos manos,Contundente
+Martillo meteoro,40,-3,8,0,Mediana,0,2,B,25 MO,"Arma Doble, A dos manos",Contundente
+Pernach,40,-2,5,0,Mediana,0,2,B,10 MO,-,Contundente
+Mangual,50,-5,6,0,Mediana,0,2,B,12 MO,Aplica un penalizador de -1 a la Capacidad de Defensa de los blancos que se defienden con escudos,Contundente
+Maza Pesada,50,-4,6,0,Mediana,0,2,B,20 MO,Afilado duro,Contundente
+Clava,65,-6,6,12,Grande,0,2,A,35 MO,"A dos manos, Afilado duro",Contundente
+Kanabō,75,-8,9,14,Grande,0,2,A,40 MO,"A dos manos, Afilado duro Superior. Si el personaje falla un ataque con el Kanabō, el defensor obtiene un bonificador de +1 a su Capacidad de Ataque a la hora de realizar un contraataque",Contundente
+Martillo de Guerra,85,-11,8,13,Grande,0,2,A,50 MO,"A dos manos, Afilado duro superior.",Contundente
+Broquel,10,-1,5,0,Pequeña,0,2,C,5 MO,+1 a la Capacidad de Defensa,Escudo
+Escudo Medio,10,-2,5,0,Mediana,0,2,B,11 MO,+2 a la Capacidad de Defensa,Escudo
+Escudo Skoutaria,20,-3,6,0,Grande,0,2,B,16 MO,+3 a la Capacidad de Defensa,Escudo
+Escudo Pesado,25,-5,7,0,Grande,0,2,A,27 MO,+4 a la Capacidad de Defensa,Escudo
+Escudo Pavés,25,-6,8,0,Grande,0,2,A,35 MO,"+4 a la Capacidad de Defensa, si el personaje no se mueve detrás del escudo, proporciona cobertura total.",Escudo
+Shuriken,25,0,3,0,Pequeña,0,2,C,25 MP,"Arrojadiza, Verdadera Destreza",Filo
+Kunai,25,0,3,0,Pequeña,0,2,C,25 MP,"Arrojadiza, Verdadera Destreza",Filo
+Tanto,30,0,3,0,Pequeña,0,2,C,1 MO,"Precisión, Arrojadiza",Filo
+Garras,30,-1,4,0,Pequeña,0,2,B,15 MO,Sangrado,Filo
+Espada Tai Chi,30,0,4,0,Mediana,0,2,C,10 MO,Precisión,Filo
+Kusarigama,35,-2,5,0,Mediana,0,2,B,25 MO,"Arrojadiza, la Kusarigama tiene un alcance de 5 metros cuando se lanza. Siempre que el personaje impacte con dos ataques consecutivos, el segundo ataque hace 10 puntos más de daño.",Filo
+Tacunepicoro,40,-1,5,0,Mediana,0,2,C,12 MO,-,Filo
+Sable talwar,40,-2,5,0,Mediana,0,2,C,14 MO,Aumenta en +10 el daño del Sable mientras el personaje se encuentra montado y en movimiento.,Filo
+Urumi,35,-2,5,0,Mediana,0,2,B,25 MO,"Siempre que el personaje ataque con esta arma, obtiene un bonificador de +1 a su Capacidad de Defensa durante el resto del turno. Este bonificador se pierde en caso de recibir daño de un ataque.",Filo
+Shotel,35,-2,5,0,Mediana,0,2,B,25 MO,El personaje obtiene un bonificador de +1 a su Capacidad de Ataque contra oponentes que utilizan armas de tipo Espada.,Filo
+Espada Dao Dao,40,-2,5,0,Mediana,0,2,B,30 MO,Afilado blando,Filo
+Espada Gancho,40,-2,5,0,Mediana,0,2,B,30 MO,Reduce a la mitad el penalizador de la Maniobra de Combate Desarmar en caso de realizar un contraataque.,Filo
+Espada Tao,35,-2,5,0,Mediana,0,2,B,35 MO,El personaje obtiene un bonificador de +1 a su Capacidad de Ataque para el primer ataque cada turno si utiliza la Espada Tao en conjunto con un escudo.,Filo
+Ninjato,45,-2,5,0,Mediana,0,2,B,30 MO,-,Filo
+Espada Jian,40,-4,5,0,Mediana,0,2,B,35 MO,"A dos manos, Arma doble",Filo
+Espada Látigo - Forma espada,40,-3,5,0,Mediana,0,2,A,80 MO,-,Filo
+Espada Látigo - Forma látigo,30,-1,5,0,Mediana,0,2,A,80 MO,Se reduce en un -1 los penalizadores de las maniobras Ataque Amplio y Apresa,Filo
+Katana,50,-3,5,0,Mediana,0,2,C,25 MO,-,Filo
+Espada Nosh,60,-5,6,8,Grande,0,2,B,30 MO,A dos manos,Filo
+Ōdachi,65,-6,6,11,Grande,0,2,B,35 MO,A dos manos,Filo
+Gran Guadaña,70,-7,6,0,Grande,0,2,A,45 MO,"A dos manos, Gran alcance",Filo
+Espada Mandoble Hsu Jian,80,-10,8,13,Grande,0,2,A,50 MO,A dos manos,Filo
+Faussar,100,-14,11,14,Grande,0,2,A,65 MO,A dos manos,Filo
+Kama,35,0,4,0,Pequeña,0,2,C,50 MP,-,Hacha
+Hacha Sagaris,40,-1,5,0,Mediana,0,2,C,1 MO,Arrojadiza,Hacha
+Hacha Dentada,40,-2,6,0,Mediana,0,2,B,5 MO,Sangrado,Hacha
+Sükh,50,-3,6,0,Mediana,0,2,C,75 MP,-,Hacha
+Hacha de Doble Hoja,50,-6,7,0,Grande,0,2,B,25 MO,"A dos manos, Arma Doble",Hacha
+Ono,60,-6,6,10,Grande,0,2,B,35 MO,Sangrado,Hacha
+Gran Hacha,70,-8,7,11,Grande,0,2,A,40 MO,A dos manos,Hacha
+Hacha de Filo Largo Cumana,80,-11,7,12,Grande,0,2,A,45 MO,"A dos manos, Se obtiene +1 a la Capacidad de Defensa cuando se utiliza para defenderse de ataques realizados con armas de tipo Espada",Hacha
+Gran Hacha de Guerra,90,-12,8,13,Grande,0,2,A,50 MO,A dos manos,Hacha

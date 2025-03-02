@@ -1,0 +1,21 @@
+{
+  "name": "{{Name}}",
+  "type": "weapon",
+  "system": {
+    "cost": "{{Cost}}",
+    "damage": "{{Damage}}",
+    "initiative": "{{Initiative}}",
+    "requiredStrength1H": {{requiredStrength1H}},
+	"requiredStrength2H": {{requiredStrength2H}},
+    "size": "{{Size}}",
+    "reload": {{Reload}},
+    "range": {{Range}},
+    "special": "{{Special}}",
+    "rarity": {
+      "value": "{{Rarity}}"
+    },
+    "type": {
+      "value": "{{Type}}"
+    }
+  }
+}
