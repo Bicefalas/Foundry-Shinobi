@@ -170,6 +170,12 @@
           "base": 0,
           "multipliers": 0,
           "others": 0
+        },
+        "infusion": {
+          "value": 0,
+          "max": 0,
+          "class": 0,
+          "others": 0
         }
       },
       "class": {

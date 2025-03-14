@@ -3,7 +3,7 @@
  * @extends {Actor}
  */
 import * as tables from './tables.mjs';
-import {lifeValues} from "./tables.mjs";
+import { lifeValues } from "./tables.mjs";
 
 export class ShinobiActor extends Actor {
   /** @override */
@@ -74,6 +74,7 @@ export class ShinobiActor extends Actor {
     let ki = systemData.attributes.ki;
     let invocation = systemData.attributes.invocation;
     let talisman = systemData.attributes.talisman;
+    let infusion = systemData.attributes.infusion;
     let bloodPower = systemData.attributes.bloodPower;
     let bloodPowerLearning = systemData.attributes.bloodPowerLearning;
     let strengthValue = systemData.abilities.str.value
@@ -255,6 +256,7 @@ export class ShinobiActor extends Actor {
     let classCAT = 0;
     let classInvocation = 0;
     let classTalisman = 0;
+    let classInfusion = 0;
     let classBloodPowerLearning = 0;
     let classStr = 0;
     let classDex = 0;
@@ -263,7 +265,7 @@ export class ShinobiActor extends Actor {
     let classWil = 0;
     let classIp = 0;
 
-switch (systemData.class.value) {
+    switch (systemData.class.value) {
       case "warrior":
         classAttack = tables.warriorAttack[level - 1];
         classDefense = tables.warriorDefense[level - 1];
@@ -314,6 +316,7 @@ switch (systemData.class.value) {
         classDefense = tables.hengeDefense[level - 1];
         classInitiative = tables.hengeInitiative[level - 1];
         classHealth = tables.hengeHealth[level - 1];
+        classInfusion = tables.hengeInfusion[level - 1];
         classDex = tables.hengeDex[level - 1];
         classPer = tables.hengePer[level - 1];
         classWil = tables.hengeWil[level - 1];
@@ -397,6 +400,7 @@ switch (systemData.class.value) {
     cat.multipliers = classCAT;
     invocation.class = classInvocation;
     talisman.class = classTalisman;
+    infusion.class = classInfusion;
     if (abilities.con.mod >= 1) bloodPowerLearning.class = classBloodPowerLearning * abilities.con.mod;
     else bloodPowerLearning.class = classBloodPowerLearning * 0.5;
     combat.attack =
@@ -462,6 +466,10 @@ switch (systemData.class.value) {
       talisman.base +
       talisman.class +
       talisman.others;
+
+    infusion.max =
+      infusion.class +
+      infusion.others;
 
     bloodPower.max =
       bloodPower.base +

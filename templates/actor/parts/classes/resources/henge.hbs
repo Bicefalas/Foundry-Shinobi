@@ -1,1 +1,27 @@
 {{> 'systems/shinobi/templates/actor/parts/actor-maxRange.hbs'}}
+<label for="system.attributes.infusion" class="resource-box-label">{{localize "Infusion"}}</label>
+<div class="resource-box">
+    <div class="resource-field">
+        <label for="system.attributes.infusion.value" class="resource-label">{{localize "Current"}}</label>
+        <input class="class-dependant" type="number" name="system.attributes.infusion.value"
+            value="{{system.attributes.infusion.value}}" data-dtype="Number" />
+    </div>
+    <hr>
+    <details id="infusion" {{#openDetails "infusion" }}{{/openDetails}}>
+        <summary class="resource-field summary">
+            <label for="system.attributes.infusion.max" class="resource-label">{{localize "Max"}}</label>
+            <label class="class-dependant" type="number" name="system.attributes.infusion.max"
+                value="{{system.attributes.infusion.max}}">{{system.attributes.infusion.max}}</label>
+        </summary>
+        <div class="resource-field">
+            <label for="system.attributes.infusion.class" class="resource-label">{{localize "Class"}}</label>
+            <label type="number" name="system.attributes.infusion.class"
+                value="{{system.attributes.infusion.class}}">{{system.attributes.infusion.class}}</label>
+        </div>
+        <div class="resource-field">
+            <label for="system.attributes.infusion.others" class="resource-label">{{localize "Others"}}</label>
+            <input type="number" name="system.attributes.infusion.others" value="{{system.attributes.infusion.others}}"
+                data-dtype="Number" />
+        </div>
+    </details>
+</div>
