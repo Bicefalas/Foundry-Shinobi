@@ -97,7 +97,8 @@ SHINOBI.types = {
   axe: 'SHINOBI.Type.Axe.long',
   pole: 'SHINOBI.Type.Pole.long',
   ranged: 'SHINOBI.Type.Ranged.long',
-  shield: 'SHINOBI.Type.Shield.long'
+  shield: 'SHINOBI.Type.Shield.long',
+  vayutec: 'SHINOBI.Type.Vayutec.long'
 }
 
 SHINOBI.trees = {

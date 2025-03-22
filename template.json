@@ -746,6 +746,9 @@
         "base"
       ],
       "damage": 0,
+      "chargePerTurn": 0,
+      "maxCharge": 0,
+      "capacity": 0,
       "initiative": 0,
       "requiredStrength1H": 0,
       "requiredStrength2H": 0,
@@ -760,7 +763,8 @@
         "axe": {},
         "pole": {},
         "ranged": {},
-        "shield": {}
+        "shield": {},
+        "vayutec": {}
       }
     },
     "armor": {

@@ -198,6 +198,9 @@
   "Habitual Combat Move": "Maniobras de Combate Habituales",
   "Requirement": "Requisito",
   "Infusion": "Infusión",
+  "Charge per Turn": "Carga por Turno",
+  "Max Charge": "Máxima Carga",
+  "Max Capacity": "Capacidad Máxima",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -413,6 +416,9 @@
       },
       "Shield": {
         "long": "Escudo"
+      },
+      "Vayutec": {
+        "long": "Vayutec"
       }
     },
     "Tree": {
