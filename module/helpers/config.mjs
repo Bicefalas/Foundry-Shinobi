@@ -8,6 +8,7 @@ SHINOBI.classes = {
   warrior: 'SHINOBI.Class.Warrior.long',
   rogue: 'SHINOBI.Class.Rogue.long',
   ninja: 'SHINOBI.Class.Ninja.long',
+  mixedNinja: 'SHINOBI.Class.MixedNinja.long',
   shaolin: 'SHINOBI.Class.Shaolin.long',
   omnyoji: 'SHINOBI.Class.Omnyoji.long',
   samurai: 'SHINOBI.Class.Samurai.long',

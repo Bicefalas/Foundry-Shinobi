@@ -4,6 +4,9 @@
             {{#ifCond "ninja" '==' system.class.value}}
             {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
             {{/ifCond}}
+            {{#ifCond "mixedNinja" '==' system.class.value}}
+            {{> 'systems/shinobi/templates/actor/parts/classes/resources/ninja.hbs'}}
+            {{/ifCond}}
         </div>
     </div>
     <div class="class-editor grid-span-3">

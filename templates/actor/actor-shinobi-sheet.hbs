@@ -105,6 +105,10 @@
     <a class="item" data-tab="chakra">{{localize "Chakra"}}</a>
     {{/ifCond}}
 
+    {{#ifCond "mixedNinja" '==' system.class.value}}
+    <a class="item" data-tab="chakra">{{localize "Chakra"}}</a>
+    {{/ifCond}}
+
     {{#ifCond "shaolin" '==' system.class.value}}
     <a class="item" data-tab="ki">{{localize "Ki"}}</a>
     {{/ifCond}}

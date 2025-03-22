@@ -216,6 +216,7 @@ export class ShinobiActor extends Actor {
     switch (systemData.class.value) {
       case "warrior":
       case "ninja":
+      case "mixedNinja":
       case "shaolin":
       case "energyShaolin":
         ipCostInt = 3
@@ -291,6 +292,14 @@ export class ShinobiActor extends Actor {
         classHealth = tables.ninjaHealth[level - 1];
         classKi = tables.ninjaKi[level - 1];
         classIp = tables.ninjaIp[level - 1];
+        break;
+      case "mixedNinja":
+        classAttack = tables.mixedNinjaAttack[level - 1];
+        classDefense = tables.mixedNinjaDefense[level - 1];
+        classInitiative = tables.mixedNinjaInitiative[level - 1];
+        classHealth = tables.mixedNinjaHealth[level - 1];
+        classKi = tables.mixedNinjaKi[level - 1];
+        classIp = tables.mixedNinjaIp[level - 1];
         break;
       case "shaolin":
         classAttack = tables.shaolinAttack[level - 1];
