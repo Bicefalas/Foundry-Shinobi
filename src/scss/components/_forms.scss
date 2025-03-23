@@ -86,12 +86,18 @@ textarea {
 
 .weapons,
 .special,
-.description {
+.description,
+.increments {
   height: 100%;
 
   &-body {
     height: 100%;
   }
+}
+
+//TODO refactor 
+.description-container {
+  height: 300px;
 }
 
 .class-editor {

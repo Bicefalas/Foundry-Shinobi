@@ -126,3 +126,9 @@ SHINOBI.trees = {
   lava: 'SHINOBI.Tree.Lava.long',
   poison: 'SHINOBI.Tree.Poison.long'
 }
+
+SHINOBI.arcanaTypes = {
+  area: 'SHINOBI.ArcanaType.Area.long',
+  attack: 'SHINOBI.ArcanaType.Attack.long',
+  passive: 'SHINOBI.ArcanaType.Passive.long'
+}

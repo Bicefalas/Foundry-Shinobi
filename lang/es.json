@@ -93,6 +93,7 @@
   " Type the advantage description here...": "Escribe la descripción de la ventaja aquí...",
   " Type the clan description here...": "Escribe la descripción del clan aquí...",
   " Type the technique description here...": "Escribe la descripción de la técnica aquí...",
+  " Type the technique increments here...": "Escribe los incrementos de la técnica aquí...",
   "Rarity": "Rareza",
   "Cost": "Coste",
   "Quantity": "Cantidad",
@@ -202,6 +203,10 @@
   "Charge per Turn": "Carga por Turno",
   "Max Charge": "Máxima Carga",
   "Max Capacity": "Capacidad Máxima",
+  "Arcana Cost": "Coste de Arcana",
+  "Learning Cost": "Coste de Aprendizaje",
+  "Maintenance": "Mantenimiento",
+  "Increments": "Incrementos",
   "SHINOBI": {
     "Class": {
       "Warrior": {
@@ -493,6 +498,17 @@
         "long": "Veneno"
       }
     },
+    "ArcanaType": {
+      "Area": {
+        "long": "Área"
+      },
+      "Attack": {
+        "long": "Ataque"
+      },
+      "Passive": {
+        "long": "Pasivo"
+      }
+    },
     "SheetLabels": {
       "Actor": "Shinobi Actor Sheet",
       "Item": "Shinobi Item Sheet"
@@ -508,7 +524,8 @@
       "weapon": "Arma",
       "armor": "Armadura",
       "technique": "Técnica",
-      "chakra_tech": "Técnica de Chakra"
+      "chakra_tech": "Técnica de Chakra",
+      "arcana_tech": "Técnica de Arcana"
     }
   }
 }

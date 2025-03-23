@@ -299,13 +299,18 @@
 }
 .shinobi .weapons,
 .shinobi .special,
-.shinobi .description {
+.shinobi .description,
+.shinobi .increments {
   height: 100%;
 }
 .shinobi .weapons-body,
 .shinobi .special-body,
-.shinobi .description-body {
+.shinobi .description-body,
+.shinobi .increments-body {
   height: 100%;
+}
+.shinobi .description-container {
+  height: 300px;
 }
 .shinobi .class-editor .editor-content {
   height: 100%;
@@ -653,3 +658,5 @@
 .shinobi .effects .item .effect-controls {
   border: none;
 }
+
+/*# sourceMappingURL=shinobi.css.map */

@@ -722,7 +722,8 @@
       "weapon",
       "armor",
       "technique",
-      "chakra_tech"
+      "chakra_tech",
+      "arcana_tech"
     ],
     "templates": {
       "base": {
@@ -826,6 +827,17 @@
       },
       "level": 0,
       "requirement": ""
+    },
+    "arcana_tech": {
+      "arcanaTypes": {
+        "area": {},
+        "attack": {},
+        "passive": {}
+      },
+      "channel": 0,
+      "learningCost": 0,
+      "maintenance": false,
+      "increments": ""
     }
   }
 }

@@ -1,0 +1,57 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+      <div class="grid grid-3col">
+        <div class="resource">
+          <label class="resource-label">{{localize "Type"}}</label>
+          <select class="select-field" name="system.tree.value">
+            {{#selectOptions system.arcanaTypes selected=system.tree.value}}
+            {{/selectOptions}}
+          </select>
+        </div>
+        <div class="resource grid-span">
+          <label class="resource-label">{{localize "Channel"}}</label>
+          <input type="text" data-dtype="text" value="{{system.channel}}" name="system.channel">
+        </div>
+        <div class="resource grid-span">
+          <label class="resource-label">{{localize "Arcana Cost"}}</label>
+          <input type="text" data-dtype="text" value="{{system.cost}}" name="system.cost">
+        </div>
+        <div class="resource grid-span">
+          <label class="resource-label">{{localize "Learning Cost"}}</label>
+          <input type="text" data-dtype="text" value="{{system.learningCost}}" name="system.learningCost">
+        </div>
+        <div class="resource grid-span">
+          <label class="resource-label">{{localize "Maintenance"}}</label>
+          <input type="checkbox" name="system.maintenance" {{#if system.maintenance}}checked{{/if}}>
+        </div>
+      </div>
+    </div>
+  </header>
+  {{!-- Sheet Body --}}
+  <section class="sheet-body item-body">
+    {{!-- Description Tab --}}
+    <div class="grid grid-2col">
+      <div class="description-container flex-group-center">
+        <div class="description-header flex-group-center">
+          <h3 class="description-name">{{localize "Description"}}</h3>
+        </div>
+        <div class="description-body">
+          <textarea data-dtype="text" placeholder="{{localize " Type the technique description here..."}}"
+            name="system.description" value="{{system.description}}">{{system.description}}</textarea>
+        </div>
+      </div>
+      <div class="increments-container flex-group-center">
+        <div class="increments-header flex-group-center">
+          <h3 class="increments-name">{{localize "Increments"}}</h3>
+        </div>
+        <div class="increments-body">
+          <textarea data-dtype="text" placeholder="{{localize " Type the technique increments here..."}}"
+            name="system.increments" value="{{system.increments}}">{{system.increments}}</textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

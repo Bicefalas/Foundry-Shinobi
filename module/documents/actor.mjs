@@ -91,8 +91,10 @@ export class ShinobiActor extends Actor {
     systemData.disadv.total = 0;
 
     for (let i = 1; i <= 4; i++) {
-      systemData.adv.total += systemData[`adv${i}`].cost;
-      systemData.disadv.total += systemData[`disadv${i}`].gain
+      if (systemData[`adv${i}`]) {
+        systemData.adv.total += systemData[`adv${i}`].cost;
+        systemData.disadv.total += systemData[`disadv${i}`].gain
+      }
     }
     if (systemData.advDisadv.advanced) {
       systemData.adv.total += systemData.adv.ip;

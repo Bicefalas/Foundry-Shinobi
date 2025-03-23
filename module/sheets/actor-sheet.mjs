@@ -134,6 +134,7 @@ export class ShinobiActorSheet extends ActorSheet {
     const armor = [];
     const technique = [];
     const chakra_tech = [];
+    const arcana_tech = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -171,6 +172,13 @@ export class ShinobiActorSheet extends ActorSheet {
         chakra_tech.push(i);
       }
     }
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      // Append to arcana_tech.
+      if (i.type === 'arcana_tech') {
+        arcana_tech.push(i);
+      }
+    }
 
     // Assign and return
     context.object = object;
@@ -178,6 +186,7 @@ export class ShinobiActorSheet extends ActorSheet {
     context.armor = armor;
     context.technique = technique;
     context.chakra_tech = chakra_tech;
+    context.arcana_tech = arcana_tech;
   }
 
 
