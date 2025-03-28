@@ -168,8 +168,15 @@ export class ShinobiActor extends Actor {
     systemData.speed.value = tables.speedValues[dexterityValue - 1] || "100 km";
     health.con = tables.lifeValues[constitutionValue - 1] || 400;
     objects.carryWeight = tables.carryWeights[strengthValue - 1] || "100.000 Kg";
-    arcana.base = tables.baseArcanaValues[powerValue - 1] || 420;
-    cat.base = tables.baseCATValues[powerValue - 1] || 35;
+    if (tables.baseArcanaValues[powerValue] !== null) {
+      arcana.base = tables.baseArcanaValues[powerValue]
+    }
+    else arcana.base = 420;
+
+    if (tables.baseCATValues[powerValue] !== null) {
+      cat.base = tables.baseCATValues[powerValue]
+    }
+    else cat.base = 35;
 
     let baseTalisman = 0;
 
