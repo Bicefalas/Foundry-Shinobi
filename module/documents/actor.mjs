@@ -52,7 +52,17 @@ export class ShinobiActor extends Actor {
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.abilities)) {
-      ability.mod = tables.abilityMod[ability.value];
+      if (tables.abilityMod[ability.value] !== undefined) {
+        ability.mod = tables.abilityMod[ability.value];
+      }
+      else {
+        if (ability.value < 0) {
+          ability.mod = tables.abilityMod[0];
+        }
+        if (ability.value > 20) {
+          ability.mod = tables.abilityMod[20];
+        }
+      }
     };
 
 
@@ -168,12 +178,13 @@ export class ShinobiActor extends Actor {
     systemData.speed.value = tables.speedValues[dexterityValue - 1] || "100 km";
     health.con = tables.lifeValues[constitutionValue - 1] || 400;
     objects.carryWeight = tables.carryWeights[strengthValue - 1] || "100.000 Kg";
-    if (tables.baseArcanaValues[powerValue] !== null) {
+
+    if (tables.baseArcanaValues[powerValue] !== undefined) {
       arcana.base = tables.baseArcanaValues[powerValue]
     }
     else arcana.base = 420;
 
-    if (tables.baseCATValues[powerValue] !== null) {
+    if (tables.baseCATValues[powerValue] !== undefined) {
       cat.base = tables.baseCATValues[powerValue]
     }
     else cat.base = 35;
