@@ -182,12 +182,26 @@ export class ShinobiActor extends Actor {
     if (tables.baseArcanaValues[powerValue] !== undefined) {
       arcana.base = tables.baseArcanaValues[powerValue]
     }
-    else arcana.base = 420;
+    else {
+      if (powerValue < 0) {
+        arcana.base = tables.baseArcanaValues[0];
+      }
+      if (powerValue > 20) {
+        arcana.base = tables.baseArcanaValues[20];
+      }
+    }
 
     if (tables.baseCATValues[powerValue] !== undefined) {
       cat.base = tables.baseCATValues[powerValue]
     }
-    else cat.base = 35;
+    else {
+      if (powerValue < 0) {
+        cat.base = tables.baseCATValues[0];
+      }
+      if (powerValue > 20) {
+        cat.base = tables.baseCATValues[20];
+      }
+    }
 
     let baseTalisman = 0;
 
