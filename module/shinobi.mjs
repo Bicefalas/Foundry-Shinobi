@@ -44,11 +44,15 @@ Hooks.once('init', function () {
   CONFIG.ActiveEffect.legacyTransferral = false;
 
   // Register sheet application classes
+  const Actors = foundry.documents.collections.Actors;
+  const ActorSheet = foundry.appv1.sheets.ActorSheet;
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('shinobi', ShinobiActorSheet, {
     makeDefault: true,
     label: 'SHINOBI.SheetLabels.Actor',
   });
+  const Items = foundry.documents.collections.Items;
+  const ItemSheet = foundry.appv1.sheets.ItemSheet;
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('shinobi', ShinobiItemSheet, {
     makeDefault: true,
@@ -131,12 +135,14 @@ Hooks.once('ready', function () {
 
 
   // Chat message button
-  Hooks.on("renderChatMessage", (chatMessage, html, data) => {
-    html.find(".buttonclick").click(function () {
-      const button = $(this);
-      const buttonType = button.data("buttontype");
-      chatButton(chatMessage, buttonType);
-    });
+  Hooks.on("renderChatMessageHTML", (chatMessage, html, data) => {
+    if (html.querySelector(".buttonclick")) {
+      html.querySelector(".buttonclick").addEventListener('click', function () {
+        const button = $(this);
+        const buttonType = button.data("buttontype");
+        chatButton(chatMessage, buttonType);
+      });
+    }
   });
   // Add listener to past message
   $(".chat-message .buttonclick").each((index, element) => {
@@ -148,8 +154,6 @@ Hooks.once('ready', function () {
       chatButton(chatMessage, buttonType);
     });
   });
-
-
 });
 
 /* -------------------------------------------- */

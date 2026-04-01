@@ -7,6 +7,8 @@ import {
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
+const ItemSheet = foundry.appv1.sheets.ItemSheet;
+
 export class ShinobiItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {

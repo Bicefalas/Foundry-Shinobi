@@ -7,6 +7,9 @@ import {
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
+
+const ActorSheet = foundry.appv1.sheets.ActorSheet;
+
 export class ShinobiActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
@@ -324,6 +327,7 @@ export class ShinobiActorSheet extends ActorSheet {
         apply: chatapply,
       };
 
+      const renderTemplate = foundry.applications.handlebars.renderTemplate;
       if (element.attributes.for.nodeValue == "system.combat.attack") {
         chatData.content = await renderTemplate(
           "systems/shinobi/templates/roll/roll-attack.hbs",

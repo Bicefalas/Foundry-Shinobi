@@ -1,4 +1,4 @@
-<div class="dice-roll">
+<div class="dice-roll" data-action="expandRoll">
     {{#if flavor}}<div class="dice-flavor">{{flavor}}</div>{{/if}}
     <div class="dice-result">
         <div class="dice-formula">{{formula}}</div>
@@ -13,7 +13,7 @@
 
 <div>
     <div class="flexrow">
-        {{#if fumble}} 
+        {{#if fumble}}
         <button class="buttonclick" data-buttontype="chatButtonFumble" style="font-size:11px;">
             <span style="color: #862020;">✔</span>{{localize "Fumble!"}}
         </button>

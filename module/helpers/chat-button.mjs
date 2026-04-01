@@ -31,6 +31,7 @@ export async function chatButton(chatMessage, buttonType) {
         let confirmed = false;
 
         // Add armor for a Defense roll
+        const renderTemplate = foundry.applications.handlebars.renderTemplate;
         await Dialog.wait({
             title: game.i18n.localize("Indicate your Armor Value"),
             content: await renderTemplate("systems/shinobi/templates/roll/parts/armor-dialog.hbs", { defense: targetActor.system.combat.defense }),
@@ -101,7 +102,7 @@ export async function chatButton(chatMessage, buttonType) {
 
             let differenceValue = 0;
 
-            let totalAttack = chatMessage.flags.total;
+            let totalAttack = chatMessage.rolls[0]._total;
 
 
             differenceValue = totalAttack - totalDefense;
