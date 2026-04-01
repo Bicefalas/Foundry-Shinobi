@@ -12,8 +12,14 @@
       <h3 class="description-name">{{localize "Description"}}</h3>
     </div>
     <div>
-      {{editor system.description target="system.description" rollData=rollData button=true owner=owner
-      editable=editable}}
+      {{#if editable}}
+      <prose-mirror name="system.description" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+        value="{{system.description}}">
+        {{{system.description}}}
+      </prose-mirror>
+      {{else}}
+      {{{system.description}}}
+      {{/if}}
     </div>
   </section>
 </form>

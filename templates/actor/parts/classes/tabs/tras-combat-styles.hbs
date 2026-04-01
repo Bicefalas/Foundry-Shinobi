@@ -8,8 +8,15 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Trascendental Combat Styles"}}</h1>
-        {{editor system.tras-combat-styles target="system.tras-combat-styles" rollData=rollData button=true owner=owner
-        editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.tras-combat-styles" button="true" editable="{{editable}}" toggled="false"
+            rollData="rollData" value="{{system.tras-combat-styles}}">
+            {{{system.tras-combat-styles}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.tras-combat-styles}}}
+        {{/if}}
     </div>
 </div>
 <div class="resource-chart">

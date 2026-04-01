@@ -9,8 +9,16 @@
 
     <div class="class-editor grid-span-3">
         <h1>{{localize "Blood Techniques"}}</h1>
-        {{editor system.blood-tech target="system.blood-tech" rollData=rollData button=true owner=owner
-        editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.blood-tech" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+            value="{{system.blood-tech}}">
+            {{{system.blood-tech}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.blood-tech}}}
+        {{/if}}
+
     </div>
 </div>
 

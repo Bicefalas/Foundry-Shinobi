@@ -1,2 +1,9 @@
 <h1>{{localize "Description"}}</h1>
-{{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
+{{#if editable}}
+<prose-mirror name="system.biography" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+    value="{{system.biography}}">
+    {{{system.biography}}}
+</prose-mirror>
+{{else}}
+{{{system.biography}}}
+{{/if}}

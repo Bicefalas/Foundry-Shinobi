@@ -8,8 +8,15 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Impregnate Techniques"}}</h1>
-        {{editor system.impregnate-tech target="system.impregnate-tech" rollData=rollData button=true owner=owner
-        editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.impregnate-tech" button="true" editable="{{editable}}" toggled="false"
+            rollData="rollData" value="{{system.impregnate-tech}}">
+            {{{system.impregnate-tech}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.impregnate-tech}}}
+        {{/if}}
     </div>
 </div>
 <div class="resource-chart">

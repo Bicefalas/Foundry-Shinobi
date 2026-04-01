@@ -8,8 +8,15 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Divine Power"}}</h1>
-        {{editor system.divine-power target="system.divine-power" rollData=rollData button=true owner=owner
-        editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.divine-power" button="true" editable="{{editable}}" toggled="false"
+            rollData="rollData" value="{{system.divine-power}}">
+            {{{system.divine-power}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.divine-power}}}
+        {{/if}}
     </div>
 
 </div>

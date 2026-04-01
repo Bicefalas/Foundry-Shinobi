@@ -11,8 +11,15 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Canalization"}}</h1>
-        {{editor system.canalization target="system.canalization" rollData=rollData button=true owner=owner
-        editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.canalization" button="true" editable="{{editable}}" toggled="false"
+            rollData="rollData" value="{{system.canalization}}">
+            {{{system.canalization}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.canalization}}}
+        {{/if}}
     </div>
 </div>
 <div class="resource-chart">

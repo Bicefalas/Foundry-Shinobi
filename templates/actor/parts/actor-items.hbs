@@ -125,4 +125,11 @@
   {{localize "Items"}}
 </h1>
 
-{{editor system.items target="system.items" rollData=rollData button=true owner=owner editable=editable}}
+{{#if editable}}
+<prose-mirror name="system.items" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+  value="{{system.items}}">
+  {{{system.items}}}
+</prose-mirror>
+{{else}}
+{{{system.items}}}
+{{/if}}

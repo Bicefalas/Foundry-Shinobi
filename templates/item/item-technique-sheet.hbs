@@ -28,8 +28,15 @@
         name="system.description" value="{{system.description}}">{{system.description}}</textarea>
     </div>
     <div>
-      {{editor system.description1 target="system.description1" rollData=rollData button=true owner=owner
-      editable=editable}}
+
+      {{#if editable}}
+      <prose-mirror name="system.description1" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+        value="{{system.description1}}">
+        {{{system.description1}}}
+      </prose-mirror>
+      {{else}}
+      {{{system.description1}}}
+      {{/if}}
     </div>
   </section>
 </form>

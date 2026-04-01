@@ -8,8 +8,14 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Breath Techniques"}}</h1>
-        {{editor system.breaths-tech target="system.breaths-tech" rollData=rollData button=true owner=owner
-        editable=editable}}
+        {{#if editable}}
+        <prose-mirror name="system.breaths-tech" button="true" editable="{{editable}}" toggled="false"
+            rollData="rollData" value="{{system.breaths-tech}}">
+            {{{system.breaths-tech}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.breaths-tech}}}
+        {{/if}}
     </div>
 </div>
 <div class="resource-chart">

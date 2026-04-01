@@ -126,6 +126,13 @@
 <br>
 <div class="resource">
     <label class="resource-label">{{localize "Properties"}}</label>
-    {{editor system.special target="system.special" rollData=rollData button=true owner=owner
-    editable=editable}}
+
+    {{#if editable}}
+    <prose-mirror name="system.special" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+        value="{{system.special}}">
+        {{{system.special}}}
+    </prose-mirror>
+    {{else}}
+    {{{system.special}}}
+    {{/if}}
 </div>

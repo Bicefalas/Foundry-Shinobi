@@ -1,5 +1,12 @@
 <div class="class-editor">
     <h1>{{localize "Hunt Techniques"}}</h1>
-    {{editor system.hunt-tech target="system.hunt-tech" rollData=rollData button=true owner=owner
-    editable=editable}}
+
+    {{#if editable}}
+    <prose-mirror name="system.hunt-tech" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+        value="{{system.hunt-tech}}">
+        {{{system.hunt-tech}}}
+    </prose-mirror>
+    {{else}}
+    {{{system.hunt-tech}}}
+    {{/if}}
 </div>

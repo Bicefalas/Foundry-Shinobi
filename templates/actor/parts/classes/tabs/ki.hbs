@@ -12,7 +12,15 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Ki"}}</h1>
-        {{editor system.ki target="system.ki" rollData=rollData button=true owner=owner editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.ki" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+            value="{{system.ki}}">
+            {{{system.ki}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.ki}}}
+        {{/if}}
     </div>
 </div>
 <div class="resource-chart">

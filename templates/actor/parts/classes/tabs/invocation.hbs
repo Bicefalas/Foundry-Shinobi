@@ -8,8 +8,15 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Invocation"}}</h1>
-        {{editor system.invocation target="system.invocation" rollData=rollData button=true owner=owner
-        editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.invocation" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+            value="{{system.invocation}}">
+            {{{system.invocation}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.invocation}}}
+        {{/if}}
     </div>
 </div>
 <div class="resource-chart">

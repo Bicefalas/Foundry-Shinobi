@@ -11,7 +11,15 @@
     </div>
     <div class="class-editor grid-span-3">
         <h1>{{localize "Chakra"}}</h1>
-        {{editor system.chakra target="system.chakra" rollData=rollData button=true owner=owner editable=editable}}
+
+        {{#if editable}}
+        <prose-mirror name="system.chakra" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
+            value="{{system.chakra}}">
+            {{{system.chakra}}}
+        </prose-mirror>
+        {{else}}
+        {{{system.chakra}}}
+        {{/if}}
     </div>
 </div>
 <div class="resource-chart">
