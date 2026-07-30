@@ -2,11 +2,11 @@
   "id": "shinobi",
   "title": "Shinobi - Tierras Ocultas",
   "description": "Un juego de ninjas situado en un continente lejano, basado en el sistema de juego RENd10.",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "compatibility": {
     "minimum": "12",
-    "verified": "13",
-    "maximum": "13"
+    "verified": "14",
+    "maximum": "14"
   },
   "authors": [
     {
