@@ -1,8 +1,8 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<div class="shinobi-sheet {{actor.type}} flexcol">
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <img class="profile-img" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" data-dtype="text" type="text" value="{{actor.name}}"
           placeholder="{{localize Name}}" /></h1>
@@ -82,7 +82,7 @@
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <div class="ability-label">
-                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-action="roll"
                   data-roll="1d10x10+@abilities.{{key}}.value" data-label="{{ability.label}}"><i
                     class="fa-solid fa-dice-d10" data-label="{{ability.label}}"></i> {{ability.label}}</label>
               </div>
@@ -91,7 +91,7 @@
                   data-dtype="Number" />
               </div>
               <div class="ability-mod">
-                <span class="ability-mod rollable" data-roll="1d10x10+@abilities.{{key}}.mod"
+                <span class="ability-mod rollable" data-action="roll" data-roll="1d10x10+@abilities.{{key}}.mod"
                   data-label="{{ability.label}} Mod"><i class="fa-solid fa-dice-d10"
                     data-label="{{ability.label}} Mod"></i>
                   {{numberFormat ability.mod decimals=0 sign=true}}</span>
@@ -130,7 +130,7 @@
             {{#each system.resistances as |resistance key|}}
             <div class="resistance flexrow flex-group-center">
               <div class="resistance-label">
-                <label for="system.resistances.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                <label for="system.resistances.{{key}}.value" class="resource-label rollable flexlarge align-left" data-action="roll"
                   data-roll="1d10+@resistances.{{key}}.value" data-label="{{localize 'Resistance'}}
                   {{resistance.label}}"><i class="fa-solid fa-dice-d10" data-label="{{localize 'Resistance'}}
                     {{resistance.label}}"></i> {{resistance.label}}</label>
@@ -172,7 +172,7 @@
             {{#each system.secondaries as |secondary key|}}
             <div class="secondary flexrow flex-group-center">
               <div class="secondary-label">
-                <label for="system.secondaries.{{key}}.value" class="resource-label rollable flexlarge align-left"
+                <label for="system.secondaries.{{key}}.value" class="resource-label rollable flexlarge align-left" data-action="roll"
                   data-roll="1d10x10+@secondaries.{{key}}.value" data-label="{{secondary.label}}"><i
                     class="fa-solid fa-dice-d10" data-label="{{secondary.label}}"></i> {{secondary.label}}</label>
               </div>
@@ -199,4 +199,4 @@
       </section>
     </div>
   </section>
-</form>
+</div>

@@ -32,8 +32,8 @@
             <div class='item-controls'>{{localize 'Erase'}}</div>
         </li>
         {{#each arcana_tech as |item id|}}
-        <li class='item grid grid-4col' data-item-id='{{item._id}}'>
-            <div class='item-name item-control item-edit'>
+        <li class='item draggable grid grid-4col' data-item-id='{{item._id}}'>
+            <div class='item-name item-control item-edit' data-action='editItem'>
                 <div class='item-image'>
                     <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
                 </div>
@@ -46,7 +46,7 @@
                 <h4>{{system.cost}}</h4>
             </div>
             <div class='item-controls'>
-                <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Technique'}}'>
+                <a class='item-control item-delete' data-action='deleteItem' title='{{localize "DOCUMENT.Delete" type=' Technique'}}'>
                     <i class='fas fa-trash'></i>
                 </a>
             </div>

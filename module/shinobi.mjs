@@ -38,22 +38,18 @@ Hooks.once('init', function () {
   CONFIG.Actor.documentClass = ShinobiActor;
   CONFIG.Item.documentClass = ShinobiItem;
 
-  // Active Effects are never copied to the Actor,
-  // but will still apply to the Actor from within the Item
-  // if the transfer property on the Active Effect is true.
-  CONFIG.ActiveEffect.legacyTransferral = false;
-
-  // Register sheet application classes
+  // Register sheet application classes (ApplicationV2).
+  // The legacy core sheets are only unregistered while the V1 framework still exists.
   const Actors = foundry.documents.collections.Actors;
-  const ActorSheet = foundry.appv1.sheets.ActorSheet;
-  Actors.unregisterSheet('core', ActorSheet);
+  const Items = foundry.documents.collections.Items;
+  const legacySheets = foundry.appv1?.sheets;
+  if (legacySheets?.ActorSheet) Actors.unregisterSheet('core', legacySheets.ActorSheet);
+  if (legacySheets?.ItemSheet) Items.unregisterSheet('core', legacySheets.ItemSheet);
+
   Actors.registerSheet('shinobi', ShinobiActorSheet, {
     makeDefault: true,
     label: 'SHINOBI.SheetLabels.Actor',
   });
-  const Items = foundry.documents.collections.Items;
-  const ItemSheet = foundry.appv1.sheets.ItemSheet;
-  Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('shinobi', ShinobiItemSheet, {
     makeDefault: true,
     label: 'SHINOBI.SheetLabels.Item',
@@ -132,28 +128,21 @@ Handlebars.registerHelper('openDetails', function (id) {
 Hooks.once('ready', function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
+});
 
+/* -------------------------------------------- */
+/*  Chat Message Buttons                        */
+/* -------------------------------------------- */
 
-  // Chat message button
-  Hooks.on("renderChatMessageHTML", (chatMessage, html, data) => {
-    if (html.querySelector(".buttonclick")) {
-      html.querySelector(".buttonclick").addEventListener('click', function () {
-        const button = $(this);
-        const buttonType = button.data("buttontype");
-        chatButton(chatMessage, buttonType);
-      });
-    }
-  });
-  // Add listener to past message
-  $(".chat-message .buttonclick").each((index, element) => {
-    const messageId = $(element).closest(".message").attr("data-message-id");
-    $(element).on("click", (event) => {
-      const chatMessage = game.messages.get(messageId);
-      const button = $(event.currentTarget);
-      const buttonType = button.data("buttontype");
-      chatButton(chatMessage, buttonType);
+// Registered at load time (not on 'ready') so it also catches the messages
+// already in the chat log when the world loads. Plain DOM, no jQuery.
+Hooks.on('renderChatMessageHTML', (chatMessage, html) => {
+  for (const button of html.querySelectorAll('.buttonclick')) {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      chatButton(chatMessage, button.dataset.buttontype);
     });
-  });
+  }
 });
 
 /* -------------------------------------------- */

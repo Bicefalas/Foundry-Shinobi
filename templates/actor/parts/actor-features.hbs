@@ -16,7 +16,7 @@
       {{#each system.abilities as |ability key|}}
       <div class="ability flexrow flex-group-center">
         <div class="ability-label">
-          <label for="system.abilities.{{key}}.value" class="resource-label rollable"
+          <label for="system.abilities.{{key}}.value" class="resource-label rollable" data-action="roll"
             data-roll="1d10x10+@abilities.{{key}}.value" data-label="{{ability.label}}"><i class="fa-solid fa-dice-d10"
               data-label="{{ability.label}}"></i> {{ability.label}}</label>
         </div>
@@ -24,7 +24,7 @@
           <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
         </div>
         <div class="ability-mod">
-          <span for="system.abilities.{{key}}.mod" class="ability-mod rollable"
+          <span for="system.abilities.{{key}}.mod" class="ability-mod rollable" data-action="roll"
             data-roll="1d10x10+@abilities.{{key}}.mod" data-label="{{ability.label}} Mod"><i
               class="fa-solid fa-dice-d10" data-label="{{ability.label}} Mod"></i>
             {{numberFormat ability.mod decimals=0 sign=true}}</span>
@@ -45,7 +45,7 @@
       {{#each system.resistances as |resistance key|}}
       <div class="resistance flexrow flex-group-center">
         <div class="resistance-label">
-          <label for="system.resistances.{{key}}.final" class="resource-label rollable"
+          <label for="system.resistances.{{key}}.final" class="resource-label rollable" data-action="roll"
             data-roll="1d10+@resistances.{{key}}.final" data-label="{{localize 'Resistance'}}
                   {{resistance.label}}"><i class="fa-solid fa-dice-d10" data-label="{{localize 'Resistance'}}
                     {{resistance.label}}"></i> {{resistance.label}}</label>
@@ -168,7 +168,7 @@
           <h3>{{localize "Secondary Ability of Will"}}</h3>{{/ifCond}}
           <span class="secondary flexrow flex-group-center">
             <div class="secondary-label">
-              <label for="system.secondaries.{{key}}.final" class="resource-label rollable"
+              <label for="system.secondaries.{{key}}.final" class="resource-label rollable" data-action="roll"
                 data-roll="1d10x10+@secondaries.{{key}}.final" data-label="{{secondary.label}}"><i
                   class="fa-solid fa-dice-d10" data-label="{{secondary.label}}"></i> {{secondary.label}}</label>
             </div>

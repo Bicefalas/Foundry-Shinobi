@@ -1,513 +1,403 @@
-import {
-  onManageActiveEffect,
-  prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
+import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
+
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ActorSheetV2 } = foundry.applications.sheets;
+
+/** Tabs every shinobi has. */
+const COMMON_TABS = ['features', 'description', 'adv-disadv', 'martial-combat', 'items'];
+
+/** Tabs exclusive to a class, keyed by the value of system.class.value. */
+const CLASS_TABS = {
+  warrior: ['tras-combat-styles'],
+  ninja: ['chakra'],
+  mixedNinja: ['chakra'],
+  shaolin: ['ki'],
+  energyShaolin: ['ki'],
+  samurai: ['invocation'],
+  warriorOmnyoji: ['canalization'],
+  omnyoji: ['canalization'],
+  henge: ['impregnate-tech'],
+  kannushi: ['divine-power'],
+  ronin: ['breaths-tech'],
+  ryoshi: ['hunt-tech', 'blood-tech'],
+};
+
+const ALL_TABS = [...new Set([...COMMON_TABS, ...Object.values(CLASS_TABS).flat()])];
 
 /**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
+ * Actor sheet for the Shinobi system (ApplicationV2).
+ * @extends {ActorSheetV2}
  */
-
-const ActorSheet = foundry.appv1.sheets.ActorSheet;
-
-export class ShinobiActorSheet extends ActorSheet {
+export class ShinobiActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['shinobi', 'sheet', 'actor'],
-      width: 1000,
-      height: 750,
-      tabs: [
-        {
-          navSelector: '.sheet-tabs',
-          contentSelector: '.sheet-body',
-          initial: 'features',
-        },
-      ],
-    });
-  }
+  static DEFAULT_OPTIONS = {
+    classes: ['shinobi', 'sheet', 'actor', 'themed', 'theme-light'],
+    position: { width: 1000, height: 750 },
+    window: { resizable: true },
+    form: { submitOnChange: true },
+    actions: {
+      roll: ShinobiActorSheet.#onRoll,
+      createItem: ShinobiActorSheet.#onCreateItem,
+      editItem: ShinobiActorSheet.#onEditItem,
+      deleteItem: ShinobiActorSheet.#onDeleteItem,
+      halfRest: ShinobiActorSheet.#onHalfRest,
+      totalRest: ShinobiActorSheet.#onTotalRest,
+    },
+  };
+
+  /** One part per actor type; _configureRenderOptions picks the right one. */
+  static PARTS = {
+    shinobi: {
+      template: 'systems/shinobi/templates/actor/actor-shinobi-sheet.hbs',
+      scrollable: ['', '.sheet-body'],
+    },
+    npc: {
+      template: 'systems/shinobi/templates/actor/actor-npc-sheet.hbs',
+      scrollable: ['', '.sheet-body'],
+    },
+  };
 
   /** @override */
-  get template() {
-    return `systems/shinobi/templates/actor/actor-${this.actor.type}-sheet.hbs`;
-  }
+  static TABS = {
+    primary: {
+      tabs: ALL_TABS.map((id) => ({ id })),
+      initial: 'features',
+    },
+  };
 
+  /* -------------------------------------------- */
+  /*  Rendering                                   */
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    // Retrieve the data structure from the base sheet. You can inspect or log
-    // the context variable to see the structure, but some key properties for
-    // sheets are the actor object, the data object, whether or not it's
-    // editable, the items array, and the effects array.
-    const context = super.getData();
+  _configureRenderOptions(options) {
+    super._configureRenderOptions(options);
+    options.parts = [this.document.type in this.constructor.PARTS ? this.document.type : 'shinobi'];
+  }
 
-    // Use a safe clone of the actor data for further operations.
-    const actorData = context.data;
+  /** @override */
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
 
-    // Add the actor's data to context.data for easier access, as well as flags.
-    context.system = actorData.system;
-    context.flags = actorData.flags;
+    // Work on a prepared copy so the labels added below never touch the real document data.
+    const actorData = this.actor.toObject(false);
 
-    // Prepare character data and items.
-    if (actorData.type == 'shinobi') {
+    Object.assign(context, {
+      actor: this.actor,
+      system: actorData.system,
+      flags: actorData.flags,
+      items: actorData.items.sort((a, b) => (a.sort || 0) - (b.sort || 0)),
+      editable: this.isEditable,
+      owner: this.actor.isOwner,
+      config: CONFIG.SHINOBI,
+      // Roll data for the ProseMirror editors.
+      rollData: this.actor.getRollData(),
+      // Active effects of the actor and of its items.
+      effects: prepareActiveEffectCategories(this.actor.allApplicableEffects()),
+    });
+
+    if (this.actor.type === 'shinobi') {
       this._prepareCharacterData(context);
       this._prepareItems(context);
+      context.tabs = this.#prepareSheetTabs(context.system.class?.value);
     }
-
-    // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
+    if (this.actor.type === 'npc') {
       this._prepareNPCData(context);
     }
-
-    // Add roll data for TinyMCE editors.
-    context.rollData = context.actor.getRollData();
-
-    // Prepare active effects
-    context.effects = prepareActiveEffectCategories(
-      // A generator that returns all effects stored on the actor
-      // as well as any items
-      this.actor.allApplicableEffects()
-    );
 
     return context;
   }
 
   /**
-   * Organize and classify Items for Character sheets.
-   *
-   * @param {Object} actorData The actor to prepare.
-   *
-   * @return {undefined}
+   * Prepare the primary tab group, falling back to "features" when the active tab
+   * belongs to a class the character no longer has.
+   * @param {string} classValue
    */
-  _prepareCharacterData(context) {
-
-    // Handle ability scores.
-
-    for (let [k, v] of Object.entries(context.system.abilities)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.abilities[k]) ?? k;
-    }
-
-    for (let [k, v] of Object.entries(context.system.secondaries)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.secondaries[k]) ?? k;
-    }
-
-    for (let [k, v] of Object.entries(context.system.classes)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
-    }
-
-    for (let [k, v] of Object.entries(context.system.ethnicities)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.ethnicities[k]) ?? k;
-    }
-
-    for (let [k, v] of Object.entries(context.system.resistances)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.resistances[k]) ?? k;
-    }
+  #prepareSheetTabs(classValue) {
+    const available = new Set([...COMMON_TABS, ...(CLASS_TABS[classValue] ?? [])]);
+    if (!available.has(this.tabGroups.primary)) this.tabGroups.primary = 'features';
+    return this._prepareTabs('primary');
   }
-
-  _prepareNPCData(context) {
-
-    // Handle ability scores.
-
-
-    for (let [k, v] of Object.entries(context.system.abilities)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.abilities[k]) ?? k;
-    }
-
-    for (let [k, v] of Object.entries(context.system.secondaries)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.secondaries[k]) ?? k;
-    }
-
-    for (let [k, v] of Object.entries(context.system.resistances)) {
-      v.label = game.i18n.localize(CONFIG.SHINOBI.resistances[k]) ?? k;
-    }
-  }
-
-  /**
- * Organize and classify Items for Character sheets.
- *
- * @param {Object} actorData The actor to prepare.
- *
- * @return {undefined}
- */
-  _prepareItems(context) {
-    // Initialize containers.
-    const object = [];
-    const weapon = [];
-    const armor = [];
-    const technique = [];
-    const chakra_tech = [];
-    const arcana_tech = [];
-
-    // Iterate through items, allocating to containers
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      // Append to object.
-      if (i.type === 'object') {
-        object.push(i);
-      }
-    }
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      // Append to weapon.
-      if (i.type === 'weapon') {
-        weapon.push(i);
-      }
-    }
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      // Append to armor.
-      if (i.type === 'armor') {
-        armor.push(i);
-      }
-    }
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      // Append to technique.
-      if (i.type === 'technique') {
-        technique.push(i);
-      }
-    }
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      // Append to chakra_tech.
-      if (i.type === 'chakra_tech') {
-        chakra_tech.push(i);
-      }
-    }
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      // Append to arcana_tech.
-      if (i.type === 'arcana_tech') {
-        arcana_tech.push(i);
-      }
-    }
-
-    // Assign and return
-    context.object = object;
-    context.weapon = weapon;
-    context.armor = armor;
-    context.technique = technique;
-    context.chakra_tech = chakra_tech;
-    context.arcana_tech = arcana_tech;
-  }
-
-
-  /* -------------------------------------------- */
 
   /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
+  async _onFirstRender(context, options) {
+    await super._onFirstRender(context, options);
+    // Remember which <details> are open. The "toggle" event does not bubble, so listen
+    // in the capture phase on the application root (it persists across re-renders).
+    this.element.addEventListener('toggle', (event) => this.#onToggleDetails(event), true);
+  }
 
-    // Render the item sheet for viewing/editing prior to the editable check.
-    html.on('click', '.item-edit', (ev) => {
-      const li = $(ev.currentTarget).parents('.item');
-      const item = this.actor.items.get(li.data('itemId'));
-      item.sheet.render(true);
-    });
+  /** @override */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    if (this.actor.type === 'shinobi') this._classPoints(this.element);
+  }
 
-    // -------------------------------------------------------------
-    // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return;
+  /* -------------------------------------------- */
+  /*  Data preparation                            */
+  /* -------------------------------------------- */
 
-    html.on('click', 'summary', this._openedDetails.bind(this));
+  /**
+   * Localized labels for the character's selectable values.
+   * @param {object} context
+   */
+  _prepareCharacterData(context) {
+    const groups = ['abilities', 'secondaries', 'classes', 'ethnicities', 'resistances'];
+    for (const group of groups) this.#localizeLabels(context.system[group], CONFIG.SHINOBI[group]);
+  }
 
-    html.on('click', '.half-rest', this._halfRest.bind(this));
-    html.on('click', '.total-rest', this._totalRest.bind(this));
+  /**
+   * Localized labels for NPCs.
+   * @param {object} context
+   */
+  _prepareNPCData(context) {
+    const groups = ['abilities', 'secondaries', 'resistances'];
+    for (const group of groups) this.#localizeLabels(context.system[group], CONFIG.SHINOBI[group]);
+  }
 
-    html.ready(this._classPoints.bind(this));
-    // Add Inventory Item
-    html.on('click', '.item-create', this._onItemCreate.bind(this));
-
-    // Delete Inventory Item
-    html.on('click', '.item-delete', (ev) => {
-      const li = $(ev.currentTarget).parents('.item');
-      const item = this.actor.items.get(li.data('itemId'));
-      item.delete();
-      li.slideUp(200, () => this.render(false));
-    });
-
-    // Active Effect management
-    html.on('click', '.effect-control', (ev) => {
-      const row = ev.currentTarget.closest('li');
-      const document =
-        row.dataset.parentId === this.actor.id
-          ? this.actor
-          : this.actor.items.get(row.dataset.parentId);
-      onManageActiveEffect(ev, document);
-    });
-
-    // Rollable abilities.
-    html.on('click', '.rollable', this._onRoll.bind(this));
-
-    // Drag events for macros.
-    if (this.actor.isOwner) {
-      let handler = (ev) => this._onDragStart(ev);
-      html.find('li.item').each((i, li) => {
-        if (li.classList.contains('inventory-header')) return;
-        li.setAttribute('draggable', true);
-        li.addEventListener('dragstart', handler, false);
-      });
-
+  /**
+   * Add a localized label to every entry of a system group.
+   * @param {object} entries   e.g. context.system.abilities
+   * @param {object} labels    e.g. CONFIG.SHINOBI.abilities
+   */
+  #localizeLabels(entries, labels) {
+    for (const [k, v] of Object.entries(entries ?? {})) {
+      v.label = game.i18n.localize(labels?.[k] ?? k);
     }
   }
 
   /**
-   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-   * @param {Event} event   The originating click event
-   * @private
+   * Organize the owned items by type for the character sheet.
+   * @param {object} context
    */
-  async _onItemCreate(event) {
-    event.preventDefault();
-    const header = event.currentTarget;
-    // Get the type of item to create.
-    const type = header.dataset.type;
-    // Grab any data associated with this control.
-    const data = foundry.utils.duplicate(header.dataset);
-    // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
-    // Prepare the item object.
-    const itemData = {
-      name: name,
-      type: type,
-      system: data,
-    };
-    // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.system['type'];
+  _prepareItems(context) {
+    const types = ['object', 'weapon', 'armor', 'technique', 'chakra_tech', 'arcana_tech'];
+    for (const type of types) context[type] = [];
+    for (const item of context.items) {
+      item.img = item.img || Item.DEFAULT_ICON;
+      context[item.type]?.push(item);
+    }
+  }
 
-    // Finally, create the item!
-    return await Item.create(itemData, { parent: this.actor });
+  /**
+   * Write the remaining class points of each characteristic into the sheet.
+   * @param {HTMLElement} root   The sheet element
+   */
+  _classPoints(root) {
+    if (this.actor.type === 'npc') return;
+
+    // Query only inside this sheet: a global document query would write into
+    // whichever actor sheet happened to be opened first.
+    const characteristics = root?.querySelectorAll('.class-points') ?? [];
+    if (characteristics.length < 5) return;
+
+    const secondaries = this.actor.system.secondaries;
+    const points = this.actor.system.points;
+    const sum = (...keys) => keys.reduce((total, key) => total + secondaries[key].class, 0);
+
+    const spent = {
+      str: sum('athletics', 'swim'),
+      dex: sum('acrobatics', 'sleightOfHand', 'stealth', 'traps', 'openLocks'),
+      per: sum('search', 'track', 'notice', 'examine', 'insight'),
+      int: sum('shinobiKnowledge', 'ethnicKnowledge', 'underworldKnowledge', 'science',
+        'history', 'medicine', 'nature', 'religion', 'animalHandling'),
+      wil: sum('persuasion', 'interpret', 'lie', 'coldness', 'intimidate'),
+    };
+
+    ['str', 'dex', 'per', 'int', 'wil'].forEach((key, i) => {
+      characteristics[i].textContent = points[key].class - spent[key];
+    });
+  }
+
+  /* -------------------------------------------- */
+  /*  Drag and drop                               */
+  /* -------------------------------------------- */
+
+  /**
+   * ActorSheetV2 already handles dropping Items/Effects onto the sheet. Here we only make
+   * sure owned items (rows with data-item-id) carry their drag data, e.g. for hotbar macros.
+   * @override
+   */
+  async _onDragStart(event) {
+    const row = event.target.closest?.('[data-item-id]');
+    const item = row ? this.actor.items.get(row.dataset.itemId) : null;
+    if (!item) return super._onDragStart(event);
+    event.dataTransfer.setData('text/plain', JSON.stringify(item.toDragData()));
+  }
+
+  /* -------------------------------------------- */
+  /*  Event handlers                              */
+  /* -------------------------------------------- */
+
+  /**
+   * Store the open/closed state of <details> elements (see the openDetails helper).
+   * @param {Event} event
+   */
+  #onToggleDetails(event) {
+    const details = event.target;
+    if (!(details instanceof HTMLDetailsElement) || !details.id) return;
+
+    let openDetails = {};
+    try {
+      openDetails = JSON.parse(localStorage.getItem('openDetails')) ?? {};
+    } catch (err) { /* corrupted value: start again */ }
+
+    if (details.open) openDetails[details.id] = true;
+    else delete openDetails[details.id];
+    localStorage.setItem('openDetails', JSON.stringify(openDetails));
+  }
+
+  /**
+   * Find the owned Item of the row that contains the clicked element.
+   * @param {HTMLElement} target
+   * @returns {Item|undefined}
+   */
+  #getItemFromTarget(target) {
+    const itemId = target.closest('[data-item-id]')?.dataset.itemId;
+    return itemId ? this.actor.items.get(itemId) : undefined;
+  }
+
+  /**
+   * Open the sheet of an owned item.
+   * @this {ShinobiActorSheet}
+   */
+  static #onEditItem(event, target) {
+    this.#getItemFromTarget(target)?.sheet.render({ force: true });
+  }
+
+  /**
+   * Delete an owned item. The sheet re-renders by itself afterwards.
+   * @this {ShinobiActorSheet}
+   */
+  static async #onDeleteItem(event, target) {
+    if (!this.isEditable) return;
+    await this.#getItemFromTarget(target)?.delete();
+  }
+
+  /**
+   * Create a new owned Item using the data-* attributes of the clicked control.
+   * @this {ShinobiActorSheet}
+   */
+  static async #onCreateItem(event, target) {
+    event.preventDefault();
+    if (!this.isEditable) return;
+    const { type, action, ...system } = target.dataset;
+    return Item.create(
+      { name: `New ${type.capitalize()}`, type, system },
+      { parent: this.actor }
+    );
   }
 
   /**
    * Handle clickable rolls.
-   * @param {Event} event   The originating click event
-   * @private
+   * @this {ShinobiActorSheet}
    */
-
-  async _onRoll(event) {
+  static async #onRoll(event, target) {
     event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
+    const dataset = target.dataset;
 
-    // Handle item rolls.
-    if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
-        const itemId = element.closest('.item').dataset.itemId;
-        const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
-      }
+    // Item rolls.
+    if (dataset.rollType === 'item') {
+      return this.#getItemFromTarget(target)?.roll();
     }
 
-    // Handle rolls that supply the formula directly.
+    // Rolls that supply the formula directly.
+    if (!dataset.roll) return;
 
-    if (dataset.roll) {
-      const rollData = this.actor.getRollData();
-
-      let roll = new Roll(dataset.roll, rollData);
-      await roll.evaluate();
-
-      let label = dataset.label ? `${game.i18n.localize("Check of")} ${dataset.label}` : '';
-
-      let chatData = {
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get("core", "rollMode"),
-        rolls: [roll],
-      };
-
-      let chatCritical = null;
-      let chatFumble = null;
-      if (roll.terms[0].total >= 10) chatCritical = 1;
-      if (roll.terms[0].total == 1) chatFumble = 1;
-
-      let chatapply = dataset.apply;
-      chatData.flags = {
-        total: roll.total,
-        apply: chatapply,
-      };
-
-      const renderTemplate = foundry.applications.handlebars.renderTemplate;
-      if (element.attributes.for.nodeValue == "system.combat.attack") {
-        chatData.content = await renderTemplate(
-          "systems/shinobi/templates/roll/roll-attack.hbs",
-          {
-            formula: roll.formula,
-            tooltip: await roll.getTooltip(),
-            critical: chatCritical,
-            fumble: chatFumble,
-            total: roll.total,
-            apply: chatapply,
-          }
-        );
-      }
+    const roll = new Roll(dataset.roll, this.actor.getRollData());
+    await roll.evaluate();
 
 
-      if (element.attributes.for.nodeValue !== "system.combat.attack") {
-        chatData.content = await renderTemplate(
-          "systems/shinobi/templates/roll/roll.hbs",
-          {
-            formula: roll.formula,
-            tooltip: await roll.getTooltip(),
-            critical: chatCritical,
-            fumble: chatFumble,
-            total: roll.total,
-            apply: chatapply,
-          }
-        );
-      }
+    const label = dataset.label
+      ? `${game.i18n.localize('Check of')} ${dataset.label}`
+      : '';
 
+    const isResistance = dataset.roll?.includes('@resistances.');
 
+    const critical = !isResistance && roll.terms[0].total >= 10 ? 1 : null;
+    const fumble = !isResistance && roll.terms[0].total == 1 ? 1 : null;
 
-      ChatMessage.create(chatData);
+    const apply = dataset.apply;
 
-      return roll;
-    }
-  };
+    const template = target.getAttribute('for') === 'system.combat.attack'
+      ? 'systems/shinobi/templates/roll/roll-attack.hbs'
+      : 'systems/shinobi/templates/roll/roll.hbs';
 
-  // Manage the data of opened details elements.
-  _openedDetails(event) {
-    var currentDetail = event.currentTarget.parentElement.id;
+    const content = await foundry.applications.handlebars.renderTemplate(template, {
+      formula: roll.formula,
+      tooltip: await roll.getTooltip(),
+      critical,
+      fumble,
+      total: roll.total,
+      apply,
+    });
 
-    let previous = '{}';
-    if (localStorage.getItem("openDetails") == null)
-      localStorage.setItem("openDetails", previous)
-
-    previous = JSON.parse(localStorage.getItem("openDetails"))
-
-    if (currentDetail in previous)
-      delete previous[currentDetail];
-    else
-      previous[currentDetail] = true;
-
-    localStorage.setItem("openDetails", JSON.stringify(previous));
-  }
-
-  _halfRest(event) {
-    event.preventDefault();
-    const health = this.actor.system.health
-    const previousHealth = this.actor.system.health.value
-    const regeneration = this.actor.system.regeneration
-
-    if (health.value < health.max) {
-      let regenerationCap = health.value + regeneration.value / 2
-
-      if (regeneration.points >= 4 && regeneration.isSobrenatural) health.value = health.max
-      else
-        if (regenerationCap < health.max) health.value = health.value + regeneration.value / 2;
-        else health.value = health.max
-
-      this.actor.sheet.render();
-    }
-    // Chat message
-    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    let label = game.i18n.localize("Has take a Half Rest and have recover ") + (health.value - previousHealth) + game.i18n.localize(" Life Points.");
-
-    let chatData = {
-      speaker: speaker,
+    // Roll#toMessage attaches the roll and applies the user's current roll mode.
+    await roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: label,
-    };
-
-    ChatMessage.create(chatData);
+      content,
+      flags: { shinobi: { total: roll.total, apply } },
+    });
+    return roll;
   }
-  _totalRest(event) {
+
+  /**
+   * Half rest: recover half the regeneration (or everything with supernatural regeneration).
+   * @this {ShinobiActorSheet}
+   */
+  static async #onHalfRest(event) {
     event.preventDefault();
-    const actorClass = this.actor.system.class.value;
-    const health = this.actor.system.health;
-    const fatigue = this.actor.system.fatigue;
-    const tiredness = this.actor.system.tiredness;
-    const regeneration = this.actor.system.regeneration;
-    const previousHealth = this.actor.system.health.value;
-    const bloodPower = this.actor.system.attributes.bloodPower;
-    const trascendentalShard = this.actor.system.attributes.trascendentalShard;
-    const ki = this.actor.system.attributes.ki;
-    const talisman = this.actor.system.attributes.talisman;
-    const arcana = this.actor.system.attributes.arcana;
+    if (!this.isEditable) return;
+    const { health, regeneration } = this.actor.system;
+    const previousHealth = health.value;
+    let newHealth = previousHealth;
 
-    fatigue.value = fatigue.max;
-    tiredness.value = tiredness.max;
-    bloodPower.value = bloodPower.max;
-    trascendentalShard.value = trascendentalShard.max;
-    ki.value = ki.max;
-    talisman.value = talisman.max;
-    arcana.value = arcana.max;
-
-
-    if (health.value < health.max) {
-      let regenerationCap = health.value + regeneration.value
-      if (regenerationCap < health.max) health.value = health.value + regeneration.value;
-      else health.value = health.max
+    if (previousHealth < health.max) {
+      if (regeneration.points >= 4 && regeneration.isSobrenatural) newHealth = health.max;
+      else newHealth = Math.min(previousHealth + regeneration.value / 2, health.max);
     }
 
+    await this.actor.update({ 'system.health.value': newHealth });
 
-    this.actor.sheet.render();
-    // Chat message
-    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    let label = game.i18n.localize("Has take a Total Rest and have recover ") + (health.value - previousHealth) + game.i18n.localize(" Life Points and all Tiredness and Fatigue Points.");
-
-    let chatData = {
-      speaker: speaker,
-      flavor: label,
-    };
-
-    ChatMessage.create(chatData);
+    ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: game.i18n.localize('Has take a Half Rest and have recover ') + (newHealth - previousHealth) + game.i18n.localize(' Life Points.'),
+    });
   }
 
-  _classPoints() {
-    let actorData = super.getData()
-    if (actorData.document.type == 'npc') return;
+  /**
+   * Total rest: recover the full regeneration and refill every resource.
+   * @this {ShinobiActorSheet}
+   */
+  static async #onTotalRest(event) {
+    event.preventDefault();
+    if (!this.isEditable) return;
+    const system = this.actor.system;
+    const { health, regeneration } = system;
+    const previousHealth = health.value;
+    const newHealth = previousHealth < health.max
+      ? Math.min(previousHealth + regeneration.value, health.max)
+      : previousHealth;
 
-    const characteristics = document.getElementsByClassName("class-points");
-    const secondaries = this.actor.system.secondaries;
-    const points = this.actor.system.points;
-    const str = points.str.class;
-    const dex = points.dex.class;
-    const per = points.per.class;
-    const int = points.int.class;
-    const wil = points.wil.class;
+    const updates = { 'system.health.value': newHealth };
+    const resources = {
+      'system.fatigue': system.fatigue,
+      'system.tiredness': system.tiredness,
+      'system.attributes.bloodPower': system.attributes.bloodPower,
+      'system.attributes.trascendentalShard': system.attributes.trascendentalShard,
+      'system.attributes.ki': system.attributes.ki,
+      'system.attributes.talisman': system.attributes.talisman,
+      'system.attributes.arcana': system.attributes.arcana,
+    };
+    for (const [path, resource] of Object.entries(resources)) {
+      if (resource?.max !== undefined) updates[`${path}.value`] = resource.max;
+    }
+    await this.actor.update(updates);
 
-
-    const strInverted =
-      secondaries.athletics.class +
-      secondaries.swim.class;
-
-    const dexInverted =
-      secondaries.acrobatics.class +
-      secondaries.sleightOfHand.class +
-      secondaries.stealth.class +
-      secondaries.traps.class +
-      secondaries.openLocks.class;
-
-    const perInverted =
-      secondaries.search.class +
-      secondaries.track.class +
-      secondaries.notice.class +
-      secondaries.examine.class +
-      secondaries.insight.class;
-
-    const intInverted =
-      secondaries.shinobiKnowledge.class +
-      secondaries.ethnicKnowledge.class +
-      secondaries.underworldKnowledge.class +
-      secondaries.science.class +
-      secondaries.history.class +
-      secondaries.medicine.class +
-      secondaries.nature.class +
-      secondaries.religion.class +
-      secondaries.animalHandling.class;
-
-    const wilInverted =
-      secondaries.persuasion.class +
-      secondaries.interpret.class +
-      secondaries.lie.class +
-      secondaries.coldness.class +
-      secondaries.intimidate.class;
-
-
-    characteristics[0].firstChild.data = str - strInverted;
-    characteristics[1].firstChild.data = dex - dexInverted;
-    characteristics[2].firstChild.data = per - perInverted;
-    characteristics[3].firstChild.data = int - intInverted;
-    characteristics[4].firstChild.data = wil - wilInverted;
+    ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: game.i18n.localize('Has take a Total Rest and have recover ') + (newHealth - previousHealth) + game.i18n.localize(' Life Points and all Tiredness and Fatigue Points.'),
+    });
   }
 }

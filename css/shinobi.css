@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
@@ -9,16 +10,19 @@
   background: url(/ui/parchment-white.jpg) repeat;
   color: #000;
 }
+
 .app.window-app .window-content .compendium-name {
   color: #fff;
 }
+
 .app.window-app .window-content .sidebar,
 .app.window-app .window-content .journal-entry-content {
   background: url(/ui/parchment-white.jpg) repeat;
   color: #000;
 }
 
-.rollable:hover, .rollable:focus {
+.rollable:hover,
+.rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
@@ -235,6 +239,7 @@
 .shinobi .item-form {
   font-family: "Roboto", sans-serif;
 }
+
 .shinobi .sheet-header {
   flex: 0 auto;
   overflow: hidden;
@@ -244,175 +249,219 @@
   justify-content: flex-start;
   margin-bottom: 10px;
 }
+
 .shinobi .sheet-header .profile-img {
   flex: 0 0 100px;
   height: 100px;
   margin-right: 10px;
 }
+
 .shinobi .sheet-header .header-fields {
   flex: 1;
 }
+
 .shinobi .sheet-header h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
+
 .shinobi .sheet-header h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
   text-align: left;
 }
+
 .shinobi .sheet-tabs {
   flex: 0;
 }
+
 .shinobi .sheet-body,
 .shinobi .sheet-body .tab,
 .shinobi .sheet-body .tab .editor {
   height: 100%;
   max-height: 500px;
 }
+
 .shinobi .sheet-body.item-body {
   height: 350px;
 }
+
 .shinobi .sheet-body.item-body .editor {
   height: 350px;
 }
+
 .shinobi .sheet-body.item-body .editor .editor-content {
   height: 350px;
 }
+
 .shinobi .tox .tox-editor-container {
   background: #fff;
 }
+
 .shinobi .tox .tox-edit-area {
   padding: 0 8px;
 }
+
 .shinobi .tox.tox-tinymce {
   min-height: 200px;
 }
+
 .shinobi textarea {
   font-family: "Roboto", sans-serif;
   font-size: small;
   resize: none;
   height: 100%;
 }
+
 .shinobi .weapons,
 .shinobi .special,
 .shinobi .description,
 .shinobi .increments {
   height: 100%;
 }
+
 .shinobi .weapons-body,
 .shinobi .special-body,
 .shinobi .description-body,
 .shinobi .increments-body {
   height: 100%;
 }
+
 .shinobi .description-container {
   height: 300px;
 }
+
 .shinobi .class-editor .editor-content {
   height: 100%;
   overflow-y: scroll;
 }
+
 .shinobi .martial-editor .editor {
   min-height: 200px;
 }
+
 .shinobi .advDisadv textarea,
 .shinobi .clan-body textarea {
   height: 125px;
 }
+
 .shinobi .resource-chart {
   align-items: center;
 }
+
 .shinobi .resource-box-label {
   font-size: 18px;
   text-decoration: underline;
   font-weight: bold;
   margin: 5px;
 }
+
 .shinobi .abilities-header {
   min-width: 250px;
 }
+
 .shinobi .resistances-header {
   min-width: 100%;
 }
+
 .shinobi .ability-label {
   text-align: left;
   min-width: 100px;
 }
+
 .shinobi .ability-input {
   max-width: 30px;
   text-align: center;
 }
+
 .shinobi .ability-mod {
   text-align: center;
 }
+
 .shinobi .resistance {
   min-width: 100%;
 }
+
 .shinobi .resistance-label {
   text-align: left;
   min-width: 30%;
 }
+
 .shinobi .resistance-level {
   text-align: center;
   min-width: 15%;
 }
+
 .shinobi .resistance-mod {
   text-align: center;
   min-width: 15%;
 }
+
 .shinobi .resistance-others {
   text-align: center;
   min-width: 20%;
 }
+
 .shinobi .resistance-final {
   text-align: center;
   min-width: 20%;
 }
+
 .shinobi .resistance-value {
   text-align: center;
   min-width: 20%;
   max-width: 20%;
 }
+
 .shinobi .secondary-label {
   text-align: left;
   min-width: 25%;
 }
+
 .shinobi .secondary-ip {
   max-width: 10%;
   text-align: center;
 }
+
 .shinobi .secondary-mod {
   max-width: 10%;
   text-align: center;
 }
+
 .shinobi .secondary-class {
   max-width: 10%;
   text-align: center;
 }
+
 .shinobi .secondary-nd {
   max-width: 10%;
   text-align: center;
 }
+
 .shinobi .secondary-others {
   max-width: 10%;
   text-align: center;
 }
+
 .shinobi .secondary-final {
   max-width: 10%;
   text-align: center;
 }
+
 .shinobi .secondary-value {
   max-width: 20%;
   text-align: center;
 }
+
 .shinobi .select-field {
   width: 150px;
+  max-height: 25px;
   margin: 3px;
 }
+
 .shinobi .resource-box {
   border-width: 1px;
   border-radius: 5px;
@@ -421,6 +470,7 @@
   margin: 5px;
   box-sizing: border-box;
 }
+
 .shinobi .advDisadv-name-adv .resource-field-advDisadv input,
 .shinobi .advDisadv-name-adv textarea,
 .shinobi .advDisadv-name-disadv .resource-field-advDisadv input,
@@ -428,70 +478,89 @@
   margin: 5px;
   width: calc(100% - 25px);
 }
+
 .shinobi .advDisadv-gain,
 .shinobi .advDisadv-cost {
   width: 90px;
 }
+
 .shinobi .advDisadv-gain input,
 .shinobi .advDisadv-cost input {
   margin: 5px;
 }
+
 .shinobi .advDisadv-name-adv h2,
 .shinobi .advDisadv-name-disadv h2,
 .shinobi .advDisadv-cost h2,
 .shinobi .advDisadv-gain h2 {
   text-align: center;
 }
+
 .shinobi .secondary span {
   padding: 3px;
 }
+
 .shinobi .secondary span:nth-of-type(odd) {
   background-color: rgba(47, 79, 79, 0.12);
   border-radius: 5px;
 }
+
 .shinobi .resource-content div {
-  margin: 10px;
+  margin: 5px;
 }
+
 .shinobi .summary {
   width: fit-content;
   padding: 10px;
 }
+
 .shinobi .summary.combat-summary label {
   pointer-events: auto;
 }
+
 .shinobi .summary label {
   pointer-events: none;
 }
+
 .shinobi summary:hover {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
+
 .shinobi summary:hover::marker {
   color: red;
 }
-.shinobi .resource-box details > summary {
+
+.shinobi .resource-box details>summary {
   list-style: none;
 }
+
 .shinobi .resource-box summary::-webkit-details-marker {
   display: none;
 }
+
 .shinobi .resource-box summary::after {
   content: " ►";
 }
+
 .shinobi .resource-box details[open] summary:after {
   content: " ▼";
 }
+
 .shinobi .resource-box summary:hover::after {
   color: red;
 }
+
 .shinobi .resource-box details[open] summary:hover:after {
   color: red;
 }
+
 .shinobi .rest {
   display: flex;
   justify-content: center;
 }
+
 .shinobi .rest .half-rest,
 .shinobi .rest .total-rest {
   display: flex;
@@ -504,26 +573,38 @@
   margin: 5px;
   box-sizing: border-box;
 }
-.shinobi .rest .half-rest:hover, .shinobi .rest .half-rest:focus,
+
+.shinobi .rest .half-rest:hover,
+.shinobi .rest .half-rest:focus,
 .shinobi .rest .total-rest:hover,
 .shinobi .rest .total-rest:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
+
 .shinobi .resource-label {
   font-weight: bold;
   margin: 5px;
 }
+
 .shinobi .resource-field input {
   margin: 5px;
   max-width: 35px;
+  max-height: 25px;
   text-align: center;
 }
+
 .shinobi .resource-field-text input {
   margin: 5px;
   max-width: 100px;
 }
+
+.shinobi .clan-label {
+  width: 20rem;
+  max-width: 20rem;
+}
+
 .shinobi .items-header {
   height: 28px;
   margin: 2px 0;
@@ -533,16 +614,19 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.shinobi .items-header > * {
+
+.shinobi .items-header>* {
   font-size: 14px;
   text-align: center;
 }
+
 .shinobi .items-header .item-name {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
   display: flex;
 }
+
 .shinobi .items-list {
   list-style: none;
   margin: 0;
@@ -551,6 +635,7 @@
   scrollbar-width: thin;
   color: #444;
 }
+
 .shinobi .items-list .item-name {
   margin: 0;
   overflow: hidden;
@@ -560,6 +645,7 @@
   display: flex;
   flex: 0 0 100px;
 }
+
 .shinobi .items-list .item-name h4 {
   margin: 0;
   padding: 2px;
@@ -567,10 +653,12 @@
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
+
 .shinobi .items-list .item-features .item-feature {
   margin: 0;
   text-align: center;
 }
+
 .shinobi .items-list .item-features h4 {
   margin: 0;
   white-space: nowrap;
@@ -578,38 +666,46 @@
   text-align: center;
   text-overflow: ellipsis;
 }
+
 .shinobi .items-list .item-object-controls {
   display: flex;
   justify-content: flex-end;
   flex: 50 0 0px;
 }
+
 .shinobi .items-list .item-object-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
+
 .shinobi .items-list .item-controls {
   display: flex;
   flex: 0 0 0px;
   justify-content: flex-end;
 }
+
 .shinobi .items-list .item-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
+
 .shinobi .items-list .item {
   align-items: center;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
   flex-wrap: nowrap;
 }
+
 .shinobi .items-list .item:last-child {
   border-bottom: none;
 }
+
 .shinobi .items-list .item .item-name {
   color: #191813;
 }
+
 .shinobi .items-list .item .item-name .item-image {
   flex: 0 0 30px;
   height: 30px;
@@ -617,12 +713,14 @@
   border: none;
   margin-right: 5px;
 }
+
 .shinobi .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
+
 .shinobi .items-list .items-header {
   height: 40px;
   margin: 2px 0;
@@ -632,21 +730,26 @@
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.shinobi .items-list .items-header > * {
+
+.shinobi .items-list .items-header>* {
   font-size: 12px;
   text-align: center;
 }
+
 .shinobi .items-list .items-header .item-name.weapon {
   margin-left: 55px;
 }
+
 .shinobi .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
 }
+
 .shinobi .item-formula {
   flex: 0 0 200px;
   padding: 0 8px;
 }
+
 .shinobi .effects .item .effect-source,
 .shinobi .effects .item .effect-duration,
 .shinobi .effects .item .effect-controls {
@@ -655,8 +758,115 @@
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
+
 .shinobi .effects .item .effect-controls {
   border: none;
+}
+
+/* ApplicationV2 sheets (Foundry v13+) */
+.application.shinobi.sheet {
+  font-family: "Roboto", sans-serif;
+  --shinobi-font-name: 1.75rem;
+  --shinobi-font-h1: 1.5rem;
+  --shinobi-font-h2: 1.25rem;
+  --shinobi-font-h3: 0.75rem;
+}
+
+.application.shinobi.sheet .sheet-header h1.charname input {
+  font-size: var(--shinobi-font-name);
+}
+
+.application.shinobi.sheet .shinobi-sheet h1:not(.charname) {
+  font-size: var(--shinobi-font-h1);
+}
+
+.application.shinobi.sheet .shinobi-sheet h2 {
+  font-size: var(--shinobi-font-h2);
+}
+
+.application.shinobi.sheet .shinobi-sheet h3 {
+  font-size: var(--shinobi-font-h3);
+}
+
+.application.shinobi.sheet .shinobi-sheet .items-list h4 {
+  font-size: inherit;
+}
+
+.application.shinobi.sheet .window-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 5px 8px;
+  background: url(/ui/parchment-white.jpg) repeat;
+  color: #000;
+}
+
+.application.shinobi.sheet .shinobi-sheet {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.application.shinobi.sheet .shinobi-sheet>* {
+  flex-shrink: 0;
+}
+
+.application.shinobi.sheet .sheet-body .tab[data-tab]:not(.active) {
+  display: none;
+}
+
+.application.shinobi.sheet .sheet-tabs .item,
+.application.shinobi.sheet .profile-img {
+  cursor: pointer;
+}
+
+.shinobi .sheet-body th,
+.shinobi .sheet-body thead th {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #222;
+  padding: 6px 8px;
+  vertical-align: middle;
+}
+
+.shinobi .sheet-body .section-header,
+.shinobi .sheet-body .section-title,
+.shinobi .sheet-body h3 {
+  font-size: 16px !important;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.shinobi .sheet-body .table-header {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 8px;
+}
+
+.shinobi .sheet-body label {
+  font-size: 13px;
+}
+
+.shinobi .sheet-body th {
+  white-space: nowrap;
+}
+
+.shinobi hr {
+  margin: 5px;
+}
+
+.shinobi h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.shinobi .flex-group-center input {
+  width: 35px;
+  height: 25px;
 }
 
 /*# sourceMappingURL=shinobi.css.map */

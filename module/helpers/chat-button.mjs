@@ -8,7 +8,7 @@ export async function chatButton(chatMessage, buttonType) {
 
     if (buttonType == "chatButtonFumble") {
         const table = await fromUuid("Compendium.shinobi.rolltables.RollTable.YJa6KsWMNTC859HM");
-        await table.draw({ roll: true, displayChat: true });
+        await table.draw({ displayChat: true });
     }
 
     if (buttonType == "chatButtonDefense") {
@@ -26,37 +26,33 @@ export async function chatButton(chatMessage, buttonType) {
         });
         const targetActor = targetActors[0];
 
-        let armor = 0;
-
-        let confirmed = false;
-
-        // Add armor for a Defense roll
+        // Add armor for a Defense roll (DialogV2: the legacy global Dialog is deprecated)
         const renderTemplate = foundry.applications.handlebars.renderTemplate;
-        await Dialog.wait({
-            title: game.i18n.localize("Indicate your Armor Value"),
+        const DialogV2 = foundry.applications.api.DialogV2;
+        const armorInput = await DialogV2.wait({
+            window: { title: game.i18n.localize("Indicate your Armor Value") },
             content: await renderTemplate("systems/shinobi/templates/roll/parts/armor-dialog.hbs", { defense: targetActor.system.combat.defense }),
-            buttons: {
-                one: {
-                    icon: '<i class="fas fa-check"></i>',
+            buttons: [
+                {
+                    action: "ok",
+                    icon: "fas fa-check",
                     label: game.i18n.localize("OK"),
-                    callback: () => confirmed = true
+                    default: true,
+                    callback: (event, button) => button.form.elements.armor?.value ?? "0"
                 },
-                two: {
-                    icon: '<i class="fas fa-times"></i>',
+                {
+                    action: "cancel",
+                    icon: "fas fa-times",
                     label: game.i18n.localize("Cancel"),
-                    callback: () => confirmed = false
+                    callback: () => null
                 }
-            },
-            default: "Cancel",
-            close: e => {
-                if (confirmed) {
-                    armor = document.getElementById("dialogArmorValue").value;
-                    if (!armor) {
-                        armor = 0;
-                    }
-                }
-            }
-        })
+            ],
+            rejectClose: false
+        });
+
+        // null => cancelled or closed
+        const confirmed = armorInput !== null && armorInput !== undefined;
+        const armor = Number(armorInput) || 0;
 
 
         // Construct the Defense Roll instance
@@ -72,7 +68,6 @@ export async function chatButton(chatMessage, buttonType) {
             let chatData = {
                 speaker: ChatMessage.getSpeaker({ actor: targetActor }),
                 flavor: game.i18n.localize("Check of") + " " + game.i18n.localize("Defense Capacity"),
-                rollMode: game.settings.get("core", "rollMode"),
             };
 
             let template = "systems/shinobi/templates/roll/roll.hbs";
@@ -102,7 +97,7 @@ export async function chatButton(chatMessage, buttonType) {
 
             let differenceValue = 0;
 
-            let totalAttack = chatMessage.rolls[0]._total;
+            let totalAttack = chatMessage.rolls[0]?.total ?? 0;
 
 
             differenceValue = totalAttack - totalDefense;
@@ -143,14 +138,10 @@ export async function chatButton(chatMessage, buttonType) {
             }
 
             const speaker = ChatMessage.getSpeaker({ actor: actor });
-            const rollMode = game.settings.get("core", "rollMode");
-            let label = `${chatMessage.flavor}`;
-
 
             let chatData2 = {
                 speaker: speaker,
                 flavor: game.i18n.localize("Damage Calculation"),
-                rollMode: rollMode,
             };
 
 

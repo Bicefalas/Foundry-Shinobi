@@ -1,8 +1,9 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<div class="shinobi-sheet {{actor.type}} flexcol">
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <img class="profile-img" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}"
+      height="100" width="100" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize Name}}" /></h1>
     </div>
@@ -91,62 +92,78 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="features">{{localize "Features"}}</a>
-    <a class="item" data-tab="description">{{localize "Description"}}</a>
-    <a class="item" data-tab="adv-disadv">{{localize "Advantages and Disadvantages"}}</a>
-    <a class="item" data-tab="martial-combat">{{localize "Marcial Combat"}}</a>
-    <a class="item" data-tab="items">{{localize "Items"}}</a>
+    <a class="item {{tabs.[features].cssClass}}" data-action="tab" data-group="primary" data-tab="features">{{localize
+      "Features"}}</a>
+    <a class="item {{tabs.[description].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="description">{{localize "Description"}}</a>
+    <a class="item {{tabs.[adv-disadv].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="adv-disadv">{{localize "Advantages and Disadvantages"}}</a>
+    <a class="item {{tabs.[martial-combat].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="martial-combat">{{localize "Marcial Combat"}}</a>
+    <a class="item {{tabs.[items].cssClass}}" data-action="tab" data-group="primary" data-tab="items">{{localize
+      "Items"}}</a>
     {{!-- Exclusive tabs depending of the class --}}
     {{#ifCond "warrior" '==' system.class.value}}
-    <a class="item" data-tab="tras-combat-styles">{{localize "Trascendental"}}</a>
+    <a class="item {{tabs.[tras-combat-styles].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="tras-combat-styles">{{localize "Trascendental"}}</a>
     {{/ifCond}}
 
     {{#ifCond "ninja" '==' system.class.value}}
-    <a class="item" data-tab="chakra">{{localize "Chakra"}}</a>
+    <a class="item {{tabs.[chakra].cssClass}}" data-action="tab" data-group="primary" data-tab="chakra">{{localize
+      "Chakra"}}</a>
     {{/ifCond}}
 
     {{#ifCond "mixedNinja" '==' system.class.value}}
-    <a class="item" data-tab="chakra">{{localize "Chakra"}}</a>
+    <a class="item {{tabs.[chakra].cssClass}}" data-action="tab" data-group="primary" data-tab="chakra">{{localize
+      "Chakra"}}</a>
     {{/ifCond}}
 
     {{#ifCond "shaolin" '==' system.class.value}}
-    <a class="item" data-tab="ki">{{localize "Ki"}}</a>
+    <a class="item {{tabs.[ki].cssClass}}" data-action="tab" data-group="primary" data-tab="ki">{{localize "Ki"}}</a>
     {{/ifCond}}
 
     {{#ifCond "energyShaolin" '==' system.class.value}}
-    <a class="item" data-tab="ki">{{localize "Ki"}}</a>
+    <a class="item {{tabs.[ki].cssClass}}" data-action="tab" data-group="primary" data-tab="ki">{{localize "Ki"}}</a>
     {{/ifCond}}
 
     {{#ifCond "samurai" '==' system.class.value}}
-    <a class="item" id="invocation" data-tab="invocation">{{localize "Invocation"}}</a>
+    <a class="item {{tabs.[invocation].cssClass}}" id="invocation" data-action="tab" data-group="primary"
+      data-tab="invocation">{{localize "Invocation"}}</a>
     {{/ifCond}}
 
     {{#ifCond "warriorOmnyoji" '==' system.class.value}}
-    <a class="item" data-tab="canalization">{{localize "Canalization"}}</a>
+    <a class="item {{tabs.[canalization].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="canalization">{{localize "Canalization"}}</a>
     {{/ifCond}}
 
     {{#ifCond "omnyoji" '==' system.class.value}}
-    <a class="item" data-tab="canalization">{{localize "Canalization"}}</a>
+    <a class="item {{tabs.[canalization].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="canalization">{{localize "Canalization"}}</a>
     {{/ifCond}}
 
     {{#ifCond "henge" '==' system.class.value}}
-    <a class="item" data-tab="impregnate-tech">{{localize "Impregnate Techniques"}}</a>
+    <a class="item {{tabs.[impregnate-tech].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="impregnate-tech">{{localize "Impregnate Techniques"}}</a>
     {{/ifCond}}
 
     {{#ifCond "kannushi" '==' system.class.value}}
-    <a class="item" data-tab="divine-power">{{localize "Divine Power"}}</a>
+    <a class="item {{tabs.[divine-power].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="divine-power">{{localize "Divine Power"}}</a>
     {{/ifCond}}
 
     {{#ifCond "ronin" '==' system.class.value}}
-    <a class="item" data-tab="breaths-tech">{{localize "Breath Techniques"}}</a>
+    <a class="item {{tabs.[breaths-tech].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="breaths-tech">{{localize "Breath Techniques"}}</a>
     {{/ifCond}}
 
     {{#ifCond "ryoshi" '==' system.class.value}}
-    <a class="item" data-tab="hunt-tech">{{localize "Hunt Techniques"}}</a>
+    <a class="item {{tabs.[hunt-tech].cssClass}}" data-action="tab" data-group="primary" data-tab="hunt-tech">{{localize
+      "Hunt Techniques"}}</a>
     {{/ifCond}}
 
     {{#ifCond "ryoshi" '==' system.class.value}}
-    <a class="item" data-tab="blood-tech">{{localize "Blood Techniques"}}</a>
+    <a class="item {{tabs.[blood-tech].cssClass}}" data-action="tab" data-group="primary"
+      data-tab="blood-tech">{{localize "Blood Techniques"}}</a>
     {{/ifCond}}
 
   </nav>
@@ -155,17 +172,18 @@
   <section class="sheet-body">
 
     {{!-- Owned Features Tab --}}
-    <div class="tab features" data-group="primary" data-tab="features">
+    <div class="tab features {{tabs.[features].cssClass}}" data-group="primary" data-tab="features">
       {{> "systems/shinobi/templates/actor/parts/actor-features.hbs"}}
     </div>
 
     {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
+    <div class="tab biography {{tabs.[description].cssClass}}" data-group="primary" data-tab="description">
       <div class="resource-content">
         <details id="clan" {{#openDetails "clan" }}{{/openDetails}}>
-          <summary class="resource-field-text summary">
+          <summary class="summary">
             <label for="system.clan.name" class="resource-box-label">{{localize "Clan"}}</label>
-            <input type="text" name="system.clan.name" value="{{system.clan.name}}" data-dtype="text" />
+            <input class="clan-label" type="text" name="system.clan.name" value="{{system.clan.name}}"
+              data-dtype="text" />
           </summary>
           <div class="resource-box">
             <div class="clan-body">
@@ -180,7 +198,7 @@
     </div>
 
     {{!-- Owned Advantages and Disadvantages Tab --}}
-    <div class="tab adv-disadv" data-group="primary" data-tab="adv-disadv">
+    <div class="tab adv-disadv {{tabs.[adv-disadv].cssClass}}" data-group="primary" data-tab="adv-disadv">
       <div class="resource-field">
         <label for="system.advDisadv.advanced" class="resource-label">{{localize "Expanded options"}}</label>
         <input name="system.advDisadv.advanced" type="checkbox" {{#if system.advDisadv.advanced}}checked{{/if}}>
@@ -357,63 +375,65 @@
     </div>
 
     {{!-- Owned Martial Combat Tab --}}
-    <div class="tab martial-combat" data-group="primary" data-tab="martial-combat">
+    <div class="tab martial-combat {{tabs.[martial-combat].cssClass}}" data-group="primary" data-tab="martial-combat">
       {{> "systems/shinobi/templates/actor/parts/actor-martial-combat.hbs"}}
     </div>
 
     {{!-- Owned Items Tab --}}
-    <div class="tab items" data-group="primary" data-tab="items">
+    <div class="tab items {{tabs.[items].cssClass}}" data-group="primary" data-tab="items">
       {{> "systems/shinobi/templates/actor/parts/actor-items.hbs"}}
     </div>
 
     {{!-- Active Trascendental Combat Tab --}}
-    <div class="tab tras-combat-styles" data-group="primary" data-tab="tras-combat-styles">
+    <div class="tab tras-combat-styles {{tabs.[tras-combat-styles].cssClass}}" data-group="primary"
+      data-tab="tras-combat-styles">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/tras-combat-styles.hbs"}}
     </div>
 
     {{!-- Active Chakra Tab --}}
-    <div class="tab chakra" data-group="primary" data-tab="chakra">
+    <div class="tab chakra {{tabs.[chakra].cssClass}}" data-group="primary" data-tab="chakra">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/chakra.hbs"}}
     </div>
 
     {{!-- Active Ki Tab --}}
-    <div class="tab ki" data-group="primary" data-tab="ki">
+    <div class="tab ki {{tabs.[ki].cssClass}}" data-group="primary" data-tab="ki">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/ki.hbs"}}
     </div>
 
     {{!-- Active Invocation Tab --}}
-    <div class="tab invocation" data-group="primary" data-tab="invocation">
+    <div class="tab invocation {{tabs.[invocation].cssClass}}" data-group="primary" data-tab="invocation">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/invocation.hbs"}}
     </div>
 
     {{!-- Active Canalization Tab --}}
-    <div class="tab canalization" data-group="primary" data-tab="canalization">
+    <div class="tab canalization {{tabs.[canalization].cssClass}}" data-group="primary" data-tab="canalization">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/canalization.hbs"}}
     </div>
 
     {{!-- Active Impregnate Techniques Tab --}}
-    <div class="tab impregnate-tech" data-group="primary" data-tab="impregnate-tech">
+    <div class="tab impregnate-tech {{tabs.[impregnate-tech].cssClass}}" data-group="primary"
+      data-tab="impregnate-tech">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/impregnate-tech.hbs"}}
     </div>
 
     {{!-- Active Divine Power Tab --}}
-    <div class="tab divine-power" data-group="primary" data-tab="divine-power">
+    <div class="tab divine-power {{tabs.[divine-power].cssClass}}" data-group="primary" data-tab="divine-power">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/divine-power.hbs"}}
     </div>
 
     {{!-- Active Breath Techniques Tab --}}
-    <div class="tab breaths-tech" data-group="primary" data-tab="breaths-tech">
+    <div class="tab breaths-tech {{tabs.[breaths-tech].cssClass}}" data-group="primary" data-tab="breaths-tech">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/breaths-tech.hbs"}}
     </div>
 
     {{!-- Active Hunt Techniques Tab --}}
-    <div class="tab hunt-tech" data-group="primary" data-tab="hunt-tech">
+    <div class="tab hunt-tech {{tabs.[hunt-tech].cssClass}}" data-group="primary" data-tab="hunt-tech">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/hunt-tech.hbs"}}
     </div>
 
     {{!-- Active Blood Techniques Tab --}}
-    <div class="tab blood-tech" data-group="primary" data-tab="blood-tech">
+    <div class="tab blood-tech {{tabs.[blood-tech].cssClass}}" data-group="primary" data-tab="blood-tech">
       {{> "systems/shinobi/templates/actor/parts/classes/tabs/blood-tech.hbs"}}
     </div>
   </section>
-</form>
+</div>

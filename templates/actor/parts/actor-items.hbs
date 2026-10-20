@@ -25,22 +25,22 @@
       <li class='item flexrow items-header'>
         <div class='item-name'>{{localize 'Name'}}</div>
         <div class='item-object-controls'>
-          <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type=' object'}}' data-type='object'>
+          <a class='item-control item-create' data-action='createItem' title='{{localize "DOCUMENT.Create" type=' object'}}' data-type='object'>
             <i class='fas fa-plus'></i>
             {{localize 'DOCUMENT.New' type='objeto'}}
           </a>
         </div>
       </li>
       {{#each object as |item id|}}
-      <li class='item flexrow' data-item-id='{{item._id}}'>
-        <div class='item-name item-control item-edit'>
+      <li class='item draggable flexrow' data-item-id='{{item._id}}'>
+        <div class='item-name item-control item-edit' data-action='editItem'>
           <div class='item-image'>
             <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
           </div>
           <h4>{{item.name}}</h4>
         </div>
         <div class='item-object-controls'>
-          <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Item'}}'>
+          <a class='item-control item-delete' data-action='deleteItem' title='{{localize "DOCUMENT.Delete" type=' Item'}}'>
             <i class='fas fa-trash'></i>
           </a>
         </div>
@@ -58,12 +58,12 @@
         <div class='item-controls'>{{localize 'Erase'}}</div>
       </li>
       {{#each weapon as |item id|}}
-      <li class='item flexrow' data-item-id='{{item._id}}'>
+      <li class='item draggable flexrow' data-item-id='{{item._id}}'>
         {{!-- <div class='item-eq item-control item-edit'>
           <input type="checkbox" name="{{system.equipped}}" onclick="return false;" {{#if
             system.equipped}}checked{{/if}}>
         </div> --}}
-        <div class='item-name item-control item-edit'>
+        <div class='item-name item-control item-edit' data-action='editItem'>
           <div class='item-image'>
             <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
           </div>
@@ -73,7 +73,7 @@
           <h4>{{system.damage}}</h4>
         </div>
         <div class='item-controls'>
-          <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Weapon'}}'>
+          <a class='item-control item-delete' data-action='deleteItem' title='{{localize "DOCUMENT.Delete" type=' Weapon'}}'>
             <i class='fas fa-trash'></i>
           </a>
         </div>
@@ -96,8 +96,8 @@
         <div class='item-controls'>{{localize 'Erase'}}</div>
       </li>
       {{#each armor as |item id|}}
-      <li class='item flexrow' data-item-id='{{item._id}}'>
-        <div class='item-name item-control item-edit'>
+      <li class='item draggable flexrow' data-item-id='{{item._id}}'>
+        <div class='item-name item-control item-edit' data-action='editItem'>
           <div class='item-image'>
             <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
           </div>
@@ -111,7 +111,7 @@
           <div class='item-feature'>{{system.sobrenaturalArmorValue}}</div>
         </div>
         <div class='item-controls'>
-          <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' Armor'}}'>
+          <a class='item-control item-delete' data-action='deleteItem' title='{{localize "DOCUMENT.Delete" type=' Armor'}}'>
             <i class='fas fa-trash'></i>
           </a>
         </div>

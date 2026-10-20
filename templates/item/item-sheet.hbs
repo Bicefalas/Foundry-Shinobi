@@ -1,8 +1,8 @@
 {{!-- This template is a fallback for when items don't have more specific templates. --}}
 {{!-- Generally, you'll want to make more specific templates when possible. --}}
-<form class="{{cssClass}}" autocomplete="off">
+<div class="shinobi-sheet item-form flexcol">
   <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <img class="profile-img" src="{{item.img}}" data-action="editImage" data-edit="img" title="{{item.name}}" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
     </div>
@@ -22,4 +22,4 @@
       {{/if}}
     </div>
   </section>
-</form>
+</div>

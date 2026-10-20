@@ -1,0 +1,64 @@
+// ApplicationV2 sheets (Foundry v13+).
+// The V1 rules in _window.scss target `.app.window-app`, which AppV2 windows no longer have.
+.application.shinobi.sheet {
+  font-family: $font-primary;
+
+  // Heading scale. Foundry's core heading sizes for AppV2 windows are much larger
+  // than the old V1 sheets, so the sheet fixes its own. Tweak the sizes here.
+  --shinobi-font-name: 1.75rem; // character / item name in the header
+  --shinobi-font-h1: 1.5rem;    // section titles (Descripción, Objetos...)
+  --shinobi-font-h2: 1.25rem;   // Ventajas / Desventajas / Coste / Ganancia
+  --shinobi-font-h3: 0.75rem;   // column headers (Característica, Valor...)
+
+  .sheet-header h1.charname input {
+    font-size: var(--shinobi-font-name);
+  }
+
+  .shinobi-sheet {
+    h1:not(.charname) {
+      font-size: var(--shinobi-font-h1);
+    }
+    h2 {
+      font-size: var(--shinobi-font-h2);
+    }
+    h3 {
+      font-size: var(--shinobi-font-h3);
+    }
+    // Item rows: the name/feature cells already set their own size.
+    .items-list h4 {
+      font-size: inherit;
+    }
+  }
+
+  .window-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 5px 8px;
+    background: url(/ui/parchment-white.jpg) repeat;
+    color: #000;
+  }
+
+  // Root element of each rendered part: fills the window and scrolls.
+  .shinobi-sheet {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+
+    // Never shrink the sections to make them fit: the sheet scrolls instead.
+    // Without this the header (overflow: hidden) collapses to 0px on tall sheets.
+    > * {
+      flex-shrink: 0;
+    }
+  }
+
+  // Only the active tab is visible.
+  .sheet-body .tab[data-tab]:not(.active) {
+    display: none;
+  }
+
+  .sheet-tabs .item,
+  .profile-img {
+    cursor: pointer;
+  }
+}

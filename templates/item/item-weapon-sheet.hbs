@@ -1,6 +1,6 @@
-<form class="{{cssClass}}" autocomplete="off">
+<div class="shinobi-sheet item-form flexcol">
   <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <img class="profile-img" src="{{item.img}}" data-action="editImage" data-edit="img" title="{{item.name}}" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
       <div class="grid grid-2col">
@@ -22,17 +22,17 @@
   </header>
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="attributes">{{localize "Attributes"}}</a>
-    <a class="item" data-tab="descriptions">{{localize "Description"}}</a>
+    <a class="item {{tabs.[attributes].cssClass}}" data-action="tab" data-group="primary" data-tab="attributes">{{localize "Attributes"}}</a>
+    <a class="item {{tabs.[descriptions].cssClass}}" data-action="tab" data-group="primary" data-tab="descriptions">{{localize "Description"}}</a>
   </nav>
   {{!-- Sheet Body --}}
   <section class="sheet-body item-body">
     {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
+    <div class="tab attributes {{tabs.[attributes].cssClass}}" data-group="primary" data-tab="attributes">
       {{> 'systems/shinobi/templates/item/parts/item-weapons-attributes.hbs'}}
     </div>
     {{!-- Description Tab --}}
-    <div class="tab descriptions" data-group="primary" data-tab="descriptions">
+    <div class="tab descriptions {{tabs.[descriptions].cssClass}}" data-group="primary" data-tab="descriptions">
       {{#if editable}}
       <prose-mirror name="system.description" button="true" editable="{{editable}}" toggled="false" rollData="rollData"
         value="{{system.description}}">
@@ -43,4 +43,4 @@
       {{/if}}
     </div>
   </section>
-</form>
+</div>

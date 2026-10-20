@@ -1,126 +1,100 @@
-import {
-  onManageActiveEffect,
-  prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
+import { prepareActiveEffectCategories } from '../helpers/effects.mjs';
+
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ItemSheetV2 } = foundry.applications.sheets;
+
+const TEMPLATE_PATH = 'systems/shinobi/templates/item';
+
+/** Item types that have their own template (item-<type>-sheet.hbs). */
+const ITEM_TYPES = ['object', 'weapon', 'armor', 'technique', 'chakra_tech', 'arcana_tech'];
 
 /**
- * Extend the basic ItemSheet with some very simple modifications
- * @extends {ItemSheet}
+ * Item sheet for the Shinobi system (ApplicationV2).
+ * @extends {ItemSheetV2}
  */
-const ItemSheet = foundry.appv1.sheets.ItemSheet;
-
-export class ShinobiItemSheet extends ItemSheet {
+export class ShinobiItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['shinobi', 'sheet', 'item'],
-      width: 700,
-      height: 600,
-      tabs: [
-        {
-          navSelector: '.sheet-tabs',
-          contentSelector: '.sheet-body',
-          initial: 'description',
-        },
-      ],
-    });
-  }
+  static DEFAULT_OPTIONS = {
+    classes: ['shinobi', 'sheet', 'item', 'themed', 'theme-light'],
+    position: { width: 700, height: 600 },
+    window: { resizable: true },
+    form: { submitOnChange: true },
+  };
 
-  /** @override */
-  get template() {
-    const path = 'systems/shinobi/templates/item';
-    // Return a single sheet for all item types.
-    // return `${path}/item-sheet.hbs`;
+  /**
+   * One part per item type plus a generic fallback; _configureRenderOptions picks one.
+   * Declaring them all here lets Foundry preload every template.
+   */
+  static PARTS = {
+    generic: { template: `${TEMPLATE_PATH}/item-sheet.hbs`, scrollable: ['', '.sheet-body'] },
+    ...Object.fromEntries(ITEM_TYPES.map((type) => [type, {
+      template: `${TEMPLATE_PATH}/item-${type}-sheet.hbs`,
+      scrollable: ['', '.sheet-body'],
+    }])),
+  };
 
-    // Alternatively, you could use the following return statement to do a
-    // unique item sheet by type, like `weapon-sheet.hbs`.
-    return `${path}/item-${this.item.type}-sheet.hbs`;
-  }
+  /** Only weapons and armors use tabs; other templates simply ignore this. */
+  static TABS = {
+    primary: {
+      tabs: [{ id: 'attributes' }, { id: 'descriptions' }],
+      initial: 'attributes',
+    },
+  };
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  _configureRenderOptions(options) {
+    super._configureRenderOptions(options);
+    options.parts = [ITEM_TYPES.includes(this.item.type) ? this.item.type : 'generic'];
+  }
 
-    // Retrieve base data structure.
-    const context = super.getData();
+  /** @override */
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
 
-    // Use a safe clone of the item data for further operations.
-    const itemData = context.data;
+    // Work on a prepared copy so the labels added below never touch the real document data.
+    const itemData = this.item.toObject(false);
 
-    // Retrieve the roll data for TinyMCE editors.
-    context.rollData = this.item.getRollData();
+    Object.assign(context, {
+      item: this.item,
+      system: itemData.system,
+      flags: itemData.flags,
+      editable: this.isEditable,
+      owner: this.item.isOwner,
+      config: CONFIG.SHINOBI,
+      // Roll data for the ProseMirror editors.
+      rollData: this.item.getRollData(),
+      effects: prepareActiveEffectCategories(this.item.effects),
+      tabs: this._prepareTabs('primary'),
+    });
 
-    // Add the item's data to context.data for easier access, as well as flags.
-    context.system = itemData.system;
-    context.flags = itemData.flags;
-
-
-    // Preparing Item Data
-    this._prepareItemData(context);
-
-
-    // Prepare active effects for easier access
-    context.effects = prepareActiveEffectCategories(this.item.effects);
-
+    this._prepareItemData(context, itemData.type);
     return context;
   }
 
   /**
-  * Organize and classify Items for Character sheets.
-  *
-  * @param {Object} itemData The actor to prepare.
-  *
-  * @return {undefined}
-  */
-
-  _prepareItemData(context) {
-    const itemData = context.data;
-
-    // Handle rarity scores.
-    if (itemData.type != 'technique' && itemData.type != 'chakra_tech' && itemData.type != 'arcana_tech') {
-      for (let [k, v] of Object.entries(context.system.rarities)) {
-        v.label = game.i18n.localize(CONFIG.SHINOBI.rarities[k]) ?? k;
-      }
+   * Add localized labels to the selectable values of each item type.
+   * @param {object} context
+   * @param {string} type     The item type
+   */
+  _prepareItemData(context, type) {
+    const groupsByType = {
+      object: ['rarities'],
+      weapon: ['rarities', 'types'],
+      armor: ['rarities'],
+      technique: ['classes'],
+      chakra_tech: ['trees'],
+      arcana_tech: ['arcanaTypes'],
+    };
+    for (const group of groupsByType[type] ?? []) {
+      // Build labels for selectOptions without mutating source values.
+      context.system[group] = Object.fromEntries(
+        Object.keys(context.system[group] ?? CONFIG.SHINOBI[group] ?? {}).map((key) => [
+          key,
+          game.i18n.localize(CONFIG.SHINOBI[group]?.[key] ?? key),
+        ])
+      );
     }
-    if (itemData.type == 'weapon') {
-      for (let [k, v] of Object.entries(context.system.types)) {
-        v.label = game.i18n.localize(CONFIG.SHINOBI.types[k]) ?? k;
-      }
-    }
-    if (itemData.type == 'technique') {
-      for (let [k, v] of Object.entries(context.system.classes)) {
-        v.label = game.i18n.localize(CONFIG.SHINOBI.classes[k]) ?? k;
-      }
-    }
-    if (itemData.type == 'chakra_tech') {
-      for (let [k, v] of Object.entries(context.system.trees)) {
-        v.label = game.i18n.localize(CONFIG.SHINOBI.trees[k]) ?? k;
-      }
-    }
-    if (itemData.type == 'arcana_tech') {
-      for (let [k, v] of Object.entries(context.system.arcanaTypes)) {
-        v.label = game.i18n.localize(CONFIG.SHINOBI.arcanaTypes[k]) ?? k;
-      }
-    }
-  }
-
-
-
-  /* -------------------------------------------- */
-
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return;
-
-    // Roll handlers, click handlers, etc. would go here.
-
-    // Active Effect management
-    html.on('click', '.effect-control', (ev) =>
-      onManageActiveEffect(ev, this.item)
-    );
   }
 }
