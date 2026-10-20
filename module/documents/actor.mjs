@@ -17,6 +17,9 @@ export class ShinobiActor extends Actor {
 
   /** @override */
   prepareBaseData() {
+    // v14: Foundry resets the Active Effect phase tracking inside the base
+    // implementation, so calling super is mandatory.
+    super.prepareBaseData();
     // Data modifications in this step occur before processing embedded
     // documents or derived data.
   }

@@ -215,7 +215,7 @@ export class ShinobiActorSheet extends ActorSheet {
     html.on('click', '.half-rest', this._halfRest.bind(this));
     html.on('click', '.total-rest', this._totalRest.bind(this));
 
-    html.ready(this._classPoints.bind(this));
+    this._classPoints(html[0]);
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
 
@@ -312,8 +312,6 @@ export class ShinobiActorSheet extends ActorSheet {
       let chatData = {
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
-        rollMode: game.settings.get("core", "rollMode"),
-        rolls: [roll],
       };
 
       let chatCritical = null;
@@ -323,8 +321,10 @@ export class ShinobiActorSheet extends ActorSheet {
 
       let chatapply = dataset.apply;
       chatData.flags = {
-        total: roll.total,
-        apply: chatapply,
+        shinobi: {
+          total: roll.total,
+          apply: chatapply,
+        },
       };
 
       const renderTemplate = foundry.applications.handlebars.renderTemplate;
@@ -359,7 +359,7 @@ export class ShinobiActorSheet extends ActorSheet {
 
 
 
-      ChatMessage.create(chatData);
+      await roll.toMessage(chatData);
 
       return roll;
     }
@@ -383,67 +383,61 @@ export class ShinobiActorSheet extends ActorSheet {
     localStorage.setItem("openDetails", JSON.stringify(previous));
   }
 
-  _halfRest(event) {
+  async _halfRest(event) {
     event.preventDefault();
-    const health = this.actor.system.health
-    const previousHealth = this.actor.system.health.value
-    const regeneration = this.actor.system.regeneration
-
-    if (health.value < health.max) {
-      let regenerationCap = health.value + regeneration.value / 2
-
-      if (regeneration.points >= 4 && regeneration.isSobrenatural) health.value = health.max
-      else
-        if (regenerationCap < health.max) health.value = health.value + regeneration.value / 2;
-        else health.value = health.max
-
-      this.actor.sheet.render();
-    }
-    // Chat message
-    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    let label = game.i18n.localize("Has take a Half Rest and have recover ") + (health.value - previousHealth) + game.i18n.localize(" Life Points.");
-
-    let chatData = {
-      speaker: speaker,
-      flavor: label,
-    };
-
-    ChatMessage.create(chatData);
-  }
-  _totalRest(event) {
-    event.preventDefault();
-    const actorClass = this.actor.system.class.value;
     const health = this.actor.system.health;
-    const fatigue = this.actor.system.fatigue;
-    const tiredness = this.actor.system.tiredness;
     const regeneration = this.actor.system.regeneration;
-    const previousHealth = this.actor.system.health.value;
-    const bloodPower = this.actor.system.attributes.bloodPower;
-    const trascendentalShard = this.actor.system.attributes.trascendentalShard;
-    const ki = this.actor.system.attributes.ki;
-    const talisman = this.actor.system.attributes.talisman;
-    const arcana = this.actor.system.attributes.arcana;
+    const previousHealth = health.value;
+    let newHealth = previousHealth;
 
-    fatigue.value = fatigue.max;
-    tiredness.value = tiredness.max;
-    bloodPower.value = bloodPower.max;
-    trascendentalShard.value = trascendentalShard.max;
-    ki.value = ki.max;
-    talisman.value = talisman.max;
-    arcana.value = arcana.max;
-
-
-    if (health.value < health.max) {
-      let regenerationCap = health.value + regeneration.value
-      if (regenerationCap < health.max) health.value = health.value + regeneration.value;
-      else health.value = health.max
+    if (previousHealth < health.max) {
+      if (regeneration.points >= 4 && regeneration.isSobrenatural) newHealth = health.max;
+      else newHealth = Math.min(previousHealth + regeneration.value / 2, health.max);
     }
 
+    // Persist the change (mutating this.actor.system directly is lost on the next data preparation).
+    await this.actor.update({ 'system.health.value': newHealth });
 
-    this.actor.sheet.render();
     // Chat message
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    let label = game.i18n.localize("Has take a Total Rest and have recover ") + (health.value - previousHealth) + game.i18n.localize(" Life Points and all Tiredness and Fatigue Points.");
+    let label = game.i18n.localize("Has take a Half Rest and have recover ") + (newHealth - previousHealth) + game.i18n.localize(" Life Points.");
+
+    let chatData = {
+      speaker: speaker,
+      flavor: label,
+    };
+
+    ChatMessage.create(chatData);
+  }
+  async _totalRest(event) {
+    event.preventDefault();
+    const system = this.actor.system;
+    const health = system.health;
+    const regeneration = system.regeneration;
+    const previousHealth = health.value;
+    const newHealth = previousHealth < health.max
+      ? Math.min(previousHealth + regeneration.value, health.max)
+      : previousHealth;
+
+    // Refill every resource to its max and persist it in a single update.
+    const updates = { 'system.health.value': newHealth };
+    const resources = {
+      'system.fatigue': system.fatigue,
+      'system.tiredness': system.tiredness,
+      'system.attributes.bloodPower': system.attributes.bloodPower,
+      'system.attributes.trascendentalShard': system.attributes.trascendentalShard,
+      'system.attributes.ki': system.attributes.ki,
+      'system.attributes.talisman': system.attributes.talisman,
+      'system.attributes.arcana': system.attributes.arcana,
+    };
+    for (const [path, resource] of Object.entries(resources)) {
+      if (resource?.max !== undefined) updates[`${path}.value`] = resource.max;
+    }
+    await this.actor.update(updates);
+
+    // Chat message
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    let label = game.i18n.localize("Has take a Total Rest and have recover ") + (newHealth - previousHealth) + game.i18n.localize(" Life Points and all Tiredness and Fatigue Points.");
 
     let chatData = {
       speaker: speaker,
@@ -453,11 +447,13 @@ export class ShinobiActorSheet extends ActorSheet {
     ChatMessage.create(chatData);
   }
 
-  _classPoints() {
-    let actorData = super.getData()
-    if (actorData.document.type == 'npc') return;
+  _classPoints(root) {
+    if (this.actor.type == 'npc') return;
 
-    const characteristics = document.getElementsByClassName("class-points");
+    // Query only inside this sheet: a global document query would write into
+    // whichever actor sheet happened to be opened first.
+    const characteristics = root?.querySelectorAll(".class-points") ?? [];
+    if (characteristics.length < 5) return;
     const secondaries = this.actor.system.secondaries;
     const points = this.actor.system.points;
     const str = points.str.class;
