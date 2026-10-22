@@ -2,9 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 /* Global styles */
-.window-app {
-  font-family: "Roboto", sans-serif;
-}
 
 .app.window-app .window-content {
   background: url(/ui/parchment-white.jpg) repeat;
@@ -235,11 +232,6 @@
   margin: 0 5px 0 10px;
 }
 
-/* Styles limited to shinobi sheets */
-.shinobi .item-form {
-  font-family: "Roboto", sans-serif;
-}
-
 .shinobi .sheet-header {
   flex: 0 auto;
   overflow: hidden;
@@ -282,7 +274,7 @@
 .shinobi .sheet-body .tab,
 .shinobi .sheet-body .tab .editor {
   height: 100%;
-  max-height: 500px;
+  min-height: 500px;
 }
 
 .shinobi .sheet-body.item-body {
@@ -346,6 +338,7 @@
 .shinobi .advDisadv textarea,
 .shinobi .clan-body textarea {
   height: 125px;
+  width: 100%;
 }
 
 .shinobi .resource-chart {
@@ -477,6 +470,7 @@
 .shinobi .advDisadv-name-disadv textarea {
   margin: 5px;
   width: calc(100% - 25px);
+  text-align: left;
 }
 
 .shinobi .advDisadv-gain,
@@ -489,11 +483,12 @@
   margin: 5px;
 }
 
-.shinobi .advDisadv-name-adv h2,
-.shinobi .advDisadv-name-disadv h2,
-.shinobi .advDisadv-cost h2,
-.shinobi .advDisadv-gain h2 {
+.shinobi .advDisadv-name-adv h1,
+.shinobi .advDisadv-name-disadv h1,
+.shinobi .advDisadv-cost h1,
+.shinobi .advDisadv-gain h1 {
   text-align: center;
+  font-size: xx-large;
 }
 
 .shinobi .secondary span {
@@ -588,6 +583,10 @@
   margin: 5px;
 }
 
+.shinobi .resource-field.large-field input {
+  max-width: 50px;
+}
+
 .shinobi .resource-field input {
   margin: 5px;
   max-width: 35px;
@@ -603,6 +602,7 @@
 .shinobi .clan-label {
   width: 20rem;
   max-width: 20rem;
+  text-align: left;
 }
 
 .shinobi .items-header {
@@ -652,6 +652,7 @@
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
+  font-size: small;
 }
 
 .shinobi .items-list .item-features .item-feature {
@@ -736,10 +737,6 @@
   text-align: center;
 }
 
-.shinobi .items-list .items-header .item-name.weapon {
-  margin-left: 55px;
-}
-
 .shinobi .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
@@ -748,6 +745,10 @@
 .shinobi .item-formula {
   flex: 0 0 200px;
   padding: 0 8px;
+}
+
+.shinobi input {
+  text-align: center;
 }
 
 .shinobi .effects .item .effect-source,
@@ -764,32 +765,12 @@
 }
 
 /* ApplicationV2 sheets (Foundry v13+) */
-.application.shinobi.sheet {
-  font-family: "Roboto", sans-serif;
-  --shinobi-font-name: 1.75rem;
-  --shinobi-font-h1: 1.5rem;
-  --shinobi-font-h2: 1.25rem;
-  --shinobi-font-h3: 0.75rem;
-}
 
-.application.shinobi.sheet .sheet-header h1.charname input {
-  font-size: var(--shinobi-font-name);
-}
-
-.application.shinobi.sheet .shinobi-sheet h1:not(.charname) {
-  font-size: var(--shinobi-font-h1);
-}
-
-.application.shinobi.sheet .shinobi-sheet h2 {
-  font-size: var(--shinobi-font-h2);
-}
 
 .application.shinobi.sheet .shinobi-sheet h3 {
-  font-size: var(--shinobi-font-h3);
-}
-
-.application.shinobi.sheet .shinobi-sheet .items-list h4 {
-  font-size: inherit;
+  border-bottom: 1px solid rgb(139, 2, 2);
+  width: 100%;
+  display: block;
 }
 
 .application.shinobi.sheet .window-content {

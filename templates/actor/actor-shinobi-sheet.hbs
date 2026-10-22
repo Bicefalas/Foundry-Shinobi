@@ -188,8 +188,10 @@
           <div class="resource-box">
             <div class="clan-body">
               <label for="system.clan.effects" class="resource-label">{{localize "Clan Description"}}</label>
-              <textarea data-dtype="text" placeholder="{{localize " Type the clan description here..."}}"
-                name="system.clan.effects">{{system.clan.effects}}</textarea>
+              <div class>
+                <textarea data-dtype="text" placeholder="{{localize " Type the clan description here..."}}"
+                  name="system.clan.effects">{{system.clan.effects}}</textarea>
+              </div>
             </div>
           </div>
         </details>
@@ -207,7 +209,7 @@
       <div class="advDisadv flex-container">
         <div class="flex-container flex-col">
           <div class="advDisadv-name-adv flex-col">
-            <h2>{{localize "Advantages"}}</h2>
+            <h1>{{localize "Advantages"}}</h1>
             <div class="resource-field-advDisadv">
               <label for="system.adv1" class="resource-label">{{localize "Advantage"}} 1</label>
               <details id="adv1" {{#openDetails "adv1" }}{{/openDetails}}>
@@ -256,7 +258,7 @@
             {{/if}}
           </div>
           <div class="advDisadv-cost">
-            <h2>{{localize "Cost"}}</h2>
+            <h1>{{localize "Cost"}}</h1>
             <div class="resource-field-advDisadv">
               <label for="system.adv1" class="resource-label">{{localize "Cost"}} 1</label>
               <input name="system.adv1.cost" value="{{system.adv1.cost}}" data-dtype="Number" type="number">
@@ -289,7 +291,7 @@
         </div>
         <div class="flex-container flex-col">
           <div class="advDisadv-gain">
-            <h2>{{localize "Gain"}}</h2>
+            <h1>{{localize "Gain"}}</h1>
             <div class="resource-field-advDisadv">
               <label for="system.disadv1" class="resource-label">{{localize "Gain"}} 1</label>
               <input name="system.disadv1.gain" value="{{system.disadv1.gain}}" data-dtype="Number" type="number">
@@ -321,7 +323,7 @@
             </div>
           </div>
           <div class="advDisadv-name-disadv flex-col">
-            <h2>{{localize "Disadvantages"}}</h2>
+            <h1>{{localize "Disadvantages"}}</h1>
             <div class="resource-field-advDisadv">
               <label for="system.disadv1" class="resource-label">{{localize "Disadvantage"}} 1</label>
               <details id="disadv1" {{#openDetails "disadv1" }}{{/openDetails}}>
