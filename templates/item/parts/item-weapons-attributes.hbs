@@ -1,10 +1,12 @@
 <div class="grid grid-2col">
     <div class="resource">
         <label class="resource-label">{{localize "Type"}}</label>
-        <select class="select-field" name="system.type.value">
-            {{#selectOptions system.types selected=system.type.value}}
-            {{/selectOptions}}
-        </select>
+        <div class="item-field">
+            <select class="select-field" name="system.type.value">
+                {{#selectOptions system.types selected=system.type.value}}
+                {{/selectOptions}}
+            </select>
+        </div>
     </div>
     <div class="resource">
         <label class="resource-label">{{localize "Damage"}}</label>
@@ -70,55 +72,55 @@
 <div class="resource">
     <label class="resource-label">{{localize "Damage chart"}}</label>
     <div class="resource-chart grid grid-10col">
-        <div class="">
+        <div>
             <label class="resource-label">{{localize "Difference"}}</label>
             <label class="resource-label">{{localize "Damage"}}</label>
             <label class="resource-label">{{localize "Percentage"}}</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">4-5</label>
-            <label class="resource-label">{{#Math 0.25 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">25%</label>
+            <label class="resource-label-light damage">4-5</label>
+            <label class="resource-label damage">{{#Math 0.25 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">25%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">6-8</label>
-            <label class="resource-label">{{#Math 0.5 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">50%</label>
+            <label class="resource-label-light damage">6-8</label>
+            <label class="resource-label damage">{{#Math 0.5 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">50%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">9-10</label>
-            <label class="resource-label">{{#Math 0.75 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">75%</label>
+            <label class="resource-label-light damage">9-10</label>
+            <label class="resource-label damage">{{#Math 0.75 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">75%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">11-13</label>
-            <label class="resource-label">{{#Math 1 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">100%</label>
+            <label class="resource-label-light damage">11-13</label>
+            <label class="resource-label damage">{{#Math 1 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">100%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">14-18</label>
-            <label class="resource-label">{{#Math 1.5 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">150%</label>
+            <label class="resource-label-light damage">14-18</label>
+            <label class="resource-label damage">{{#Math 1.5 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">150%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">19-23</label>
-            <label class="resource-label">{{#Math 2 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">200%</label>
+            <label class="resource-label-light damage">19-23</label>
+            <label class="resource-label damage">{{#Math 2 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">200%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">24-29</label>
-            <label class="resource-label">{{#Math 3 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">300%</label>
+            <label class="resource-label-light damage">24-29</label>
+            <label class="resource-label damage">{{#Math 3 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">300%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">30-36</label>
-            <label class="resource-label">{{#Math 4 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">400%</label>
+            <label class="resource-label-light damage">30-36</label>
+            <label class="resource-label damage">{{#Math 4 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">400%</label>
         </div>
         <div class="resource-box">
-            <label class="resource-label-light">37-...</label>
-            <label class="resource-label">{{#Math 6 "*" system.damage}}{{/Math}}</label>
-            <label class="resource-label-light">600%</label>
+            <label class="resource-label-light damage">37-...</label>
+            <label class="resource-label damage">{{#Math 6 "*" system.damage}}{{/Math}}</label>
+            <label class="resource-label-light damage">600%</label>
         </div>
     </div>
 </div>
